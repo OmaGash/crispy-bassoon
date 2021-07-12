@@ -23,4 +23,4 @@ The game engine's root folder shall be `LUNAS game folder`.
 - Designer
 - Programmer
 - Sound Artist
-<br><sub>For applicaation or resignation to any [roles](##Contributors) may be handled by contacting @G4meB3ar to have your interview set for the said role</sub>
+<br><sub>For applicaation or resignation to any [roles](#contributors) may be handled by contacting @G4meB3ar to have your interview set for the said role</sub>
