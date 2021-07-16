@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://protopyte/sungka/sungka.gd" type="Script" id=2]
+
+[node name="sungka" type="Node"]
+script = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 230.266, 150.473 )
+texture = ExtResource( 1 )
