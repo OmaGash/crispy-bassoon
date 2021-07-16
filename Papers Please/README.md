@@ -1,3 +1,5 @@
+# Dito lahat ng papers please ty
+- any document/charts and stuff na hindi lilitaw sa game.
 # Title Proposals
 #### (To be purged soon)
 ## LUNAS Game
