@@ -1,0 +1,24 @@
+{
+	"color": "#ff572e2e",
+	"description": "The god of the Igorot Tribes",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1628685088.json",
+	"mirror_portraits": false,
+	"name": "Dios Adi Kaila",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "icon",
+			"path": "res:///icon.png"
+		}
+	],
+	"scale": 100
+}

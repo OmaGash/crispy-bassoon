@@ -1,0 +1,24 @@
+{
+	"color": "#ff000000",
+	"description": "A mythical creature that save the main character.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1628604327.json",
+	"mirror_portraits": false,
+	"name": "Shokoy",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "icon",
+			"path": "res:///icon.png"
+		}
+	],
+	"scale": 100
+}
