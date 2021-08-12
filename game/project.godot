@@ -40,7 +40,7 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 } ]
 _global_script_class_icons={
-"Character": "res://characters/player/portrait.jpg",
+"Character": "res://icon.png",
 "Dialogic": "",
 "DialogicBackgroundMusic": "",
 "DialogicDefinitionsUtil": "",
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LUNAS"
-run/main_scene="res://protopyte/za warudo/world.tscn"
+run/main_scene="res://protopyte/za_warudo/world.tscn"
 config/icon="res://icon.png"
 
 [autoload]

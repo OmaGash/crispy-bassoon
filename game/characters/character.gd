@@ -1,6 +1,6 @@
 extends KinematicBody
 #All character classes will inherit this script.
-class_name Character, "res://characters/player/portrait.jpg"
+class_name Character, "res://icon.png"
 
 #This will define how heavy the character will be
 var _gravity: = 9.807

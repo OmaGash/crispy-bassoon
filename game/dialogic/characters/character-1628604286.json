@@ -9,7 +9,7 @@
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": 0,
-	"offset_y": 0,
+	"offset_y": -180,
 	"portraits": [
 		{
 			"name": "Default",
@@ -17,8 +17,12 @@
 		},
 		{
 			"name": "icon",
-			"path": "res:///icon.png"
+			"path": "res://icon.png"
+		},
+		{
+			"name": "portrait",
+			"path": "res://characters/player/portrait.jpg"
 		}
 	],
-	"scale": 100
+	"scale": 200
 }
