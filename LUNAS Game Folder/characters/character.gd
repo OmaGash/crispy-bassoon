@@ -25,7 +25,8 @@ enum _state{
 	ATTACK,#For when the character is attacking.
 	DAMAGED,#For when the character receives damage.
 	ABNORMAL,#For when the character is stunned, slowed, etc.
-	ALERT#For NPC's only, when they go vigilante against the player.
+	INTERACT,#For Players only, when they interact with NPCs and events.
+	ALERT#For NPCs only, when they go vigilante against the player.
 }
 #Default state will be idle
 var current_state = _state.IDLE setget _change_state
