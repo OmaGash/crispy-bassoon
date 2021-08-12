@@ -1,0 +1,28 @@
+{
+	"color": "#ffffffff",
+	"description": "The main hero of the game ",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1628604286.json",
+	"mirror_portraits": false,
+	"name": "MC",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -180,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "icon",
+			"path": "res://icon.png"
+		},
+		{
+			"name": "portrait",
+			"path": "res://characters/player/portrait.jpg"
+		}
+	],
+	"scale": 200
+}

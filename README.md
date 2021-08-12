@@ -1,14 +1,18 @@
 # crispy-bassoon
-- Proposals will soon be purged out of existence, only the LUNAS Proposal shall remain and will be included in a new folder named `documents`.
-- `documents` will contain the Proposal, Game Design and thesis papers.
-- `exports` contains the game's export for Windows (.zip) and Android (.apk).
-The game engine's root folder shall be `LUNAS game folder`.
+## Quick shortcuts:
+[New Issue](https://github.com/OmaGash/crispy-bassoon/issues/new/choose)
+[Kanban Board](https://github.com/OmaGash/crispy-bassoon/projects/1)
+## Announcements
+- PLEASE USE `snake_case` FOR ALL THE FILES AND FOLDERS'S NAME YOU MAKE.
+- `papers` will contain the Proposal, Game Design and thesis papers.
+- `LUNAS Game Folder` has been renamed to `game`.
 ## Contributors
 ### @G4meB3ar
 - Prime Minister - gatekeeper of ~~heck~~ decision making and has direct contact to the **Divine Magistrates** that has *almighty wisdom* that they may use to criticize and/or praise thy project.
 - Artist
 - Designer
 - Programmer
+- Writer
 #### @jrusramirez
 - Artist
 ### @malvedalim
