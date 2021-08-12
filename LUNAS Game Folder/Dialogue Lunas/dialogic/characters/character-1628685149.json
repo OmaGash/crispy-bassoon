@@ -1,0 +1,24 @@
+{
+	"color": "#ffcb7676",
+	"description": "The god of  Mangyan Tribes",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1628685149.json",
+	"mirror_portraits": false,
+	"name": "Mahal na Makaako",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "icon",
+			"path": "res:///icon.png"
+		}
+	],
+	"scale": 100
+}
