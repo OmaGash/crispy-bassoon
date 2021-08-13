@@ -44,12 +44,22 @@
 		},
 		"Timelines": {
 			"files": [
-				"timeline-1628604270.json",
-				"timeline-1628823813.json",
-				"timeline-1628823821.json"
+				"timeline-1628604270.json"
 			],
 			"folders": {
+				"test timelines": {
+					"files": [
+						"timeline-1628823813.json",
+						"timeline-1628823821.json"
+					],
+					"folders": {
 
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
 			},
 			"metadata": {
 				"color": null,

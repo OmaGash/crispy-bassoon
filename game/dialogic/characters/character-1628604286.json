@@ -2,7 +2,7 @@
 	"color": "#ffffffff",
 	"description": "The main hero of the game ",
 	"display_name": "[name]",
-	"display_name_bool": true,
+	"display_name_bool": false,
 	"id": "character-1628604286.json",
 	"mirror_portraits": false,
 	"name": "MC",

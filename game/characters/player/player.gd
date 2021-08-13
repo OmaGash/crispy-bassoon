@@ -11,6 +11,7 @@ var can_interact = false
 
 func _ready():
 	translation.z = 0 
+	Dialogic.set_variable("name", g.player_name)
 
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.

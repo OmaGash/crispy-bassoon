@@ -15,6 +15,14 @@
 			}
 		},
 		{
+			"definition": "1628824813-787",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Luna"
+		},
+		{
 			"character": "character-1628604286.json",
 			"event_id": "dialogic_010",
 			"options": [
