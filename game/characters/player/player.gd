@@ -1,11 +1,13 @@
 extends Character
 
+signal interact
 
 #Variable for storing velocity
 var velocity: = Vector3()
 #Which way is up
 const UP: = Vector3(0,1,0)
-
+#Interaction stuff
+var can_interact = false
 
 func _ready():
 	translation.z = 0 
@@ -26,13 +28,18 @@ func _physics_process(delta):
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
-		_state.INTERACT:
+		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
 			velocity.x = 0
 	velocity = move_and_slide(velocity, UP)
 
 func _move(delta):
+	#Interaction control
+	if Input.is_action_just_pressed("interact") and can_interact:
+		self.current_state = _state.INTERACT
+		emit_signal("interact")
 	
+	#Movement controls
 	if Input.is_action_just_pressed("move_up"):
 		self.current_state = _state.MOVE
 		#print("tomove")
@@ -51,6 +58,13 @@ func _move(delta):
 	if !is_on_floor():
 		self.current_state = _state.MOVE
 
-
-func _input(event: InputEvent) -> void:
-	pass
+#The player can only interact one interactable at a time
+func _on_interact_body_entered(body: Node):
+	#print(body.name)
+	can_interact = true
+	#Connect the player to the interactable object, this way we can prevent having too many signals connected at a given time.
+	connect("interact", body, "_interact")
+func _on_interact_body_exited(body: Node):
+	can_interact = false
+	#Disconnect the player to the interactable object
+	disconnect("interact", body, "_interact")

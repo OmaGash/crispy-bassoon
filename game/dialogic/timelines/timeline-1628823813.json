@@ -1,0 +1,38 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1628604286.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1628604286.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[name] is beside this blue box"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1628823813.json",
+		"name": "test1"
+	}
+}

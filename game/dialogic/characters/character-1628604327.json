@@ -13,10 +13,6 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
-		},
-		{
-			"name": "icon",
 			"path": "res://icon.png"
 		}
 	],

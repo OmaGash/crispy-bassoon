@@ -1,8 +1,8 @@
 {
 	"color": "#ffffffff",
 	"description": "The main hero of the game ",
-	"display_name": "",
-	"display_name_bool": false,
+	"display_name": "[name]",
+	"display_name_bool": true,
 	"id": "character-1628604286.json",
 	"mirror_portraits": false,
 	"name": "MC",
@@ -13,7 +13,7 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
+			"path": "res://icon.png"
 		},
 		{
 			"name": "icon",
