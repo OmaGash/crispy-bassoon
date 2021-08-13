@@ -4,7 +4,7 @@ extends Character
 #Variable for storing velocity
 var velocity: = Vector3()
 #Which way is up
-var up: = Vector3(0,-1,0)
+const UP: = Vector3(0,1,0)
 
 
 func _ready():
@@ -18,20 +18,25 @@ func _physics_process(delta):
 		_state.IDLE:
 			#Idle animation goes here.
 			#$anim.play("idle")
+			#print("IDLE")
 			_move(delta)#You can only move if you're idle/moving
 		_state.MOVE:
+			#print("MOVE")
 			_move(delta)
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
-	velocity = move_and_slide(velocity)
+		_state.INTERACT:
+			#print("INTERACT")
+			velocity.x = 0
+	velocity = move_and_slide(velocity, UP)
 
 func _move(delta):
+	
 	if Input.is_action_just_pressed("move_up"):
 		self.current_state = _state.MOVE
+		#print("tomove")
 		velocity.y = _jump_force
-		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
-		self.current_state = _previous_state if current_state == _state.MOVE else current_state
 	if Input.is_action_pressed("move_left"):
 		self.current_state = _state.MOVE
 		velocity.x = -_speed
@@ -42,3 +47,10 @@ func _move(delta):
 		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
 		self.current_state = _previous_state if current_state == _state.MOVE else current_state
 		velocity.x = 0#Stop the player from moving
+		
+	if !is_on_floor():
+		self.current_state = _state.MOVE
+
+
+func _input(event: InputEvent) -> void:
+	pass

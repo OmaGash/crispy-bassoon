@@ -2,10 +2,14 @@ extends KinematicBody
 #All character classes will inherit this script.
 class_name Character, "res://icon.png"
 
+signal state_changed
+
 #This will define how heavy the character will be
 var _gravity: = 9.807
 #Jump force (pun intended)
 var _jump_force = 10
+#Can it jump?
+var can_jump = true
 #Character's flat movement speed
 var _speed: = 2.0
 #The character's max HP, we will have a 1 damage to all attacks with some exceptions.
@@ -37,4 +41,5 @@ func _change_state(_new_state):
 	if _new_state != current_state:
 		_previous_state = current_state#Save the last state to prev state.
 		current_state = _new_state
-		print(current_state)
+		emit_signal("state_changed", current_state)
+		#print(current_state)
