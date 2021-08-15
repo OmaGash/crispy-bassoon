@@ -18,7 +18,7 @@
 			"character": "character-1628604286.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[name] is beside this blue box"
+			"text": "[player_name] is beside this blue box"
 		},
 		{
 			"action": "leaveall",

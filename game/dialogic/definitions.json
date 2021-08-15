@@ -5,7 +5,7 @@
 	"variables": [
 		{
 			"id": "1628824813-787",
-			"name": "name",
+			"name": "player_name",
 			"type": 0,
 			"value": "new name"
 		}

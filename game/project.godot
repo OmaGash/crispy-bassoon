@@ -57,8 +57,8 @@ config/icon="res://icon.png"
 [autoload]
 
 g="*res://environment/global.gd"
-DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 gd="*res://tools/snippets.gd"
+DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 
 [display]
 

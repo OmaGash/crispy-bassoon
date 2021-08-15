@@ -1,8 +1,8 @@
 {
-	"color": "#ffffffff",
+	"color": "#fff58585",
 	"description": "The main hero of the game ",
-	"display_name": "[name]",
-	"display_name_bool": false,
+	"display_name": "[player_name]",
+	"display_name_bool": true,
 	"id": "character-1628604286.json",
 	"mirror_portraits": false,
 	"name": "MC",

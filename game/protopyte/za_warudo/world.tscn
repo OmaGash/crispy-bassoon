@@ -45,7 +45,6 @@ func _ready() -> void:
 
 func _on_Button_pressed() -> void:
 	g.player_name = $VBoxContainer/new_name.text
-	Dialogic.set_variable(\"name\", g.player_name)
 	$VBoxContainer/button.release_focus()
 "
 

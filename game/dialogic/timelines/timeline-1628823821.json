@@ -29,7 +29,7 @@
 
 			],
 			"portrait": "",
-			"question": "I'm [name] but why is this blue box at the top of another one?"
+			"question": "I'm [player_name] but why is this blue box at the top of another one?"
 		},
 		{
 			"choice": "Dono",
