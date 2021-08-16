@@ -20,7 +20,7 @@
 			"operation": "=",
 			"random_upper_limit": 100,
 			"set_random": false,
-			"set_value": "Luna"
+			"set_value": "asd"
 		},
 		{
 			"character": "character-1628604286.json",

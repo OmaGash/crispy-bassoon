@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tools/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -82,8 +82,8 @@ func _interact():
 
 [node name="world" type="Node"]
 
-[node name="Camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 4, 14.945 )
+[node name="camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 4.19023, 14.9451 )
 player_scene = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource( 1 )]

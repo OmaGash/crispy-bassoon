@@ -11,6 +11,9 @@ var can_interact = false
 
 func _ready():
 	translation.z = 0 
+	_speed = 10
+	_gravity = 50
+	_jump_force = 20
 	Dialogic.set_variable("name", g.player_name)
 
 func _physics_process(delta):
