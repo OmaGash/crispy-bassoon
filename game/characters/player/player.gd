@@ -25,10 +25,10 @@ func _physics_process(delta):
 			#Idle animation goes here.
 			#$anim.play("idle")
 			#print("IDLE")
-			_move(delta)#You can only move if you're idle/moving
+			_move()#You can only move if you're idle/moving
 		_state.MOVE:
 			#print("MOVE")
-			_move(delta)
+			_move()
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
@@ -37,7 +37,28 @@ func _physics_process(delta):
 			velocity.x = 0
 	velocity = move_and_slide(velocity, UP)
 
-func _move(delta):
+#func _unhandled_input(event: InputEvent):
+#	if event is InputEventKey:
+#		if event.pressed:
+#			if event.is_action("interact") and !event.is_echo():
+#				self.current_state = _state.INTERACT
+#				emit_signal("interact")
+#			if event.is_action("move_up"):
+#				self.current_state = _state.MOVE
+#				#print("tomove")
+#				velocity.y = _jump_force
+#			if event.is_action("move_left"):
+#				self.current_state = _state.MOVE
+#				velocity.x = -_speed
+#			elif event.is_action("move_right"):
+#				self.current_state = _state.MOVE
+#				velocity.x = _speed
+#		else:
+#			#This makes sure na the current_state will only change kapag current_state == _state.MOVE
+#			self.current_state = _previous_state if current_state == _state.MOVE else current_state
+#			velocity.x = 0#Stop the player from moving
+
+func _move():
 	#Interaction control
 	if Input.is_action_just_pressed("interact") and can_interact:
 		self.current_state = _state.INTERACT
@@ -65,10 +86,13 @@ func _move(delta):
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
 	#print(body.name)
-	can_interact = true
 	#Connect the player to the interactable object, this way we can prevent having too many signals connected at a given time.
-	connect("interact", body, "_interact")
+	if body.is_in_group("interactable"):
+		can_interact = true
+		connect("interact", body, "_interact")
 func _on_interact_body_exited(body: Node):
-	can_interact = false
+	if can_interact:
+		can_interact = false
 	#Disconnect the player to the interactable object
-	disconnect("interact", body, "_interact")
+	if is_connected("interact", body, "_interact"):
+		disconnect("interact", body, "_interact")
