@@ -83,7 +83,6 @@ func _interact():
 [node name="world" type="Node"]
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 4.19023, 14.9451 )
 player_scene = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource( 1 )]
