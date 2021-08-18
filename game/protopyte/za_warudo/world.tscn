@@ -84,6 +84,7 @@ func _interact():
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 player_scene = NodePath("../player")
+follow_offset = Vector2( 5, 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28186, 0 )
