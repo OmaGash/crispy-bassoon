@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LUNAS"
-run/main_scene="res://protopyte/za_warudo/world.tscn"
+run/main_scene="res://environment/minigames/langit_lupa/langit_lupa.tscn"
 config/icon="res://icon.png"
 
 [autoload]
