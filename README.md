@@ -6,6 +6,7 @@
 - PLEASE USE `snake_case` FOR ALL THE FILES AND FOLDERS'S NAME YOU MAKE.
 - `papers` will contain the Proposal, Game Design and thesis papers.
 - `LUNAS Game Folder` has been renamed to `game`.
+- Push minigame commits to `minigames` branch and story/paper-related commits directly to the main branch.
 ## Contributors
 ### @G4meB3ar
 - Prime Minister - gatekeeper of ~~heck~~ decision making and has direct contact to the **Divine Magistrates** that has *almighty wisdom* that they may use to criticize and/or praise thy project.
