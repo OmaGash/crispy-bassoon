@@ -20,13 +20,12 @@ func _physics_process(delta):
 	
 	
 	velocity=move_and_slide(velocity)
+	
+	_on_interact_body_entered(velocity)
 
+
+func _on_interact_body_entered(body):
 	for i in get_slide_count():
 		var collision=get_slide_collision(i)
 		if collision.collider.name=="player":
 			print("Caught")
-
-
-
-func _on_interact_body_entered(body):
-	pass
