@@ -19,7 +19,8 @@ func _ready():
 		if get_parent().has_node("ui"):
 			get_parent().get_node("ui").add_child(warning)
 		set_process(false)
-		warning.warn("Assign the player node  to the camera via inspector.", "Camera Node Error", true)
+		print(get_tree())
+		warning.warn(get_tree(), "Assign the player node  to the camera via inspector.", "Camera Node Error", true)
 	current = true
 
 func _process(delta: float):

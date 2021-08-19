@@ -1,28 +1,32 @@
-extends KinematicBody
+extends Character
 
-var path=[]
-var path_node=0
-var speed=10
+onready var player_node: Character = $"../player"
+
+var velocity: Vector3
 
 
-onready var nav=get_parent()
-onready var player= $"../../name"
-
-func _ready():
-	pass
+func	_ready():
+	_gravity = 50
+	_speed =10
 
 func _physics_process(delta):
-	if path_node<path.size():
-		var direction=(path[path_node]-global_transform.origin)
-		if direction.length()<1:
-			path_node+=1
-		else:
-			move_and_slide(direction.normalized() * speed,Vector3.UP)
-			
-func move_to(target_pos):
-	path=nav.get_simple_path(global_transform.origin, target_pos)
-	path_node=0
+	velocity.y -= _gravity
+	velocity.z = 0
+	translation.z=0
+	if translation.x < player_node.translation.x:
+		velocity.x = _speed
+	elif translation.x > player_node.translation.x:
+		velocity.x = -_speed
 	
+	
+	velocity=move_and_slide(velocity)
 
-func _on_Timer_timeout():
-	move_to(player.global_transform.origin)
+	for i in get_slide_count():
+		var collision=get_slide_collision(i)
+		if collision.collider.name=="player":
+			print("Caught")
+
+
+
+func _on_interact_body_entered(body):
+	pass
