@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/STICK.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 7.5, 0.05, 5 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 15, 0.1, 10 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.290196, 0.945098, 0.0235294, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+material = SubResource( 3 )
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.2
+
+[sub_resource type="CylinderShape" id=5]
+radius = 0.1
+height = 3.2
+
+[node name="world" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.27717e-08, 0.206238, -0.978502, 9.01496e-09, 0.978502, 0.206238, 1, -7.10543e-15, -4.37114e-08, -10.6502, 4.18006, 0 )
+fov = 58.6683
+
+[node name="STICK" type="RigidBody" parent="."]
+transform = Transform( 0.677967, -0.735093, 0, 0.735093, 0.677967, 0, 0, 0, 1, -8.39719, 2.37629, 0 )
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Stick" type="MeshInstance" parent="STICK"]
+transform = Transform( 1, -6.82485e-09, -8.84756e-08, 5.16302e-08, 1, 2.98023e-08, -5.86733e-08, -9.31323e-10, 1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="STICK"]
+shape = SubResource( 5 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
