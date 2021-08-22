@@ -19,6 +19,7 @@ func _ready():
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
 	velocity.y -= _gravity * delta
+	velocity.z = 0
 	#Check if current state matches any of the finite states
 	match current_state:
 		_state.IDLE:
