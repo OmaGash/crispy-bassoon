@@ -1,28 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/npc.gd" type="Script" id=2]
 [ext_resource path="res://tools/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/minigames/langit_lupa/langit_lupa.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 7.5, 0.05, 1 )
+extents = Vector3( 12.5, 0.05, 1 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 15, 0.1, 2 )
+size = Vector3( 25, 0.1, 2 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 4, 2, 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2, 1, 1 )
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349398, -0.0394702, 0.0094223 )
+script = ExtResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.999984, -0.00572464, 0, 0.00572464, 0.999984, 5.963, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999984, -0.00572464, 0, 0.00572464, 0.999984, 12.0096, 9.77657, 0.523699 )
 
 [node name="npc" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0757437, 1.94698, -0.061831 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72969, 1.54275, 0.0985913 )
 script = ExtResource( 2 )
 
 [node name="ground" type="StaticBody" parent="."]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="ground"]
@@ -34,5 +43,75 @@ material/0 = null
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
 player_scene = NodePath("../player")
+
+[node name="platform1" type="StaticBody" parent="." groups=[
+"group1",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5478, 0.702111, -0.637006 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="platform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10934, 0.321717, 0.606034 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05165, 0.361027, 0.492092 )
+shape = SubResource( 4 )
+
+[node name="platform2" type="StaticBody" parent="." groups=[
+"group2",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.8, -0.506 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10934, 0.321717, 0.606034 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05165, 0.361027, 0.492092 )
+shape = SubResource( 4 )
+
+[node name="platform3" type="StaticBody" parent="." groups=[
+"group1",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 7, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10934, 0.321717, 0.606034 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05165, 0.361027, 0.492092 )
+shape = SubResource( 4 )
+
+[node name="platform4" type="StaticBody" parent="." groups=[
+"group2",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 7, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="platform4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10934, 0.321717, 0.606034 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05165, 0.361027, 0.492092 )
+shape = SubResource( 4 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_Spatial_visibility_changed"]
 
 [editable path="npc"]
