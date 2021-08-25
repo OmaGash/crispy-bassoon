@@ -2,24 +2,18 @@ extends Node
 
 var groundnum: int=2
 onready var timer := get_node("Timer")
-onready var rng=RandomNumberGenerator.new()
-
-
+var rng=RandomNumberGenerator.new()
+var wait_time: int
 func _ready():
-	pass
-
+	rng.randomize()
+	wait_time=rng.randi_range(3,5)
 func _input(event):
 	if event.is_pressed() and !event.is_echo():
-		rng=timer
 		event=_on_Timer_timeout()
-		event=timer.set_wait_time(5)
+		event= timer.set_wait_time(wait_time)
 		event=timer.start()
 	
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Timer_timeout():
 	if groundnum==2:
