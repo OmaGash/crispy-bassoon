@@ -2,17 +2,13 @@ extends Node
 
 var groundnum: int=2
 onready var timer := get_node("Timer")
-var rng=RandomNumberGenerator.new()
-var wait_time: int
+var wait_time: float
 func _ready():
-	rng.randomize()
-	wait_time=rng.randi_range(3,5)
+	randomize()
+	wait_time=rand_range(3.0,6.0)
 func _input(event):
 	if event.is_pressed() and !event.is_echo():
 		event=_on_Timer_timeout()
-		event= timer.set_wait_time(wait_time)
-		event=timer.start()
-	
 		
 
 func _on_Timer_timeout():
@@ -32,6 +28,13 @@ func _on_Timer_timeout():
 				platform1.show()
 				platform1.get_node("CollisionShape").disabled=false
 			groundnum= 2
+	wait_time=rand_range(3.0,6.0)
+	timer.set_wait_time(wait_time)
+	timer.start()
+	print(wait_time)
+	
+			
+			
 		
 
 

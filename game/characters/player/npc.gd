@@ -27,5 +27,3 @@ func _physics_process(delta):
 func _on_interact_body_entered(body):
 	for i in get_slide_count():
 		var collision=get_slide_collision(i)
-		if collision.collider.name=="player":
-			print("Caught")
