@@ -78,6 +78,7 @@ func set_variable_from_id(id: String, value: String, operation: String) -> void:
 	var target_def: Dictionary;
 	for d in current_definitions['variables']:
 		if d['id'] == id:
+			print("found" + id)
 			target_def = d;
 	if target_def != null:
 		var converted_set_value = value
