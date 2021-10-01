@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LUNAS"
-run/main_scene="res://environment/minigames/langit_lupa/langit_lupa.tscn"
+run/main_scene="res://protopyte/za_warudo/world.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -68,8 +68,8 @@ DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1366
+window/size/height=768
 window/stretch/mode="2d"
 
 [editor_plugins]
@@ -106,6 +106,11 @@ interact={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+artifax={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
  ]
 }
 
