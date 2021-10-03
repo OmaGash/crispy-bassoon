@@ -12,7 +12,7 @@ dest_files=[ "res://.import/mc boy.glb-602c83cc52b7e8e5aa317982ebd0000c.scn" ]
 [params]
 
 nodes/root_type="Spatial"
-nodes/root_name="Character"
+nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
