@@ -6,7 +6,7 @@ var menu_is_open = false
 func _ready():
 	g.connect("toggle_menu", self, "toggle_menu")
 
-func toggle_menu(menu:PackedScene):
+func toggle_menu(menu:PackedScene):#Called from global.gd
 	if not menu_is_open:
 		var new_menu = menu.instance()
 		new_menu.name = "submenu"
@@ -14,6 +14,6 @@ func toggle_menu(menu:PackedScene):
 		menu_is_open = true
 	else:
 		if has_node("submenu"):
-			print("laskdj")
+#			print("laskdj")
 			get_node("submenu").queue_free()
 			menu_is_open = false

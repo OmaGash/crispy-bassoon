@@ -7,17 +7,17 @@ enum{
 }
 
 func _ready():
-	if g.current_artifacts[0] == 0:
+	if g.current_artifacts[0] == -1:
 		$menu/VBoxContainer/panel/vbox/passive.icon = load("res://ui/artifax/none.png")
 	else:
-		$menu/VBoxContainer/panel/vbox/passive.icon = load("res://ui/artifax/passive" + str(g.current_artifacts[0]-1) + ".png")
-	if g.current_artifacts[1] == 0:
+		$menu/VBoxContainer/panel/vbox/passive.icon = load("res://ui/artifax/passive" + str(g.current_artifacts[0]) + ".png")
+	if g.current_artifacts[1] == -1:
 		$menu/VBoxContainer/panel/vbox/active.icon = load("res://ui/artifax/none.png")
 	else:
-		$menu/VBoxContainer/panel/vbox/active.icon = load("res://ui/artifax/active" + str(g.current_artifacts[1]-1) + ".png")
+		$menu/VBoxContainer/panel/vbox/active.icon = load("res://ui/artifax/active" + str(g.current_artifacts[1]) + ".png")
 
 func _on_passive_pressed():
-	if g.artifact_passive == 0:#Dont show selection when thers no artifax unlocked yet
+	if g.artifact_passive == -1:#Dont show selection when thers no artifax unlocked yet
 		var dialog = Button.new()
 		dialog.text = "No artifacts unlocked"
 		dialog.name = "error"
@@ -37,7 +37,7 @@ func _on_passive_pressed():
 	$selector.show()
 
 func _on_active_pressed():
-	if g.artifact_active == 0:
+	if g.artifact_active == -1:
 		var dialog = Button.new()
 		dialog.text = "No artifacts unlocked"
 		dialog.name = "error"
@@ -59,9 +59,11 @@ func _on_active_pressed():
 func artifact_pressed(artifact: String):
 	match selection:
 		PASSIVE:
-			g.current_artifacts[0] = str(int(artifact) + 1)
+			g.current_artifacts[0] = int(artifact)
+			$menu/VBoxContainer/panel/vbox/passive.icon = load("res://ui/artifax/passive" + artifact + ".png")
 		ACTIVE:
-			g.current_artifacts[1] = str(int(artifact) + 1)
+			g.current_artifacts[1] = int(artifact)
+			$menu/VBoxContainer/panel/vbox/active.icon = load("res://ui/artifax/active" + artifact + ".png")
 	for node in $selector/a/b/panel/list.get_children():
 		node.queue_free()
 	$selector.hide()

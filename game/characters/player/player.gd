@@ -8,6 +8,8 @@ var velocity: = Vector3()
 const UP: = Vector3(0,1,0)
 #Interaction stuff
 var can_interact = false
+var jumps = 0
+export var max_jumps = 1
 
 func _ready():
 	translation.z = 0 
@@ -59,6 +61,19 @@ func _physics_process(delta):
 #			self.current_state = _previous_state if current_state == _state.MOVE else current_state
 #			velocity.x = 0#Stop the player from moving
 
+func update_blessings(new_blessings: Array):
+	match new_blessings[0]:
+		-1:
+			max_jumps = 1
+		0:#Mermaid's Scale
+			max_jumps = 1
+		1:#Heaven's Floret
+			max_jumps = 2
+		2:#Wishing Star
+			max_jumps = 1
+		_:
+			print(new_blessings[0])
+
 func _move():
 	#Interaction control
 	if Input.is_action_just_pressed("interact") and can_interact:
@@ -66,10 +81,11 @@ func _move():
 		emit_signal("interact")
 	
 	#Movement controls
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("move_up") and jumps < max_jumps:
 		self.current_state = _state.MOVE
 		#print("tomove")
 		velocity.y = _jump_force
+		jumps += 1
 	if Input.is_action_pressed("move_left"):
 		self.current_state = _state.MOVE
 		velocity.x = -_speed
@@ -82,8 +98,11 @@ func _move():
 		velocity.x = 0#Stop the player from moving
 		
 	if !is_on_floor():
+		if jumps == 0:
+			jumps += 1
 		self.current_state = _state.MOVE
-
+	else:
+		jumps = 0
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
 	#print(body.name)
