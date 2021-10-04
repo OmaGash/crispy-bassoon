@@ -10,7 +10,7 @@ const UP: = Vector3(0,1,0)
 var can_interact = false
 
 func _ready():
-	translation.z = 0 
+	translataion.z = 0 
 	_speed = 10
 	_gravity = 50
 	_jump_force = 20

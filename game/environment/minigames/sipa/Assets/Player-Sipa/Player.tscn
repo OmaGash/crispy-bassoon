@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://environment/minigames/sipa/Player.gd" type="Script" id=1]
-[ext_resource path="res://environment/minigames/sipa/Armatures/Armature-M.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/minigames/sipa/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/minigames/sipa/Script/Player.gd" type="Script" id=1]
+[ext_resource path="res://environment/minigames/sipa/Assets/Armatures/Armature-M.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/minigames/sipa/Scene/Character.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.170064

@@ -25,3 +25,6 @@ margin_top = 242.0
 margin_right = 305.0
 margin_bottom = 262.0
 text = "Try again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
