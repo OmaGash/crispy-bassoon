@@ -1,25 +1,36 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://environment/minigames/shato/src/STICK.gd" type="Script" id=1]
+[ext_resource path="res://environment/minigames/shato/src/NPC.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 7.5, 0.05, 5 )
+extents = Vector3( 15, 0.1, 10 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 15, 0.1, 10 )
+size = Vector3( 30, 0.2, 20 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.290196, 0.945098, 0.0235294, 1 )
 
-[sub_resource type="CylinderMesh" id=4]
-material = SubResource( 3 )
+[sub_resource type="CylinderMesh" id=5]
+material = SubResource( 4 )
 top_radius = 0.1
 bottom_radius = 0.1
 height = 3.2
 
-[sub_resource type="CylinderShape" id=5]
+[sub_resource type="CylinderShape" id=6]
 radius = 0.1
 height = 3.2
+
+[sub_resource type="CapsuleMesh" id=7]
+
+[sub_resource type="CapsuleShape" id=8]
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="BoxShape" id=10]
 
 [node name="world" type="Spatial"]
 
@@ -35,12 +46,24 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = null
 
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 50, 0, 0, 0, 10, 16, 2, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -4.37114e-08, 0, 10, 0, 50, 0, -1, 0, -4.37114e-07, 5, 2, -11 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -4.37114e-08, 0, 10, 0, 50, 0, -1, 0, -4.37114e-07, 5, 2, 11 )
+shape = SubResource( 3 )
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.27717e-08, 0.206238, -0.978502, 9.01496e-09, 0.978502, 0.206238, 1, -7.10543e-15, -4.37114e-08, -10.6502, 4.18006, 0 )
+transform = Transform( -4.27717e-08, 0.206238, -0.978502, 9.01496e-09, 0.978502, 0.206238, 1, -7.10543e-15, -4.37114e-08, -17.844, 3.804, 0 )
 fov = 58.6683
 
 [node name="STICK" type="RigidBody" parent="."]
-transform = Transform( 0.677967, -0.735093, 0, 0.735093, 0.677967, 0, 0, 0, 1, -8.39719, 2.37629, 0 )
+transform = Transform( 0.677967, -0.735093, 0, 0.735093, 0.677967, 0, 0, 0, 1, -15.5911, 2.00056, -0.0236225 )
 gravity_scale = 0.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -49,12 +72,33 @@ __meta__ = {
 
 [node name="Stick" type="MeshInstance" parent="STICK"]
 transform = Transform( 1, -6.82485e-09, -8.84756e-08, 5.16302e-08, 1, 2.98023e-08, -5.86733e-08, -9.31323e-10, 1, 0, 0, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="STICK"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.831, 2, 0 )
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 8 )
 
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="shot" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0724, 6.16082, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="shot"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="shot"]
+shape = SubResource( 10 )
