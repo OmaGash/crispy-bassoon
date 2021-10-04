@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://environment/minigames/sipa/Scene/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa/Scene/SipaCharacter.tscn" type="PackedScene" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://environment/minigames/sipa/Script/ScoreLabel.gd" type="Script" id=4]
 [ext_resource path="res://environment/minigames/sipa/Scene/pebble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/minigames/sipa/Script/main.gd" type="Script" id=6]
+[ext_resource path="res://tools/camera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
+bounce = 1.0
 
 [sub_resource type="SphereShape" id=2]
 radius = 0.199166
@@ -48,7 +50,7 @@ collision_layer = 32
 collision_mask = 28
 
 [node name="character" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0711815, 1, 4.65661e-10 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.071, 0.538178, 0 )
 collision_layer = 4
 collision_mask = 24
 
@@ -63,9 +65,10 @@ collision_mask = 60
 transform = Transform( 1, -1.45519e-10, 0, 0, 0.99999, -0.00443312, 0, 0.00443312, 0.99999, 0.0208643, 1.45251, 0.248833 )
 
 [node name="pebble" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335201, 4.46882, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399515, 5.33564, 0 )
 collision_mask = 108
 physics_material_override = SubResource( 1 )
+gravity_scale = 0.5
 continuous_cd = true
 axis_lock_linear_z = true
 linear_damp = 0.5
@@ -81,8 +84,11 @@ collision_mask = 120
 [node name="CollisionShape" type="CollisionShape" parent="pebble/Area"]
 shape = SubResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.996071, -0.088564, 0, 0.088564, 0.996071, 0, 2.16023, 3.14131 )
+[node name="camera" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 3.57332, 5.58854 )
+player_scene = NodePath("../character")
+follow_offset = Vector2( -10, 1 )
+smoothing = 0.08
 
 [connection signal="body_entered" from="character/HeadArea" to="pebble" method="_on_HeadArea_body_entered"]
 [connection signal="body_entered" from="pebble/Area" to="floor" method="_on_Area_body_entered"]

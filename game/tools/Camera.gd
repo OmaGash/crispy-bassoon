@@ -8,7 +8,7 @@ export var follow_y: bool = true#Whether the camera will follow the player on th
 export var follow_offset: Vector2 = Vector2(0,0)# The point where the camera will move
 export var smoothing: float = .01
 
-onready var player_node: Character = get_node(player_scene) if has_node(player_scene) else null
+onready var player_node: PhysicsBody = get_node(player_scene) if has_node(player_scene) else null
 
 func _ready():
 	if player_node == null:

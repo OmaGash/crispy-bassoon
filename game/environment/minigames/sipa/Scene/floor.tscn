@@ -8,10 +8,10 @@ material = SubResource( 1 )
 size = Vector3( 15, 1, 0.5 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 38, 0.588315, 1 )
+extents = Vector3( 38, 0.57979, 1 )
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 38, 0.571963, 1.22723 )
+extents = Vector3( 38, 0.516069, 1.22723 )
 
 [node name="floor" type="StaticBody"]
 collision_mask = 6

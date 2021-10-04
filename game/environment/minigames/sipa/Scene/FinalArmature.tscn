@@ -1427,7 +1427,7 @@ animation = "Run"
 [sub_resource type="AnimationNodeBlend3" id=19]
 
 [sub_resource type="AnimationNodeBlendTree" id=20]
-graph_offset = Vector2( 0, 203 )
+graph_offset = Vector2( 0, -173.75 )
 nodes/Header/node = SubResource( 14 )
 nodes/Header/position = Vector2( 620, -80 )
 nodes/Idle/node = SubResource( 15 )
@@ -1439,7 +1439,7 @@ nodes/Move/position = Vector2( 420, 160 )
 nodes/Run/node = SubResource( 18 )
 nodes/Run/position = Vector2( 80, 400 )
 nodes/State/node = SubResource( 19 )
-nodes/State/position = Vector2( 880, 120 )
+nodes/State/position = Vector2( 860, 20 )
 nodes/output/position = Vector2( 1140, 200 )
 node_connections = [ "output", 0, "State", "Move", 0, "Idle", "Move", 1, "Run", "State", 0, "Header", "State", 1, "Move", "State", 2, "Kick" ]
 
