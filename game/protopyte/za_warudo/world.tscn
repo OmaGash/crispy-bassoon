@@ -89,6 +89,7 @@ follow_offset = Vector2( 5, 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28186, 0 )
+visible = false
 
 [node name="ground" type="StaticBody" parent="."]
 
