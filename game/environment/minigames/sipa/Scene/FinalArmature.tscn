@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://environment/minigames/sipa/Assets/Armatures/metal belt_001.material" type="Material" id=1]
 [ext_resource path="res://environment/minigames/sipa/Assets/Armatures/jacket_001.material" type="Material" id=2]
@@ -1408,41 +1408,6 @@ tracks/22/imported = true
 tracks/22/enabled = true
 tracks/22/keys = PoolRealArray( 0, 1, 2.04515, 1.27961, -2.04844, -1.29728e-07, 1.78202e-05, -0.000636184, 1, 1, 1, 1, 0.0666667, 1, 2.04515, 1.27961, -2.04844, -1.29728e-07, 1.78202e-05, -0.000636184, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeAnimation" id=14]
-animation = "Header"
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Kick"
-
-[sub_resource type="AnimationNodeBlend2" id=17]
-filter_enabled = true
-filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
-
-[sub_resource type="AnimationNodeAnimation" id=18]
-animation = "Run"
-
-[sub_resource type="AnimationNodeBlend3" id=19]
-
-[sub_resource type="AnimationNodeBlendTree" id=20]
-graph_offset = Vector2( 0, -173.75 )
-nodes/Header/node = SubResource( 14 )
-nodes/Header/position = Vector2( 620, -80 )
-nodes/Idle/node = SubResource( 15 )
-nodes/Idle/position = Vector2( 100, 60 )
-nodes/Kick/node = SubResource( 16 )
-nodes/Kick/position = Vector2( 580, 440 )
-nodes/Move/node = SubResource( 17 )
-nodes/Move/position = Vector2( 420, 160 )
-nodes/Run/node = SubResource( 18 )
-nodes/Run/position = Vector2( 80, 400 )
-nodes/State/node = SubResource( 19 )
-nodes/State/position = Vector2( 860, 20 )
-nodes/output/position = Vector2( 1140, 200 )
-node_connections = [ "output", 0, "State", "Move", 0, "Idle", "Move", 1, "Run", "State", 0, "Header", "State", 1, "Move", "State", 2, "Kick" ]
-
 [node name="Armature" type="Spatial"]
 transform = Transform( 0.397927, 0, 0.302745, 0, 0.5, 0, -0.302745, 0, 0.397927, -1.32626, -0.5, 1.91816 )
 
@@ -1633,11 +1598,3 @@ anims/Idle = SubResource( 10 )
 anims/Kick = SubResource( 11 )
 anims/Run = SubResource( 12 )
 anims/T-Pose = SubResource( 13 )
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 20 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-root_motion_track = NodePath("Armature/Skeleton:hips")
-parameters/Move/blend_amount = 0.0
-parameters/State/blend_amount = 0.0
