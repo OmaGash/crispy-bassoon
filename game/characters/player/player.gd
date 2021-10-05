@@ -64,13 +64,17 @@ func _physics_process(delta):
 func update_blessings(new_blessings: Array):
 	match new_blessings[0]:
 		-1:
+			$ilaw.hide()
 			max_jumps = 1
 		0:#Mermaid's Scale
 			max_jumps = 1
+			$ilaw.hide()
 		1:#Heaven's Floret
 			max_jumps = 2
+			$ilaw.hide()
 		2:#Wishing Star
 			max_jumps = 1
+			$ilaw.show()
 		_:
 			print(new_blessings[0])
 

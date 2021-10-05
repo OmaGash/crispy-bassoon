@@ -1,5 +1,7 @@
 extends CanvasLayer
 #Handles what menu to display
+#Attach this to a CanvasLayer ui node as the root node's child
+#Then set the ui node's pause mode to process
 
 var menu_is_open = false
 
