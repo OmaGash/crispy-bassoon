@@ -1,6 +1,144 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://protopyte/sipa/sipa.gd" type="Script" id=1]
 
+[sub_resource type="SphereMesh" id=1]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.2
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.1, 0.25 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 0.2, 0.5 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 6.415, 0.069, 1 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.142, 7.391, 1 )
+
+[sub_resource type="CapsuleMesh" id=7]
+radius = 0.2
+
 [node name="sipa" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.32675, -4.84845 )
+
+[node name="pebble" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.822748, 2, 0 )
+contacts_reported = 1
+contact_monitor = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="pebble"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="pebble"]
+shape = SubResource( 2 )
+
+[node name="arm_l" type="KinematicBody" parent="." groups=[
+"paddle",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52404, 1.61938, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="arm_l"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="arm_l"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="arm_r" type="KinematicBody" parent="." groups=[
+"paddle",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49618, 1.61938, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="arm_r"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="arm_r"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="knee_r" type="KinematicBody" parent="." groups=[
+"paddle",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81031, -0.471782, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="knee_r"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="knee_r"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="knee_l" type="KinematicBody" parent="." groups=[
+"paddle",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43453, -0.471782, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="knee_l"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="knee_l"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="ground" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.181, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+shape = SubResource( 5 )
+
+[node name="wall_l" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall_l"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 0 )
+shape = SubResource( 6 )
+
+[node name="wall_l2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="wall_l2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 0 )
+shape = SubResource( 6 )
+
+[node name="leg" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88785, 0, 0 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="leg"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="leg"]
+transform = Transform( -4.37114e-08, 0.4892, 0.750068, 0, 0.872172, -0.420712, -1, -2.13836e-08, -3.27865e-08, -0.385, 0.714303, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[connection signal="body_entered" from="pebble" to="." method="_on_pebble_body_entered"]
