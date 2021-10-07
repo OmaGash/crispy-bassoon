@@ -22,7 +22,7 @@ func _physics_process(delta):
 	
 	
 	move()
-	animate()
+	#animate()
 
 	
 func move():

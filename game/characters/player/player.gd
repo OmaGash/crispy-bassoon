@@ -10,6 +10,11 @@ const UP: = Vector3(0,1,0)
 var can_interact = false
 var jumps = 0
 export var max_jumps = 1
+onready var anim_tree = $"langit_lupa_anim/AnimationTree"
+const MIN_BLEND_SPEED = 0.125
+const BLEND_TO_RUN = 0.2
+const BLEND_IDLE = 0.01
+var movement_state = 0
 
 func _ready():
 	translation.z = 0 
@@ -17,7 +22,7 @@ func _ready():
 	_gravity = 50
 	_jump_force = 20
 	Dialogic.set_variable("name", g.player_name)
-
+	
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
 	velocity.y -= _gravity * delta
@@ -25,6 +30,8 @@ func _physics_process(delta):
 	#Check if current state matches any of the finite states
 	match current_state:
 		_state.IDLE:
+			
+			anim_tree["parameters/Blend2/blend_amount"] = BLEND_IDLE
 			#Idle animation goes here.
 			#$anim.play("idle")
 			#print("IDLE")
@@ -32,6 +39,7 @@ func _physics_process(delta):
 		_state.MOVE:
 			#print("MOVE")
 			_move()
+			anim_tree["parameters/Blend2/blend_amount"] = 1
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
@@ -93,6 +101,7 @@ func _move():
 	if Input.is_action_pressed("move_left"):
 		self.current_state = _state.MOVE
 		velocity.x = -_speed
+		
 	elif Input.is_action_pressed("move_right"):
 		self.current_state = _state.MOVE
 		velocity.x = _speed

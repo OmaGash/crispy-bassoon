@@ -1141,23 +1141,25 @@ animation = "Jumping"
 animation = "Running"
 
 [sub_resource type="AnimationNodeBlendTree" id=17]
-graph_offset = Vector2( -149.851, 344.067 )
+graph_offset = Vector2( 0, 144 )
 nodes/Blend2/node = SubResource( 12 )
-nodes/Blend2/position = Vector2( 300, 320 )
+nodes/Blend2/position = Vector2( 420, 160 )
 nodes/Idle/node = SubResource( 13 )
 nodes/Idle/position = Vector2( 100, 240 )
 nodes/Jumping/node = SubResource( 14 )
 nodes/Jumping/position = Vector2( 80, 580 )
 nodes/OneShot/node = SubResource( 15 )
-nodes/OneShot/position = Vector2( 520, 520 )
+nodes/OneShot/position = Vector2( 700, 380 )
 nodes/Running/node = SubResource( 16 )
 nodes/Running/position = Vector2( 60, 420 )
-node_connections = [ "output", 0, "OneShot", "Blend2", 0, "Idle", "Blend2", 1, "Running", "OneShot", 0, "Blend2", "OneShot", 1, "Jumping" ]
+nodes/output/position = Vector2( 1020, 200 )
+node_connections = [ "output", 0, "OneShot", "OneShot", 0, "Blend2", "OneShot", 1, "Jumping", "Blend2", 0, "Idle", "Blend2", 1, "Running" ]
 
 [node name="langit_lupa_anim" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47397, -1.22449, 1.97102 )
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.997268, 0.041172, 0.0613279, -0.0345581, 0.993845, -0.105252, -0.0652839, 0.102845, 0.992553, 1.9125, 1.27902, -2.23258 )
+transform = Transform( 0.999844, 0.0175124, -0.00210421, -0.0174504, 0.999495, 0.0265487, 0.00256808, -0.0265078, 0.999645, 2.03278, 1.14166, -2.04163 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "hips"
@@ -1357,6 +1359,7 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="Sphere001" type="MeshInstance" parent="Armature/Skeleton"]
+transform = Transform( 1, 3.72529e-09, -2.98023e-08, 3.72529e-09, 1, 3.72529e-09, -2.98023e-08, 0, 1, 0, 0, 0 )
 mesh = SubResource( 7 )
 skin = SubResource( 2 )
 material/0 = null
@@ -1371,5 +1374,5 @@ anims/T-Pose = SubResource( 11 )
 tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Blend2/blend_amount = 1.0
+parameters/Blend2/blend_amount = 0.0
 parameters/OneShot/active = false
