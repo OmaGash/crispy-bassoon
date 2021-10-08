@@ -29,13 +29,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61683, 0 )
 shape = SubResource( 2 )
 
 [node name="ilaw" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29769, 1.3271 )
-visible = false
-omni_range = 1379.6
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05251, 2.43033, 2.07513 )
+light_energy = 1.22
+shadow_enabled = true
+omni_range = 21.6
 omni_attenuation = 2.37841
 
 [node name="Armature" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.958407, 0, -0.285404, 0, 1, 0, 0.285404, 0, 0.958407, -2.91282, -1.17457, -0.5916 )
+
+[node name="Armature" parent="Armature" index="0"]
+transform = Transform( 0.730477, 0.0473854, -0.681291, 0.00764765, 0.99696, 0.0775407, 0.682894, -0.061852, 0.727894, 2.9137, 0.976064, -0.128388 )
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

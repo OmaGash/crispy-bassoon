@@ -4,14 +4,14 @@
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=11]
 
-[sub_resource type="PlaneMesh" id=2]
+[sub_resource type="PlaneMesh" id=1]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 8, 0.25, 1 )
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Label
 
 func _ready() -> void:
@@ -21,7 +21,7 @@ func state(new_state):
 	text = \"Current state: \" + str(new_state)
 "
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=4]
 script/source = "extends Button
 
 var is_interacting = false
@@ -37,7 +37,7 @@ func _on_interact_pressed() -> void:
 	release_focus()
 "
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=5]
 script/source = "extends PanelContainer
 
 
@@ -50,7 +50,7 @@ func _on_Button_pressed() -> void:
 	$VBoxContainer/button.release_focus()
 "
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=6]
 script/source = "extends StaticBody
 #All interactables will need to have an _interact() function, which will contain all
 #of the interactions that the object will respond such as dialogs.
@@ -64,14 +64,14 @@ func _interact():
 	
 "
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=7]
 
-[sub_resource type="CubeMesh" id=9]
+[sub_resource type="CubeMesh" id=8]
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.258824, 0.156863, 0.835294, 1 )
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=10]
 script/source = "extends StaticBody
 
 func _interact():
@@ -82,23 +82,23 @@ func _interact():
 [node name="world" type="Node"]
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-environment = SubResource( 1 )
+environment = SubResource( 11 )
 player_scene = NodePath("../player")
 follow_offset = Vector2( 5, 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28186, 0 )
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
 
 [node name="ground" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="ground"]
 transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="ui" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -114,9 +114,9 @@ __meta__ = {
 
 [node name="states" type="PanelContainer" parent="ui/debug"]
 margin_left = 55.0
-margin_top = 26.0
+margin_top = 25.0
 margin_right = 233.0
-margin_bottom = 251.0
+margin_bottom = 323.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -126,18 +126,24 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 171.0
-margin_bottom = 218.0
+margin_bottom = 291.0
 
-[node name="state" type="Label" parent="ui/debug/states/vbox"]
+[node name="fps" type="Label" parent="ui/debug/states/vbox"]
 margin_right = 164.0
 margin_bottom = 14.0
-text = "Current State: "
-script = SubResource( 4 )
+text = "FPS:"
 
-[node name="legend" type="Label" parent="ui/debug/states/vbox"]
+[node name="state" type="Label" parent="ui/debug/states/vbox"]
 margin_top = 18.0
 margin_right = 164.0
-margin_bottom = 134.0
+margin_bottom = 32.0
+text = "Current State: "
+script = SubResource( 3 )
+
+[node name="legend" type="Label" parent="ui/debug/states/vbox"]
+margin_top = 36.0
+margin_right = 164.0
+margin_bottom = 152.0
 text = "0 IDLE
 1 MOVE
 2 ATTACK
@@ -147,19 +153,27 @@ text = "0 IDLE
 6 ALERT"
 
 [node name="interact" type="Button" parent="ui/debug/states/vbox"]
-margin_top = 138.0
+margin_top = 156.0
 margin_right = 164.0
-margin_bottom = 211.0
+margin_bottom = 218.0
 size_flags_vertical = 3
 text = "Change state to interact"
-script = SubResource( 5 )
+script = SubResource( 4 )
+
+[node name="menu" type="Button" parent="ui/debug/states/vbox"]
+margin_top = 222.0
+margin_right = 164.0
+margin_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Open Menu"
 
 [node name="name" type="PanelContainer" parent="ui/debug"]
 margin_left = 264.0
 margin_top = 33.0
 margin_right = 515.0
 margin_bottom = 195.0
-script = SubResource( 6 )
+script = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,34 +208,34 @@ text = "Change name"
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24461, 1.76256, 0.688232 )
 collision_layer = 3
-script = SubResource( 7 )
+script = SubResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="interactable"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="interactable"]
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
 
 [node name="interactable2" type="StaticBody" parent="." groups=[
 "interactable",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0 )
 collision_layer = 3
-script = SubResource( 11 )
+script = SubResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="interactable2"]
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="interactable2"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="not_interactable" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0 )
@@ -230,11 +244,12 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="not_interactable"]
-mesh = SubResource( 9 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="not_interactable"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
+[connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]

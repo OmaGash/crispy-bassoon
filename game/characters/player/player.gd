@@ -12,8 +12,8 @@ var jumps = 0
 export var max_jumps = 1
 onready var anim_tree = $"Armature/AnimationTree"
 const MIN_BLEND_SPEED = 0.125
-const BLEND_TO_RUN = 1
-const BLEND_IDLE = 0.01
+const BLEND_TO_RUN = .1
+const BLEND_IDLE = 0.1
 var movement_state = 0
 
 func _ready():
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	match current_state:
 		_state.IDLE:
 			
-			anim_tree["parameters/Move/blend_amount"] = BLEND_IDLE
+			anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
 			#Idle animation goes here.
 			#$anim.play("idle")
 			#print("IDLE")
@@ -39,7 +39,7 @@ func _physics_process(delta):
 		_state.MOVE:
 			#print("MOVE")
 			_move()
-			anim_tree["parameters/Move/blend_amount"] = BLEND_TO_RUN
+			anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN)
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
@@ -101,10 +101,11 @@ func _move():
 	if Input.is_action_pressed("move_left"):
 		self.current_state = _state.MOVE
 		velocity.x = -_speed
-		
+		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0)
 	elif Input.is_action_pressed("move_right"):
 		self.current_state = _state.MOVE
 		velocity.x = _speed
+		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
 	else:
 		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
 		self.current_state = _previous_state if current_state == _state.MOVE else current_state
@@ -117,6 +118,7 @@ func _move():
 		self.current_state = _state.MOVE
 	else:
 		jumps = 0
+		anim_tree["parameters/OneShot/active"] = false
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
 	#print(body.name)

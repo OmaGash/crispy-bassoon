@@ -67,3 +67,11 @@ func artifact_pressed(artifact: String):
 	for node in $selector/a/b/panel/list.get_children():
 		node.queue_free()
 	$selector.hide()
+
+
+func _on_close_pressed():
+	var a = InputEventAction.new()
+	a.action = "artifax"
+	a.pressed = true
+	Input.parse_input_event(a)
+

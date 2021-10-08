@@ -19,3 +19,12 @@ func toggle_menu(menu:PackedScene):#Called from global.gd
 #			print("laskdj")
 			get_node("submenu").queue_free()
 			menu_is_open = false
+
+func _process(delta):
+	$debug/states/vbox/fps.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS))
+
+func _on_menu_pressed():
+	var a = InputEventAction.new()
+	a.action = "artifax"
+	a.pressed = true
+	Input.parse_input_event(a)
