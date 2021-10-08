@@ -10,9 +10,9 @@ const UP: = Vector3(0,1,0)
 var can_interact = false
 var jumps = 0
 export var max_jumps = 1
-onready var anim_tree = $"langit_lupa_anim/AnimationTree"
+onready var anim_tree = $"Armature/AnimationTree"
 const MIN_BLEND_SPEED = 0.125
-const BLEND_TO_RUN = 0.2
+const BLEND_TO_RUN = 1
 const BLEND_IDLE = 0.01
 var movement_state = 0
 
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	match current_state:
 		_state.IDLE:
 			
-			anim_tree["parameters/Blend2/blend_amount"] = BLEND_IDLE
+			anim_tree["parameters/Move/blend_amount"] = BLEND_IDLE
 			#Idle animation goes here.
 			#$anim.play("idle")
 			#print("IDLE")
@@ -39,7 +39,7 @@ func _physics_process(delta):
 		_state.MOVE:
 			#print("MOVE")
 			_move()
-			anim_tree["parameters/Blend2/blend_amount"] = 1
+			anim_tree["parameters/Move/blend_amount"] = BLEND_TO_RUN
 		_state.DAMAGED:
 			 current_hp -= 1
 			#Damage indicator here
@@ -113,6 +113,7 @@ func _move():
 	if !is_on_floor():
 		if jumps == 0:
 			jumps += 1
+			anim_tree["parameters/OneShot/active"] = true
 		self.current_state = _state.MOVE
 	else:
 		jumps = 0

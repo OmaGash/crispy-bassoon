@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://environment/minigames/sipa/Assets/Armatures/metal belt_001.material" type="Material" id=1]
 [ext_resource path="res://environment/minigames/sipa/Assets/Armatures/jacket_001.material" type="Material" id=2]
@@ -1408,11 +1408,52 @@ tracks/22/imported = true
 tracks/22/enabled = true
 tracks/22/keys = PoolRealArray( 0, 1, 2.04515, 1.27961, -2.04844, -1.29728e-07, 1.78202e-05, -0.000636184, 1, 1, 1, 1, 0.0666667, 1, 2.04515, 1.27961, -2.04844, -1.29728e-07, 1.78202e-05, -0.000636184, 1, 1, 1, 1 )
 
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Header"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Kick"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeBlend2" id=17]
+filter_enabled = true
+filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
+
+[sub_resource type="AnimationNodeOneShot" id=18]
+filter_enabled = true
+filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Run"
+
+[sub_resource type="AnimationNodeBlend2" id=20]
+
+[sub_resource type="AnimationNodeBlendTree" id=21]
+graph_offset = Vector2( 0, 203 )
+"nodes/Animation 3/node" = SubResource( 14 )
+"nodes/Animation 3/position" = Vector2( 440, 440 )
+"nodes/Animation 5/node" = SubResource( 15 )
+"nodes/Animation 5/position" = Vector2( 480, 600 )
+nodes/Idle/node = SubResource( 16 )
+nodes/Idle/position = Vector2( 360, 60 )
+nodes/Move/node = SubResource( 17 )
+nodes/Move/position = Vector2( 640, 40 )
+nodes/OneShot/node = SubResource( 18 )
+nodes/OneShot/position = Vector2( 940, 200 )
+nodes/Run/node = SubResource( 19 )
+nodes/Run/position = Vector2( 360, 220 )
+nodes/Shot/node = SubResource( 20 )
+nodes/Shot/position = Vector2( 680, 320 )
+nodes/output/position = Vector2( 1280, 120 )
+node_connections = [ "output", 0, "OneShot", "Move", 0, "Idle", "Move", 1, "Run", "OneShot", 0, "Move", "OneShot", 1, "Shot", "Shot", 0, "Animation 3", "Shot", 1, "Animation 5" ]
+
 [node name="Armature" type="Spatial"]
-transform = Transform( 0.397927, 0, 0.302745, 0, 0.5, 0, -0.302745, 0, 0.397927, -1.32626, -0.5, 1.91816 )
+transform = Transform( 0.0315179, 0, -0.499006, 0, 0.5, 0, 0.499006, 0, 0.0315179, -1.32626, -0.5, 1.31581 )
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.730477, 0.0473854, -0.681291, 0.00764765, 0.99696, 0.0775407, 0.682894, -0.061852, 0.727894, 2.9137, 0.976064, -0.128388 )
+transform = Transform( 0.99911, -0.020906, 0.0366346, 0.0209863, 0.999778, -0.00180772, -0.0365887, 0.00257494, 0.999327, 1.96148, 1.16069, -2.08205 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "hips"
@@ -1598,3 +1639,10 @@ anims/Idle = SubResource( 10 )
 anims/Kick = SubResource( 11 )
 anims/Run = SubResource( 12 )
 anims/T-Pose = SubResource( 13 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_amount = 0.0
+parameters/OneShot/active = false
+parameters/Shot/blend_amount = 0.0
