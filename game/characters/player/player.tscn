@@ -1,27 +1,23 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
+[ext_resource path="res://characters/characters/MC/Armature.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="CylinderShape" id=1]
+radius = 0.787252
+height = 3.24488
 
-[sub_resource type="CapsuleShape" id=2]
-
-[sub_resource type="SphereShape" id=3]
-radius = 2.43892
+[sub_resource type="CylinderShape" id=2]
+radius = 0.741637
+height = 3.39622
 
 [node name="player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121029, 0 )
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 2 )
-
-[node name="anim" type="AnimationPlayer" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43104, 0 )
+shape = SubResource( 1 )
 
 [node name="interact" type="Area" parent="."]
 monitorable = false
@@ -29,7 +25,23 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="interact"]
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61683, 0 )
+shape = SubResource( 2 )
+
+[node name="ilaw" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05251, 2.43033, 2.07513 )
+light_energy = 1.22
+shadow_enabled = true
+omni_range = 21.6
+omni_attenuation = 2.37841
+
+[node name="Armature" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.958407, 0, -0.285404, 0, 1, 0, 0.285404, 0, 0.958407, -2.91282, -1.17457, -0.5916 )
+
+[node name="Armature" parent="Armature" index="0"]
+transform = Transform( 0.730477, 0.0473854, -0.681291, 0.00764765, 0.99696, 0.0775407, 0.682894, -0.061852, 0.727894, 2.9137, 0.976064, -0.128388 )
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
+
+[editable path="Armature"]

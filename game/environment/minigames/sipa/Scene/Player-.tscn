@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environment/minigames/sipa/Scene/Armature.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/minigames/sipa/Scene/SipaCharacter.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.5, 1.6, 0.5 )
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.4
+
+[node name="Sipa_Character" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Armature" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.494609, 0, 0.0732228, 0, 0.5, 0, -0.0732228, 0, 0.494609, 0.228217, -0.568633, 0.80053 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.841905, 0.0342289 )
+shape = SubResource( 2 )
