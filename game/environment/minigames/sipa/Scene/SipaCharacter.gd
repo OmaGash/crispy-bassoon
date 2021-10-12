@@ -15,6 +15,7 @@ var movement_state = 0
 var facing_right = false
 var kick_anim = 0.2
 var head_anim = 1
+onready var anim_tree = $Armature/AnimationTree
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +26,7 @@ func _physics_process(delta):
 	
 	
 	move()
-	#animate()
+	animate()
 
 	
 func move():
@@ -43,19 +44,14 @@ func flip():
 	facing_right = !facing_right
 	
 func animate():
-	var anim_tree = $Armature/AnimationTree
+	
 	if(motion * speed).length() > MIN_BLEND_SPEED:
 		movement_state += BLEND_TO_RUN
 		
 	if Input.is_action_just_pressed("kick"):
-		anim_tree["parameters/Shot/blend_amount"] = kick_anim
-		anim_tree["parameters/State/active"] = true
+		anim_tree["parameters/OneShot/active"] = true
 		
-	if Input.is_action_just_pressed("head"):
-		anim_tree["parameters/Shot/blend_amount"] = 1
-		anim_tree["parameters/State/active"] = true
 
-		
 	else:
 		movement_state -= BLEND_IDLE
 		
