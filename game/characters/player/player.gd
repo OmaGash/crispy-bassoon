@@ -114,11 +114,11 @@ func _move():
 	if !is_on_floor():
 		if jumps == 0:
 			jumps += 1
-			anim_tree["parameters/OneShot/active"] = true
+			anim_tree["parameters/Shot/active"] = true
 		self.current_state = _state.MOVE
 	else:
 		jumps = 0
-		anim_tree["parameters/OneShot/active"] = false
+		anim_tree["parameters/Shot/active"] = false
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
 	#print(body.name)

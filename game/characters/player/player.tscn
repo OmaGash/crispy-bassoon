@@ -3,7 +3,6 @@
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/animation/armature.tscn" type="PackedScene" id=2]
 
-
 [sub_resource type="CylinderShape" id=1]
 radius = 0.787252
 height = 3.24488
@@ -40,7 +39,7 @@ omni_attenuation = 2.37841
 transform = Transform( 0.958407, 0, -0.285404, 0, 1, 0, 0.285404, 0, 0.958407, -2.91282, -1.17457, -0.5916 )
 
 [node name="Armature" parent="Armature" index="0"]
-transform = Transform( 0.730477, 0.0473854, -0.681291, 0.00764765, 0.99696, 0.0775407, 0.682894, -0.061852, 0.727894, 2.9137, 0.976064, -0.128388 )
+transform = Transform( 0.732044, 0.0521994, -0.679255, 0.00647568, 0.996482, 0.0835567, 0.681227, -0.0655658, 0.72913, 2.91435, 0.96694, -0.129589 )
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
