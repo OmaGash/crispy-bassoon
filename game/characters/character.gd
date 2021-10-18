@@ -7,7 +7,7 @@ signal state_changed
 #This will define how heavy the character will be
 var _gravity: = 9.807
 #Jump force (pun intended)
-var _jump_force = 10
+var _jump_force = 15
 #Can it jump?
 var can_jump = true
 #Character's flat movement speed

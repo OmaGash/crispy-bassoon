@@ -39,7 +39,7 @@ omni_attenuation = 2.37841
 transform = Transform( 0.958407, 0, -0.285404, 0, 1, 0, 0.285404, 0, 0.958407, -2.91282, -1.17457, -0.5916 )
 
 [node name="Armature" parent="Armature" index="0"]
-transform = Transform( 0.732044, 0.0521994, -0.679255, 0.00647568, 0.996482, 0.0835567, 0.681227, -0.0655658, 0.72913, 2.91435, 0.96694, -0.129589 )
+transform = Transform( 0.732295, 0.053323, -0.678897, 0.00667163, 0.99632, 0.085451, 0.680955, -0.0671047, 0.729244, 2.91501, 0.963596, -0.131194 )
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
