@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
 
-[sub_resource type="PlaneMesh" id=2]
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 80, 2, 2 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 8, 0.25, 1 )
+extents = Vector3( 40, 1, 1 )
 
 [sub_resource type="GDScript" id=4]
 script/source = "extends Label
@@ -83,16 +85,18 @@ func _interact():
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 environment = SubResource( 1 )
-player_scene = NodePath("../player")
-follow_offset = Vector2( 5, 2 )
+player_scene = NodePath("../enemy")
+smoothing = 0.1
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
+collision_mask = 536
 
 [node name="ground" type="StaticBody" parent="."]
+collision_layer = 8
+collision_mask = 512
 
 [node name="MeshInstance" type="MeshInstance" parent="ground"]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -206,7 +210,7 @@ text = "Change name"
 "interactable",
 "talk",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24461, 1.76256, 0.688232 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7594, 14.323, 0.162017 )
 collision_layer = 3
 script = SubResource( 7 )
 __meta__ = {
@@ -223,7 +227,7 @@ material/0 = SubResource( 10 )
 [node name="interactable2" type="StaticBody" parent="." groups=[
 "interactable",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5421, 2.97856, 0 )
 collision_layer = 3
 script = SubResource( 11 )
 __meta__ = {
@@ -238,7 +242,7 @@ material/0 = SubResource( 10 )
 shape = SubResource( 8 )
 
 [node name="not_interactable" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5421, 0.978565, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -249,6 +253,102 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="not_interactable"]
 shape = SubResource( 8 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7618, 10.2292, -2.35123 )
+
+[node name="interactable4" type="StaticBody" parent="." groups=[
+"interactable",
+"talk",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68306, 14.2865, 0.162017 )
+collision_layer = 3
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="interactable4"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="interactable4"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="interactable5" type="StaticBody" parent="." groups=[
+"interactable",
+"talk",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0674934, 1.76256, 0.162017 )
+collision_layer = 3
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="interactable5"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="interactable5"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="interactable6" type="StaticBody" parent="." groups=[
+"interactable",
+"talk",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86017, 14.2865, 0.162017 )
+collision_layer = 3
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="interactable6"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="interactable6"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="interactable7" type="StaticBody" parent="." groups=[
+"interactable",
+"talk",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2121, 14.2865, 0.162017 )
+collision_layer = 3
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="interactable7"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="interactable7"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="interactable9" type="StaticBody" parent="." groups=[
+"interactable",
+"talk",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3892, 14.2865, 0.162017 )
+collision_layer = 3
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="interactable9"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="interactable9"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="enemy" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 1.24255, 0 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
