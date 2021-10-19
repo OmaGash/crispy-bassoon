@@ -1,11 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
 
+[sub_resource type="ProceduralSky" id=12]
+sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
+sky_horizon_color = Color( 0.996078, 0.894118, 0.552941, 1 )
+
 [sub_resource type="Environment" id=1]
+background_mode = 2
+background_sky = SubResource( 12 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 80, 2, 2 )
@@ -85,12 +91,13 @@ func _interact():
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 environment = SubResource( 1 )
-player_scene = NodePath("../enemy")
-smoothing = 0.1
+player_scene = NodePath("../player")
+follow_offset = Vector2( 2, 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
 collision_mask = 536
+max_jumps = 5
 
 [node name="ground" type="StaticBody" parent="."]
 collision_layer = 8
@@ -101,7 +108,6 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
 shape = SubResource( 3 )
 
 [node name="ui" type="CanvasLayer" parent="."]
