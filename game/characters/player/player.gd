@@ -135,6 +135,7 @@ func _on_interact_body_exited(body: Node):
 	if is_connected("interact", body, "_interact"):
 		disconnect("interact", body, "_interact")
 		
+<<<<<<< Updated upstream
 
 
 func _on_interact_area_entered(area):
@@ -152,3 +153,7 @@ func _on_interact_area_exited(area):
 func toggle_offer(uhm):
 	hasoffer=uhm
 	
+=======
+func hurt():
+	print("-50 social creds")
+>>>>>>> Stashed changes

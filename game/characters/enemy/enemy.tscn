@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/enemy/enemy.gd" type="Script" id=1]
-[ext_resource path="res://characters/player/animation/armature.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/mansisilat/Armature.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.231373, 0.74902, 0.592157, 1 )
@@ -16,7 +16,7 @@ radius = 0.764499
 height = 1.93899
 
 [node name="enemy" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0335107, 0, 0.144359 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.019794, 0.642969, 0.177616 )
 collision_mask = 571
 script = ExtResource( 1 )
 
@@ -38,6 +38,6 @@ enabled = true
 cast_to = Vector3( 1, 0, 0 )
 
 [node name="Armature" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.302969, 0, 0.953001, 0, 1, 0, -0.953001, 0, -0.302969, 0.922426, -1.05174, 2.84604 )
+transform = Transform( -1.07564e-08, 0, 0.246078, 0, 0.246078, 0, -0.246078, 0, -1.07564e-08, 0.589359, 0.569947, -0.0716746 )
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_Timer_timeout"]
