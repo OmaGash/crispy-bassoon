@@ -15,7 +15,7 @@ const MIN_BLEND_SPEED = 0.125
 const BLEND_TO_RUN = .1
 const BLEND_IDLE = 0.1
 var movement_state = 0
-var dir = 1 #-1 is left
+var hasoffer = false setget toggle_offer
 
 func _ready():
 	translation.z = 0 
@@ -27,7 +27,7 @@ func _ready():
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
 	velocity.y -= _gravity * delta
-	if translation.z != 0: translation.z = 0
+	velocity.z = 0
 	#Check if current state matches any of the finite states
 	match current_state:
 		_state.IDLE:
@@ -47,7 +47,6 @@ func _physics_process(delta):
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
 			velocity.x = 0
-	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
 	velocity = move_and_slide(velocity, UP)
 
 #func _unhandled_input(event: InputEvent):
@@ -92,7 +91,7 @@ func _move():
 	#Interaction control
 	if Input.is_action_just_pressed("interact") and can_interact:
 		self.current_state = _state.INTERACT
-		emit_signal("interact")
+		emit_signal("interact",self)
 	
 	#Movement controls
 	if Input.is_action_just_pressed("move_up") and jumps < max_jumps:
@@ -103,13 +102,11 @@ func _move():
 	if Input.is_action_pressed("move_left"):
 		self.current_state = _state.MOVE
 		velocity.x = -_speed
-		dir = -1
-#		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0)
+		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0)
 	elif Input.is_action_pressed("move_right"):
 		self.current_state = _state.MOVE
 		velocity.x = _speed
-		dir = 1
-#		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
+		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
 	else:
 		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
 		self.current_state = _previous_state if current_state == _state.MOVE else current_state
@@ -130,9 +127,28 @@ func _on_interact_body_entered(body: Node):
 	if body.is_in_group("interactable"):
 		can_interact = true
 		connect("interact", body, "_interact")
+	print(body.name)
 func _on_interact_body_exited(body: Node):
 	if can_interact:
 		can_interact = false
 	#Disconnect the player to the interactable object
 	if is_connected("interact", body, "_interact"):
 		disconnect("interact", body, "_interact")
+		
+
+
+func _on_interact_area_entered(area):
+	if area.is_in_group("interactable"):
+		can_interact = true
+		connect("interact", area, "_interact")
+
+func _on_interact_area_exited(area):
+	if can_interact:
+		can_interact = false
+	#Disconnect the player to the interactable object
+	if is_connected("interact", area, "_interact"):
+		disconnect("interact", area, "_interact")
+		
+func toggle_offer(uhm):
+	hasoffer=uhm
+	
