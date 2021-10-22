@@ -23,7 +23,7 @@ func _ready():
 		warning.warn(get_tree(), "Assign the player node  to the camera via inspector.", "Camera Node Error", true)
 	current = true
 
-func _process(delta: float):
+func _physics_process(delta: float):
 	#TODO: Add offset then smoothing
 	
 	#Check if the player's x is getting to the screen's edge

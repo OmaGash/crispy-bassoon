@@ -104,7 +104,7 @@ surfaces/6 = {
 "vertex_count": 493
 }
 
-[sub_resource type="Skin" id=2]
+[sub_resource type="Skin" id=14]
 resource_name = "Skin"
 bind_count = 32
 bind/0/name = "hips"
@@ -204,7 +204,7 @@ bind/31/name = "toe.R_end_end"
 bind/31/bone = -1
 bind/31/pose = Transform( -0.991848, 0.0935153, -0.0865617, -0.0736451, 0.133694, 0.988284, 0.103992, 0.986601, -0.125716, 1.56001, 1.48492, -1.64286 )
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=13]
 resource_name = "Cube002"
 surfaces/0 = {
 "aabb": AABB( 1.17098, 1.26197, -2.85305, 2.47916, 2.2712, 1.49454 ),
@@ -1400,8 +1400,7 @@ tracks/28/keys = {
 "values": [ Vector3( 5.42975, 2.50973, -1.21939 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "T-Pose"
+[sub_resource type="Animation" id=23]
 length = 0.0666667
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:head_end")
@@ -1600,7 +1599,7 @@ tracks/27/imported = true
 tracks/27/enabled = true
 tracks/27/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -7.01235e-08, 1.78201e-05, -0.000636184, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=15]
@@ -1618,8 +1617,8 @@ filter_enabled = true
 filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
 
 [sub_resource type="AnimationNodeBlendTree" id=19]
-graph_offset = Vector2( 0, 203 )
-nodes/Idle/node = SubResource( 14 )
+graph_offset = Vector2( 0, 196.5 )
+nodes/Idle/node = SubResource( 24 )
 nodes/Idle/position = Vector2( 367, 166.75 )
 nodes/Jump/node = SubResource( 15 )
 nodes/Jump/position = Vector2( 460, 660 )
@@ -1811,7 +1810,7 @@ bones/31/bound_children = [  ]
 [node name="Cube001" type="MeshInstance" parent="Armature/Skeleton"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 3.72529e-09, -2.98023e-08, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
-skin = SubResource( 2 )
+skin = SubResource( 14 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1821,18 +1820,18 @@ material/5 = null
 material/6 = null
 
 [node name="Cube002" type="MeshInstance" parent="Armature/Skeleton"]
-mesh = SubResource( 3 )
-skin = SubResource( 2 )
+mesh = SubResource( 13 )
+skin = SubResource( 14 )
 material/0 = null
 
 [node name="Cube004" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 4 )
-skin = SubResource( 2 )
+skin = SubResource( 14 )
 material/0 = null
 
 [node name="Cube005" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 5 )
-skin = SubResource( 2 )
+skin = SubResource( 14 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1841,12 +1840,12 @@ material/4 = null
 
 [node name="Sphere" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 6 )
-skin = SubResource( 2 )
+skin = SubResource( 14 )
 material/0 = null
 
 [node name="Sphere001" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 7 )
-skin = SubResource( 2 )
+skin = SubResource( 14 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1856,7 +1855,7 @@ anims/Falling = SubResource( 9 )
 anims/Idle = SubResource( 10 )
 anims/Jump = SubResource( 11 )
 anims/Run = SubResource( 12 )
-anims/T-Pose = SubResource( 13 )
+anims/T-Pose = SubResource( 23 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 19 )

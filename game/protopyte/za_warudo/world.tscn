@@ -5,7 +5,6 @@
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
 sky_horizon_color = Color( 0.996078, 0.894118, 0.552941, 1 )
@@ -92,11 +91,12 @@ func _interact():
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 environment = SubResource( 2 )
-player_scene = NodePath("../enemy")
+player_scene = NodePath("../player")
 follow_offset = Vector2( 2, 2 )
+smoothing = 0.05
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
+transform = Transform( 0.607556, 0, -0.794277, 0, 1, 0, 0.794277, 0, 0.607556, 0, 3.28186, 0 )
 collision_mask = 536
 max_jumps = 5
 
