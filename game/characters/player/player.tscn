@@ -5,18 +5,20 @@
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.787252
-height = 2.93496
+height = 3.24488
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.741637
+radius = 1.5
 height = 3.39622
 
-[node name="player" type="KinematicBody"]
+[node name="player" type="KinematicBody" groups=[
+"player",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121029, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.466, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5841, 0 )
 shape = SubResource( 1 )
 
 [node name="interact" type="Area" parent="."]
@@ -25,7 +27,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="interact"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61683, 0 )
+transform = Transform( 0.998825, -0.033661, 0.0348782, 0.0348782, 0.998782, -0.0348995, -0.033661, 0.036075, 0.998782, -0.0596116, 1.61683, 0.00445271 )
 shape = SubResource( 2 )
 
 [node name="ilaw" type="OmniLight" parent="."]
@@ -36,14 +38,19 @@ omni_range = 21.6
 omni_attenuation = 2.37841
 
 [node name="Armature" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.958407, 0, -0.285404, 0, 1, 0, 0.285404, 0, 0.958407, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Armature" parent="Armature" index="0"]
 transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
 
-[node name="AnimationTree" parent="Armature" index="2"]
-active = true
+[node name="MeshInstance" parent="Armature" index="3"]
+visible = false
 
+[node name="MeshInstance2" parent="Armature" index="4"]
+visible = false
+
+[connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="interact" to="." method="_on_interact_area_exited"]
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
 

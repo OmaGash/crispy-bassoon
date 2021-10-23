@@ -16,6 +16,7 @@ const BLEND_TO_RUN = .1
 const BLEND_IDLE = 0.1
 var movement_state = 0
 var dir = 1 #-1 is left
+var hasoffer = false setget toggle_offer
 
 func _ready():
 	translation.z = 0 
@@ -47,7 +48,7 @@ func _physics_process(delta):
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
 			velocity.x = 0
-	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
+	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -52, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 96, .2), 0)
 	velocity = move_and_slide(velocity, UP)
 
 #func _unhandled_input(event: InputEvent):
@@ -92,7 +93,7 @@ func _move():
 	#Interaction control
 	if Input.is_action_just_pressed("interact") and can_interact:
 		self.current_state = _state.INTERACT
-		emit_signal("interact")
+		emit_signal("interact",self)
 	
 	#Movement controls
 	if Input.is_action_just_pressed("move_up") and jumps < max_jumps:
@@ -136,3 +137,21 @@ func _on_interact_body_exited(body: Node):
 	#Disconnect the player to the interactable object
 	if is_connected("interact", body, "_interact"):
 		disconnect("interact", body, "_interact")
+
+func _on_interact_area_entered(area):
+	if area.is_in_group("interactable"):
+		can_interact = true
+		connect("interact", area, "_interact")
+
+func _on_interact_area_exited(area):
+	if can_interact:
+		can_interact = false
+	#Disconnect the player to the interactable object
+	if is_connected("interact", area, "_interact"):
+		disconnect("interact", area, "_interact")
+		
+func toggle_offer(uhm):
+	hasoffer=uhm
+	
+func hurt():
+	print("-50 social creds")
