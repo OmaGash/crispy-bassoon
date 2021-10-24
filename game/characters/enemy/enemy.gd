@@ -23,7 +23,6 @@ func _ready():
 
 func _physics_process(delta):
 	move()
-	if translation.z != 0: translation.z = 0
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		var body = collision.collider

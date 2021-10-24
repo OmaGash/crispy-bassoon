@@ -48,7 +48,7 @@ func _physics_process(delta):
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
 			velocity.x = 0
-	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -52, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 96, .2), 0)
+	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
 	velocity = move_and_slide(velocity, UP)
 
 #func _unhandled_input(event: InputEvent):

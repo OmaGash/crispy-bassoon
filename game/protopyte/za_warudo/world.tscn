@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mist.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -93,10 +94,9 @@ func _interact():
 environment = SubResource( 2 )
 player_scene = NodePath("../player")
 follow_offset = Vector2( 2, 2 )
-smoothing = 0.05
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.607556, 0, -0.794277, 0, 1, 0, 0.794277, 0, 0.607556, 0, 3.28186, 0 )
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
 collision_mask = 536
 max_jumps = 5
 
@@ -356,6 +356,9 @@ material/0 = SubResource( 11 )
 
 [node name="enemy" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 3.14886, -0.0255462 )
+
+[node name="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 8.8146, 3.05874, 3.04268 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
