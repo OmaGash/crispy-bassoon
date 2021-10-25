@@ -15,9 +15,9 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 3.24091 ), 0.0, 0.0, 0, 0
 curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
-lifetime_randomness = 0.1
-emission_shape = 2
-emission_box_extents = Vector3( 1, 1, 1 )
+lifetime_randomness = 0.01
+emission_shape = 1
+emission_sphere_radius = 5.0
 gravity = Vector3( 0, 1, 0 )
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -34,7 +34,6 @@ params_billboard_mode = 3
 particles_anim_h_frames = 8
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 1, 1, 1, 0.0235294 )
 albedo_texture = ExtResource( 1 )
 
 [sub_resource type="QuadMesh" id=7]
@@ -45,7 +44,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.66373, 0 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0522775, -0.181283, -0.0281111 )
-amount = 260
+amount = 500
 speed_scale = 0.5
 visibility_aabb = AABB( -4, -3.98438, -4.10938, 8, 8, 8 )
 process_material = SubResource( 5 )

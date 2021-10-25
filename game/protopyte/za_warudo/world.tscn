@@ -4,7 +4,7 @@
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://mist.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -357,9 +357,12 @@ material/0 = SubResource( 11 )
 [node name="enemy" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 3.14886, -0.0255462 )
 
-[node name="Spatial" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 8.8146, 3.05874, 3.04268 )
+[node name="fog" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.72772 )
+visible = false
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
+
+[editable path="fog"]
