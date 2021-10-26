@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://protopyte/za_warudo/offer.gd" type="Script" id=5]
+[ext_resource path="res://protopyte/za_warudo/statue.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -88,6 +89,10 @@ func _interact():
 	add_child(dialog)
 "
 
+[sub_resource type="SphereMesh" id=13]
+
+[sub_resource type="SphereShape" id=14]
+
 [node name="world" type="Node"]
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
@@ -96,7 +101,7 @@ player_scene = NodePath("../player")
 follow_offset = Vector2( 2, 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, 0, 3.28186, 0 )
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -20, 1, 0.024 )
 collision_mask = 536
 max_jumps = 5
 
@@ -357,12 +362,33 @@ material/0 = SubResource( 11 )
 [node name="enemy" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 3.14886, -0.0255462 )
 
-[node name="fog" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.72772 )
-visible = false
+[node name="statue" parent="." groups=[
+"interactable",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -3 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="offer" type="Area" parent="." groups=[
+"interactable",
+]]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25, 1.5, 0 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="offer"]
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="offer"]
+shape = SubResource( 14 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
 
-[editable path="fog"]
+[editable path="statue"]

@@ -155,3 +155,4 @@ func toggle_offer(uhm):
 	
 func hurt():
 	print("-50 social creds")
+	

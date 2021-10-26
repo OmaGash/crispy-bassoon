@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://protopyte/za_warudo/statue.gd" type="Script" id=1]
+
+[sub_resource type="CylinderMesh" id=1]
+height = 10.0
+
+[sub_resource type="CylinderShape" id=2]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "regrowth"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray(  )
+
+[node name="Area" type="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0456524, -0.0409594, -0.00990343 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/regrowth = SubResource( 3 )
