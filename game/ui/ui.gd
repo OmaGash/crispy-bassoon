@@ -22,6 +22,7 @@ func toggle_menu(menu:PackedScene):#Called from global.gd
 
 func _process(delta):
 	$debug/states/vbox/fps.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS))
+	$debug/states/vbox/offer.text = "Has offer: " + str($"../player".hasoffer)
 
 func _on_menu_pressed():
 	var a = InputEventAction.new()

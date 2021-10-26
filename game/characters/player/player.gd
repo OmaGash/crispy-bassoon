@@ -47,6 +47,7 @@ func _physics_process(delta):
 			#Damage indicator here
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
+			anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
 			velocity.x = 0
 	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
 	velocity = move_and_slide(velocity, UP)
@@ -91,7 +92,7 @@ func update_blessings(new_blessings: Array):
 
 func _move():
 	#Interaction control
-	if Input.is_action_just_pressed("interact") and can_interact:
+	if Input.is_action_just_pressed("interact") and can_interact and self.current_state == _state.IDLE:
 		self.current_state = _state.INTERACT
 		emit_signal("interact",self)
 	
@@ -154,5 +155,4 @@ func toggle_offer(uhm):
 	hasoffer=uhm
 	
 func hurt():
-	print("-50 social creds")
-	
+	pass

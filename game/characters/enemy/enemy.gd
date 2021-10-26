@@ -37,7 +37,7 @@ func move():
 		if detect.is_colliding() and is_on_floor():
 			
 			motion.y = _jump_force 
-			print(obj)
+			#print(obj)
 	if moving_right:
 		motion.x = _speed
 	else:
