@@ -33,7 +33,7 @@ shape = SubResource( 3 )
 [node name="MoveTimer" type="Timer" parent="."]
 
 [node name="RayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19534, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59704, 0 )
 enabled = true
 cast_to = Vector3( 1, 0, 0 )
 

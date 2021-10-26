@@ -35,7 +35,6 @@ func move():
 	if detect.is_colliding() and is_on_floor():
 		detect.add_exception(player)
 		if detect.is_colliding() and is_on_floor():
-			
 			motion.y = _jump_force 
 			#print(obj)
 	if moving_right:
