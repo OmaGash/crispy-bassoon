@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character.gd"
 }, {
-"base": "Reference",
-"class": "DTS",
-"language": "GDScript",
-"path": "res://addons/dialogic/Localization/translation_service.gd"
-}, {
 "base": "Node",
 "class": "Dialogic",
 "language": "GDScript",
@@ -51,7 +46,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Character": "res://icon.png",
-"DTS": "",
 "Dialogic": "",
 "DialogicBackgroundMusic": "",
 "DialogicDefinitionsUtil": "",
