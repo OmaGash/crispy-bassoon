@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/particles/fire/fire.tscn" type="PackedScene" id=8]
 [ext_resource path="res://environment/Statue/Geo Statue/geo_statue.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/water/water.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -115,6 +116,22 @@ func interact(is_off: bool):
 		emit_signal(\"done\")
 "
 
+[sub_resource type="GDScript" id=16]
+script/source = "extends Spatial
+
+signal done
+
+func interact(is_off: bool):
+	if is_off:
+		$anim.play(\"rise_up\")
+		yield($anim, \"animation_finished\")
+		emit_signal(\"done\")
+	else:
+		$anim.play(\"reduce_down\")
+		yield($anim, \"animation_finished\")
+		emit_signal(\"done\")
+"
+
 [node name="world" type="Node"]
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
@@ -125,7 +142,7 @@ follow_offset = Vector2( 1, 2 )
 smoothing = 0.07
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -20, 1, 0.024 )
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -30, 1, 0.024 )
 collision_mask = 536
 max_jumps = 5
 
@@ -395,7 +412,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 3.14886, -0.0255462 )
 [node name="enemy2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24146, 3.14886, -0.0255462 )
 
-[node name="statue" parent="." groups=[
+[node name="statue_mist" parent="." groups=[
 "interactable",
 ] instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.416, 5, -3 )
@@ -406,7 +423,7 @@ link = NodePath("../fog")
 [node name="offer" type="Area" parent="." groups=[
 "interactable",
 ]]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25, 1.5, 0 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29, 1.5, 0 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 5 )
@@ -423,16 +440,31 @@ shape = SubResource( 14 )
 
 [node name="fog" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 198.079, 0, 3.1103 )
+visible = false
 script = SubResource( 15 )
 
-[node name="Spatial" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62355, 3.73596, -5.7649 )
+[node name="fire" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4451, 3.73596, -5.7649 )
 
-[node name="Area" parent="." instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 0 )
+[node name="statue_geo" parent="." groups=[
+"interactable",
+] instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.9511, 0, 0 )
+
+[node name="statue_water" parent="." groups=[
+"interactable",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5, -3 )
+collision_layer = 2
+collision_mask = 2
+link = NodePath("../water")
+
+[node name="water" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.5, 0, 0 )
+script = SubResource( 16 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
 
-[editable path="statue"]
+[editable path="statue_mist"]

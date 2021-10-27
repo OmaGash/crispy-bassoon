@@ -3,9 +3,9 @@ extends Area
 onready var Player = get_parent().get_node("player")
 onready var teleport_post = $Position3D.translation
 
-func _input(event):
+func _interact(player):
 	
-	if Input.is_action_just_pressed("interact"):
+	if player.hasoffer==true:
 		var x = get_overlapping_areas()
 		print(x)
 		
