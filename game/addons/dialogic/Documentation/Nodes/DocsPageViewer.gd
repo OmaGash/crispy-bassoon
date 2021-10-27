@@ -34,7 +34,7 @@ func load_page(page_path: String, section : String=''):
 	var base_size = 16
 	Content.set('custom_fonts/normal_font/size', int(base_size * get_constant("scale", "Editor")))
 	Content.set('custom_fonts/bold_font/size', int(base_size * get_constant("scale", "Editor")))
-	Content.set('custom_fonts/italics_font/size', int(base_size * get_constant("scale", "Editor")))
+	#Content.set('custom_fonts/italics_font/size', int(base_size * get_constant("scale", "Editor")))
 	Content.set('custom_fonts/mono_font/size', int(base_size * get_constant("scale", "Editor")))
 	Content.set('custom_fonts/bold_italics_font/size', int(base_size * get_constant("scale", "Editor")))
 	
@@ -43,7 +43,6 @@ func load_page(page_path: String, section : String=''):
 	Content.set('custom_fonts/mono_font', get_font("doc_source", "EditorFonts"))
 	Content.set('custom_fonts/bold_font', Content.get_font("doc_bold", "EditorFonts"))
 	
-
 	MarkdownParser.set_accent_colors(get_color("accent_color", "Editor"),get_color("disabled_font_color", "Editor"))
 	# return if no path is given
 	if page_path == '' and not section:
@@ -81,8 +80,11 @@ func load_page(page_path: String, section : String=''):
 	# scroll to the given section
 	if not scroll_to_section(section):
 		Content.scroll_to_line(0)
-		
 	
+	# Scroll to top of the document. This probably broke the previews "scroll to the given section" part of the code
+	yield(get_tree(), "idle_frame")
+	_on_Up_pressed()
+
 
 # looks if there is a heading similar to the given TITLE and then scrolls there
 func scroll_to_section(title):
@@ -109,6 +111,7 @@ func _ready():
 	$Up.icon = get_icon("ArrowUp", "EditorIcons")
 	
 	$Editing.visible = enable_editing
+	
 
 # creates the conten menu
 func create_content_menu(headings):
@@ -127,9 +130,11 @@ func create_content_menu(headings):
 		button.connect("pressed", self, "content_button_pressed", [heading])
 		$ContentMenu/Panel/VBox.add_child(button)
 
+
 func content_button_pressed(heading):
 	scroll_to_section(heading)
 	$ContentMenu/ToggleContents.pressed = false
+
 
 ## When one of the links is clicked
 func _on_meta_clicked(meta):

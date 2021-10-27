@@ -4,13 +4,14 @@ extends HBoxContainer
 # customization options for the event 
 
 # This is the default data that is going to be saved to json
+export(String) var event_name : String
 export (Dictionary) var event_data: Dictionary = {'event_id':'dialogic_000'}
+export(Texture) var event_icon : Texture
 export(StyleBoxFlat) var event_style : StyleBoxFlat
 
-export(Texture) var event_icon : Texture
-export(String) var event_name : String
 export(PackedScene) var header_scene : PackedScene
 export(PackedScene) var body_scene : PackedScene
+
 export (bool) var expand_on_default := false
 export (bool) var needs_indentation := false
 export (String) var help_page_path := ""
@@ -113,12 +114,10 @@ func _set_event_name(text: String):
 
 func _set_header(scene: PackedScene):
 	header_node = _set_content(header_content_container, scene)
-	header_node.editor_reference = editor_reference
 
 
 func _set_body(scene: PackedScene):
 	body_node = _set_content(body_content_container, scene)
-	body_node.editor_reference = editor_reference
 	# show the expand toggle
 	expand_control.set_enabled(body_node != null)
 
@@ -141,6 +140,7 @@ func _set_content(container: Control, scene: PackedScene):
 		container.remove_child(c)
 	if scene != null:
 		var node = scene.instance()
+		node.editor_reference = editor_reference
 		container.add_child(node)
 #		node.set_owner(get_tree().get_edited_scene_root())
 		return node
@@ -167,9 +167,9 @@ func _on_Indent_visibility_changed():
 		return
 	if needs_indentation:
 		if indent_node.visible:
-			remove_warning("This event needs a question event around it!")
+			remove_warning(DTS.translate("This event needs a question event around it!"))
 		else:
-			set_warning("This event needs a question event around it!")
+			set_warning(DTS.translate("This event needs a question event around it!"))
 
 
 func _on_gui_input(event):
@@ -214,6 +214,12 @@ func _request_selection():
 ## *****************************************************************************
 
 func _ready():
+	event_name = DTS.translate(event_name)
+	
+	## DO SOME STYLING
+	$PanelContainer/SelectedStyle.modulate = get_color("accent_color", "Editor")
+	
+	
 	_setup_event()
 	
 	set_focus_mode(1) # Allowing this node to grab focus
