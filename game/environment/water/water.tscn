@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
-[sub_resource type="PlaneMesh" id=1]
-size = Vector2( 64, 64 )
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 64, 32, 64 )
 
 [sub_resource type="Shader" id=2]
 code = "shader_type spatial;
@@ -88,10 +88,14 @@ lacunarity = 4.0
 seamless = true
 noise = SubResource( 3 )
 
+[sub_resource type="OpenSimplexNoise" id=12]
+
 [sub_resource type="NoiseTexture" id=5]
 seamless = true
+noise = SubResource( 12 )
 
 [sub_resource type="OpenSimplexNoise" id=6]
+lacunarity = 1.8
 
 [sub_resource type="NoiseTexture" id=7]
 seamless = true
@@ -101,27 +105,86 @@ noise = SubResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = SubResource( 2 )
-shader_param/speed = 0.02
-shader_param/color = Color( 0.0745098, 0.588235, 1, 0.564706 )
+shader_param/speed = 0.03
+shader_param/color = Color( 0, 0.247059, 1, 1 )
 shader_param/edge_color = Color( 1, 1, 1, 1 )
 shader_param/edge_scale = 0.25
 shader_param/near = 0.1
 shader_param/far = 100.0
-shader_param/wave_strengh = Vector2( 0.5, 0.25 )
-shader_param/wave_frequency = Vector2( 12, 12 )
+shader_param/wave_strengh = Vector2( 1.26, 0.25 )
+shader_param/wave_frequency = Vector2( 6, 6 )
 shader_param/time_factor = Vector2( 1, 2 )
 shader_param/noise1 = SubResource( 4 )
 shader_param/noise2 = SubResource( 5 )
 shader_param/normalmap = SubResource( 7 )
 
-[sub_resource type="PlaneShape" id=9]
-plane = Plane( 32, 0, 32, 0 )
+[sub_resource type="Animation" id=13]
+resource_name = "reduce_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("water:mesh:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 64, 32, 64 ), Vector3( 64, 1, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 20.5, 32 ), Vector3( 32, 2.5, 32 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "rise_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("water:mesh:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 64, 1, 64 ), Vector3( 64, 32, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.999978 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 2.5, 32 ), Vector3( 32, 20.5, 32 ) ]
+}
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 32, 20.5, 32 )
 
 [node name="Spatial" type="Spatial"]
 
 [node name="water" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23651, 0.995387, 0.756346 )
+mesh = SubResource( 11 )
 material/0 = SubResource( 8 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/reduce_down = SubResource( 13 )
+anims/rise_up = SubResource( 9 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
