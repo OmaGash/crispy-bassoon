@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://protopyte/za_warudo/statue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/particles/fire/fire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/Statue/Geo Statue/geo_statue.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -69,10 +70,11 @@ script/source = "extends StaticBody
 
 func _interact():
 	#Dialogic.set_variable(\"name\", g.player_name)
-	var dialog = Dialogic.start(\"test1\", false)
+#	var dialog = Dialogic.start(\"test1\", false)
 	#print(Dialogic.get_definitions())
 	#print(Dialogic.get_variable(\"name\"))
-	add_child(dialog)
+#	add_child(dialog)
+	pass
 	
 "
 
@@ -87,8 +89,9 @@ albedo_color = Color( 0.258824, 0.156863, 0.835294, 1 )
 script/source = "extends StaticBody
 
 func _interact():
-	var dialog = Dialogic.start(\"test2\", false)
-	add_child(dialog)
+#	var dialog = Dialogic.start(\"test2\", false)
+#	add_child(dialog)
+	pass
 "
 
 [sub_resource type="SphereMesh" id=13]
@@ -424,6 +427,9 @@ script = SubResource( 15 )
 
 [node name="Spatial" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62355, 3.73596, -5.7649 )
+
+[node name="Area" parent="." instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 0 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
