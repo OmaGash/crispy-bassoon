@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://protopyte/za_warudo/offer.gd" type="Script" id=5]
 [ext_resource path="res://protopyte/za_warudo/statue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/particles/fire/fire.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -420,6 +421,9 @@ shape = SubResource( 14 )
 [node name="fog" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 198.079, 0, 3.1103 )
 script = SubResource( 15 )
+
+[node name="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62355, 3.73596, -5.7649 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
