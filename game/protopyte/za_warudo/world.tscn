@@ -1,13 +1,15 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://protopyte/za_warudo/offer.gd" type="Script" id=5]
-[ext_resource path="res://protopyte/za_warudo/statue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/statues/offer.gd" type="Script" id=5]
+[ext_resource path="res://environment/statues/statue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/particles/fire/fire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/water/water.tscn" type="PackedScene" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.619608, 0.807843, 0.909804, 1 )
@@ -69,10 +71,11 @@ script/source = "extends StaticBody
 
 func _interact():
 	#Dialogic.set_variable(\"name\", g.player_name)
-	var dialog = Dialogic.start(\"test1\", false)
+#	var dialog = Dialogic.start(\"test1\", false)
 	#print(Dialogic.get_definitions())
 	#print(Dialogic.get_variable(\"name\"))
-	add_child(dialog)
+#	add_child(dialog)
+	pass
 	
 "
 
@@ -87,8 +90,9 @@ albedo_color = Color( 0.258824, 0.156863, 0.835294, 1 )
 script/source = "extends StaticBody
 
 func _interact():
-	var dialog = Dialogic.start(\"test2\", false)
-	add_child(dialog)
+#	var dialog = Dialogic.start(\"test2\", false)
+#	add_child(dialog)
+	pass
 "
 
 [sub_resource type="SphereMesh" id=13]
@@ -101,8 +105,8 @@ script/source = "extends Spatial
 
 signal done
 
-func interact(is_off: bool):
-	if is_off:
+func interact(is_disabled: bool):
+	if is_disabled:
 		$anim.play(\"fade_out\")
 		yield($anim, \"animation_finished\")
 		emit_signal(\"done\")
@@ -110,6 +114,39 @@ func interact(is_off: bool):
 		$anim.play(\"fade_in\")
 		yield($anim, \"animation_finished\")
 		emit_signal(\"done\")
+"
+
+[sub_resource type="GDScript" id=16]
+script/source = "extends Spatial
+
+signal done
+
+func interact(is_off: bool):
+	if is_off:
+		$anim.play(\"rise_up\")
+		yield($anim, \"animation_finished\")
+		emit_signal(\"done\")
+	else:
+		$anim.play(\"reduce_down\")
+		yield($anim, \"animation_finished\")
+		emit_signal(\"done\")
+"
+
+[sub_resource type="GDScript" id=17]
+resource_name = "teleport"
+script/source = "extends Sprite3D
+signal done
+onready var player: Character = get_tree().get_nodes_in_group(\"player\")[0]
+func interact(_nothing):
+	player.get_node(\"Armature/AnimationPlayer\").play(\"down\")
+	yield(player.get_node(\"Armature/AnimationPlayer\"), \"animation_finished\")
+#	player.set_deferred(\"translation.x\", translation.x)
+#	player.set_deferred(\"translation.y\", translation.y)
+	player.translation.x = translation.x
+	player.translation.y = translation.y
+	player.get_node(\"Armature/AnimationPlayer\").play_backwards(\"down\")
+	yield(player.get_node(\"Armature/AnimationPlayer\"), \"animation_finished\")
+	emit_signal(\"done\")
 "
 
 [node name="world" type="Node"]
@@ -122,8 +159,8 @@ follow_offset = Vector2( 1, 2 )
 smoothing = 0.07
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -20, 1, 0.024 )
-collision_mask = 536
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -30, 1, 0.024 )
+collision_mask = 538
 max_jumps = 5
 
 [node name="ground" type="StaticBody" parent="."]
@@ -318,7 +355,7 @@ material/0 = SubResource( 11 )
 "interactable",
 "talk",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0674934, 1.76256, 0.162017 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8975, 1.76256, 0.162017 )
 collision_layer = 3
 script = SubResource( 8 )
 __meta__ = {
@@ -392,18 +429,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36348, 3.14886, -0.0255462 )
 [node name="enemy2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24146, 3.14886, -0.0255462 )
 
-[node name="statue" parent="." groups=[
-"interactable",
-] instance=ExtResource( 6 )]
+[node name="anemo" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.416, 5, -3 )
-collision_layer = 3
-collision_mask = 3
 link = NodePath("../fog")
 
 [node name="offer" type="Area" parent="." groups=[
 "interactable",
 ]]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25, 1.5, 0 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29, 1.5, 0 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 5 )
@@ -420,13 +453,57 @@ shape = SubResource( 14 )
 
 [node name="fog" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 198.079, 0, 3.1103 )
+visible = false
 script = SubResource( 15 )
 
-[node name="Spatial" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62355, 3.73596, -5.7649 )
+[node name="fire" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4451, 3.73596, -5.7649 )
+
+[node name="hydro" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5, -3 )
+collision_layer = 2
+collision_mask = 2
+link = NodePath("../water")
+
+[node name="water" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74, -2.319, -0.271 )
+script = SubResource( 16 )
+
+[node name="offer2" type="Area" parent="." groups=[
+"interactable",
+]]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29, 1.5, 0 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="offer2"]
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="offer2"]
+shape = SubResource( 14 )
+
+[node name="pyro" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 28.9057, 1.98323, -1.3348 )
+link = NodePath("../fire")
+
+[node name="teleport" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.46, 0, 2.13888 )
+texture = ExtResource( 11 )
+script = SubResource( 17 )
+
+[node name="geo" parent="." groups=[
+"geo",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96263, 5, -1.66519 )
+link = NodePath("../teleport")
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
 
-[editable path="statue"]
+[editable path="anemo"]

@@ -1,8 +1,24 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://environment/particles/fire/fire_02.png" type="Texture" id=1]
+[ext_resource path="res://environment/anito/anito.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+onready var fire = $AnimationPlayer
+signal done
+
+func interact(is_off: bool):
+	if is_off:  
+		fire.play(\"simmer_down\")
+		yield(fire,\"animation_finished\")
+		emit_signal(\"done\")
+	else:
+		fire.play(\"lit_up\")
+		yield(fire, \"animation_finished\")
+		emit_signal(\"done\")
+"
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0.901961, 0.623529, 1, 1, 0.168627, 0.0156863, 1 )
@@ -62,17 +78,43 @@ material = SubResource( 10 )
 
 [sub_resource type="Curve" id=12]
 max_value = 3.0
-_data = [ Vector2( 0.165254, 0.184091 ), 0.0, 0.0, 0, 0, Vector2( 0.822034, 0.429545 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0.165254, 0.119318 ), 0.0, 0.0, 0, 0, Vector2( 0.822034, 0.429545 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=13]
 colors = PoolColorArray( 1, 0.898039, 0.509804, 1, 1, 0.188235, 0, 1 )
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="Animation" id=14]
+resource_name = "lit_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.65281, -1.45263 )
-mesh = SubResource( 1 )
-material/0 = null
+[sub_resource type="Animation" id=15]
+resource_name = "simmer_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Spatial" type="Spatial"]
+script = SubResource( 1 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.284776 )
@@ -99,7 +141,8 @@ transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4
 shape = SubResource( 9 )
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3457, -0.0160751, -0.841014 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492568, 0.462444, 0.37143 )
+visible = false
 amount = 30
 mesh = SubResource( 11 )
 direction = Vector3( 0, 0, 0 )
@@ -113,3 +156,10 @@ angle_random = 1.0
 scale_amount = 10.0
 scale_amount_curve = SubResource( 12 )
 color_ramp = SubResource( 13 )
+
+[node name="anito-glb" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75553, -1.95656, -0.312819 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lit_up = SubResource( 14 )
+anims/simmer_down = SubResource( 15 )
