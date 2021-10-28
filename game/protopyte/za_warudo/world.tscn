@@ -446,9 +446,6 @@ script = SubResource( 15 )
 [node name="fire" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4451, 3.73596, -5.7649 )
 
-[node name="statue_geo" parent="." instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.9511, -0.716546, -0.682451 )
-
 [node name="statue_water" parent="." groups=[
 "interactable",
 ] instance=ExtResource( 6 )]
@@ -487,8 +484,14 @@ collision_layer = 3
 collision_mask = 3
 link = NodePath("../fire")
 
+[node name="Area" parent="." instance=ExtResource( 9 )]
+
+[node name="Teleport" parent="Area" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88899, 16.527, 0.39636 )
+
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]
 [connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
 
 [editable path="statue_mist"]
+[editable path="Area"]

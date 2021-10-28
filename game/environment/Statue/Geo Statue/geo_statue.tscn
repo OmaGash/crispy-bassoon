@@ -19,8 +19,9 @@ size = Vector3( 2, 2, 0.5 )
 "interactable",
 ]]
 collision_layer = 2
-collision_mask = 25
+collision_mask = 125
 script = ExtResource( 1 )
+link = NodePath("Teleport")
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36774, 5.88727, 1.8265 )
@@ -31,10 +32,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01337, 0.44905, 0.0101271 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="Position3D" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8487, 1.87235, 2.36146 )
+[node name="Teleport" type="Position3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Position3D"]
-transform = Transform( 0.999462, -0.0327889, 0, 0.0327889, 0.999462, 0, 0, 0, 1, -0.101036, 1.10021, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="Teleport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = null
