@@ -62,7 +62,7 @@ _global_script_class_icons={
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"Statue": "",
+"Statue": "res://characters/concept/statue/statue-earth.png",
 "Warning": "res://addons/dialogic/Images/Event Icons/warning.svg"
 }
 

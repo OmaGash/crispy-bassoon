@@ -221,8 +221,8 @@ margin_right = 164.0
 margin_bottom = 152.0
 text = "0 IDLE
 1 MOVE
-2 ATTACK
-3 DAMAGED
+2 FALL
+3 JUMP
 4 ABNORMAL
 5 INTERACT
 6 ALERT"

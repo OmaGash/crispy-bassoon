@@ -1,4 +1,6 @@
-[gd_resource type="Animation" format=2]
+[gd_resource type="Animation" load_steps=2 format=2]
+
+[ext_resource path="res://environment/audio/edited/grunt2.wav" type="AudioStream" id=1]
 
 [resource]
 resource_name = "Jump"
@@ -215,4 +217,18 @@ tracks/28/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/29/type = "audio"
+tracks/29/path = NodePath("voice")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
 }

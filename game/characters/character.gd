@@ -26,8 +26,8 @@ enum{
 enum _state{
 	IDLE,#For when the character is not moving.
 	MOVE,#For when the character is moving.
-	ATTACK,#For when the character is attacking.
-	DAMAGED,#For when the character receives damage.
+	FALL,#For when the character is falling.
+	JUMP,#For when the character receives damage.
 	ABNORMAL,#For when the character is stunned, slowed, etc.
 	INTERACT,#For Players only, when they interact with NPCs and events.
 	ALERT#For NPCs only, when they go vigilante against the player.

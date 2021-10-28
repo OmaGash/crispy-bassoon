@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://characters/player/animation/inner mouth.material" type="Material" id=1]
 [ext_resource path="res://characters/player/animation/metal belt.material" type="Material" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://characters/player/animation/Getting Up.tres" type="Animation" id=22]
 [ext_resource path="res://characters/player/animation/Run.tres" type="Animation" id=23]
 [ext_resource path="res://characters/player/animation/Climb.tres" type="Animation" id=24]
+[ext_resource path="res://environment/audio/edited/grunt2.wav" type="AudioStream" id=25]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube001"
@@ -335,7 +336,7 @@ surfaces/0 = {
 "vertex_count": 1984
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=8]
 resource_name = "reset"
 length = 0.01
 step = 0.0
@@ -352,51 +353,59 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "Jump"
-
 [sub_resource type="AnimationNodeBlend2" id=18]
-filter_enabled = true
-filters = [ "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
 
 [sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Falling"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeBlend2" id=11]
+filter_enabled = true
+filters = [ "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R", "sfx" ]
+
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Run"
 
-[sub_resource type="AnimationNodeOneShot" id=20]
-filter_enabled = true
-filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
+[sub_resource type="AnimationNodeOneShot" id=13]
+filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R", "voice" ]
 
-[sub_resource type="AnimationNodeBlendTree" id=21]
-graph_offset = Vector2( -27, 307.75 )
-nodes/Idle/node = SubResource( 16 )
+[sub_resource type="AnimationNodeBlendTree" id=14]
+graph_offset = Vector2( 47, 281 )
+nodes/Fall/node = SubResource( 18 )
+nodes/Fall/position = Vector2( 900, 300 )
+nodes/Falling/node = SubResource( 19 )
+nodes/Falling/position = Vector2( 520, 480 )
+nodes/Idle/node = SubResource( 9 )
 nodes/Idle/position = Vector2( 367, 166.75 )
-nodes/Jump/node = SubResource( 17 )
+nodes/Jump/node = SubResource( 10 )
 nodes/Jump/position = Vector2( 460, 660 )
-nodes/Move/node = SubResource( 18 )
+nodes/Move/node = SubResource( 11 )
 nodes/Move/position = Vector2( 700, 260 )
-nodes/Run/node = SubResource( 19 )
+nodes/Run/node = SubResource( 12 )
 nodes/Run/position = Vector2( 360, 420 )
-nodes/Shot/node = SubResource( 20 )
-nodes/Shot/position = Vector2( 920, 480 )
-nodes/output/position = Vector2( 1100, 480 )
-node_connections = [ "output", 0, "Shot", "Move", 0, "Idle", "Move", 1, "Run", "Shot", 0, "Move", "Shot", 1, "Jump" ]
+nodes/Shot/node = SubResource( 13 )
+nodes/Shot/position = Vector2( 1060, 480 )
+nodes/output/position = Vector2( 1220, 460 )
+node_connections = [ "output", 0, "Shot", "Move", 0, "Idle", "Move", 1, "Run", "Shot", 0, "Fall", "Shot", 1, "Jump", "Fall", 0, "Move", "Fall", 1, "Falling" ]
 
-[sub_resource type="SpatialMaterial" id=22]
+[sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.956863, 1, 0.243137, 1 )
 
-[sub_resource type="CubeMesh" id=23]
-material = SubResource( 22 )
+[sub_resource type="CubeMesh" id=16]
+material = SubResource( 15 )
 size = Vector3( 5, 1, 5 )
 
-[sub_resource type="PlaneMesh" id=24]
+[sub_resource type="PlaneMesh" id=17]
 
 [node name="Armature" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775786, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
+transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "hips"
@@ -610,28 +619,33 @@ anims/Jump = ExtResource( 20 )
 anims/Run = ExtResource( 23 )
 anims/T-Pose = ExtResource( 16 )
 anims/down = ExtResource( 17 )
-anims/reset = SubResource( 15 )
+anims/reset = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 21 )
+tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
+parameters/Fall/blend_amount = 0.0
 parameters/Move/blend_amount = 0.0
 parameters/Shot/active = false
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.998547, 0, -0.0538787, 0, 1, 0, 0.0538787, 0, 0.998547, 0, -0.5, 0.722227 )
 visible = false
-mesh = SubResource( 23 )
+mesh = SubResource( 16 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 2.02313e-07, 6.35161, -3.78366, 4.88208e-07, -2.05249, -11.7088, -10.515, 2.6911e-08, -6.16436e-07, -17, 2.02539, 3.33655 )
 visible = false
-mesh = SubResource( 24 )
+mesh = SubResource( 17 )
 material/0 = null
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = 24.0
+volume_db = -27.9588
+bus = "player"
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
 bus = "player"
