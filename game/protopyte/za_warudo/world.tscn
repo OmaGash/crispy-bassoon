@@ -1,13 +1,14 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://protopyte/za_warudo/offer.gd" type="Script" id=5]
-[ext_resource path="res://protopyte/za_warudo/statue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/statues/offer.gd" type="Script" id=5]
+[ext_resource path="res://environment/statues/statue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/mist/fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/particles/fire/fire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/shokoy/shokoy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://environment/water/water.tscn" type="PackedScene" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 
@@ -159,7 +160,7 @@ follow_offset = Vector2( 1, 2 )
 smoothing = 0.07
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -30, 1, 0.024 )
+transform = Transform( -0.385697, 0, 0.922626, 0, 1, 0, -0.922626, 0, -0.385697, -30.1385, 1.02072, 0.0670632 )
 collision_mask = 538
 max_jumps = 5
 
@@ -431,7 +432,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24146, 3.14886, -0.0255462 )
 
 [node name="anemo" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.416, 5, -3 )
-link = NodePath("../fog")
 
 [node name="offer" type="Area" parent="." groups=[
 "interactable",
@@ -463,7 +463,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4451, 3.73596, -5.7649 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5, -3 )
 collision_layer = 2
 collision_mask = 2
-link = NodePath("../water")
 
 [node name="water" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74, -2.319, -0.271 )
@@ -481,6 +480,7 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="offer2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2736, 0, 0 )
 mesh = SubResource( 13 )
 material/0 = null
 
@@ -489,7 +489,6 @@ shape = SubResource( 14 )
 
 [node name="pyro" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 28.9057, 1.98323, -1.3348 )
-link = NodePath("../fire")
 
 [node name="teleport" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.46, 0, 2.13888 )
@@ -500,7 +499,9 @@ script = SubResource( 17 )
 "geo",
 ] instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96263, 5, -1.66519 )
-link = NodePath("../teleport")
+
+[node name="shokoy" parent="." instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.3393, -2.75807, -1.13654 )
 
 [connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
 [connection signal="pressed" from="ui/debug/states/vbox/menu" to="ui" method="_on_menu_pressed"]

@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Statue",
 "language": "GDScript",
-"path": "res://protopyte/za_warudo/statue.gd"
+"path": "res://environment/statues/statue.gd"
 }, {
 "base": "Control",
 "class": "Warning",
@@ -62,7 +62,7 @@ _global_script_class_icons={
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
 "DialogicUtil": "",
-"Statue": "res://characters/concept/statue/statue-earth.png",
+"Statue": "",
 "Warning": "res://addons/dialogic/Images/Event Icons/warning.svg"
 }
 
