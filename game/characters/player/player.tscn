@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/animation/armature.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/player/audio/foot_grass0.wav" type="AudioStream" id=3]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.787252
@@ -39,8 +40,8 @@ omni_attenuation = 2.37841
 
 [node name="Armature" parent="." instance=ExtResource( 2 )]
 
-[node name="Armature" parent="Armature" index="0"]
-transform = Transform( 0.730497, 0.0474348, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
+[node name="sfx" parent="Armature" index="5"]
+stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
 [connection signal="area_exited" from="interact" to="." method="_on_interact_area_exited"]

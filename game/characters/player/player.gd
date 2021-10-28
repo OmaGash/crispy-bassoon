@@ -115,7 +115,7 @@ func _move():
 	else:
 		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
 		self.current_state = _previous_state if current_state == _state.MOVE else current_state
-		velocity.x = 0#Stop the player from moving
+		velocity.x = 0#Stop the player from moving"Armature"
 		
 	if !is_on_floor():
 		if jumps == 0:
