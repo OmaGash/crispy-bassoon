@@ -42,8 +42,6 @@ func _physics_process(delta):
 			#print("MOVE")
 			_move()
 			anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN)
-		_state.DAMAGED:
-			 current_hp -= 1
 			#Damage indicator here
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
