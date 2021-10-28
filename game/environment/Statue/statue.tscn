@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://protopyte/za_warudo/statue.gd" type="Script" id=1]
 
@@ -9,22 +9,13 @@ height = 10.0
 radius = 3.0
 height = 10.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "regrowth"
-tracks/0/type = "transform"
-tracks/0/path = NodePath("MeshInstance")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray(  )
-
-[node name="Area" type="Area"]
+[node name="statue" type="Area" groups=[
+"interactable",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0456524, -0.0409594, -0.00990343 )
@@ -33,6 +24,3 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/regrowth = SubResource( 3 )

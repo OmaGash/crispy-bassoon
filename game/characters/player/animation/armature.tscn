@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://characters/player/animation/inner mouth.material" type="Material" id=1]
 [ext_resource path="res://characters/player/animation/metal belt.material" type="Material" id=2]
@@ -1600,46 +1600,78 @@ tracks/27/imported = true
 tracks/27/enabled = true
 tracks/27/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -7.01235e-08, 1.78201e-05, -0.000636184, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeAnimation" id=14]
-animation = "Idle"
+[sub_resource type="Animation" id=14]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -3.22515, 0 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "reset"
+length = 0.01
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeBlend2" id=16]
+[sub_resource type="AnimationNodeBlend2" id=17]
 filter_enabled = true
 filters = [ "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Run"
 
-[sub_resource type="AnimationNodeOneShot" id=18]
+[sub_resource type="AnimationNodeOneShot" id=19]
 filter_enabled = true
 filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Skeleton:foot.R", "Armature/Skeleton:forearm.L", "Armature/Skeleton:forearm.R", "Armature/Skeleton:hand.L", "Armature/Skeleton:hand.L_end", "Armature/Skeleton:hand.R", "Armature/Skeleton:hand.R_end", "Armature/Skeleton:head", "Armature/Skeleton:head_end", "Armature/Skeleton:hips", "Armature/Skeleton:leg.L", "Armature/Skeleton:leg.R", "Armature/Skeleton:lowerspine", "Armature/Skeleton:middlespine", "Armature/Skeleton:neck", "Armature/Skeleton:shoulder.L", "Armature/Skeleton:shoulder.R", "Armature/Skeleton:thigh.L", "Armature/Skeleton:thigh.R", "Armature/Skeleton:toe.L", "Armature/Skeleton:toe.L_end", "Armature/Skeleton:toe.R", "Armature/Skeleton:toe.R_end", "Armature/Skeleton:upperarm.L", "Armature/Skeleton:upperarm.R" ]
 
-[sub_resource type="AnimationNodeBlendTree" id=19]
+[sub_resource type="AnimationNodeBlendTree" id=20]
 graph_offset = Vector2( 0, 203 )
-nodes/Idle/node = SubResource( 14 )
+nodes/Idle/node = SubResource( 15 )
 nodes/Idle/position = Vector2( 367, 166.75 )
-nodes/Jump/node = SubResource( 15 )
+nodes/Jump/node = SubResource( 16 )
 nodes/Jump/position = Vector2( 460, 660 )
-nodes/Move/node = SubResource( 16 )
+nodes/Move/node = SubResource( 17 )
 nodes/Move/position = Vector2( 700, 260 )
-nodes/Run/node = SubResource( 17 )
+nodes/Run/node = SubResource( 18 )
 nodes/Run/position = Vector2( 360, 420 )
-nodes/Shot/node = SubResource( 18 )
+nodes/Shot/node = SubResource( 19 )
 nodes/Shot/position = Vector2( 920, 480 )
 nodes/output/position = Vector2( 1100, 480 )
-node_connections = [ "output", 0, "Shot", "Move", 0, "Idle", "Move", 1, "Run", "Shot", 0, "Move", "Shot", 1, "Jump" ]
+node_connections = [ "output", 0, "Shot", "Shot", 0, "Move", "Shot", 1, "Jump", "Move", 0, "Idle", "Move", 1, "Run" ]
 
-[sub_resource type="SpatialMaterial" id=20]
+[sub_resource type="SpatialMaterial" id=21]
 albedo_color = Color( 0.956863, 1, 0.243137, 1 )
 
-[sub_resource type="CubeMesh" id=21]
-material = SubResource( 20 )
+[sub_resource type="CubeMesh" id=22]
+material = SubResource( 21 )
 size = Vector3( 5, 1, 5 )
 
-[sub_resource type="PlaneMesh" id=22]
+[sub_resource type="PlaneMesh" id=23]
 
 [node name="Armature" type="Spatial"]
 
@@ -1857,9 +1889,11 @@ anims/Idle = SubResource( 10 )
 anims/Jump = SubResource( 11 )
 anims/Run = SubResource( 12 )
 anims/T-Pose = SubResource( 13 )
+anims/down = SubResource( 14 )
+anims/reset = SubResource( 24 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 19 )
+tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Move/blend_amount = 0.0
@@ -1867,10 +1901,12 @@ parameters/Shot/active = false
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.998547, 0, -0.0538787, 0, 1, 0, 0.0538787, 0, 0.998547, 0, -0.5, 0.722227 )
-mesh = SubResource( 21 )
+visible = false
+mesh = SubResource( 22 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 2.02313e-07, 6.35161, -3.78366, 4.88208e-07, -2.05249, -11.7088, -10.515, 2.6911e-08, -6.16436e-07, -17, 2.02539, 3.33655 )
-mesh = SubResource( 22 )
+visible = false
+mesh = SubResource( 23 )
 material/0 = null
