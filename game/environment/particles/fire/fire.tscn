@@ -1,39 +1,39 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://environment/particles/fire/fire_02.png" type="Texture" id=1]
 [ext_resource path="res://environment/anito/anito.tscn" type="PackedScene" id=2]
 
-[sub_resource type="GDScript" id=13]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Spatial
 
-onready var fire = $CPUParticles
+onready var fire = $AnimationPlayer
 signal done
 
 func interact(is_off: bool):
-	if is_off:
-		fire.emitting=false
-		#yield(fire,\"\")
+	if is_off:  
+		fire.play(\"simmer_down\")
+		yield(fire,\"animation_finished\")
 		emit_signal(\"done\")
 	else:
-		fire.emitting=true
-		#yield(fire
+		fire.play(\"lit_up\")
+		yield(fire, \"animation_finished\")
 		emit_signal(\"done\")
 "
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0.901961, 0.623529, 1, 1, 0.168627, 0.0156863, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=4]
 max_value = 4.0
 _data = [ Vector2( 0.0787037, 0.254545 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.690909 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=6]
 direction = Vector3( 0, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 20, 0 )
@@ -43,10 +43,10 @@ linear_accel = 5.0
 angle = 360.0
 angle_random = 1.0
 scale = 12.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=7]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -57,13 +57,13 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="QuadMesh" id=7]
-material = SubResource( 6 )
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 5.9394, 0.215898, 1.3712 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=10]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -73,24 +73,54 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="QuadMesh" id=10]
-material = SubResource( 9 )
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=12]
 max_value = 3.0
 _data = [ Vector2( 0.165254, 0.119318 ), 0.0, 0.0, 0, 0, Vector2( 0.822034, 0.429545 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=12]
+[sub_resource type="Gradient" id=13]
 colors = PoolColorArray( 1, 0.898039, 0.509804, 1, 1, 0.188235, 0, 1 )
 
+[sub_resource type="Animation" id=14]
+resource_name = "lit_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "simmer_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [node name="Spatial" type="Spatial"]
-script = SubResource( 13 )
+script = SubResource( 1 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.284776 )
 amount = 30
-process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 7 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
 
 [node name="Area" type="Area" parent="." groups=[
 "fire",
@@ -99,7 +129,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43577, 0.904879, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -1.68175, -0.744563, 6.49497 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Area2" type="Area" parent="." groups=[
 "fire",
@@ -108,12 +138,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14274, 0.904879, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area2"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -1.68175, -0.744563, 6.49497 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492568, 0.462444, 0.37143 )
+visible = false
 amount = 30
-mesh = SubResource( 10 )
+mesh = SubResource( 11 )
 direction = Vector3( 0, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 20 )
@@ -123,8 +154,12 @@ linear_accel = 5.0
 angle = 360.0
 angle_random = 1.0
 scale_amount = 10.0
-scale_amount_curve = SubResource( 11 )
-color_ramp = SubResource( 12 )
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 13 )
 
 [node name="anito-glb" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75553, -1.95656, -0.312819 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lit_up = SubResource( 14 )
+anims/simmer_down = SubResource( 15 )

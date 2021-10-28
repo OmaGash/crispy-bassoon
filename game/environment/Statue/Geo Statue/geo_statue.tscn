@@ -15,22 +15,24 @@ albedo_color = Color( 0.952941, 0.419608, 0.309804, 1 )
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 2, 2, 0.5 )
 
-[node name="Area" type="Area"]
+[node name="Area" type="Area" groups=[
+"interactable",
+]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 25
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84698, 4.66628, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36774, 5.88727, 1.8265 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01337, 0.44905, 0.0101273 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01337, 0.44905, 0.0101271 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="Position3D" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.1854 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8487, 1.87235, 2.36146 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Position3D"]
 transform = Transform( 0.999462, -0.0327889, 0, 0.0327889, 0.999462, 0, 0, 0, 1, -0.101036, 1.10021, 0 )
