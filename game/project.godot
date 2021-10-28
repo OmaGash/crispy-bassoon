@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Statue",
 "language": "GDScript",
-"path": "res://protopyte/za_warudo/statue.gd"
+"path": "res://environment/statues/statue.gd"
 }, {
 "base": "Control",
 "class": "Warning",

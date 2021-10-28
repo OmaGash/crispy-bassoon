@@ -1,5 +1,5 @@
 extends Area
-class_name Statue, "res://characters/concept/statue/statue-earth.png"
+class_name Statue,"res://characters/concept/statue/statue-earth.png"
 export var link:NodePath
 
 onready var link_noded: = get_node(link)
