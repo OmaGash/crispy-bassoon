@@ -1,27 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/minigames/palo_sebo/custom_player.gd" type="Script" id=3]
-[ext_resource path="res://environment/minigames/palo_sebo/palo_sebo.gd" type="Script" id=4]
-[ext_resource path="res://environment/minigames/palo_sebo/ui.gd" type="Script" id=5]
-[ext_resource path="res://environment/minigames/palo_sebo/body.material" type="Material" id=6]
-[ext_resource path="res://environment/minigames/palo_sebo/b2.material" type="Material" id=7]
-[ext_resource path="res://environment/minigames/palo_sebo/flag stand.material" type="Material" id=8]
-[ext_resource path="res://environment/minigames/palo_sebo/flag.material" type="Material" id=9]
+[ext_resource path="res://environment/minigames/palo_sebo/flag stand.material" type="Material" id=1]
+[ext_resource path="res://environment/minigames/palo_sebo/flag.material" type="Material" id=2]
+[ext_resource path="res://environment/minigames/palo_sebo/body.material" type="Material" id=3]
+[ext_resource path="res://environment/minigames/palo_sebo/b2.material" type="Material" id=4]
 
-[sub_resource type="PlaneMesh" id=1]
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 8, 0.25, 1 )
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 0.05, 1 )
-
-[sub_resource type="CubeMesh" id=4]
-size = Vector3( 2, 0.1, 2 )
-
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "bamboo blue"
 surfaces/0 = {
 "aabb": AABB( -1, -1, -1.06813, 2.46836, 1.99327, 2.19209 ),
@@ -30,7 +14,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 5634,
-"material": ExtResource( 6 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 3676
@@ -42,7 +26,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1344,
-"material": ExtResource( 7 ),
+"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 896
@@ -54,7 +38,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 2424,
-"material": ExtResource( 9 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 523
@@ -66,106 +50,16 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1008,
-"material": ExtResource( 8 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 235
 }
 
-[node name="palo_sebo" type="Node"]
-script = ExtResource( 4 )
-
-[node name="ui" type="CanvasLayer" parent="."]
-pause_mode = 2
-script = ExtResource( 5 )
-
-[node name="start_button" type="CenterContainer" parent="ui"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="start" type="Button" parent="ui/start_button"]
-margin_left = 598.0
-margin_top = 350.0
-margin_right = 681.0
-margin_bottom = 370.0
-text = "Start Game"
-
-[node name="info" type="Panel" parent="ui"]
-margin_right = 1280.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="time" type="Label" parent="ui/info"]
-margin_top = 13.0
-margin_right = 1280.0
-margin_bottom = 27.0
-text = "Time Left:"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="win" type="AcceptDialog" parent="ui"]
-visible = true
-margin_left = 656.937
-margin_top = 319.03
-margin_right = 739.937
-margin_bottom = 377.03
-popup_exclusive = true
-window_title = "Victory!"
-dialog_text = "Done within: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7334, 0 )
-script = ExtResource( 3 )
-
-[node name="ground" type="StaticBody" parent="."]
-
-[node name="MeshInstance" type="MeshInstance" parent="ground"]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+[node name="bamboo blue" type="MeshInstance"]
+transform = Transform( 0.325962, 0, 0, 0, 7.25466, 0, 0, 0, 0.326543, 0.0186132, 7.18706, 0.557466 )
 mesh = SubResource( 1 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
-shape = SubResource( 2 )
-
-[node name="time_limit" type="Timer" parent="."]
-wait_time = 60.0
-
-[node name="goal" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.8478, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="goal"]
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="goal"]
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="camera" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 5.52593, 14.9451 )
-player_scene = NodePath("../player")
-
-[node name="bamboo blue" type="MeshInstance" parent="."]
-transform = Transform( 0.325962, 0, 0, 0, 7.25466, 0, 0, 0, 0.326543, 0.0186132, 7.18706, 0.17604 )
-mesh = SubResource( 5 )
-material/0 = ExtResource( 7 )
+material/0 = ExtResource( 4 )
 material/1 = null
 material/2 = null
 material/3 = null
-
-[connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
-[connection signal="body_entered" from="goal" to="." method="_on_goal_body_entered"]
