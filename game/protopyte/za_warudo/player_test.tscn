@@ -4,7 +4,7 @@
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 resource_name = "playertest"
 script/source = "extends Node
 
@@ -14,7 +14,7 @@ func _ready():
 	warning.warn(get_tree(), \"tagal magload za warudo amp\", \"bat may bagong test scene?\")
 "
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Label
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func state(new_state):
 	text = \"Current state: \" + str(new_state)
 "
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Button
 
 var is_interacting = false
@@ -40,7 +40,7 @@ func _on_interact_pressed() -> void:
 	release_focus()
 "
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=4]
 script/source = "extends PanelContainer
 
 
@@ -53,20 +53,20 @@ func _on_Button_pressed() -> void:
 	$VBoxContainer/button.release_focus()
 "
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 10, 0.5, 1 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 20, 1, 2 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 5, 0.75, 1 )
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=8]
 size = Vector3( 10, 2, 2 )
 
 [node name="world" type="Node"]
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="ui" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -106,7 +106,7 @@ margin_top = 18.0
 margin_right = 164.0
 margin_bottom = 32.0
 text = "Current State: "
-script = SubResource( 6 )
+script = SubResource( 2 )
 
 [node name="legend" type="Label" parent="ui/debug/states/vbox"]
 margin_top = 36.0
@@ -132,7 +132,7 @@ margin_right = 164.0
 margin_bottom = 227.0
 size_flags_vertical = 3
 text = "Change state to interact"
-script = SubResource( 7 )
+script = SubResource( 3 )
 
 [node name="menu" type="Button" parent="ui/debug/states/vbox"]
 margin_top = 231.0
@@ -147,7 +147,7 @@ margin_left = 264.0
 margin_top = 33.0
 margin_right = 515.0
 margin_bottom = 195.0
-script = SubResource( 8 )
+script = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -184,32 +184,30 @@ max_jumps = 5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 2 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="StaticBody3" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47918, 6.43896, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
-mesh = SubResource( 2 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 transform = Transform( 0.951664, -0.307141, 0, 0.307141, 0.951664, 0, 0, 0, 1, 10.3601, 0.5, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="camera" parent="." instance=ExtResource( 2 )]

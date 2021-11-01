@@ -2,6 +2,9 @@ extends Control
 
 var next_scene = "res://protopyte/za_warudo/world.tscn"
 
+func _ready():
+	g.in_game = false
+
 func _on_start_pressed():
 	loader.load_scene(next_scene, self)
 

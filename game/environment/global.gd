@@ -7,6 +7,7 @@ var player_name = "xXDesTr00yerXx" setget _change_name
 var artifact_passive = 3 #Passive unlocks
 var artifact_active = 2 #active unlocks
 var current_artifacts = [-1, -1] setget _artifact_swap
+var in_game = false
 
 func _ready():#This node will run regardless of pausing
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -16,10 +17,10 @@ func _change_name(new_name: String):
 	Dialogic.set_variable("player_name", new_name)
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and in_game:
 		pause()
-		emit_signal("toggle_menu", load("res://ui/artifax/artifax.tscn"))
-	if event.is_action_pressed("artifax"):
+		emit_signal("toggle_menu", load("res://ui/pause_menu.tscn"))
+	if event.is_action_pressed("artifax") and in_game:
 		pause()
 		emit_signal("toggle_menu", load("res://ui/artifax/artifax.tscn"))
 

@@ -19,6 +19,7 @@ var dir = 1 #-1 is left
 var hasoffer = false setget toggle_offer
 
 func _ready():
+	g.in_game = true
 	translation.z = 0 
 	_speed = 10
 	_gravity = 50

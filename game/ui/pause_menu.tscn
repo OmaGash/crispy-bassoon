@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/pause_menu.gd" type="Script" id=1]
+
+[node name="pause" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = 327.0
+margin_right = 112.0
+margin_bottom = -328.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resume" type="Button" parent="items"]
+margin_right = 224.0
+margin_bottom = 72.0
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="quit" type="Button" parent="items"]
+margin_top = 76.0
+margin_right = 224.0
+margin_bottom = 113.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "Quit"
+
+[connection signal="pressed" from="items/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
