@@ -42,8 +42,9 @@ omni_attenuation = 2.37841
 [node name="Armature" parent="Armature" index="0"]
 transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
 
-[node name="AnimationTree" parent="Armature" index="2"]
-parameters/Fall/blend_amount = 0
+[node name="on_floor" type="RayCast" parent="."]
+enabled = true
+collision_mask = 11
 
 [connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
 [connection signal="area_exited" from="interact" to="." method="_on_interact_area_exited"]

@@ -32,7 +32,10 @@ func _physics_process(delta):
 	#Check if current state matches any of the finite states
 	match current_state:
 		_state.IDLE:
-			
+			jumps = 0
+			velocity.x = 0
+			velocity.y = 0
+			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 0, BLEND_TO_RUN)
 			anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
 			#Idle animation goes here.
 			#$anim.play("idle")
@@ -40,14 +43,27 @@ func _physics_process(delta):
 			_move()#You can only move if you're idle/moving
 		_state.MOVE:
 			#print("MOVE")
+			jumps = 0 if $on_floor.is_colliding() else jumps
 			_move()
+			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 0, BLEND_TO_RUN)
 			anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN)
 			#Damage indicator here
 		_state.INTERACT:#Interact code goes here
 			#print("INTERACT")
 			anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
 			velocity.x = 0
-	rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0) if dir == -1 else Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
+		_state.JUMP:
+			_move()
+			anim_tree["parameters/Shot/active"] = true
+			if velocity.y < 0:
+				self.current_state = _state.FALL
+		_state.FALL:
+			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 1, BLEND_IDLE)
+			_move()
+			print(is_on_floor(), $on_floor.is_colliding())
+			if is_on_floor() and $on_floor.is_colliding():
+				self.current_state = _state.IDLE
+	rotation_degrees.y = lerp(rotation_degrees.y, -30, .2) if dir == -1 else lerp(rotation_degrees.y, 110, .2)
 	velocity = move_and_slide(velocity, UP)
 
 #func _unhandled_input(event: InputEvent):
@@ -96,17 +112,19 @@ func _move():
 	
 	#Movement controls
 	if Input.is_action_just_pressed("move_up") and jumps < max_jumps:
-		self.current_state = _state.MOVE
+		self.current_state = _state.JUMP
 		#print("tomove")
 		velocity.y = _jump_force
 		jumps += 1
+		
+	
 	if Input.is_action_pressed("move_left"):
-		self.current_state = _state.MOVE
+		self.current_state = _state.MOVE if current_state == _state.IDLE else current_state
 		velocity.x = -_speed
 		dir = -1
 #		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, -30, .2), 0)
 	elif Input.is_action_pressed("move_right"):
-		self.current_state = _state.MOVE
+		self.current_state = _state.MOVE if current_state == _state.IDLE else current_state
 		velocity.x = _speed
 		dir = 1
 #		rotation_degrees = Vector3(0, lerp(rotation_degrees.y, 110, .2), 0)
@@ -114,15 +132,12 @@ func _move():
 		#This makes sure na the current_state will only change kapag current_state == _state.MOVE
 		self.current_state = _previous_state if current_state == _state.MOVE else current_state
 		velocity.x = 0#Stop the player from moving"Armature"
-		
-	if !is_on_floor():
-		if jumps == 0:
-			jumps += 1
-			anim_tree["parameters/Shot/active"] = true
-		self.current_state = _state.MOVE
-	else:
-		jumps = 0
-		anim_tree["parameters/Shot/active"] = false
+	
+	#Check if player is falling
+	if velocity.y < 0 and !is_on_floor() and !$on_floor.is_colliding() and current_state != _state.FALL:
+		print("falling at ", velocity.y)
+		jumps += 1
+		self.current_state = _state.FALL
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
 	#print(body.name)

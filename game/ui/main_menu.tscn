@@ -12,6 +12,7 @@ func _ready():
 	popup()
 	list.add_item(\"Za warudo(default)\")
 	list.add_item(\"main game\")
+	list.add_item(\"player lang laman test scene\")
 "
 
 [node name="main_menu" type="Control"]
@@ -29,7 +30,6 @@ margin_left = 973.0
 margin_top = 236.0
 margin_right = 1285.0
 margin_bottom = 452.0
-popup_exclusive = true
 window_title = "Debug"
 script = SubResource( 1 )
 __meta__ = {

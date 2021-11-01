@@ -21,7 +21,7 @@ func toggle_menu(menu:PackedScene):#Called from global.gd
 			menu_is_open = false
 
 func _process(delta):
-	$debug/states/vbox/fps.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS))
+	$debug/states/vbox/fps.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS))#these 2 lines are for debugging only, remove as needed
 	$debug/states/vbox/offer.text = "Has offer: " + str($"../player".hasoffer)
 
 func _on_menu_pressed():

@@ -17,3 +17,5 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://protopyte/za_warudo/world.tscn"
 		1:
 			next_scene = "res://environment/chapters/ch0/at_the_bay.tscn"
+		2:
+			next_scene = "res://protopyte/za_warudo/player_test.tscn"

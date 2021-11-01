@@ -1,0 +1,219 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tools/camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/ui.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=3]
+resource_name = "playertest"
+script/source = "extends Node
+
+func _ready():
+	var warning = load(\"res://ui/warning.tscn\").instance()
+	add_child(warning)
+	warning.warn(get_tree(), \"tagal magload za warudo amp\", \"bat may bagong test scene?\")
+"
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Label
+
+func _ready() -> void:
+	gd.get_world().get_node(\"player\").connect(\"state_changed\", self, \"state\")
+
+func state(new_state):
+	text = \"Current state: \" + str(new_state)
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Button
+
+var is_interacting = false
+
+func _ready() -> void:
+	pass
+
+
+func _on_interact_pressed() -> void:
+	get_tree().root.get_node(\"world\").get_node(\"player\").current_state = 5 if not is_interacting else 0
+	text = \"Change state to interact\" if is_interacting else \"Change state to idle\"
+	is_interacting = !is_interacting
+	release_focus()
+"
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends PanelContainer
+
+
+func _ready() -> void:
+	pass
+
+
+func _on_Button_pressed() -> void:
+	g.player_name = $VBoxContainer/new_name.text
+	$VBoxContainer/button.release_focus()
+"
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 10, 0.5, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 20, 1, 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 5, 0.75, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 10, 2, 2 )
+
+[node name="world" type="Node"]
+script = SubResource( 3 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="debug" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="states" type="PanelContainer" parent="ui/debug"]
+margin_left = 55.0
+margin_top = 25.0
+margin_right = 233.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="ui/debug/states"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 171.0
+margin_bottom = 291.0
+
+[node name="fps" type="Label" parent="ui/debug/states/vbox"]
+margin_right = 164.0
+margin_bottom = 14.0
+text = "FPS:"
+
+[node name="state" type="Label" parent="ui/debug/states/vbox"]
+margin_top = 18.0
+margin_right = 164.0
+margin_bottom = 32.0
+text = "Current State: "
+script = SubResource( 6 )
+
+[node name="legend" type="Label" parent="ui/debug/states/vbox"]
+margin_top = 36.0
+margin_right = 164.0
+margin_bottom = 152.0
+text = "0 IDLE
+1 MOVE
+2 FALL
+3 JUMP
+4 ABNORMAL
+5 INTERACT
+6 ALERT"
+
+[node name="offer" type="Label" parent="ui/debug/states/vbox"]
+margin_top = 156.0
+margin_right = 164.0
+margin_bottom = 170.0
+text = "has offer"
+
+[node name="interact" type="Button" parent="ui/debug/states/vbox"]
+margin_top = 174.0
+margin_right = 164.0
+margin_bottom = 227.0
+size_flags_vertical = 3
+text = "Change state to interact"
+script = SubResource( 7 )
+
+[node name="menu" type="Button" parent="ui/debug/states/vbox"]
+margin_top = 231.0
+margin_right = 164.0
+margin_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Open Menu"
+
+[node name="name" type="PanelContainer" parent="ui/debug"]
+margin_left = 264.0
+margin_top = 33.0
+margin_right = 515.0
+margin_bottom = 195.0
+script = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/debug/name"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 244.0
+margin_bottom = 155.0
+
+[node name="Label" type="Label" parent="ui/debug/name/VBoxContainer"]
+margin_right = 237.0
+margin_bottom = 14.0
+text = "Enter name:"
+
+[node name="new_name" type="TextEdit" parent="ui/debug/name/VBoxContainer"]
+margin_top = 18.0
+margin_right = 237.0
+margin_bottom = 124.0
+size_flags_vertical = 3
+text = "Enter Text here"
+
+[node name="button" type="Button" parent="ui/debug/name/VBoxContainer"]
+margin_top = 128.0
+margin_right = 237.0
+margin_bottom = 148.0
+text = "Change name"
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.53239, 0 )
+max_jumps = 5
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47918, 6.43896, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 0.951664, -0.307141, 0, 0.307141, 0.951664, 0, 0, 0, 1, 10.3601, 0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="camera" parent="." instance=ExtResource( 2 )]
+player_scene = NodePath("../player")
+
+[connection signal="pressed" from="ui/debug/states/vbox/interact" to="ui/debug/states/vbox/interact" method="_on_interact_pressed"]
+[connection signal="pressed" from="ui/debug/name/VBoxContainer/button" to="ui/debug/name" method="_on_Button_pressed"]
