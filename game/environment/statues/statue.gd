@@ -9,11 +9,17 @@ var is_interacting = false
 
 func _ready():
 	if link_noded==null:
+		var warning = load("res://ui/warning.tscn").instance()
+		add_child(warning)
+		warning.warn(get_tree(), name + " linked node was not assigned.")
 		print(name + " linked node was not assigned.")
 		return
 	
 func _interact(player):
 	if link_noded==null:
+		var warning = load("res://ui/warning.tscn").instance()
+		add_child(warning)
+		warning.warn(get_tree(), name + " linked node was not assigned.")
 		print(name + " linked node was not assigned.")
 		return
 	if is_off:#If statue is disabled

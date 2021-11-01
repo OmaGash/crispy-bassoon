@@ -29,3 +29,5 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 popup_exclusive = true
 dialog_text = "This is used for making warning dialogs on the fly, replace this text with the error message."
+
+[connection signal="confirmed" from="center/popup_warn" to="." method="_on_popup_warn_confirmed"]
