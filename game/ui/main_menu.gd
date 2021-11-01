@@ -22,3 +22,5 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://environment/chapters/ch0/at_the_bay.tscn"
 		2:
 			next_scene = "res://protopyte/za_warudo/player_test.tscn"
+		3:
+			next_scene = "res://environment/minigames/shato/world.tscn"

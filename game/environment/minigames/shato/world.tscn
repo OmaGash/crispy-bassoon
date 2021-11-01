@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://environment/minigames/shato/src/STICK.gd" type="Script" id=1]
 [ext_resource path="res://environment/minigames/shato/src/NPC.gd" type="Script" id=2]
 [ext_resource path="res://environment/minigames/shato/b2_001.material" type="Material" id=3]
 [ext_resource path="res://environment/minigames/shato/b3.material" type="Material" id=4]
 [ext_resource path="res://environment/minigames/shato/base_001.material" type="Material" id=5]
+[ext_resource path="res://environment/minigames/shato/shato.gd" type="Script" id=6]
+[ext_resource path="res://ui/ui.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 15, 0.1, 10 )
@@ -104,6 +106,24 @@ surfaces/2 = {
 }
 
 [node name="world" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = -2
+script = ExtResource( 7 )
+
+[node name="strength" type="ProgressBar" parent="ui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -59.1841
+margin_right = -24.0
+margin_bottom = -14.1841
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StaticBody" type="StaticBody" parent="."]
 __meta__ = {
@@ -162,19 +182,15 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 shape = SubResource( 7 )
 
-[node name="ui" type="CanvasLayer" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="shot" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3141, 4.27723, 0.130807 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9017, 4.27723, 0.130807 )
 
 [node name="CollisionShape" type="CollisionShape" parent="shot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8916, -3.99912, 0 )
 shape = SubResource( 8 )
 
 [node name="Cylinder" type="MeshInstance" parent="shot"]
-transform = Transform( 0.00111253, 7.73945e-08, 0.0665237, 0.0637367, -7.87572e-08, -0.00116117, 2.73781e-09, 1.80203, -2.90784e-09, -24.0083, -3.90975, -0.0459472 )
 mesh = SubResource( 9 )
 material/0 = null
 material/1 = null

@@ -13,6 +13,7 @@ func _ready():
 	list.add_item(\"Za warudo(default)\")
 	list.add_item(\"main game\")
 	list.add_item(\"player lang laman test scene\")
+	list.add_item(\"shato ng ina mo\")
 "
 
 [node name="main_menu" type="Control"]
