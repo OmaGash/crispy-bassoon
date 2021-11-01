@@ -5,6 +5,10 @@ signal hit
 onready var strength: ProgressBar = $ui/strength
 var started: int = -1 #-1 not started, 0 started, 1 passed 100, 2 stopped
 
+func _ready():
+	print(rotation.angle_to(Vector3(0,11,0)))
+	$ui/ViewportContainer/Viewport.world = get_tree().root.get_viewport().world
+	$ui/ViewportContainer/Viewport/Camera.current = true
 #func _unhandled_input(event):
 #	while event.is_action_pressed("ui_accept") and started != 2:
 #		started = 0
@@ -31,4 +35,5 @@ func _process(delta):
 	elif Input.is_action_just_released("ui_accept"):
 		print(strength.value)
 		emit_signal("hit", strength.value)
+		$ui/ViewportContainer.visible = true
 		set_process(false)
