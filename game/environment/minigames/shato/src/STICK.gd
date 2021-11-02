@@ -4,11 +4,15 @@ export var force2 = Vector3(0,0,1)
 var chance = 1
 var hold_limit = 10
 
+
 func _ready():
 	get_parent().connect("hit", self, "hit")
 
 func hit(force: float):
 	linear_velocity.x = force
+	angular_velocity.z=force
+	var y=force/2
+	linear_velocity.y=y
 	gravity_scale = 1
 
 #func _unhandled_input(event): 
