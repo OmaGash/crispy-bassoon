@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://environment/minigames/shato/src/STICK.gd" type="Script" id=1]
 [ext_resource path="res://environment/minigames/shato/src/NPC.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://environment/minigames/shato/base_001.material" type="Material" id=5]
 [ext_resource path="res://environment/minigames/shato/shato.gd" type="Script" id=6]
 [ext_resource path="res://ui/ui.gd" type="Script" id=7]
+[ext_resource path="res://characters/NPC/NPC1/npc1.tscn" type="PackedScene" id=8]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 15, 0.1, 10 )
@@ -62,6 +63,7 @@ surfaces/2 = {
 [sub_resource type="CapsuleMesh" id=6]
 
 [sub_resource type="CapsuleShape" id=7]
+height = 2.68446
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.1, 0.1, 1.9 )
@@ -210,32 +212,34 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="ui/angle_z/HBoxContainer"]
-margin_top = 7.0
+margin_top = 6.0
 margin_right = 21.0
-margin_bottom = 21.0
+margin_bottom = 20.0
 text = "-35"
 valign = 2
 
 [node name="Label" type="Label" parent="ui/angle_z/HBoxContainer"]
 margin_left = 25.0
-margin_top = 7.0
-margin_right = 355.0
-margin_bottom = 21.0
+margin_top = 6.0
+margin_right = 354.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "0"
 align = 1
 valign = 2
 
 [node name="Label3" type="Label" parent="ui/angle_z/HBoxContainer"]
-margin_left = 359.0
-margin_top = 7.0
-margin_right = 375.0
-margin_bottom = 21.0
+margin_left = 358.0
+margin_top = 6.0
+margin_right = 374.0
+margin_bottom = 20.0
 text = "35"
 valign = 2
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040792, -0.0510974, 0.0366821 )
+collision_layer = 8
+collision_mask = 1033
 __meta__ = {
 "_edit_group_": true
 }
@@ -265,7 +269,9 @@ current = true
 fov = 58.6683
 
 [node name="STICK" type="RigidBody" parent="."]
-transform = Transform( 0.677967, -0.735093, 0, 0.735093, 0.677967, 0, 0, 0, 1, -15.5911, 2.00056, -0.0236225 )
+transform = Transform( 0.677967, -0.735093, 0, 0.735093, 0.677967, 0, 0, 0, 1, -16, 2, -0.25 )
+collision_layer = 32
+collision_mask = 1033
 gravity_scale = 0.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -283,14 +289,21 @@ material/1 = null
 material/2 = null
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.831, 2, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, 3, 0 )
+collision_layer = 1024
+collision_mask = 0
 script = ExtResource( 2 )
 
+[node name="npc1" parent="KinematicBody" instance=ExtResource( 8 )]
+transform = Transform( -0.871163, 0.0436529, -4.92333, -4.92352, -0.00772411, 0.871128, -2.15214e-07, 4.9998, 0.044331, 2.21716, -1.14789, -7.29895 )
+
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+visible = false
 mesh = SubResource( 6 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5762, -0.224882 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
