@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://environment/minigames/shato/src/STICK.gd" type="Script" id=1]
 [ext_resource path="res://environment/minigames/shato/src/NPC.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://environment/minigames/shato/shato.gd" type="Script" id=6]
 [ext_resource path="res://ui/ui.gd" type="Script" id=7]
 [ext_resource path="res://characters/NPC/NPC1/npc1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tools/camera.gd" type="Script" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 15, 0.1, 10 )
@@ -63,7 +64,7 @@ surfaces/2 = {
 [sub_resource type="CapsuleMesh" id=6]
 
 [sub_resource type="CapsuleShape" id=7]
-height = 2.68446
+height = 2.36
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.1, 0.1, 1.9 )
@@ -141,8 +142,10 @@ handle_input_locally = false
 render_target_update_mode = 0
 
 [node name="Camera" type="Camera" parent="ui/ViewportContainer/Viewport"]
-transform = Transform( -1, -7.6194e-09, 8.70901e-08, 0, 0.996195, 0.0871557, -8.74228e-08, 0.0871557, -0.996195, 0, 4.24161, -13.5557 )
+transform = Transform( -1, -7.61939e-09, 8.70901e-08, 0, 0.996195, 0.0871557, -8.74228e-08, 0.0871557, -0.996195, 0, 3.01318, -13.5557 )
 current = true
+script = ExtResource( 9 )
+player_scene = NodePath("../../../../STICK")
 
 [node name="angle_y" type="VSlider" parent="ui"]
 margin_left = 47.7117
@@ -274,9 +277,6 @@ collision_layer = 32
 collision_mask = 1033
 gravity_scale = 0.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape" type="CollisionShape" parent="STICK"]
 shape = SubResource( 4 )
@@ -289,21 +289,21 @@ material/1 = null
 material/2 = null
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.387184, 0 )
 collision_layer = 1024
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="npc1" parent="KinematicBody" instance=ExtResource( 8 )]
-transform = Transform( -0.871163, 0.0436529, -4.92333, -4.92352, -0.00772411, 0.871128, -2.15214e-07, 4.9998, 0.044331, 0, 1.16196e-07, -2.65826 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.16196e-07, -2.65826 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45899, 1.79478, -1.16963 )
 mesh = SubResource( 6 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5762, -0.224882 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.35217, -2.47238 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]

@@ -33,6 +33,9 @@ func _interact(player):
 				player.hasoffer = false if not is_in_group("geo") else true
 		else:
 			print("offer plz")
+			var dialog = Dialogic.start("no_offer")
+			add_child(dialog)
+			yield(dialog, "dialogic_signal")
 			player.current_state = 0#Tell player that he needs an offer
 	else:#If statue is enabled
 		if player.hasoffer == false:

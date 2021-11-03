@@ -57,6 +57,18 @@
 					},
 					"metadata": {
 						"color": null,
+						"folded": true
+					}
+				},
+				"tooltips": {
+					"files": [
+						"timeline-1635930874.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
 						"folded": false
 					}
 				}

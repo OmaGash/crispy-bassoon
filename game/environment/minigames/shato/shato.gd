@@ -33,9 +33,9 @@ func _process(delta):
 			started = 1
 			strength.value -= 1
 		started = 0 if started != 1 else started
-		print(started)
+		#print(started)
 	elif Input.is_action_just_released("ui_accept"):
-		print(strength.value)
+#		print(strength.value)
 		emit_signal("hit", strength.value, angle_y, angle_z)
 		$ui/ViewportContainer.visible = true
 		$ui/angle_y.editable = false

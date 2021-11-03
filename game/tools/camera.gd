@@ -5,10 +5,10 @@ extends Camera
 export var player_scene: NodePath #Add the player scene from the editor
 export var follow_x: bool = true#Whether the camera will follow the player on the x axis
 export var follow_y: bool = true#Whether the camera will follow the player on the y axis
+export(int, "Follow Up and Down", "Follow Down Only", "Follow Up Only") var followY_options
 export var follow_offset: Vector2 = Vector2(0,0)# The point where the camera will move
 export var smoothing: float = .01
-
-onready var player_node: PhysicsBody = get_node(player_scene) if has_node(player_scene) else null
+onready var player_node: Spatial = get_node(player_scene) if has_node(player_scene) else null
 
 func _ready():
 	if player_node == null:
@@ -28,9 +28,9 @@ func _physics_process(delta: float):
 		if player_node.translation.x > translation.x + follow_offset.x:#Right offset
 			translation.x = lerp(translation.x, player_node.translation.x - follow_offset.x, smoothing)
 	if follow_y:
-		if player_node.translation.y < translation.y - follow_offset.y:#Left offset
+		if player_node.translation.y < translation.y - follow_offset.y and (followY_options == 0 or followY_options == 2):#Up offset
 			translation.y = lerp(translation.y, player_node.translation.y + follow_offset.y, smoothing)
-		if player_node.translation.y > translation.y + follow_offset.y:#Right offset
+		if player_node.translation.y > translation.y + follow_offset.y and (followY_options == 0 or followY_options == 1):#Down offset
 			translation.y = lerp(translation.y, player_node.translation.y - follow_offset.y, smoothing)
 #	translation.x = player_node.translation.x
 #	translation.y = player_node.translation.y + 4

@@ -16,43 +16,26 @@ var state = BEFORE
 onready var stick = get_parent().get_node("STICK")
 onready var ap = $npc1/AnimationPlayer
 func _ready():
-	pass
+	$"../".connect("hit", self, "hit")
+	set_physics_process(false)
 	
-
-	
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept"):
-		set_physics_process(true)
+func hit(_var1, _var2, _var3):
+	set_physics_process(true)
 		
 func _physics_process(delta):
 	var pos = stick.transform.origin
-#	print(pos)
-	
+
+	ap.play("Running-loop")
+	if stick:
+		direction = (stick.translation - translation).normalized()
+		if not is_on_floor():
+			direction.y -= gravity
 		
-	match state:
-		BEFORE:
-#			if translation[2] >= extreme_right[2]:
-#				speed = -speed
-#			if translation[2] <= extreme_left[2]:
-#				speed = -speed
-#			move_and_slide(Vector3(0,0, speed)) 
-			if self.transform.origin == Vector3(4, 3 , 0):
-				
-				ap.play("Idle-loop")
-			if stick.translation.z > -0.25 or stick.translation.x > -15 or stick.translation.y > 2:
-				state = AFTER
-		AFTER:
-			ap.play("Running-loop")
-			if stick:
-				direction = (stick.translation - translation).normalized()
-				if not is_on_floor():
-					direction.y -= gravity
-				
-				var x = stick.transform.origin.x
-				var z = stick.transform.origin.z
-				if not direction == self.transform.origin:
-					face_foward(x , z)
-				move_and_slide(direction * speed, Vector3(0 , 1 , 0 ))
+		var x = stick.transform.origin.x
+		var z = stick.transform.origin.z
+		if not direction == self.transform.origin:
+			face_foward(x , z)
+		move_and_slide(direction * speed, Vector3(0 , 1 , 0 ))
 			
 func face_foward(x, z):
 #	rotation.y = lerp(rotation.y, atan2(x, z ) - PI/2, .08)

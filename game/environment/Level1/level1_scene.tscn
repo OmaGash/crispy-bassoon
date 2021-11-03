@@ -185,7 +185,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 5, 0 )
 link = NodePath("../teleport")
 
 [node name="teleport" type="Sprite3D" parent="statues_and_offers"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32801, 3.80602, 3.29683 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3322, 0, 3.297 )
 texture = ExtResource( 7 )
 script = SubResource( 4 )
 
