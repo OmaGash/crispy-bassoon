@@ -21,9 +21,9 @@ var hasoffer = false setget toggle_offer
 func _ready():
 	g.in_game = true
 	translation.z = 0 
-	_speed = 3
-	_gravity = 9.8
-	_jump_force = 10
+	_speed = 10
+	_gravity = 50
+	_jump_force = 20
 	Dialogic.set_variable("name", g.player_name)
 	
 func _physics_process(delta):

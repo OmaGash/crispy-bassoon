@@ -13,19 +13,14 @@ onready var player_node: PhysicsBody = get_node(player_scene) if has_node(player
 func _ready():
 	if player_node == null:
 		print("/tools/camera.gd: I think you forgot to assign the player in the Camera node's inspector.")
-		var warning_scn: PackedScene = load("res://ui/warning.tscn")
-		var warning: Warning = warning_scn.instance(PackedScene.GEN_EDIT_STATE_INSTANCE)
-		
-		if get_parent().has_node("ui"):
-			get_parent().get_node("ui").add_child(warning)
-		set_process(false)
-		print(get_tree())
-		warning.warn(get_tree(), "Assign the player node  to the camera via inspector.", "Camera Node Error", true)
+		var warning = load("res://ui/warning.tscn").instance()
+		add_child(warning)
+		warning.warn(get_tree(), "/tools/camera.gd: I think you forgot to assign the player in the Camera node's inspector.")
+		set_physics_process(false)
 	current = true
 
 func _physics_process(delta: float):
 	#TODO: Add offset then smoothing
-	
 	#Check if the player's x is getting to the screen's edge
 	if follow_x:
 		if player_node.translation.x < translation.x - follow_offset.x:#Left offset
