@@ -391,7 +391,7 @@ nodes/Run/position = Vector2( 360, 420 )
 nodes/Shot/node = SubResource( 15 )
 nodes/Shot/position = Vector2( 1060, 480 )
 nodes/output/position = Vector2( 1300, 480 )
-node_connections = [ "output", 0, "Shot", "Move", 0, "Idle", "Move", 1, "Run", "Fall", 0, "Move", "Fall", 1, "Falling", "Shot", 0, "Fall", "Shot", 1, "Jump" ]
+node_connections = [ "output", 0, "Shot", "Shot", 0, "Fall", "Shot", 1, "Jump", "Fall", 0, "Move", "Fall", 1, "Falling", "Move", 0, "Idle", "Move", 1, "Run" ]
 
 [sub_resource type="SpatialMaterial" id=17]
 albedo_color = Color( 0.956863, 1, 0.243137, 1 )

@@ -295,7 +295,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="npc1" parent="KinematicBody" instance=ExtResource( 8 )]
-transform = Transform( -0.871163, 0.0436529, -4.92333, -4.92352, -0.00772411, 0.871128, -2.15214e-07, 4.9998, 0.044331, 2.21716, -1.14789, -7.29895 )
+transform = Transform( -0.871163, 0.0436529, -4.92333, -4.92352, -0.00772411, 0.871128, -2.15214e-07, 4.9998, 0.044331, 0, 1.16196e-07, -2.65826 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
 visible = false

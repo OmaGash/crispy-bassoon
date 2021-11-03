@@ -26,7 +26,7 @@ func _unhandled_input(event):
 		
 func _physics_process(delta):
 	var pos = stick.transform.origin
-	print(pos)
+#	print(pos)
 	
 		
 	match state:
@@ -42,7 +42,7 @@ func _physics_process(delta):
 			if stick.translation.z > -0.25 or stick.translation.x > -15 or stick.translation.y > 2:
 				state = AFTER
 		AFTER:
-		
+			ap.play("Running-loop")
 			if stick:
 				direction = (stick.translation - translation).normalized()
 				if not is_on_floor():
@@ -55,6 +55,7 @@ func _physics_process(delta):
 				move_and_slide(direction * speed, Vector3(0 , 1 , 0 ))
 			
 func face_foward(x, z):
-	rotation.y = atan2(x, z ) - PI/2
+#	rotation.y = lerp(rotation.y, atan2(x, z ) - PI/2, .08)
+	rotation.y = rotation.angle_to(stick.translation)
 
 

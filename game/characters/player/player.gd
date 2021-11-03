@@ -17,10 +17,11 @@ const BLEND_IDLE = 0.1
 var movement_state = 0
 var dir = 1 #-1 is left
 var hasoffer = false setget toggle_offer
+var base_z: float
 
 func _ready():
 	g.in_game = true
-	translation.z = 0 
+	base_z = translation.z
 	_speed = 10
 	_gravity = 50
 	_jump_force = 20
@@ -29,7 +30,7 @@ func _ready():
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
 	velocity.y -= _gravity * delta
-	if translation.z != 0: translation.z = 0
+#	print("base:", base_z, " ", translation.z)
 	#Check if current state matches any of the finite states
 	match current_state:
 		_state.IDLE:
@@ -44,6 +45,7 @@ func _physics_process(delta):
 			_move()#You can only move if you're idle/moving
 		_state.MOVE:
 			#print("MOVE")
+			velocity.z = 0
 			jumps = 0 if $on_floor.is_colliding() else jumps
 			_move()
 			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 0, BLEND_TO_RUN)
@@ -61,11 +63,12 @@ func _physics_process(delta):
 		_state.FALL:
 			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 1, BLEND_IDLE)
 			_move()
-			print(is_on_floor(), $on_floor.is_colliding())
+			#print(is_on_floor(), $on_floor.is_colliding())
 			if is_on_floor() and $on_floor.is_colliding():
 				self.current_state = _state.IDLE
 	rotation_degrees.y = lerp(rotation_degrees.y, -30, .2) if dir == -1 else lerp(rotation_degrees.y, 110, .2)
 	velocity = move_and_slide(velocity, UP)
+	translation.z = base_z
 
 #func _unhandled_input(event: InputEvent):
 #	if event is InputEventKey:
@@ -136,8 +139,9 @@ func _move():
 	
 	#Check if player is falling
 	if velocity.y < 0 and !is_on_floor() and !$on_floor.is_colliding() and current_state != _state.FALL:
-		print("falling at ", velocity.y)
-		jumps += 1
+		#print("falling at ", velocity.y)
+		#jumps += 1
+		anim_tree["parameters/Shot/active"] = false
 		self.current_state = _state.FALL
 #The player can only interact one interactable at a time
 func _on_interact_body_entered(body: Node):
