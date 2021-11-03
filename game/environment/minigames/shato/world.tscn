@@ -117,10 +117,10 @@ script = ExtResource( 7 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = -59.1841
-margin_right = -24.0
-margin_bottom = -14.1841
+margin_left = 23.7401
+margin_top = -60.444
+margin_right = -25.2599
+margin_bottom = -15.444
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,6 +141,98 @@ render_target_update_mode = 0
 [node name="Camera" type="Camera" parent="ui/ViewportContainer/Viewport"]
 transform = Transform( -1, -7.6194e-09, 8.70901e-08, 0, 0.996195, 0.0871557, -8.74228e-08, 0.0871557, -0.996195, 0, 4.24161, -13.5557 )
 current = true
+
+[node name="angle_y" type="VSlider" parent="ui"]
+margin_left = 47.7117
+margin_top = 262.397
+margin_right = 63.7117
+margin_bottom = 637.397
+max_value = 15.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="ui/angle_y"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -21.6389
+margin_right = -16.6389
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ui/angle_y/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 14.0
+text = "100"
+align = 2
+
+[node name="Label" type="Label" parent="ui/angle_y/HBoxContainer2"]
+margin_top = 18.0
+margin_right = 24.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+align = 2
+valign = 1
+
+[node name="Label3" type="Label" parent="ui/angle_y/HBoxContainer2"]
+margin_top = 360.0
+margin_right = 24.0
+margin_bottom = 374.0
+text = "0"
+align = 2
+
+[node name="angle_z" type="HSlider" parent="ui"]
+margin_left = 49.2111
+margin_top = 620.468
+margin_right = 424.211
+margin_bottom = 709.468
+min_value = -15.0
+max_value = 15.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/angle_z"]
+anchor_right = 1.0
+margin_left = -3.0
+margin_top = 15.2292
+margin_right = -3.0
+margin_bottom = 43.2292
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ui/angle_z/HBoxContainer"]
+margin_top = 7.0
+margin_right = 21.0
+margin_bottom = 21.0
+text = "-35"
+valign = 2
+
+[node name="Label" type="Label" parent="ui/angle_z/HBoxContainer"]
+margin_left = 25.0
+margin_top = 7.0
+margin_right = 355.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+text = "0"
+align = 1
+valign = 2
+
+[node name="Label3" type="Label" parent="ui/angle_z/HBoxContainer"]
+margin_left = 359.0
+margin_top = 7.0
+margin_right = 375.0
+margin_bottom = 21.0
+text = "35"
+valign = 2
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040792, -0.0510974, 0.0366821 )
@@ -205,12 +297,17 @@ shape = SubResource( 7 )
 
 [node name="shot" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9017, 4.27723, 0.130807 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="shot"]
 shape = SubResource( 8 )
+disabled = true
 
 [node name="Cylinder" type="MeshInstance" parent="shot"]
 mesh = SubResource( 9 )
 material/0 = null
 material/1 = null
 material/2 = null
+
+[connection signal="value_changed" from="ui/angle_y" to="." method="_on_angle_y_value_changed"]
+[connection signal="value_changed" from="ui/angle_z" to="." method="_on_angle_z_value_changed"]

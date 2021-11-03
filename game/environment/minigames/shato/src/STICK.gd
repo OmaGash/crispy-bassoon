@@ -8,11 +8,12 @@ var hold_limit = 10
 func _ready():
 	get_parent().connect("hit", self, "hit")
 
-func hit(force: float):
-	linear_velocity.x = force
-	angular_velocity.z=force
-	var y=force/2
-	linear_velocity.y=y
+func hit(force: float, angle_y, angle_z):
+	linear_velocity.x = force*.5
+	linear_velocity.z=rad2deg(angle_z)
+	linear_velocity.y=rad2deg(angle_y)
+#	var y=force/2
+	#linear_velocity.y=y
 	gravity_scale = 1
 
 #func _unhandled_input(event): 

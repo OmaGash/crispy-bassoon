@@ -4,6 +4,8 @@ signal hit
 
 onready var strength: ProgressBar = $ui/strength
 var started: int = -1 #-1 not started, 0 started, 1 passed 100, 2 stopped
+var angle_y: float = 0
+var angle_z: float = 0
 
 func _ready():
 	print(rotation.angle_to(Vector3(0,11,0)))
@@ -34,6 +36,16 @@ func _process(delta):
 		print(started)
 	elif Input.is_action_just_released("ui_accept"):
 		print(strength.value)
-		emit_signal("hit", strength.value)
+		emit_signal("hit", strength.value, angle_y, angle_z)
 		$ui/ViewportContainer.visible = true
+		$ui/angle_y.editable = false
+		$ui/angle_z.editable = false
 		set_process(false)
+
+
+func _on_angle_z_value_changed(value):
+	angle_z = deg2rad(value)
+
+
+func _on_angle_y_value_changed(value):
+	angle_y = deg2rad(value)
