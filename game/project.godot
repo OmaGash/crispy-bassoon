@@ -164,7 +164,6 @@ knee_right={
 3d_physics/layer_3="SipaCharacter"
 3d_physics/layer_4="Platform"
 3d_physics/layer_5="Pebble"
-3d_physics/layer_6="player"
 3d_physics/layer_10="enemy"
 3d_physics/layer_11="npc1"
 
