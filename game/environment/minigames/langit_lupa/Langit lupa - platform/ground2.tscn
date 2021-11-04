@@ -3,7 +3,7 @@
 [ext_resource path="res://environment/minigames/langit_lupa/Langit lupa - platform/dirt_079.material" type="Material" id=1]
 [ext_resource path="res://environment/minigames/langit_lupa/Langit lupa - platform/grass_039.material" type="Material" id=2]
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "blockCliffCorner"
 surfaces/0 = {
 "aabb": AABB( -0.5, 0, -0.5, 1, 1, 1 ),
@@ -32,6 +32,6 @@ surfaces/1 = {
 
 [node name="ground2" type="MeshInstance"]
 transform = Transform( 5.40431, 0, 0, 0, 4.65761, 0, 0, 0, 8.84301, 19.0635, 2.42299, -2.77899 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null

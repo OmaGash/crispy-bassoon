@@ -1153,7 +1153,7 @@ nodes/OneShot/position = Vector2( 700, 380 )
 nodes/Running/node = SubResource( 16 )
 nodes/Running/position = Vector2( 60, 420 )
 nodes/output/position = Vector2( 1020, 200 )
-node_connections = [ "output", 0, "OneShot", "OneShot", 0, "Blend2", "OneShot", 1, "Jumping", "Blend2", 0, "Idle", "Blend2", 1, "Running" ]
+node_connections = [ "output", 0, "OneShot", "Blend2", 0, "Idle", "Blend2", 1, "Running", "OneShot", 0, "Blend2", "OneShot", 1, "Jumping" ]
 
 [node name="langit_lupa_anim" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47397, -1.22449, 1.97102 )
