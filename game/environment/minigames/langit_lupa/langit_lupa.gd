@@ -7,6 +7,7 @@ func _ready():
 	randomize()
 	wait_time=rand_range(3.0,6.0)
 	_on_Timer_timeout()
+	
 #func _input(event):
 	#if event.is_pressed() and !event.is_echo():
 		
