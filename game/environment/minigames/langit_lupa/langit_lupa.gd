@@ -6,9 +6,10 @@ var wait_time: float
 func _ready():
 	randomize()
 	wait_time=rand_range(3.0,6.0)
-func _input(event):
-	if event.is_pressed() and !event.is_echo():
-		event=_on_Timer_timeout()
+	_on_Timer_timeout()
+#func _input(event):
+	#if event.is_pressed() and !event.is_echo():
+		
 		
 
 func _on_Timer_timeout():
@@ -28,16 +29,12 @@ func _on_Timer_timeout():
 				platform1.show()
 				platform1.get_node("CollisionShape").disabled=false
 			groundnum= 2
-	wait_time=rand_range(3.0,6.0)
+	wait_time=rand_range(3.0, 6.0)
 	timer.set_wait_time(wait_time)
 	timer.start()
 	print(wait_time)
 	
 			
 			
-		
-
-
-
 func _on_Spatial_visibility_changed():
 	pass # Replace with function body.
