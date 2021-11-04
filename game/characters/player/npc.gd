@@ -7,7 +7,7 @@ var velocity: Vector3
 
 func	_ready():
 	_gravity = 50
-	_speed =10
+	_speed =5
 
 func _physics_process(delta):
 	velocity.y -= _gravity
