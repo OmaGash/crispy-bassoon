@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/player/npc.gd" type="Script" id=2]
 [ext_resource path="res://tools/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/minigames/langit_lupa/langit_lupa.gd" type="Script" id=4]
 [ext_resource path="res://environment/minigames/langit_lupa/Timer.gd" type="Script" id=5]
@@ -17,6 +18,10 @@ size = Vector3( 4, 2, 2 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 2, 1, 1 )
+
+[sub_resource type="CapsuleMesh" id=5]
+
+[sub_resource type="CapsuleShape" id=6]
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349398, -0.0394702, 0.0094223 )
@@ -44,7 +49,7 @@ player_scene = NodePath("../player")
 [node name="platform1" type="StaticBody" parent="." groups=[
 "group1",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5478, 0.751753, -0.637006 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6481, 0.751753, -0.637006 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -61,7 +66,7 @@ shape = SubResource( 4 )
 [node name="platform2" type="StaticBody" parent="." groups=[
 "group2",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.8, -0.506 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3476, 0.8, -0.506 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -78,7 +83,7 @@ shape = SubResource( 4 )
 [node name="platform3" type="StaticBody" parent="." groups=[
 "group1",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3745, 4.84508, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -95,7 +100,7 @@ shape = SubResource( 4 )
 [node name="platform4" type="StaticBody" parent="." groups=[
 "group2",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4262, 4.81006, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -114,6 +119,19 @@ script = ExtResource( 5 )
 
 [node name="ui" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
+
+[node name="npc" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76636, 1.88037, 0 )
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="npc"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="npc"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0017519, 0, 0 )
+shape = SubResource( 6 )
 
 [connection signal="visibility_changed" from="." to="." method="_on_Spatial_visibility_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
