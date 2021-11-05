@@ -174,3 +174,8 @@ func toggle_offer(uhm):
 	
 func hurt():
 	pass
+
+
+func _on_Area_body_entered(body):
+	print(body.get_name())
+	pass # Replace with function body.

@@ -47,8 +47,8 @@ func stop_moving():
 	
 	
 func is_player_moving(player):
-#	return player.transform.origin > Vector3(1, 6.2 , 0) or player.transform.origin < Vector3(-1 , 6.2, 0)
-	return player.velocity.x > 1 or player.velocity.x < -1
+	return player.transform.origin > Vector3(1, 6.2 , 0) or player.transform.origin < Vector3(-1 , 6.2, 0)
+#	return player.velocity.x > 1 or player.velocity.x < -1
 	
 func flip():
 	self.rotation_degrees.y -= 180
