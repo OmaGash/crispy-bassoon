@@ -9,6 +9,8 @@ func _ready():
 	get_parent().connect("hit", self, "hit")
 
 func hit(force: float, angle_y, angle_z):
+	angular_damp = .1
+	linear_damp = .1
 	linear_velocity.x = force*.5
 	linear_velocity.z=rad2deg(angle_z)
 	linear_velocity.y=rad2deg(angle_y)
