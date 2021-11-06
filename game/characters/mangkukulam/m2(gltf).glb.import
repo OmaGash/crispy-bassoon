@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/m2(gltf).glb-1b9cdf05e3f178f21a3f0735fb819bc9.scn"
+path="res://.import/m2(gltf).glb-6a58d3b86a52e718f3261bd37c34ef52.scn"
 
 [deps]
 
-source_file="res://characters/Mangkukulam/m2(gltf).glb"
-dest_files=[ "res://.import/m2(gltf).glb-1b9cdf05e3f178f21a3f0735fb819bc9.scn" ]
+source_file="res://characters/mangkukulam/m2(gltf).glb"
+dest_files=[ "res://.import/m2(gltf).glb-6a58d3b86a52e718f3261bd37c34ef52.scn" ]
 
 [params]
 

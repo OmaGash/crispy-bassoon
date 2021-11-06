@@ -3,11 +3,12 @@ var reset_state = false
 var groundnum: int=2
 onready var timer := get_node("Timer")
 var wait_time: float
+
 var score = 0
 onready var player = $player
 onready var a = $npc/Area
 func _ready():
-
+	
 	
 	randomize()
 #	wait_time = rand_range(3.0,6.0)
@@ -16,26 +17,24 @@ func _ready():
 #func _input(event):
 	#if event.is_pressed() and !event.is_echo():
 
-
-
 func platform_disappear():
-	if groundnum==2:
-			for platform1 in get_tree().get_nodes_in_group("group1"):
-				platform1.show()
-				platform1.get_node("CollisionShape").disabled=false
-			for platform1 in get_tree().get_nodes_in_group("group2"):
-				platform1.hide()
-				platform1.get_node("CollisionShape").disabled=true
-			groundnum= 1
-	elif groundnum==1:
-			for platform1 in get_tree().get_nodes_in_group("group1"):
-				platform1.hide()
-				platform1.get_node("CollisionShape").disabled=true
-			for platform1 in get_tree().get_nodes_in_group("group2"):
-				platform1.show()
-				platform1.get_node("CollisionShape").disabled=	false
-			groundnum= 2
-			
+#	if groundnum==2:
+#			for platform1 in get_tree().get_nodes_in_group("group1"):
+#				platform1.show()
+#				platform1.get_node("CollisionShape").disabled=false
+#			for platform1 in get_tree().get_nodes_in_group("group2"):
+#				platform1.hide()
+#				platform1.get_node("CollisionShape").disabled=true
+#			groundnum= 1
+#	elif groundnum==1:
+#			for platform1 in get_tree().get_nodes_in_group("group1"):
+#				platform1.hide()
+#				platform1.get_node("CollisionShape").disabled=true
+#			for platform1 in get_tree().get_nodes_in_group("group2"):
+#				platform1.show()
+#				platform1.get_node("CollisionShape").disabled=	false
+#			groundnum= 2
+	pass
 	
 
 func _on_Timer_timeout():
@@ -80,6 +79,11 @@ func _on_Area_body_entered(body):
 func _on_Area_body_exited(body):
 
 	$npc.set_physics_process(true)
+
+
+
+
+
 
 
 
