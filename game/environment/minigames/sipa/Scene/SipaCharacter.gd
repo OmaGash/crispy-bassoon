@@ -22,6 +22,7 @@ onready var anim_tree = $Armature/AnimationTree
 func _ready():
 	get_node("Armature/AnimationTree").active = true
 	
+	
 func _physics_process(delta):
 	
 	

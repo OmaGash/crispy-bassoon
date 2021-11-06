@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://environment/minigames/sipa/Scene/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa/Scene/SipaCharacter.tscn" type="PackedScene" id=2]
@@ -7,14 +7,12 @@
 [ext_resource path="res://environment/minigames/sipa/Scene/pebble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/minigames/sipa/Script/main.gd" type="Script" id=6]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/enemy/enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
 
 [sub_resource type="SphereShape" id=2]
-radius = 0.199166
+radius = 0.122034
 
 [node name="Sipa" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014286, 0.0537572, 0.00643539 )
@@ -52,52 +50,58 @@ collision_layer = 32
 collision_mask = 28
 
 [node name="character" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.071, 0.478476, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.071, 0.478476, -0.626945 )
 collision_layer = 4
 collision_mask = 24
 
+[node name="CollisionShape" parent="character" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.182216, 0.323436, 0.153743 )
+
 [node name="Armature" parent="character" index="2"]
 transform = Transform( 0.5, 0, 1.49012e-08, 4.65661e-10, 0.5, 3.25963e-09, -2.98023e-08, 5.23869e-09, 0.5, -1.48079, -0.501464, 0.145557 )
+
+[node name="AnimationPlayer" parent="character/Armature" index="1"]
+playback_speed = 0.7
+
+[node name="AnimationTree" parent="character/Armature" index="2"]
+active = true
 
 [node name="HeadArea" parent="character" index="3"]
 collision_layer = 64
 collision_mask = 60
 
 [node name="CollisionShape" parent="character/HeadArea" index="0"]
-transform = Transform( 1, -1.45519e-10, 0, 0, 0.99999, -0.00443312, 0, 0.00443312, 0.99999, 0.0208643, 1.45251, 0.248833 )
+transform = Transform( 1, -1.45519e-10, 0, 0, 0.99999, -0.00443312, 0, 0.00443312, 0.99999, -0.223216, 1.31657, 0.31045 )
 
 [node name="pebble" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08196, 5.33564, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347278, 3.05614, -0.214395 )
 collision_mask = 108
+mass = 3.23163
 physics_material_override = SubResource( 1 )
-gravity_scale = 0.5
+gravity_scale = 0.3
 continuous_cd = true
 axis_lock_linear_z = true
 linear_damp = 0.5
 angular_damp = 0.1
-
-[node name="MeshInstance" parent="pebble" index="0"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00212657, -0.0219593, 0.0144444 )
 
 [node name="Area" type="Area" parent="pebble"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0659187 )
 collision_mask = 120
 
 [node name="CollisionShape" type="CollisionShape" parent="pebble/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0910485, -0.0704753 )
 shape = SubResource( 2 )
 
-[node name="enemy" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.999888, 0.0149395, 0, -0.0149395, 0.999888, 2.04695, 4.29652, 0.210301 )
-
 [node name="camera" parent="." instance=ExtResource( 7 )]
-player_scene = NodePath("../enemy")
-
-[node name="player" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56318, 0.221717, -1.26194 )
+transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0.00248623, 4.19023, 14.9574 )
+fov = 30.7
+player_scene = NodePath("../character")
+follow_offset = Vector2( 200, 100 )
 
 [connection signal="body_entered" from="character/HeadArea" to="pebble" method="_on_HeadArea_body_entered"]
 [connection signal="body_entered" from="pebble/Area" to="floor" method="_on_Area_body_entered"]
 
 [editable path="floor"]
 [editable path="character"]
+[editable path="character/Armature"]
 [editable path="pebble"]
