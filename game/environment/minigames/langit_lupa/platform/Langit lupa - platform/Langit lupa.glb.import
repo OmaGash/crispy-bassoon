@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/m2(gltf).glb-1b9cdf05e3f178f21a3f0735fb819bc9.scn"
+path="res://.import/Langit lupa.glb-90f1bf1cfe215913a173f2d5696788d6.scn"
 
 [deps]
 
-source_file="res://characters/Mangkukulam/m2(gltf).glb"
-dest_files=[ "res://.import/m2(gltf).glb-1b9cdf05e3f178f21a3f0735fb819bc9.scn" ]
+source_file="res://environment/minigames/langit_lupa/platform/Langit lupa - platform/Langit lupa.glb"
+dest_files=[ "res://.import/Langit lupa.glb-90f1bf1cfe215913a173f2d5696788d6.scn" ]
 
 [params]
 
