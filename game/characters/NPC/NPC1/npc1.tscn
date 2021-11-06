@@ -1397,7 +1397,7 @@ tracks/26/keys = PoolRealArray( 0, 1, -0.0528914, 0.936876, 0.502972, -0.0186177
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.245726, 0.00721429, 0.0109938, -0.00614861, 0.244898, -0.0232755, -0.0116235, 0.0229675, 0.244728, 0, 0, 0 )
+transform = Transform( 0.246078, 0, 0, 0, 0.246078, 0, 0, 0, 0.246078, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "hips"

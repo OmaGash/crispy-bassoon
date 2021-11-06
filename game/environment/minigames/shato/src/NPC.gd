@@ -33,12 +33,11 @@ func _physics_process(delta):
 		
 		var x = stick.transform.origin.x
 		var z = stick.transform.origin.z
-		if not direction == self.transform.origin:
-			face_foward(x , z)
+		if stick.translation.x < translation.x:
+			$npc1.rotation_degrees.y = -90
+		elif stick.translation.x > translation.x:
+			$npc1.rotation_degrees.y = 90
+		
 		move_and_slide(direction * speed, Vector3(0 , 1 , 0 ))
 			
-func face_foward(x, z):
-#	rotation.y = lerp(rotation.y, atan2(x, z ) - PI/2, .08)
-	rotation.y = rotation.angle_to(stick.translation)
-
 
