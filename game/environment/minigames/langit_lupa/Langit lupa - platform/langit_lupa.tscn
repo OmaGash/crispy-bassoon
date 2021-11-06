@@ -44,13 +44,13 @@ shape = SubResource( 4 )
 transform = Transform( 0.111551, 0.731968, -3.78589, -0.0433701, 3.78748, 0.730996, 3.85576, 0.0214254, 0.117752, -56.0823, 13.77, -4.47848 )
 shape = SubResource( 5 )
 
-[node name="CollisionShape5" type="CollisionShape" parent="." index="257"]
+[node name="CollisionShape5" type="CollisionShape" parent="." index="174"]
 transform = Transform( -1.62343, 0, -0.00906819, 0, 2.24664, 0, 0.00906819, 0, -1.62343, -67.08, 13.511, -7.93238 )
 shape = SubResource( 6 )
 
-[node name="player" parent="." index="262" instance=ExtResource( 2 )]
+[node name="player" parent="." index="175" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6918, 6.24252, -6.88144 )
 
-[node name="camera" parent="." index="263" instance=ExtResource( 3 )]
+[node name="camera" parent="." index="176" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, -33.3489, 3.40511, 8.70163 )
 player_scene = NodePath("../player")

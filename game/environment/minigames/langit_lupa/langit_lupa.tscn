@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/npc.gd" type="Script" id=2]
@@ -16,8 +16,6 @@
 [ext_resource path="res://environment/minigames/langit_lupa/platform/Langit lupa - platform/woodDark_003.material" type="Material" id=14]
 [ext_resource path="res://environment/minigames/langit_lupa/platform/Langit lupa - platform/_defaultMat_014.material" type="Material" id=15]
 [ext_resource path="res://environment/minigames/langit_lupa/platform/Langit lupa - platform/rock_001.material" type="Material" id=16]
-
-[sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="CapsuleShape" id=2]
 
@@ -141,25 +139,10 @@ surfaces/1 = {
 "vertex_count": 416
 }
 
-[sub_resource type="ConvexPolygonShape" id=11]
-points = PoolVector3Array( 0, 0.377009, 0.119048, 0, 0.416678, -0.253968, 0, 0.456334, 0.119048, 0, 0.480145, 0.0872814, 0, 0.503956, -0.166666, 0.00574669, 0.379881, -0.2, 0.007914, 0.5, -0.242345, 0.16666, 0.377009, -0.253968, 0.16666, 0.503956, 0.119048, 0.2, 0.382078, 0.104154, 0.246054, 0.5, -0.242345, 0.246054, 0.5, 0.107424, 0.25, 0.378993, -0.24814, 0.253968, 0.377009, -0.166666, 0.253968, 0.416678, 0.119048 )
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.207073, 0.259217, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=12]
-points = PoolVector3Array( 0, -0.00393099, -0.166666, 0, 0.0833846, -0.253968, 0, 0.376947, 0.119048, 0.00270175, 0.000120921, -0.25, 0.0055882, 0.05, 0.11084, 0.00574659, 0.368328, -0.2, 0.0090634, 0.0317848, 0.0762366, 0.0103772, 0.324923, -0.216832, 0.166633, -0.00393099, 0.119048, 0.166633, 0.376947, -0.253968, 0.2, 0.361748, 0.104162, 0.25, 0.00201339, -0.248147, 0.25, 0.00201339, 0.113226, 0.25, 0.371002, -0.248147, 0.253964, 0.0833846, 0.119048, 0.253964, 0.376947, -0.166666 )
-
-[sub_resource type="ConvexPolygonShape" id=13]
-points = PoolVector3Array( -0.253968, 0.353189, 0.166645, -0.253968, 0.416683, -0.150794, -0.25, 0.355545, 0.247644, -0.247284, 0.5, -0.140141, -0.247284, 0.5, 0.243316, -0.2, 0.35921, -0.134632, -0.16666, 0.353189, 0.253968, -0.16666, 0.503968, -0.150794, -0.006684, 0.5, 0.243316, -0.00517477, 0.356262, 0.2, 0, 0.353189, -0.150794, 0, 0.416683, 0.253968, 0, 0.480132, -0.0872822, 0, 0.503968, 0.166645, 0.0124275, 0.459041, -0.1706 )
-
-[sub_resource type="ConvexPolygonShape" id=14]
-points = PoolVector3Array( -0.253943, 0.0833861, -0.150794, -0.253943, 0.353175, 0.166645, -0.25, 0.00161276, -0.144507, -0.25, 0.00161276, 0.247682, -0.25, 0.347629, 0.247682, -0.2, 0.338966, -0.134689, -0.166637, -0.0039333, -0.150794, -0.166637, 0.353175, 0.253968, -0.00701983, 0.32828, 0.220286, -0.00612751, 0.05, -0.141072, -0.00520241, 0.345898, 0.2, -0.00282542, -2.77556e-17, 0.24951, -2.87294e-05, -0.0039333, 0.166645, -2.87294e-05, 0.0199065, -0.0872822, -2.87294e-05, 0.0833861, 0.253968, -2.87294e-05, 0.353175, -0.150794 )
-
-[sub_resource type="ConvexPolygonShape" id=15]
-points = PoolVector3Array( 0, -0.00386882, 0.16668, 0, 0.503869, 0.16668, 0.00387569, 0.05, 0.121133, 0.0038757, 0.45, 0.121133, 0.00747114, 0.0110676, 0.25, 0.00747114, 0.488932, 0.25, 0.16666, -0.00386882, 0.119074, 0.16666, 0.503869, 0.119074, 0.246497, 0.0110676, 0.25, 0.246497, 0.488932, 0.25, 0.25, 0.00406461, 0.121182, 0.25, 0.495935, 0.121182 )
-
-[sub_resource type="ConvexPolygonShape" id=16]
-points = PoolVector3Array( -0.25, 0.00406461, -0.152416, -0.25, 0.495935, -0.152416, -0.244199, 0.0156615, -0.25, -0.244199, 0.484338, -0.25, -0.16666, -0.00386882, -0.150804, -0.16666, 0.503869, -0.150804, -0.009769, 0.0156615, -0.25, -0.009769, 0.484338, -0.25, -0.0038757, 0.45, -0.152378, -0.00387569, 0.05, -0.152378, 0, -0.00386882, -0.166678, 0, 0.503869, -0.166678 )
-
-[node name="Spatial" type="Spatial"]
+[node name="world" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349398, -0.0394702, 0.0094223 )
 script = ExtResource( 4 )
 
@@ -169,7 +152,7 @@ collision_layer = 32
 collision_mask = 72
 
 [node name="Armature" parent="player/Armature" index="0"]
-transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
+transform = Transform( 0.730497, 0.0474348, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 17.9869, 16.9927 )
@@ -179,29 +162,25 @@ player_scene = NodePath("../player")
 script = ExtResource( 5 )
 
 [node name="ui" type="CanvasLayer" parent="."]
+pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="npc" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3269, 8, 1 )
 script = ExtResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="npc"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-visible = false
-mesh = SubResource( 1 )
-material/0 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="npc"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.624928, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0705543, 0 )
 shape = SubResource( 2 )
 
 [node name="NPC3" parent="npc" instance=ExtResource( 12 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.76833, -2.60835, -2.01232 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.50517, 0 )
 
 [node name="Area" type="Area" parent="npc"]
+collision_mask = 33
 
 [node name="CollisionShape" type="CollisionShape" parent="npc/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488465, -0.0517216, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133996, -0.0517216, 0 )
 shape = SubResource( 3 )
 
 [node name="platform" parent="." instance=ExtResource( 7 )]
@@ -268,29 +247,9 @@ mesh = SubResource( 10 )
 material/0 = null
 material/1 = null
 
-[node name="CollisionShape6" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 11 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 12 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 13 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 14 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 15 )
-
 [node name="CollisionShape" type="CollisionShape" parent="platform4"]
-transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812275, 0, 7.84085, 16.1984, 5.97137, -3.28353 )
-shape = SubResource( 16 )
+transform = Transform( 7.42014, 0, -0.125772, 0, 5.81426, 0, -0.0812276, 0, 7.84085, 16.1984, 7.32838, -3.28353 )
+shape = SubResource( 11 )
 
 [node name="platform5" type="StaticBody" parent="." groups=[
 "group1",
@@ -318,9 +277,8 @@ __meta__ = {
 [connection signal="visibility_changed" from="." to="." method="_on_Spatial_visibility_changed"]
 [connection signal="body_entered" from="player/interact" to="." method="_on_interact_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="body_entered" from="npc/Area" to="player" method="_on_Area_body_entered"]
-[connection signal="body_entered" from="npc/Area" to="." method="_on_Area_body_entered"]
-[connection signal="body_exited" from="npc/Area" to="." method="_on_Area_body_exited"]
+[connection signal="body_entered" from="npc/Area" to="npc" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="npc/Area" to="npc" method="_on_Area_body_exited"]
 
 [editable path="player"]
 [editable path="player/Armature"]

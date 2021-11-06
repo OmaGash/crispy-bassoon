@@ -2,7 +2,7 @@ extends Control
 class_name Warning, "res://addons/dialogic/Images/Event Icons/warning.svg"
 #Send a warning to the user and depending on the severity of the error,
 #you may force them to fix the error before proceeding with the scene.
-
+signal confirmed
 #Usage:
 #var warning = load("res://ui/warning.tscn").instance()
 #		add_child(warning)
@@ -15,6 +15,7 @@ func warn(tree: SceneTree, message: String, title: String = "Error", exit_tree:b
 	$center/popup_warn.popup()
 	tree.paused = true
 	yield($center/popup_warn, "confirmed")
+	emit_signal("confirmed")
 	tree.paused = false
 	if exit_tree:
 		get_tree().quit()

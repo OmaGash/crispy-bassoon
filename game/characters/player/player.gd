@@ -40,6 +40,8 @@ func _physics_process(delta):
 			anim_tree["parameters/Fall/blend_amount"] = lerp(anim_tree["parameters/Fall/blend_amount"], 0, BLEND_TO_RUN)
 			anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
 			#Idle animation goes here.
+			if !$on_floor.is_colliding():#When platform break
+				self.current_state = _state.FALL
 			#$anim.play("idle")
 			#print("IDLE")
 			_move()#You can only move if you're idle/moving

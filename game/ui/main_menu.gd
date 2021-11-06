@@ -26,3 +26,5 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://environment/minigames/shato/world.tscn"
 		4:
 			next_scene = "res://environment/Level1/level1_scene.tscn"
+		5:
+			next_scene = "res://environment/minigames/langit_lupa/langit_lupa.tscn"

@@ -8,9 +8,8 @@ var score = 0
 onready var player = $player
 onready var a = $npc/Area
 func _ready():
-	
-	
 	randomize()
+	timer.start()
 #	wait_time = rand_range(3.0,6.0)
 #	_on_Timer_timeout()
 	

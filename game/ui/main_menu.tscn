@@ -15,6 +15,7 @@ func _ready():
 	list.add_item(\"player lang laman test scene\")
 	list.add_item(\"shato ng ina mo\")
 	list.add_item(\"lv1 i guess\")
+	list.add_item(\"heaven and earth\")
 "
 
 [node name="main_menu" type="Control"]
