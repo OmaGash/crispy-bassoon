@@ -18,29 +18,29 @@ func _ready():
 	#if event.is_pressed() and !event.is_echo():
 
 func platform_disappear():
-#	if groundnum==2:
-#			for platform1 in get_tree().get_nodes_in_group("group1"):
-#				platform1.show()
-#				platform1.get_node("CollisionShape").disabled=false
-#			for platform1 in get_tree().get_nodes_in_group("group2"):
-#				platform1.hide()
-#				platform1.get_node("CollisionShape").disabled=true
-#			groundnum= 1
-#	elif groundnum==1:
-#			for platform1 in get_tree().get_nodes_in_group("group1"):
-#				platform1.hide()
-#				platform1.get_node("CollisionShape").disabled=true
-#			for platform1 in get_tree().get_nodes_in_group("group2"):
-#				platform1.show()
-#				platform1.get_node("CollisionShape").disabled=	false
-#			groundnum= 2
+	if groundnum==2:
+			for platform1 in get_tree().get_nodes_in_group("group1"):
+				platform1.show()
+				platform1.get_node("CollisionShape").disabled=false
+			for platform1 in get_tree().get_nodes_in_group("group2"):
+				platform1.hide()
+				platform1.get_node("CollisionShape").disabled=true
+			groundnum= 1
+	elif groundnum==1:
+			for platform1 in get_tree().get_nodes_in_group("group1"):
+				platform1.hide()
+				platform1.get_node("CollisionShape").disabled=true
+			for platform1 in get_tree().get_nodes_in_group("group2"):
+				platform1.show()
+				platform1.get_node("CollisionShape").disabled=	false
+			groundnum= 2
+	timer.set_wait_time(3)
+	timer.start()
 	pass
 	
 
 func _on_Timer_timeout():
 	platform_disappear()
-	timer.set_wait_time(6)
-	timer.start()
 	pass
 #
 #	wait_time = rand_range(3.0, 6.0)
@@ -65,11 +65,8 @@ func _on_Area_body_entered(body):
 			$npc.set_physics_process(false)
 			$npc/NPC3/AnimationPlayer.play("Warrior Idle-loop")
 			reset_state = true
-			timer.set_wait_time(6)
+			timer.set_wait_time(3)
 			timer.start()
-			_on_Timer_timeout()
-		elif reset_state == true:
-			timer.stop()
 
 
 		print(body.get_name())
