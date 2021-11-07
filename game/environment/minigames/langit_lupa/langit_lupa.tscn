@@ -18,10 +18,12 @@
 [ext_resource path="res://environment/minigames/langit_lupa/platform/Langit lupa - platform/rock_001.material" type="Material" id=16]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 0.414549
+height = 1.97509
 
 [sub_resource type="CylinderShape" id=2]
-radius = 1.15627
-height = 2.59803
+radius = 0.467695
+height = 3.09856
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "blockLarge003"
@@ -147,7 +149,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349398, -0.0394702, 0.0094
 script = ExtResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.726203, 0.00393559, 0.68747, 0, 0.999984, -0.00572464, -0.687481, -0.00415725, -0.726191, 0, 6.2, 0 )
+transform = Transform( -0.726203, 0.00393559, 0.68747, 0, 0.999984, -0.00572464, -0.687481, -0.00415725, -0.726191, -13.7014, 11.0013, 0 )
 collision_layer = 32
 collision_mask = 72
 
@@ -157,6 +159,7 @@ transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0
 [node name="camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 17.9869, 16.9927 )
 player_scene = NodePath("../player")
+smoothing = 0.08
 
 [node name="Timer" type="Timer" parent="."]
 script = ExtResource( 5 )
@@ -177,10 +180,11 @@ shape = SubResource( 1 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1.50517, 0 )
 
 [node name="Area" type="Area" parent="npc"]
+monitorable = false
 collision_mask = 33
 
 [node name="CollisionShape" type="CollisionShape" parent="npc/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133996, -0.0517216, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0130653, 0.106234, 0 )
 shape = SubResource( 2 )
 
 [node name="platform" parent="." instance=ExtResource( 7 )]
@@ -274,7 +278,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="visibility_changed" from="." to="." method="_on_Spatial_visibility_changed"]
 [connection signal="body_entered" from="player/interact" to="." method="_on_interact_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="npc/Area" to="npc" method="_on_Area_body_entered"]

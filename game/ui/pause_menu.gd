@@ -1,10 +1,8 @@
 extends Control
 
-
-
 func _on_resume_pressed():
 	var a = InputEventAction.new()
-	a.action = "artifax"
+	a.action = "ui_cancel"
 	a.pressed = true
 	Input.parse_input_event(a)
 

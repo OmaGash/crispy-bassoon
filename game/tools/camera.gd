@@ -19,7 +19,7 @@ func _ready():
 		set_physics_process(false)
 	current = true
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	#TODO: Add offset then smoothing
 	#Check if the player's x is getting to the screen's edge
 	if follow_x:

@@ -1,38 +1,75 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/pause_menu.gd" type="Script" id=1]
 
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("filter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.262745 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("items:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="pause" type="Control"]
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = 327.0
-margin_right = 112.0
-margin_bottom = -328.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="items" type="VBoxContainer" parent="."]
+[node name="filter" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0.262745 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -97.0
+margin_top = 332.0
+margin_right = 97.0
+margin_bottom = -332.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="resume" type="Button" parent="items"]
-margin_right = 224.0
-margin_bottom = 56.0
+margin_right = 194.0
+margin_bottom = 50.0
 size_flags_vertical = 3
 text = "Resume"
 
 [node name="reset" type="Button" parent="items"]
-margin_top = 60.0
-margin_right = 224.0
-margin_bottom = 80.0
+margin_top = 54.0
+margin_right = 194.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 text = "Reset scene(debugging only)"
 __meta__ = {
@@ -40,12 +77,15 @@ __meta__ = {
 }
 
 [node name="quit" type="Button" parent="items"]
-margin_top = 84.0
-margin_right = 224.0
-margin_bottom = 113.0
+margin_top = 78.0
+margin_right = 194.0
+margin_bottom = 104.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Quit"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 1 )
 
 [connection signal="pressed" from="items/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="items/reset" to="." method="_on_reset_pressed"]

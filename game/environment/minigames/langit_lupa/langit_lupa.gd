@@ -48,10 +48,6 @@ func _on_Timer_timeout():
 #	print(wait_time)
 	
 			
-			
-func _on_Spatial_visibility_changed():
-	pass # Replace with function body.
-
 
 func _on_Area_body_entered(body):
 	if body.name == "player":
@@ -72,14 +68,9 @@ func _on_Area_body_entered(body):
 		print("ayoay")
 	
 		
-func _on_Area_body_exited(body):
+func _on_Area_body_exited(_body):
 
 	$npc.set_physics_process(true)
-
-
-
-
-
 
 
 
