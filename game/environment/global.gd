@@ -2,12 +2,14 @@ extends Node
 #Global variables and functions
 
 signal toggle_menu
+signal new_pearls
 
 var player_name = "xXDesTr00yerXx" setget _change_name
 var artifact_passive = 3 #Passive unlocks
 var artifact_active = 2 #active unlocks
 var current_artifacts = [-1, -1] setget _artifact_swap
 var in_game = false
+var pearls = 50 setget update_pearls
 
 func _ready():#This node will run regardless of pausing
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -32,3 +34,7 @@ func _artifact_swap(new_artifacts):
 	if has_node("/root/world"):
 		if has_node("/root/world/player"):
 			$"/root/world/player".update_blessings(new_artifacts)
+
+func update_pearls(new_value):
+	pearls = new_value
+	emit_signal("new_pearls", pearls)

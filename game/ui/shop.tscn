@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/shop.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends PanelContainer
+
+
+
+func _on_Button_pressed():
+	g.pearls += 50
+"
+
+[node name="shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 23.0
+margin_right = -22.0
+margin_bottom = -22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mythical Creatures" type="Tabs" parent="items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="items/Mythical Creatures"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pearls" type="Label" parent="items/Mythical Creatures/VBoxContainer"]
+margin_right = 1315.0
+margin_bottom = 14.0
+text = "Pearls:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="items/Mythical Creatures/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1315.0
+margin_bottom = 663.0
+size_flags_vertical = 3
+
+[node name="listing" type="GridContainer" parent="items/Mythical Creatures/VBoxContainer/HBoxContainer"]
+margin_right = 655.0
+margin_bottom = 645.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="items/Mythical Creatures/VBoxContainer/HBoxContainer"]
+margin_left = 659.0
+margin_right = 1315.0
+margin_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="texts" type="VBoxContainer" parent="items/Mythical Creatures/VBoxContainer/HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 13.0
+margin_right = -16.0
+margin_bottom = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="items/Mythical Creatures/VBoxContainer"]
+margin_top = 667.0
+margin_right = 1315.0
+margin_bottom = 687.0
+text = "Close"
+
+[node name="Artifacts" type="Tabs" parent="items"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ColorRect2" type="ColorRect" parent="items/Artifacts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 2 )
+
+[node name="debug" type="PanelContainer" parent="."]
+margin_left = 918.816
+margin_top = 9.39922
+margin_right = 1114.82
+margin_bottom = 43.3992
+script = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="debug"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 189.004
+margin_bottom = 27.0
+text = "More pearls pls (50 pearls)"
+
+[connection signal="pressed" from="debug/Button" to="debug" method="_on_Button_pressed"]
