@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/fax.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="fax" type="PopupDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -338.5
+margin_top = -238.0
+margin_right = 338.5
+margin_bottom = 238.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 51.0
+margin_top = 38.0
+margin_right = 626.0
+margin_bottom = 437.0
+alignment = 1
+
+[node name="image" type="TextureRect" parent="VBoxContainer"]
+margin_right = 575.0
+margin_bottom = 122.0
+size_flags_vertical = 3
+
+[node name="video" type="VideoPlayer" parent="VBoxContainer"]
+margin_top = 126.0
+margin_right = 575.0
+margin_bottom = 248.0
+size_flags_vertical = 3
+
+[node name="info" type="Label" parent="VBoxContainer"]
+margin_top = 306.0
+margin_right = 575.0
+margin_bottom = 320.0
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close" type="Button" parent="VBoxContainer"]
+margin_left = 264.0
+margin_top = 379.0
+margin_right = 311.0
+margin_bottom = 399.0
+size_flags_horizontal = 4
+text = "Close"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "fade"
+anims/fade = SubResource( 1 )
+
+[connection signal="pressed" from="VBoxContainer/close" to="." method="_on_close_pressed"]

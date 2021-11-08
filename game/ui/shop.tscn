@@ -104,11 +104,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="items/Mythical Creatures/VBoxContainer"]
+[node name="close" type="Button" parent="items/Mythical Creatures/VBoxContainer"]
 margin_top = 667.0
 margin_right = 1315.0
 margin_bottom = 687.0
-text = "Close"
+text = "Close(Main menu na muna)"
 
 [node name="Artifacts" type="Tabs" parent="items"]
 visible = false
@@ -148,4 +148,5 @@ margin_right = 189.004
 margin_bottom = 27.0
 text = "More pearls pls (50 pearls)"
 
+[connection signal="pressed" from="items/Mythical Creatures/VBoxContainer/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="debug/Button" to="debug" method="_on_Button_pressed"]

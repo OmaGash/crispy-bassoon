@@ -11,6 +11,34 @@ var current_artifacts = [-1, -1] setget _artifact_swap
 var in_game = false
 var pearls = 50 setget update_pearls
 
+#Where the entries are kept
+var entries = {
+	0: {
+		"name": "Mythical",
+		"description" : "occurring in or characteristic of myths or folk tales.",
+		"icon": "res://icon.png",
+		"owned": false,
+		"price": 50,
+		"fax": {
+			"image": "res://icon.png",
+			"video": "res://icon.mkv",
+			"info": "idk you tell me"
+		}
+		},
+	1: {
+		"name": "Creatures",
+		"description" : "an animal, as distinct from a human being.",
+		"icon": "res://icon.png",
+		"owned": false,
+		"price": 69,
+		"fax": {#use "none" pag n/a
+			"image": "none",
+			"video": "none",
+			"info": "none"
+			}
+		}
+	}
+
 func _ready():#This node will run regardless of pausing
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
