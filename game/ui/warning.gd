@@ -22,3 +22,7 @@ func warn(tree: SceneTree, message: String, title: String = "Error", exit_tree:b
 
 func _on_popup_warn_confirmed():#Delete this node when cnofirmed
 	queue_free()
+
+
+func _on_Play_again_pressed():
+	get_tree().reload_current_scene()

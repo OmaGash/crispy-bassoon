@@ -1430,7 +1430,7 @@ filters = [ "Armature/Skeleton:chest", "Armature/Skeleton:foot.L", "Armature/Ske
 animation = "Run"
 
 [sub_resource type="AnimationNodeBlendTree" id=20]
-graph_offset = Vector2( 0, 209.25 )
+graph_offset = Vector2( 0, 196.5 )
 "nodes/Animation 3/node" = SubResource( 14 )
 "nodes/Animation 3/position" = Vector2( 320, 420 )
 "nodes/Animation 5/node" = SubResource( 15 )
@@ -1444,7 +1444,7 @@ nodes/OneShot/position = Vector2( 940, 200 )
 nodes/Run/node = SubResource( 19 )
 nodes/Run/position = Vector2( 360, 220 )
 nodes/output/position = Vector2( 1280, 120 )
-node_connections = [ "output", 0, "OneShot", "OneShot", 0, "Move", "OneShot", 1, "Animation 5", "Move", 0, "Idle", "Move", 1, "Run" ]
+node_connections = [ "output", 0, "OneShot", "Move", 0, "Idle", "Move", 1, "Run", "OneShot", 0, "Move", "OneShot", 1, "Animation 5" ]
 
 [node name="Armature" type="Spatial"]
 transform = Transform( 0.0315179, 0, -0.499006, 0, 0.5, 0, 0.499006, 0, 0.0315179, -1.32626, -0.5, 1.31581 )

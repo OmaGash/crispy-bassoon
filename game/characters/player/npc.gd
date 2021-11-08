@@ -4,9 +4,10 @@ onready var player_node: Character = $"../player"
 onready var ap = $NPC3/AnimationPlayer
 var velocity: Vector3
 onready var a = $Area
+var player_life = 3
 func _ready():
 	_gravity = 50
-	_speed =5*3
+	_speed = 10
 	ap.play("Warrior Idle-loop")
 #	set_physics_process(false)
 	
@@ -56,21 +57,28 @@ func _on_interact_body_entered(_body):
 	for i in get_slide_count():
 		var _collision=get_slide_collision(i)
 
-
+	
 func _on_Area_body_entered(body: PhysicsBody):
+	player_life -= 1
 	if body.is_in_group("player"):
-			var warning = load("res://ui/warning.tscn").instance()
-			add_child(warning)
-			warning.warn(get_tree(), "naol nahabol", "awts gege")
-			yield(warning, "confirmed")
-			$Area.monitoring = false
-			loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn", get_parent())#get_tree().root.get_node("world")
+		get_tree().call_group("GameState", "tag")
+#		loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn", get_parent())
+#		var warning = load("res://ui/warning.tscn").instance()
+#		add_child(warning)
+#		warning.warn(get_tree(), "naol nahabol", "awts gege")
+#		yield(warning, "confirmed")
+#		$Area.monitoring = false
+#		loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn", get_parent())#get_tree().root.get_node("world")
+#		enemy_score += 1
+#		update_score_gui()
+#		if enemy_score == 3:
+#			end_game()
 	
 	if body.is_in_group("group1") or body.is_in_group("group2"):
 		set_physics_process(false)
 		velocity.x = 0
 		$NPC3/AnimationPlayer.play("Warrior Idle-loop")
-
+	
 
 func _on_Area_body_exited(body: PhysicsBody):
 	if body.is_in_group("player") or body.is_in_group("group1") or body.is_in_group("group2"):

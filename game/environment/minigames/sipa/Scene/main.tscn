@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environment/minigames/sipa/Scene/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa/Scene/SipaCharacter.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://environment/minigames/sipa/Scene/pebble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/minigames/sipa/Script/main.gd" type="Script" id=6]
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/minigames/sipa/Scene/CanvasLayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
@@ -50,35 +52,31 @@ collision_layer = 32
 collision_mask = 28
 
 [node name="character" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.071, 0.478476, -0.626945 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.4798, 0.478476, -0.626945 )
+visible = false
 collision_layer = 4
 collision_mask = 24
 
-[node name="CollisionShape" parent="character" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.182216, 0.323436, 0.153743 )
+[node name="CollisionShape" parent="character" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261483, 0.421404, 0.209301 )
 
-[node name="Armature" parent="character" index="2"]
+[node name="Armature" parent="character" index="1"]
 transform = Transform( 0.5, 0, 1.49012e-08, 4.65661e-10, 0.5, 3.25963e-09, -2.98023e-08, 5.23869e-09, 0.5, -1.48079, -0.501464, 0.145557 )
 
 [node name="AnimationPlayer" parent="character/Armature" index="1"]
 playback_speed = 0.7
 
-[node name="AnimationTree" parent="character/Armature" index="2"]
-active = true
+[node name="kick_area" parent="character" index="2"]
+transform = Transform( 0.996718, 0.0257744, 0.0767395, -0.0170539, 0.99354, -0.112197, -0.0791356, 0.11052, 0.990718, -0.0724396, -1.00772, -0.428068 )
 
-[node name="HeadArea" parent="character" index="3"]
-collision_layer = 64
-collision_mask = 60
-
-[node name="CollisionShape" parent="character/HeadArea" index="0"]
-transform = Transform( 1, -1.45519e-10, 0, 0, 0.99999, -0.00443312, 0, 0.00443312, 0.99999, -0.223216, 1.31657, 0.31045 )
+[node name="CollisionShape" parent="character/kick_area" index="0"]
+transform = Transform( 0.9991, 0.00613676, -0.0419848, -0.000552149, 0.991282, 0.131751, 0.0424275, -0.131609, 0.990393, -0.197456, 1.48632, 0.39584 )
 
 [node name="pebble" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347278, 3.05614, -0.214395 )
 collision_mask = 108
-mass = 3.23163
 physics_material_override = SubResource( 1 )
-gravity_scale = 0.3
+gravity_scale = 0.18
 continuous_cd = true
 axis_lock_linear_z = true
 linear_damp = 0.5
@@ -93,12 +91,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0910485, -0.0704753 )
 shape = SubResource( 2 )
 
 [node name="camera" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0.00248623, 4.19023, 14.9574 )
+transform = Transform( 1, 0, 0, 0, 0.944382, 0.32885, 0, -0.32885, 0.944382, 0.00248623, 4.19023, 6.63774 )
 fov = 30.7
 player_scene = NodePath("../character")
 follow_offset = Vector2( 200, 100 )
 
-[connection signal="body_entered" from="character/HeadArea" to="pebble" method="_on_HeadArea_body_entered"]
+[node name="CanvasLayer" parent="." instance=ExtResource( 8 )]
+
+[node name="player" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.0987119, 0, 0.995116, 0, 1, 0, -0.995116, 0, -0.0987119, 9.31323e-10, 0.628902, 0 )
+
+[connection signal="body_entered" from="character/kick_area" to="pebble" method="_on_kick_area_body_entered"]
+[connection signal="body_entered" from="pebble/Area" to="character" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="pebble/Area" to="floor" method="_on_Area_body_entered"]
 
 [editable path="floor"]

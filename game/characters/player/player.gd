@@ -1,7 +1,7 @@
 extends Character
 
 signal interact
-
+var lives = 3
 #Variable for storing velocity
 var velocity: = Vector3()
 #Which way is up
@@ -18,14 +18,19 @@ var movement_state = 0
 var dir = 1 #-1 is left
 var hasoffer = false setget toggle_offer
 var base_z: float
+var spawn
+
 
 func _ready():
+	
 	g.in_game = true
 	base_z = translation.z
 	_speed = 10
 	_gravity = 50
 	_jump_force = 20
 	Dialogic.set_variable("name", g.player_name)
+
+
 	
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
@@ -175,6 +180,8 @@ func toggle_offer(uhm):
 	hasoffer=uhm
 	
 func hurt():
+	lives -= 1 
+	print(lives)
 	pass
 
 

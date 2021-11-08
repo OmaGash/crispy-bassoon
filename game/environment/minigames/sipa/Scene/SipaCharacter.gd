@@ -23,9 +23,8 @@ func _ready():
 	get_node("Armature/AnimationTree").active = true
 	
 	
+	
 func _physics_process(delta):
-	
-	
 	move()
 	animate()
 
@@ -45,20 +44,22 @@ func flip():
 	facing_right = !facing_right
 	
 func animate():
-	
 	if(motion * speed).length() > MIN_BLEND_SPEED:
 		movement_state += BLEND_TO_RUN
-		
-	if Input.is_action_just_pressed("kick"):
-		anim_tree["parameters/OneShot/active"] = true
-		
-
+#	if Input.is_action_just_pressed("kick"):
+#		anim_tree["parameters/OneShot/active"] = true
 	else:
 		movement_state -= BLEND_IDLE
 		
+	anim_tree["parameters/OneShot/active"] = false
 	movement_state = clamp(movement_state, 0 , 1)
 	
 	anim_tree["parameters/Move/blend_amount"] = movement_state
 		
 
 
+
+
+func _on_Area_body_entered(body):
+	print(body.get_name())
+	pass # Replace with function body.

@@ -3,36 +3,44 @@
 [ext_resource path="res://environment/minigames/sipa/Scene/FinalArmature.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa/Scene/SipaCharacter.gd" type="Script" id=2]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CylinderShape" id=1]
+radius = 0.270927
+height = 0.243136
+
+[sub_resource type="CubeMesh" id=2]
 size = Vector3( 0.5, 1.6, 0.5 )
 
-[sub_resource type="CylinderShape" id=2]
-radius = 0.334394
-height = 0.539553
-
 [sub_resource type="CylinderShape" id=3]
-radius = 0.291865
-height = 0.594142
+radius = 0.227828
+height = 0.217009
 
 [node name="SipaCharacter" type="KinematicBody"]
 script = ExtResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.0998569 )
-visible = false
-mesh = SubResource( 1 )
-material/0 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100027, 0.87914, 0.109948 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Armature" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.49362, -0.5, 0.10362 )
 
-[node name="HeadArea" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99918, -0.164729 )
+[node name="Armature" parent="Armature" index="0"]
+transform = Transform( 0.730477, 0.0473854, -0.681291, 0.00764765, 0.99696, 0.0775407, 0.682894, -0.061852, 0.727894, 2.9137, 0.976064, -0.128388 )
 
-[node name="CollisionShape" type="CollisionShape" parent="HeadArea"]
+[node name="AnimationTree" parent="Armature" index="2"]
+active = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Armature"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2.98724, 2.6, -0.0075262 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="kick_area" type="Area" parent="."]
+transform = Transform( 0.996718, 0.0257744, 0.0767395, -0.0170539, 0.99354, -0.112197, -0.0791356, 0.11052, 0.990718, -0.0724396, -1.11048, -0.479487 )
+
+[node name="CollisionShape" type="CollisionShape" parent="kick_area"]
 transform = Transform( 1, 0, 0, 0, 0.99999, -0.00443312, 0, 0.00443312, 0.99999, -0.0940739, 1.4561, 0.230659 )
 shape = SubResource( 3 )
+
+[editable path="Armature"]

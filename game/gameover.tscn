@@ -23,6 +23,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = 683.0
+margin_top = 377.0
+margin_right = 683.0
+margin_bottom = 391.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Container" type="CenterContainer" parent="TextureRect"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,9 +44,3 @@ margin_bottom = 275.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label" type="Label" parent="TextureRect/Container"]
-margin_left = 275.0
-margin_top = 268.0
-margin_right = 275.0
-margin_bottom = 282.0
