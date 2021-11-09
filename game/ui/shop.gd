@@ -70,4 +70,5 @@ func _on_close_pressed():
 	#loader.load_scene("res://ui/main_menu.tscn", self)
 	if get_parent().get_parent().has_node("player"):
 		get_parent().get_parent().get_node("player").current_state = 0
+		g.in_game = true
 	get_parent().toggle_menu(load("res://ui/shop.tscn"))

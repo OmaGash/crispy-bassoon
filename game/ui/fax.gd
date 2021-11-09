@@ -2,16 +2,16 @@ extends PopupDialog
 class_name Fax
 
 func import_variables(texts: String, image_location:String = "none", video_location = "none"):
-	$VBoxContainer/info.text = texts
+	$ScrollContainer/VBoxContainer/info.text = texts
 	if image_location != "none":
-		$VBoxContainer/image.texture = load(image_location) as Texture
+		$ScrollContainer/VBoxContainer/image.texture = load(image_location) as Texture
 	else:
-		$VBoxContainer/image.queue_free()
+		$ScrollContainer/VBoxContainer/image.queue_free()
 	
 	if video_location != "none":
-		$VBoxContainer/image.texture = load(image_location) as Texture
+		$ScrollContainer/VBoxContainer/image.stream = load(video_location) as VideoStream
 	else:
-		$VBoxContainer/video.queue_free()
+		$ScrollContainer/VBoxContainer/video.queue_free()
 
 
 func _on_close_pressed():

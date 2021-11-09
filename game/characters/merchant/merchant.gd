@@ -12,6 +12,7 @@ func _interact(player):
 	var dialogic = Dialogic.start("shop")
 	dialogic.connect("dialogic_signal", self, "_after_dialog")
 	add_child(dialogic)
+	g.in_game = false
 	yield(dialogic, "timeline_end")
 	match choice:
 		0:

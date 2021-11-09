@@ -32,7 +32,7 @@ var entries = {
 		"owned": false,
 		"price": 69,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image": "res://characters/concept/aeta.png",
 			"video": "none",
 			"info": "Santelmo is believed to be a lost spirit who manifests as a fiery ball.\n This sort of story is well-known in rural areas around the Philippines.\n According to mythology, if a man drowns in water, such as a river, sea, or rain,\n his soul will stay in the area where he perished.\n The lost souls will stay in mortal lands, wanting revenge or help from the people.\n There are souls who are looking for peace for their souls and asking for help or\nprayers in order to enter heaven.\n It has the appearance of a torch with a brilliant light, and it is shaped like a ball of fire.\n It is said that if you follow the light,\n you would never be able to return until someone sees you and saves you from losing. "
 			}
