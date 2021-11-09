@@ -84,8 +84,9 @@ func _interact():
 	#print(Dialogic.get_definitions())
 	#print(Dialogic.get_variable(\"name\"))
 #	add_child(dialog)
-	pass
 	
+	get_parent().get_node(\"ui\").toggle_menu(\"res://ui/shop.tscn\")
+	print(\"gottem\")
 "
 
 [sub_resource type="BoxShape" id=10]

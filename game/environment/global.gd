@@ -48,10 +48,10 @@ func _change_name(new_name: String):
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel") and in_game:
-		pause()
+		#pause()
 		emit_signal("toggle_menu", load("res://ui/pause_menu.tscn"))
 	if event.is_action_pressed("artifax") and in_game:
-		pause()
+		#pause()
 		emit_signal("toggle_menu", load("res://ui/artifax/artifax.tscn"))
 
 func pause():

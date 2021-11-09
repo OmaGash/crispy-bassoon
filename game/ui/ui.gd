@@ -16,7 +16,7 @@ func _ready():
 	add_child(pause_button)
 	loader.connect("loading", pause_button,"queue_free")#delet pause when loading
 
-func toggle_menu(menu:PackedScene):#Called from global.gd
+func toggle_menu(menu:PackedScene):#Called from global.gd, may be called from anywhere.
 	
 	if not menu_is_open:
 		var new_menu = menu.instance()
@@ -31,11 +31,12 @@ func toggle_menu(menu:PackedScene):#Called from global.gd
 			return
 		get_node("submenu").get_node("anim").play("fade")
 		menu_is_open = true
+		get_tree().paused = true
 		yield(get_node("submenu").get_node("anim"), "animation_finished")
 	else:
-		if has_node("submenu"):
+		if has_node("submenu"):#Close menu
 #			print("laskdj")
-			if not get_node("submenu").has_node("anim"):
+			if not get_node("submenu").has_node("anim"):#Make anim node mandatory for consistency
 				var warning = load("res://ui/warning.tscn").instance()
 				add_child(warning)
 				warning.warn(get_tree(), "Menu does not have an animation node, you may ignore this but do consider adding one.", "submenu node error")
@@ -43,7 +44,7 @@ func toggle_menu(menu:PackedScene):#Called from global.gd
 				menu_is_open = false
 				return
 			get_node("submenu").get_node("anim").play_backwards("fade")
-			
+			get_tree().paused = false
 			yield(get_node("submenu").get_node("anim"), "animation_finished")
 			get_node("submenu").queue_free()
 			menu_is_open = false
