@@ -108,6 +108,7 @@ func tag():
 	get_tree().call_group("GUI", "update_lives", lives)
 	enemy_score += 1
 	update_score_gui()
+	reset_game()
 #	get_tree().reload_current_scene()
 	#get_tree().root.get_node("world")
 	
@@ -116,7 +117,8 @@ func tag():
 #
 
 func reset_game():
-	get_tree().call_group("bodies", "reset")
+	
+	get_tree().reload_current_scene()
 	
 func _on_Area_body_entered(body):
 #	
