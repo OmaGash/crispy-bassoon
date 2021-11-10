@@ -1,6 +1,8 @@
 extends Character
 
 signal interact
+signal health_update(health)
+signal dead()
 var lives = 3
 #Variable for storing velocity
 var velocity: = Vector3()
@@ -20,7 +22,8 @@ var hasoffer = false setget toggle_offer
 var base_z: float
 var spawn
 
-
+export (float) var max_health = 100
+onready var health = max_health
 func _ready():
 	
 	g.in_game = true
@@ -29,8 +32,10 @@ func _ready():
 	_gravity = 50
 	_jump_force = 20
 	Dialogic.set_variable("name", g.player_name)
+	update_lives()
 
-
+func update_lives():
+	get_tree().call_group("GUI" , "update_lives" , lives)
 	
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.

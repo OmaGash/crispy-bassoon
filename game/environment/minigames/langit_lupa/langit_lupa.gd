@@ -3,18 +3,26 @@ var reset_state = false
 var groundnum: int=2
 onready var timer := get_node("Timer")
 var wait_time: float
+var lives = 3
 var enemy_score = 0
 var player_score = 0
-
+var m 
+var s 
 onready var player = $player
-
+onready var player_spawn = $Node/PlayerPosition
+onready var npc_spawn = $Node/NPCPosition
 onready var a = $npc/Area
 func _ready():
 	randomize()
-	timer.start()
-	$Timer2.start()
-	add_to_group("GameState")
 
+#	get_tree().paused = true
+#	yield(get_tree().create_timer(3), "timeout")
+#	get_tree().paused = false
+	timer.start()
+	add_to_group("GameState")
+	$countdown_timer.start()
+	m = 0
+	s = 20
 	update_score_gui()
 #	wait_time = rand_range(3.0,6.0)
 #	_on_Timer_timeout()
@@ -30,6 +38,40 @@ func end_game():
 	get_tree().reload_current_scene() 
 #	loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn", get_parent())
 	pass
+#
+func _process(delta):
+	var time_l: String = "Time Left: %d"
+	var time = $countdown_timer.time_left
+	
+	$countdown_label.text = time_l % [time]
+#	win_game()
+	
+#	if s == 0 and m >= 1:
+#		s = 59
+#		m -= 1
+#	if m < 0:
+#		s -= 1
+#		m = 0
+##	if m <= 0 and s < 0:
+##		$Timer.stop()
+#	$countdown_label.set_text("0" + str(m) + ":" + str(s))
+#
+#	if s < 10:
+#		$countdown_label.set_text("0" + str(m) + ":" + "0" + str(s))
+#	if m <= 0 and s <= 0:
+#		$countdown_timer.stop()
+func player_scores():
+	if $countdown_timer.time_left < 1:
+		$countdown_timer.stop()
+		set_process(false)
+		player_score += 1
+		update_score_gui()
+#		reset()
+		
+func reset():
+	
+	player.translate = player_spawn
+	$npc.translate = npc_spawn
 	
 func platform_disappear():
 	if groundnum==2:
@@ -51,7 +93,7 @@ func platform_disappear():
 	timer.set_wait_time(4)
 	timer.start()
 	pass
-	
+
 
 func _on_Timer_timeout():
 	platform_disappear()
@@ -62,6 +104,8 @@ func _on_Timer_timeout():
 #	timer.start()
 #	print(wait_time)
 func tag():
+	lives -= 1
+	get_tree().call_group("GUI", "update_lives", lives)
 	enemy_score += 1
 	update_score_gui()
 #	get_tree().reload_current_scene()
@@ -71,9 +115,8 @@ func tag():
 		end_game()
 #
 
-	
-func spawn_position():
-	pass
+func reset_game():
+	get_tree().call_group("bodies", "reset")
 	
 func _on_Area_body_entered(body):
 #	
@@ -99,14 +142,26 @@ func win_game():
 	pass
 
 
-func _on_Timer2_timeout():
-	player_score += 1
-	update_score_gui()
-#	get_tree().reload_current_scene()
-	if player_score == 3:
-		win_game()
-	pass # Replace with function body.
-	
+
+func update_lives():
+	get_tree().call_group("GUI", "update_lives", lives)
 	
 func update_score_gui():
+	
 	get_tree().call_group("GUI", "update_score", player_score , enemy_score)
+
+
+func _on_countdown_timer_timeout():
+	win_game()
+#	s -= 1
+#	player_score += 1
+#	update_score_gui()
+	
+	
+#	player_score += 1
+#	update_score_gui()
+#	get_tree().reload_current_scene()
+#	if player_score == 3:
+#		win_game()
+#	
+	pass # Replace with function body.
