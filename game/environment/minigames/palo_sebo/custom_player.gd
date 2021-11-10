@@ -2,6 +2,7 @@ extends Character
 
 #Variable for storing velocity
 var velocity: = Vector3()
+var gravity
 #Which way is up
 const UP: = Vector3(0,1,0)
 
@@ -10,12 +11,12 @@ var last_key := 2#0 is left, 1 is right
 
 func _ready():
 	translation.z = 0 
-	_gravity = 50
+	gravity = 50
 	_jump_force = 5
 
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
-	velocity.y -= _gravity * delta
+	velocity.y -= gravity * delta
 	velocity = move_and_slide(velocity, UP)
 
 func _unhandled_input(event: InputEvent) -> void:

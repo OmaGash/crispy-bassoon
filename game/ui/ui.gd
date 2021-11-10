@@ -3,7 +3,7 @@ extends CanvasLayer
 #Attach this to a CanvasLayer ui node as the root node's child
 #Then set the ui node's pause mode to process
 #Menus need to have an AnimationPlayer node named "anim" with an animation named "fade" for this to work properly.
-
+class_name UI
 var menu_is_open = false
 
 func _ready():

@@ -54,20 +54,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/merchant/merchant.gd"
 }, {
+"base": "Control",
+"class": "PostResult",
+"language": "GDScript",
+"path": "res://ui/post_results.gd"
+}, {
 "base": "Area",
 "class": "Statue",
 "language": "GDScript",
 "path": "res://environment/statues/statue.gd"
 }, {
+"base": "CanvasLayer",
+"class": "UI",
+"language": "GDScript",
+"path": "res://ui/ui.gd"
+}, {
 "base": "Control",
 "class": "Warning",
 "language": "GDScript",
 "path": "res://ui/warning.gd"
-}, {
-"base": "Sprite3D",
-"class": "healthbar3D",
-"language": "GDScript",
-"path": "res://HealthBar3D/Healthbar3D.gd"
 } ]
 _global_script_class_icons={
 "Character": "res://icon.png",
@@ -79,9 +84,10 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "Fax": "",
 "Merchant": "",
+"PostResult": "",
 "Statue": "res://characters/concept/statue/statue-earth.png",
-"Warning": "res://addons/dialogic/Images/Event Icons/warning.svg",
-"healthbar3D": "res://HealthBar3D/class_icon.png"
+"UI": "",
+"Warning": "res://addons/dialogic/Images/Event Icons/warning.svg"
 }
 
 [application]
@@ -94,7 +100,6 @@ config/icon="res://icon.png"
 
 g="*res://environment/global.gd"
 gd="*res://tools/snippets.gd"
-DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 loader="*res://tools/scene_loader.gd"
 
 [display]
