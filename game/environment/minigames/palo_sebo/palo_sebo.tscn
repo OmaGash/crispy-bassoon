@@ -159,4 +159,5 @@ material/2 = null
 material/3 = null
 
 [connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
+[connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]
 [connection signal="body_entered" from="goal" to="ui" method="_on_goal_body_entered"]

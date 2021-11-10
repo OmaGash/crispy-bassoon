@@ -16,7 +16,7 @@ func _on_start_pressed():
 	$start_button.hide()
 
 
-func _on_goal_body_entered(body):
+func _on_goal_body_entered(body):#Victory requirement
 	if not body.is_in_group("player"): return
 	$"../time_limit".paused = true
 	if $"../time_limit".time_left > 0:
@@ -24,3 +24,9 @@ func _on_goal_body_entered(body):
 		toggle_menu(load("res://ui/post_results.tscn"))
 		if has_node("submenu"):
 			get_node("submenu").set_values("Victory!", "Palo sebo done in " + str(ceil($"../time_limit".wait_time - $"../time_limit".time_left)) + " seconds.", pearls_won)
+
+
+func _on_time_limit_timeout():
+	toggle_menu(load("res://ui/post_results.tscn"))
+	if has_node("submenu"):
+		get_node("submenu").set_values("Failed", "You ran out of time", 0)
