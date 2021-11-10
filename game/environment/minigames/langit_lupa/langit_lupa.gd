@@ -21,6 +21,7 @@ func _ready():
 	timer.start()
 	add_to_group("GameState")
 	$countdown_timer.start()
+	$GameOverScreen.get_child(0).hide()
 	m = 0
 	s = 20
 	update_score_gui()
@@ -32,10 +33,10 @@ func _ready():
 func end_game():
 	var warning = load("res://ui/warning.tscn").instance()
 	add_child(warning)
-	warning.warn(get_tree(), "naol nahabol", "awts gege")
+	warning.warn(get_tree(), "You Lose!", "Game Over")
 	yield(warning, "confirmed")
 	$npc/Area.monitoring
-	get_tree().reload_current_scene() 
+	get_tree().reload_current_scene()
 #	loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn", get_parent())
 	pass
 #
@@ -106,16 +107,19 @@ func _on_Timer_timeout():
 func tag():
 	lives -= 1
 	get_tree().call_group("GUI", "update_lives", lives)
-	enemy_score += 1
-	update_score_gui()
-	reset_game()
+#	enemy_score += 1
+#	update_score_gui()
+	
 #	get_tree().reload_current_scene()
 	#get_tree().root.get_node("world")
 	
-	if enemy_score == 3:
-		end_game()
-#
-
+	if lives < 1:
+		
+#		var warning = load("res://gameover.tscn").instance()
+#		add_child(warning)
+		$GameOverScreen.get_child(0).show()
+		
+#		yield(warning, "pressed")
 func reset_game():
 	
 	get_tree().reload_current_scene()
@@ -147,9 +151,8 @@ func win_game():
 
 func update_lives():
 	get_tree().call_group("GUI", "update_lives", lives)
-	
+
 func update_score_gui():
-	
 	get_tree().call_group("GUI", "update_score", player_score , enemy_score)
 
 

@@ -22,9 +22,10 @@ func _on_QuitButton_pressed():
 
 
 func _on_PlayAgainButton_pressed():
-	get_parent().reset_game()
+	get_tree().paused = false
+	get_tree().change_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn")
 
 
 func _on_MainMenuButton_pressed():
-	get_tree().change_scene("res://ui/main_menu.tscn")
+	get_parent().reset_game()
 	pass # Replace with function body.
