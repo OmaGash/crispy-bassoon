@@ -27,7 +27,7 @@ func _on_ItemList_item_selected(index):
 		4:
 			next_scene = "res://environment/Level1/level1_scene.tscn"
 		5:
-			next_scene = "res://pre.tscn"
+			next_scene = "res://pre-langit_lupa.tscn"
 		6:
 			next_scene = "res://protopyte/za_warudo/player_test.tscn"
 		7:
