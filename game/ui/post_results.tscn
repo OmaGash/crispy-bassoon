@@ -94,10 +94,28 @@ text = "kaya"
 align = 1
 valign = 1
 
-[node name="done" type="Button" parent="PanelContainer/items"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/items"]
 margin_top = 252.0
 margin_right = 263.0
 margin_bottom = 292.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 1
+
+[node name="retry" type="Button" parent="PanelContainer/items/HBoxContainer"]
+margin_right = 172.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="done" type="Button" parent="PanelContainer/items/HBoxContainer"]
+margin_left = 176.0
+margin_right = 263.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Done"
@@ -110,4 +128,5 @@ autoplay = "fade"
 anims/RESET = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
-[connection signal="pressed" from="PanelContainer/items/done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="PanelContainer/items/HBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="PanelContainer/items/HBoxContainer/done" to="." method="_on_done_pressed"]

@@ -114,15 +114,10 @@ func tag():
 	#get_tree().root.get_node("world")
 	
 	if lives < 1:
-		
-#		var warning = load("res://gameover.tscn").instance()
-#		add_child(warning)
-		$GameOverScreen.get_child(0).show()
-		
-#		yield(warning, "pressed")
-func reset_game():
-	
-	get_tree().reload_current_scene()
+		$ui.toggle_menu(load("res://ui/post_results.tscn"))
+		if $ui.has_node("submenu"):
+			$ui.get_node("submenu").set_values("Failed", "You got tagged three times.", 0)
+
 	
 func _on_Area_body_entered(body):
 #	

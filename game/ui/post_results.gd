@@ -14,3 +14,12 @@ func set_values(result: String, info: String, pearls: int):
 func _on_done_pressed():
 	get_parent().toggle_menu(load("res://ui/post_results.tscn") as PackedScene)
 	loader.load_scene("res://ui/main_menu.tscn", get_parent().get_parent())
+
+
+func _on_retry_pressed():
+	print(get_tree().root.get_node("world").filename)
+	g.pause()
+	$anim.play_backwards("fade")
+	yield($anim, "animation_finished")
+	loader.load_scene(get_tree().root.get_node("world").filename, get_tree().root.get_node("world"))
+	
