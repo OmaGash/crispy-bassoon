@@ -18,6 +18,8 @@ func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.
 	velocity.y -= gravity * delta
 	velocity = move_and_slide(velocity, UP)
+	velocity.x = 0
+	velocity.z = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left") and (last_key == 2 or last_key == 1):

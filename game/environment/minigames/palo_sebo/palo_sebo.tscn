@@ -120,9 +120,6 @@ __meta__ = {
 transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )
 script = ExtResource( 3 )
 
-[node name="Armature" parent="player/Armature" index="0"]
-transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
-
 [node name="AnimationTree" parent="player/Armature" index="2"]
 active = false
 

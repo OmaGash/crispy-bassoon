@@ -9,6 +9,7 @@ var angle_z: float = 0
 var animated = []
 
 func _ready():
+	g.in_game = true
 	print(rotation.angle_to(Vector3(0,11,0)))
 	$ui/ViewportContainer/Viewport.world = get_tree().root.get_viewport().world
 	$ui/ViewportContainer/Viewport/Camera.current = true
