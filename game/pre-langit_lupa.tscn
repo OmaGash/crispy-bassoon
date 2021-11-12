@@ -51,19 +51,21 @@ __meta__ = {
 }
 
 [node name="Rules" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = 2.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="info" type="RichTextLabel" parent="TabContainer/Rules"]
 margin_left = 1.41418
 margin_top = -9.41422
 margin_right = 1358.41
 margin_bottom = 640.586
-custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "																		
 																		
 																		SURVIVE IN A MINUTE
@@ -79,14 +81,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = 2.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="info" type="RichTextLabel" parent="TabContainer/About the game"]
-margin_top = -6.0
-margin_right = 1362.0
-margin_bottom = 645.0
-custom_fonts/normal_font = SubResource( 2 )
+margin_left = 119.0
+margin_top = 59.0
+margin_right = 1243.0
+margin_bottom = 582.0
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Langit-lupa is a chase game, a habulan variation in which participants can avoid getting tagged if they stand on a high platform.
 
 It then pursues the other players, attempting to tag them. Just like in habulan, whoever is tagged becomes the it. Players can, however, climb or step onto a higher level, such as a flight of stairs, a table, or simply dangle from a jungle gym. Players who are able to do so will not be marked. This restriction is governed by many rules. One method is to keep track of a player's immunity. The player must come down and become vulnerable again after a predetermined number of counts. Some groups make it a rule that it must move away from greater players to give them a chance to flee. When the players are exhausted or called home, the game is over."
