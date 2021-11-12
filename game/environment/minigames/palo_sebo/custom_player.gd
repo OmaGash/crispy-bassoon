@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left") and (last_key == 2 or last_key == 1):
 		last_key = 0
 		velocity.y += _jump_force
+		$Armature/AnimationPlayer.play("Climb")
 	if event.is_action_pressed("move_right") and (last_key == 2 or last_key == 0):
 		last_key = 1
 		velocity.y += _jump_force
