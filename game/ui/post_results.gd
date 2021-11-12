@@ -17,9 +17,9 @@ func _on_done_pressed():
 
 
 func _on_retry_pressed():
-	print(get_tree().root.get_node("world").filename)
+	print(get_parent().get_parent().filename)
 	g.pause()
 	$anim.play_backwards("fade")
 	yield($anim, "animation_finished")
-	loader.load_scene(get_tree().root.get_node("world").filename, get_tree().root.get_node("world"))
+	loader.load_scene(get_parent().get_parent().filename, get_parent().get_parent())
 	

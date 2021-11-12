@@ -10,9 +10,9 @@ const UP: = Vector3(0,1,0)
 var last_key := 2#0 is left, 1 is right
 
 func _ready():
-	translation.z = 0 
 	gravity = 50
 	_jump_force = 5
+	set_process_unhandled_input(false)
 
 func _physics_process(delta):
 	#Player will always be affected by gravity, regardless of which state they are currently in.

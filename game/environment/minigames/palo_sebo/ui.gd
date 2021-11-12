@@ -14,6 +14,7 @@ func _on_start_pressed():
 	set_process(true)
 	g.in_game = true
 	$start_button.hide()
+	$"../player".set_process_unhandled_input(true)
 
 
 func _on_goal_body_entered(body):#Victory requirement

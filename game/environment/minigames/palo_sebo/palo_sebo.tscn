@@ -117,8 +117,14 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7334, 0 )
+transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )
 script = ExtResource( 3 )
+
+[node name="Armature" parent="player/Armature" index="0"]
+transform = Transform( 0.730497, 0.0474349, -0.681267, 0.00761292, 0.996957, 0.0775787, 0.682874, -0.0618574, 0.727913, 0, -0.106336, 0 )
+
+[node name="AnimationTree" parent="player/Armature" index="2"]
+active = false
 
 [node name="ground" type="StaticBody" parent="."]
 
@@ -135,8 +141,7 @@ shape = SubResource( 2 )
 wait_time = 5.0
 
 [node name="goal" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.3433, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.241, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -155,7 +160,7 @@ follow_offset = Vector2( 0, 2 )
 smoothing = 1.0
 
 [node name="bamboo blue" type="MeshInstance" parent="."]
-transform = Transform( 0.325962, 0, 0, 0, 7.25466, 0, 0, 0, 0.326543, 0.0186132, 7.18706, 0.17604 )
+transform = Transform( 0.326, 0, 0, 0, 25, 0, 0, 0, 0.327, 0.0186132, 24.5106, 0.17604 )
 mesh = SubResource( 5 )
 material/0 = ExtResource( 7 )
 material/1 = null
@@ -168,3 +173,6 @@ transform = Transform( 7, 0, 0, 0, 5, 0, 0, 0, 10, 0, -19.1064, -11.9321 )
 [connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
 [connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]
 [connection signal="body_entered" from="goal" to="ui" method="_on_goal_body_entered"]
+
+[editable path="player"]
+[editable path="player/Armature"]
