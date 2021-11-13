@@ -291,10 +291,7 @@ margin_right = 237.0
 margin_bottom = 148.0
 text = "Change name"
 
-[node name="interactable" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7594, 14.323, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -309,9 +306,7 @@ shape = SubResource( 10 )
 mesh = SubResource( 11 )
 material/0 = SubResource( 12 )
 
-[node name="interactable2" type="StaticBody" parent="." groups=[
-"interactable",
-]]
+[node name="interactable2" type="StaticBody" parent="." groups=["interactable"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5421, 2.97856, 0 )
 collision_layer = 3
 script = SubResource( 13 )
@@ -342,10 +337,7 @@ shape = SubResource( 10 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7618, 10.2292, -2.35123 )
 
-[node name="interactable4" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable4" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68306, 14.2865, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -360,10 +352,7 @@ shape = SubResource( 10 )
 mesh = SubResource( 11 )
 material/0 = SubResource( 12 )
 
-[node name="interactable5" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable5" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8975, 1.76256, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -378,10 +367,7 @@ shape = SubResource( 10 )
 mesh = SubResource( 11 )
 material/0 = SubResource( 12 )
 
-[node name="interactable6" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable6" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86017, 14.2865, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -396,10 +382,7 @@ shape = SubResource( 10 )
 mesh = SubResource( 11 )
 material/0 = SubResource( 12 )
 
-[node name="interactable7" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable7" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2121, 14.2865, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -414,10 +397,7 @@ shape = SubResource( 10 )
 mesh = SubResource( 11 )
 material/0 = SubResource( 12 )
 
-[node name="interactable9" type="StaticBody" parent="." groups=[
-"interactable",
-"talk",
-]]
+[node name="interactable9" type="StaticBody" parent="." groups=["interactable", "talk"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3892, 14.2865, 0.162017 )
 collision_layer = 3
 script = SubResource( 9 )
@@ -442,9 +422,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24146, 3.14886, -0.0255462 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.416, 5, -3 )
 link = NodePath("../fog")
 
-[node name="offer" type="Area" parent="." groups=[
-"interactable",
-]]
+[node name="offer" type="Area" parent="." groups=["interactable"]]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29, 1.5, 0 )
 collision_layer = 2
 collision_mask = 2
@@ -478,9 +456,7 @@ link = NodePath("../water")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74, -2.319, -0.271 )
 script = SubResource( 17 )
 
-[node name="offer2" type="Area" parent="." groups=[
-"interactable",
-]]
+[node name="offer2" type="Area" parent="." groups=["interactable"]]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -29, 1.5, 0 )
 collision_layer = 2
 collision_mask = 2
@@ -506,9 +482,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.46, 0, 2.13888 )
 texture = ExtResource( 11 )
 script = SubResource( 18 )
 
-[node name="geo" parent="." groups=[
-"geo",
-] instance=ExtResource( 6 )]
+[node name="geo" parent="." groups=["geo"] instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96263, 5, -1.66519 )
 link = NodePath("../teleport")
 

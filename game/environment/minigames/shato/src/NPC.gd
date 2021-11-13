@@ -18,7 +18,7 @@ onready var ap = $npc1/AnimationPlayer
 func _ready():
 	$"../".connect("hit", self, "hit")
 	set_physics_process(false)
-	
+	ap.play("Idle-loop")
 func hit(_var1, _var2, _var3):
 	set_physics_process(true)
 		
