@@ -58,8 +58,14 @@ text = "Where to start:"
 [node name="ItemList" type="ItemList" parent="debug/VBoxContainer"]
 margin_top = 18.0
 margin_right = 312.0
-margin_bottom = 216.0
+margin_bottom = 192.0
 size_flags_vertical = 3
+
+[node name="save" type="Button" parent="debug/VBoxContainer"]
+margin_top = 196.0
+margin_right = 312.0
+margin_bottom = 216.0
+text = "Delete Save"
 
 [node name="items" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -99,5 +105,6 @@ size_flags_stretch_ratio = 0.5
 text = "Exit"
 
 [connection signal="item_selected" from="debug/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="debug/VBoxContainer/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]

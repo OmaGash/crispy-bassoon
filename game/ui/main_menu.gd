@@ -33,3 +33,7 @@ func _on_ItemList_item_selected(index):
 		7:
 			next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
 			
+
+
+func _on_save_pressed():
+	g.delete_save()

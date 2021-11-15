@@ -12,7 +12,7 @@ var in_game = false
 var pearls = 50 setget update_pearls
 
 #Where the entries are kept
-var entries = {
+var entries:Dictionary = {
 	0: {
 		"name": "Siyokoy",
 		"description" : "The Siyokoy are fearsome merfolk.\nThey are aquatic creatures with a humanoid form and scaled fish-like bodies.\n On different areas of their body, they have wide green tentacles and fins.\n They have gill slits, webbed hands, and are brown or green in appearance.",
@@ -126,6 +126,7 @@ var entries = {
 
 func _ready():#This node will run regardless of pausing
 	pause_mode = Node.PAUSE_MODE_PROCESS
+	load_save()
 
 func _change_name(new_name: String):
 	player_name = new_name
@@ -151,3 +152,50 @@ func _artifact_swap(new_artifacts):
 func update_pearls(new_value):
 	pearls = new_value
 	emit_signal("new_pearls", pearls)
+
+#Save system----------------------------------------------
+
+const save_filename = "user://data.sav"
+
+func save():
+	var save_file = File.new()
+	save_file.open(save_filename, 2)
+#	var nodes_to_save = get_tree().get_nodes_in_group("saved")
+	
+#	for node in nodes_to_save:
+#		if node.filename.empty():
+#			break
+#		var values_to_save = node.get_values()
+	save_file.store_line(to_json(get_values()))
+	save_file.close()
+
+func load_save():
+	var save_file = File.new()
+	if not save_file.file_exists(save_filename):
+		return
+	save_file.open(save_filename, 1)
+	while save_file.get_position() < save_file.get_len():
+		var data = parse_json(save_file.get_line())
+		load_values(data)
+
+func get_values():
+	return{
+		"pearls": pearls,
+		"entries": entries
+	}
+
+func load_values(data: Dictionary):
+	pearls = data["pearls"]
+	entries.clear()
+	entries = data["entries"] as Dictionary
+	var intkey = 0
+	for key in entries.keys():#Converts keys to int
+		entries[intkey] = entries[key]
+		entries.erase(key)
+		intkey += 1
+	
+func delete_save():
+	var savefile = File.new()
+	if savefile.file_exists(save_filename):
+		var dir = Directory.new()
+		dir.remove(save_filename)

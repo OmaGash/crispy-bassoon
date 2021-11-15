@@ -59,6 +59,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		buy_button.text = "View"
 		buy_button.release_focus()
 		warning.warn(get_tree(), "You bought " + g.entries[item_id]["name"] + ".", "Purchased successfully")
+		g.save()
 	else:
 		warning.warn(get_tree(), "Insufficient pearls, you need " + str(g.entries[item_id]["price"] - g.pearls) + " more to buy "+ g.entries[item_id]["name"] + ".", "Purchase unsuccessful")
 
