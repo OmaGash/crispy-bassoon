@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://environment/minigames/sussybaka/player.gd" type="Script" id=1]
+[ext_resource path="res://tools/camera.gd" type="Script" id=2]
+[ext_resource path="res://ui/ui.gd" type="Script" id=3]
+[ext_resource path="res://environment/minigames/sussybaka/progress.png" type="Texture" id=4]
+[ext_resource path="res://environment/minigames/sussybaka/bar.png" type="Texture" id=5]
+[ext_resource path="res://environment/minigames/sussybaka/sussybaka.gd" type="Script" id=6]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 50, 2, 2 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 25, 1, 1 )
+
+[sub_resource type="CapsuleMesh" id=3]
+
+[sub_resource type="CapsuleShape" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 2, 5, 2 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 2.5, 1 )
+
+[node name="world" type="Spatial"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ui" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="power" type="TextureProgress" parent="ui"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -221.0
+margin_top = -133.0
+margin_right = 279.0
+margin_bottom = -33.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ground" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="ground"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+shape = SubResource( 2 )
+
+[node name="player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.436, 3.71996, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGMesh" type="MeshInstance" parent="player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67938, 12.0283 )
+script = ExtResource( 2 )
+player_scene = NodePath("../player")
+follow_y = false
+smoothing = 0.08
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25249, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 6 )

@@ -29,7 +29,7 @@ func _on_ItemList_item_selected(index):
 		5:
 			next_scene = "res://pre-langit_lupa.tscn"
 		6:
-			next_scene = "res://protopyte/za_warudo/player_test.tscn"
+			next_scene = "res://environment/minigames/sussybaka/sussybaka.tscn"
 		7:
 			next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
 			

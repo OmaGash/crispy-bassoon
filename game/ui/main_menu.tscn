@@ -17,7 +17,7 @@ func _ready():
 	list.add_item(\"shato ng ama mo\")
 	list.add_item(\"lv1 i guess\")
 	list.add_item(\"heaven and earth\")
-	list.add_item(\"shop moved na sa player_test\")
+	list.add_item(\"sussy baka\")
 	list.add_item(\"akyat bahay gang\")
 "
 
