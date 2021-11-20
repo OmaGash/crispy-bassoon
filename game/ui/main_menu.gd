@@ -32,8 +32,8 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://environment/minigames/sussybaka/sussybaka.tscn"
 		7:
 			next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
-			
-
+		8:
+			next_scene = "res://environment/minigames/sipa2/sipa.tscn"
 
 func _on_save_pressed():
 	g.delete_save()

@@ -19,6 +19,7 @@ func _ready():
 	list.add_item(\"heaven and earth\")
 	list.add_item(\"sussy baka\")
 	list.add_item(\"akyat bahay gang\")
+	list.add_item(\"step on me\")
 "
 
 [node name="main_menu" type="Control"]
