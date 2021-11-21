@@ -11,15 +11,15 @@ onready var list:ItemList = $VBoxContainer/ItemList
 
 func _ready():
 	popup()
-	list.add_item(\"Za warudo(default)\")
-	list.add_item(\"main game\")
-	list.add_item(\"player lang laman test scene\")
-	list.add_item(\"shato ng ama mo\")
-	list.add_item(\"lv1 i guess\")
-	list.add_item(\"heaven and earth\")
-	list.add_item(\"sussy baka\")
-	list.add_item(\"akyat bahay gang\")
-	list.add_item(\"step on me\")
+	list.add_item(\"Testing\")
+	list.add_item(\"main game(disregarded)\")
+	list.add_item(\"Shop\")
+	list.add_item(\"Siyato\")
+	list.add_item(\"prototype\")
+	list.add_item(\"Langit Lupa\")
+	list.add_item(\"Luksong Baka\")
+	list.add_item(\"Palo Sebo\")
+	list.add_item(\"Sipa\")
 "
 
 [node name="main_menu" type="Control"]
@@ -85,7 +85,7 @@ __meta__ = {
 [node name="title" type="Label" parent="items"]
 margin_right = 182.0
 margin_bottom = 14.0
-text = "Crisanto Luna"
+text = "myLahi"
 align = 1
 
 [node name="start" type="TextureButton" parent="items"]

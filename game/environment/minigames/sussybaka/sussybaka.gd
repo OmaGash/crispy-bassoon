@@ -8,7 +8,7 @@ func next_level(next):
 		2:
 			$"player".multiplier = 2.08
 		3:
-			$"player".multiplier = 2.59
+			$"player".multiplier = 2.30
 		4:
 			$"player".multiplier = 3.9
 		5:

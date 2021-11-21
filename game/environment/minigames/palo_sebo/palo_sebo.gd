@@ -1,6 +1,6 @@
 extends Node
 
-var difficulty = 1
+var difficulty = 2
 
 func _ready():
 	match difficulty:

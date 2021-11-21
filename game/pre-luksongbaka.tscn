@@ -1,22 +1,19 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://pre.gd" type="Script" id=2]
+[ext_resource path="res://pre-luksongbaka.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 36
 font_data = ExtResource( 1 )
 
-[node name="pre-game" type="Control"]
-anchor_top = -0.0019509
+[node name="pre-luksongbaka" type="Control"]
 anchor_right = 1.0
-anchor_bottom = 0.998049
-margin_right = -1.0
-margin_bottom = 3.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,12 +62,15 @@ margin_right = 1358.41
 margin_bottom = 640.586
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 1 )
-text = "																		
-																		
-																		SURVIVE IN A MINUTE
-												IF YOU GOT TAGGED 3 TIMES THE GAME IS OVER
-
-"
+text = "								
+								
+								
+													
+													
+													
+												KEEP YOUR METER IN THE GREEN SECTION
+										 IF IT DIDN'T CONNECT IN THE GREEN SECTION
+																		THE GAME IS OVER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,9 +91,9 @@ margin_right = 1243.0
 margin_bottom = 582.0
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 2 )
-text = "Langit-lupa is a chase game, a habulan variation in which participants can avoid getting tagged if they stand on a high platform.
+text = "
 
-It then pursues the other players, attempting to tag them. Just like in habulan, whoever is tagged becomes the it. Players can, however, climb or step onto a higher level, such as a flight of stairs, a table, or simply dangle from a jungle gym. Players who are able to do so will not be marked. This restriction is governed by many rules. One method is to keep track of a player's immunity. The player must come down and become vulnerable again after a predetermined number of counts. Some groups make it a rule that it must move away from greater players to give them a chance to flee. When the players are exhausted or called home, the game is over."
+Luksong Baka is a Filipino traditional game that began in the province of Bulacan in the Philippines' Central Luzon region. A minimum of three individual guys and a maximum of ten are required for this game. Although children may be able to alter the maximum number of players, especially if there are a lot of them, especially when there are a lot of them. Its goal is for players to jump over the baka (cow), also known as the taya or \"it,\" without colliding with any part of his body or tumbling over him."
 __meta__ = {
 "_edit_use_anchors_": false
 }
