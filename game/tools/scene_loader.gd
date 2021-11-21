@@ -29,7 +29,7 @@ func load_scene(path_to_scene: String, current_scene: Node):
 	yield(transition.get_node("anim"), "animation_finished")
 	var t = OS.get_ticks_msec()
 	
-	while OS.get_ticks_msec() - t < max_loading_time:#
+	while OS.get_ticks_msec() - t < max_loading_time:#Load while max_loading_time is not reached
 		var err = loader.poll()
 		if err == ERR_FILE_EOF:#Load done
 			var resource: PackedScene = loader.get_resource()

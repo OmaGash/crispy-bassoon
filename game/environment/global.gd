@@ -153,15 +153,16 @@ func update_pearls(new_value):
 	pearls = new_value
 	emit_signal("new_pearls", pearls)
 
-#Save system----------------------------------------------
+#Save system------------------------------------------------------------------------------------------------------------------------------------------
 
 const save_filename = "user://data.sav"
 
 func save():
 	var save_file = File.new()
-	save_file.open(save_filename, 2)
+	var key = generate_key()
+	save_file.open_encrypted_with_pass(save_filename, 2, key)
+	#not necessary since we only have global node to save
 #	var nodes_to_save = get_tree().get_nodes_in_group("saved")
-	
 #	for node in nodes_to_save:
 #		if node.filename.empty():
 #			break
@@ -169,11 +170,11 @@ func save():
 	save_file.store_line(to_json(get_values()))
 	save_file.close()
 
-func load_save():
+func load_save():#Load save file
 	var save_file = File.new()
 	if not save_file.file_exists(save_filename):
 		return
-	save_file.open(save_filename, 1)
+	save_file.open_encrypted_with_pass(save_filename, 1, get_key())
 	while save_file.get_position() < save_file.get_len():
 		var data = parse_json(save_file.get_line())
 		load_values(data)
@@ -199,3 +200,20 @@ func delete_save():
 	if savefile.file_exists(save_filename):
 		var dir = Directory.new()
 		dir.remove(save_filename)
+
+func generate_key():#Generate a password for file
+	var key_file = File.new()
+	var pattern = str(hash(OS.get_unique_id() + str(OS.get_time())))#Makes sure that a new unique key is generated when saving
+	key_file.open("user://misc",2)
+	key_file.store_line(pattern)
+	key_file.close()
+	return pattern
+
+func get_key() -> String:
+	var key_file = File.new()
+	if not key_file.file_exists("user://misc"):#Dont load data when no key is found
+		return ""
+	key_file.open("user://misc", 1)
+	var key = key_file.get_line()
+	key_file.close()
+	return key
