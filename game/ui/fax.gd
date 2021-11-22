@@ -9,7 +9,7 @@ func import_variables(texts: String, image_location:String = "none", video_locat
 		$ScrollContainer/VBoxContainer/image.queue_free()
 	
 	if video_location != "none":
-		$ScrollContainer/VBoxContainer/image.stream = load(video_location) as VideoStream
+		$ScrollContainer/VBoxContainer/video.stream = load(video_location) as VideoStream
 	else:
 		$ScrollContainer/VBoxContainer/video.queue_free()
 

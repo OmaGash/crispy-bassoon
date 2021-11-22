@@ -1,10 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa2/player.gd" type="Script" id=2]
 [ext_resource path="res://environment/minigames/sipa2/ball.gd" type="Script" id=3]
 [ext_resource path="res://environment/minigames/sipa2/sipa.gd" type="Script" id=4]
 [ext_resource path="res://ui/ui.gd" type="Script" id=5]
+[ext_resource path="res://tenderness.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=12]
+size = 64
+font_data = ExtResource( 6 )
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 50, 2, 7 )
@@ -71,6 +76,17 @@ __meta__ = {
 pause_mode = 2
 layer = -1
 script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="ui"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -84.0
+margin_right = 84.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ground" type="StaticBody" parent="."]
 

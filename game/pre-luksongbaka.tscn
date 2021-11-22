@@ -93,7 +93,7 @@ custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "
 
-Luksong Baka is a Filipino traditional game that began in the province of Bulacan in the Philippines' Central Luzon region. A minimum of three individual guys and a maximum of ten are required for this game. Although children may be able to alter the maximum number of players, especially if there are a lot of them, especially when there are a lot of them. Its goal is for players to jump over the baka (cow), also known as the taya or \"it,\" without colliding with any part of his body or tumbling over him."
+Luksong Baka is a Filipino traditional game  that began in the province of Bulacan in the Philippines' Central Luzon region. A minimum of three individual guys and a maximum of ten are required for this game. Although children may be able to alter the maximum number of players, especially if there are a lot of them. Its goal is for players to jump over the baka (cow), also known as the taya without colliding with any part of his body or tumbling over him."
 __meta__ = {
 "_edit_use_anchors_": false
 }

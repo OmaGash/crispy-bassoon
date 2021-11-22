@@ -16,11 +16,11 @@ var entries:Dictionary = {
 	0: {
 		"name": "Siyokoy",
 		"description" : "The Siyokoy are fearsome merfolk.\nThey are aquatic creatures with a humanoid form and scaled fish-like bodies.\n On different areas of their body, they have wide green tentacles and fins.\n They have gill slits, webbed hands, and are brown or green in appearance.",
-		"icon": "res://icon.png",
+		"icon": "res://ui/icons/creature icons/siyokoy-icon.png",
 		"owned": false,
 		"price": 50,
 		"fax": {
-			"image": "res://icon.png",
+			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
 			"video": "res://icon.mkv",
 			"info": "They are sea creatures that are believed to drown and swallow mortals.\n They are widely accused of causing ocean disasters.\n Eels, octopus, rays, and squids, among many other threatening aquatic species,\n usually swim along Siyokoy."
 		}
@@ -52,7 +52,7 @@ var entries:Dictionary = {
 	3: {
 		"name": "Dwende",
 		"description" : "A dwende, or 'old man on the mound'is a dwarf creature who lives in the woods,\nin an anthill or old houses in a remote areas.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/dwende-icon.png",
 		"owned": false,
 		"price": 69,
 		"fax": {#use "none" pag n/a
@@ -76,11 +76,11 @@ var entries:Dictionary = {
 	5: {
 		"name": "Manananggal",
 		"description" : "From the tagalog word of ‘’ tanggal’’ or to split. It is believed that they split or separate half of\ntheir body, to hunt for food.",
-		"icon": "res://icon.png",
+		"icon": "res://ui/icons/creature icons/manananggal-icon.png",
 		"owned": false,
 		"price": 50,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
 			"video": "none",
 			"info": "They seek for the same food as aswangs, fresh blood, fetuses, and human parts, particularly\nthe heart and liver.While they are out hunting at night, Manananggal transforms into a terrifying\ncreature with a wrinkled face, sharp claws and teeth, and frighteningly large eyes.As well\nas a huge wings to fly. The lower body was left to stand on the ground. They will take to the\nskies in quest of food, sucking blood or eating the fetus of a pregnant lady with their elongated\nsharp tongue.To keep manananggal at bay, put salt throughout your home; they also detest\ngarlic, the tail of a sting ray, and sunlight. They must reunite to their half body before daylight, or\nthey will perish. They will be burned by the sun."
 			}
@@ -88,11 +88,11 @@ var entries:Dictionary = {
 	6: {
 		"name": "Kapre",
 		"description" : "The kapre is a cryptid monster from the Philippines that resembles a tremendously tall,\nlong-legged, god-like hairy humanoid that rests in lofty trees and smokes tobacco.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/kapre-icon.png" ,
 		"owned": false,
 		"price": 50,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
 			"video": "none",
 			"info": "It is described as being tall (between 7 to 9 ft), brown, hairy male with a beard. Unlike the\nManananggal, Kapres are not always thought to be evil. According to some reports, the kapre\nhave transitioned from smoking near-infinite cigars to drinking beer. Some kapre are smart,\nwhile others are feared beasts, but they all have one thing in common: an unusual need to keep\nan eye on farm animals and humans.Kapres are also claimed to play practical jokes on people,\ncausing them to become confused and lose their way in the mountains or woodlands. They are\nalso thought to be capable of puzzling people even in familiar surroundings; for example,\nsomeone who forgets they are in their own yard or home is said to have been fooled by a kapre.\nIf Kapres is attracted to a woman, it may establish contact with them to offer friendship. If a\nkapre befriends a human, especially for love, the kapre will stick with its love interest\nfor the remainder of its life. Furthermore, if one is a buddy of the kapre, that person has the\npower to see it, and if they sit on it, anyone else may see it. This demonstrates that kapres are\na friendly species of humanoid.The kapre is said to house a mystical white stone the size of a\nquail egg in certain stories. The kapre has the ability to grant wishes to anyone who obtains this\nstone."
 			}
@@ -100,11 +100,11 @@ var entries:Dictionary = {
 	7: {
 		"name": "Sirena",
 		"description" : "In Filipino mythology, the Sirena is a mythical sea creature. Sirenas are known as Magindara in\nvarious parts of the Philippines, particularly Bicol and Visayas, and are depicted as ferocious\nmermaids.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/sirena-icon.png" ,
 		"owned": false,
 		"price": 50,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
 			"video": "none",
 			"info": "Sirenas are attractive marine creatures with a human-like upper body with long,flowing hair that\nis generally curly or wavy, and a fish-like lower body or tail. They were thoughtto be charming\nin pre-Hispanic Philippines.Sirena drowns fishermen and soldiers who worship Apo laki, accord-\ning to many Pangasinan mythology. They are said to be protectors of the waters of ''asin-palan,''\nprotecting it from tattooed Visayas raiders. Pre-colonial Filipinos thought that during the full\nmoon (or in the Dayaw or Kadayawan), Bulan, one of the moon's manifestations, descended from\nthe skies to swim with the mermaids, so the mermaids protected the boy moon from sea mon-\nsters. When a mermaid falls in love with a human, she or he becomes tame and submissive.\nThe Sirena is commonly accompanied by dugongs, sea turtles, and small cetaceans such as dol-\nphins. The Sirena has a lovely and seductive song that can captivate and attract males, especially\nfisherman. Sirena sing to sailors and enchant them, causing them to become distracted from\ntheir duties and walk off ship decks or cause shipwrecks. While hiding among the rocks near the\ncoast, they sing in lovely tones. The Sirena hypnotizes the guys and abducts them when they\nhear these tunes. According to legend, the Sirena take their victims under the sea and sacrifice\nthem to the water gods.  Other legends say that the Sirena act as drowning victims to lure men\ninto the sea, only to squeeze the life out of any man who falls victim to their trickery."
 			}

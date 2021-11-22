@@ -278,7 +278,7 @@ __meta__ = {
 }
 
 [node name="countdown_timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 15.0
 autostart = true
 
 [node name="gui score" parent="." instance=ExtResource( 17 )]
