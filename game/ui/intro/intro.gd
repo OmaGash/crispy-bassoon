@@ -1,6 +1,6 @@
 extends Control
 
-var intro_queue = [preload("res://ui/intro/intro0.png"),
+var intro_queue = [preload("res://ui/intro/intro0.jpg"),
 preload("res://ui/intro/intro1.png"),
 preload("res://ui/intro/intro2.jpg")]
 var current = [0,0]
