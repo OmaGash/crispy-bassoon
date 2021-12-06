@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://environment/minigames/palo_sebo/flag stand.material" type="Material" id=8]
 [ext_resource path="res://environment/minigames/palo_sebo/flag.material" type="Material" id=9]
 [ext_resource path="res://environment/minigames/palo_sebo/pl platform/palo_sebo_platform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -115,6 +116,8 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="difficulty" parent="ui" instance=ExtResource( 11 )]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )

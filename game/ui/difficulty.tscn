@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/difficulty.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="difficulty" type="Control"]
+margin_right = 1366.0
+margin_bottom = 768.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -75.0
+margin_right = 189.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 306.0
+margin_bottom = 211.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+margin_right = 299.0
+margin_bottom = 27.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "Select Difficulty"
+align = 1
+valign = 1
+
+[node name="ez" type="Button" parent="PanelContainer/HBoxContainer"]
+margin_top = 31.0
+margin_right = 299.0
+margin_bottom = 86.0
+size_flags_vertical = 3
+text = "Easy"
+
+[node name="ezz" type="Button" parent="PanelContainer/HBoxContainer"]
+margin_top = 90.0
+margin_right = 299.0
+margin_bottom = 145.0
+size_flags_vertical = 3
+text = "Medium"
+
+[node name="ezz2" type="Button" parent="PanelContainer/HBoxContainer"]
+margin_top = 149.0
+margin_right = 299.0
+margin_bottom = 204.0
+size_flags_vertical = 3
+text = "Large"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/fade = SubResource( 2 )
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ez" to="." method="_on_ez_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ezz" to="." method="_on_ezz_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ezz2" to="." method="_on_ezz2_pressed"]

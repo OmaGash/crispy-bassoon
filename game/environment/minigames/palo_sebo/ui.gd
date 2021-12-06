@@ -21,7 +21,8 @@ func _on_goal_body_entered(body):#Victory requirement
 	if not body.is_in_group("player"): return
 	$"../time_limit".paused = true
 	if $"../time_limit".time_left > 0:
-		var pearls_won: int =  get_parent().difficulty * $"../time_limit".time_left
+		var pearls_won: int =  g.difficulty * $"../time_limit".time_left
+		$"../player".velocity = 0
 		toggle_menu(load("res://ui/post_results.tscn"))
 		if has_node("submenu"):
 			get_node("submenu").set_values("Victory!", "Palo sebo done in " + str(ceil($"../time_limit".wait_time - $"../time_limit".time_left)) + " seconds.", pearls_won)
