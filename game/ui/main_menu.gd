@@ -6,7 +6,7 @@ func _ready():
 	g.in_game = false
 
 func _on_start_pressed():
-	loader.load_scene(next_scene, self)
+	$anim.play("open_selection")
 
 
 func _on_quit_pressed():
@@ -37,3 +37,23 @@ func _on_ItemList_item_selected(index):
 
 func _on_save_pressed():
 	g.delete_save()
+
+
+func _on_palo_pressed():
+	next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
+	loader.load_scene(next_scene, self)
+
+
+func _on_sipa_pressed():
+	next_scene = "res://pre-sipa.tscn"
+	loader.load_scene(next_scene, self)
+
+
+func _on_shato_pressed():
+	next_scene = "res://environment/minigames/shato/world.tscn"
+	loader.load_scene(next_scene, self)
+
+
+func _on_langit_pressed():
+	next_scene = "res://pre-langit_lupa.tscn"
+	loader.load_scene(next_scene, self)

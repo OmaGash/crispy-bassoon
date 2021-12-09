@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "debug"
@@ -21,6 +22,61 @@ func _ready():
 	list.add_item(\"Palo Sebo\")
 	list.add_item(\"Sipa\")
 "
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "open_selection"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="main_menu" type="Control"]
 anchor_right = 1.0
@@ -105,7 +161,67 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Exit"
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.0
+margin_top = -79.0
+margin_right = 154.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 301.0
+margin_bottom = 151.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="palo" type="Button" parent="PanelContainer/GridContainer"]
+margin_right = 140.0
+margin_bottom = 70.0
+text = "Palo Sebo"
+icon = ExtResource( 3 )
+
+[node name="sipa" type="Button" parent="PanelContainer/GridContainer"]
+margin_left = 144.0
+margin_right = 294.0
+margin_bottom = 70.0
+text = "Sipa"
+icon = ExtResource( 3 )
+
+[node name="shato" type="Button" parent="PanelContainer/GridContainer"]
+margin_top = 74.0
+margin_right = 140.0
+margin_bottom = 144.0
+text = "Shota"
+icon = ExtResource( 3 )
+
+[node name="langit" type="Button" parent="PanelContainer/GridContainer"]
+margin_left = 144.0
+margin_top = 74.0
+margin_right = 294.0
+margin_bottom = 144.0
+text = "Langit Lupa"
+icon = ExtResource( 3 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/open_selection = SubResource( 3 )
+
 [connection signal="item_selected" from="debug/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="debug/VBoxContainer/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/palo" to="." method="_on_palo_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/sipa" to="." method="_on_sipa_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/shato" to="." method="_on_shato_pressed"]
+[connection signal="pressed" from="PanelContainer/GridContainer/langit" to="." method="_on_langit_pressed"]
