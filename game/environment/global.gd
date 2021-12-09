@@ -10,7 +10,7 @@ var artifact_active = 2 #active unlocks
 var current_artifacts = [-1, -1] setget _artifact_swap
 var in_game = false
 var pearls = 50 setget update_pearls
-var difficulty
+var difficulty#0, 1, 2
 
 #Where the entries are kept
 var entries:Dictionary = {

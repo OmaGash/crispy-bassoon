@@ -13,6 +13,8 @@ func _ready():
 	
 		
 
+func set_speed(new_speed):
+	_speed = new_speed
 
 func _physics_process(_delta):
 	

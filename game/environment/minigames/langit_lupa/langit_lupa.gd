@@ -12,13 +12,28 @@ onready var player = $player
 onready var player_spawn = $Node/PlayerPosition
 onready var npc_spawn = $Node/NPCPosition
 onready var a = $npc/Area
+
+func start():
+	match g.difficulty:
+		0:
+			$npc.set_speed(5)
+			$countdown_timer.wait_time = 15
+		1:
+			$npc.set_speed(10)
+			$countdown_timer.wait_time = 25
+		2:
+			$npc.set_speed(15)
+			$countdown_timer.wait_time = 40
+	set_physics_process(true)
+	$countdown_timer.start()
+
 func _ready():
 	randomize()
-
-#	get_tree().paused = true
+	set_physics_process(false)
+	$"ui/difficulty".connect("difficulty_set", self, "start")
+#	get_tree().paused = true	
 #	yield(get_tree().create_timer(3), "timeout")
 #	get_tree().paused = false
-	timer.start()
 	add_to_group("GameState")
 	$countdown_timer.start()
 	$GameOverScreen.get_child(0).hide()
@@ -42,7 +57,7 @@ func end_game():
 #
 func _process(delta):
 	var time_l: String = "Time Left: %d"
-	var time = $countdown_timer.time_left
+	var time = ceil($countdown_timer.time_left)
 	
 	$countdown_label.text = time_l % [time]
 #	win_game()
