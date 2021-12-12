@@ -9,6 +9,9 @@ class_name UI
 var menu_is_open = false
 
 func _ready():
+	for child in get_children():
+		if child is Control:
+			child.theme = load(g.theme) as Theme if g.theme != "null" else null
 	yield(loader, "done")
 	g.connect("toggle_menu", self, "toggle_menu")
 	var pause_button: = TextureButton.new()
@@ -21,8 +24,9 @@ func _ready():
 func toggle_menu(menu:PackedScene):#Called from global.gd, may be called from anywhere.
 	
 	if not menu_is_open:
-		var new_menu = menu.instance()
+		var new_menu = menu.instance() as Control
 		new_menu.name = "submenu"
+		new_menu.theme = load(g.theme) as Theme if g.theme != "n/a" else null
 		add_child(new_menu)
 		if not get_node("submenu").has_node("anim"):
 			var warning = load("res://ui/warning.tscn").instance()

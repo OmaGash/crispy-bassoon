@@ -11,6 +11,7 @@ var current_artifacts = [-1, -1] setget _artifact_swap
 var in_game = false
 var pearls = 50 setget update_pearls
 var difficulty#0, 1, 2
+var theme = "n/a"
 
 #Where the entries are kept
 var entries:Dictionary = {
@@ -19,6 +20,7 @@ var entries:Dictionary = {
 		"description" : "The Siyokoy are fearsome merfolk.\nThey are aquatic creatures with a humanoid form and scaled fish-like bodies.\n On different areas of their body, they have wide green tentacles and fins.\n They have gill slits, webbed hands, and are brown or green in appearance.",
 		"icon": "res://ui/icons/creature icons/siyokoy-icon.png",
 		"owned": false,
+		"theme": "res://protopyte/new_theme.tres",
 		"price": 50,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
@@ -31,6 +33,7 @@ var entries:Dictionary = {
 		"description" : "A ball of fire.",
 		"icon": "res://icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image": "res://characters/concept/aeta.png",
@@ -43,6 +46,7 @@ var entries:Dictionary = {
 		"description" : " It is a bipedal horse creature of Philippine folklore \nsaid to lurk in the mountains and forests of the Philippines.",
 		"icon": "res://icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image": "none",
@@ -55,6 +59,7 @@ var entries:Dictionary = {
 		"description" : "A dwende, or 'old man on the mound'is a dwarf creature who lives in the woods,\nin an anthill or old houses in a remote areas.",
 		"icon":"res://ui/icons/creature icons/dwende-icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image": "none",
@@ -67,6 +72,7 @@ var entries:Dictionary = {
 		"description" : "Another folktale recited by Filipino ancestors from generation to generation, particularly\nin rural areas, is Aswang. People are still conservative and oblivious to modern technology in these\nareas. ",
 		"icon": "res://icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image": "none",
@@ -79,6 +85,7 @@ var entries:Dictionary = {
 		"description" : "From the tagalog word of ‘’ tanggal’’ or to split. It is believed that they split or separate half of\ntheir body, to hunt for food.",
 		"icon": "res://ui/icons/creature icons/manananggal-icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
@@ -91,6 +98,7 @@ var entries:Dictionary = {
 		"description" : "The kapre is a cryptid monster from the Philippines that resembles a tremendously tall,\nlong-legged, god-like hairy humanoid that rests in lofty trees and smokes tobacco.",
 		"icon":"res://ui/icons/creature icons/kapre-icon.png" ,
 		"owned": false,
+		"theme": "n/a",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
@@ -103,6 +111,7 @@ var entries:Dictionary = {
 		"description" : "In Filipino mythology, the Sirena is a mythical sea creature. Sirenas are known as Magindara in\nvarious parts of the Philippines, particularly Bicol and Visayas, and are depicted as ferocious\nmermaids.",
 		"icon":"res://ui/icons/creature icons/sirena-icon.png" ,
 		"owned": false,
+		"theme": "n/a",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
@@ -115,6 +124,7 @@ var entries:Dictionary = {
 		"description" : "Engakanto or Diwata also known in the Philippine mythology.\nEspecially in remote areas in the provinces.",
 		"icon": "res://icon.png",
 		"owned": false,
+		"theme": "n/a",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "none",
@@ -124,6 +134,7 @@ var entries:Dictionary = {
 		},
 	
 	}
+
 
 func _ready():#This node will run regardless of pausing
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -183,7 +194,8 @@ func load_save():#Load save file
 func get_values():
 	return{
 		"pearls": pearls,
-		"entries": entries
+		"entries": entries,
+		"theme": theme
 	}
 
 func load_values(data: Dictionary):
@@ -195,7 +207,8 @@ func load_values(data: Dictionary):
 		entries[intkey] = entries[key]
 		entries.erase(key)
 		intkey += 1
-	
+	theme = data["theme"]
+	print(theme)
 func delete_save():
 	var savefile = File.new()
 	if savefile.file_exists(save_filename):

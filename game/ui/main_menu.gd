@@ -4,6 +4,7 @@ var next_scene = "res://protopyte/za_warudo/world.tscn"
 
 func _ready():
 	g.in_game = false
+	theme = load(g.theme) as Theme if g.theme != "n/a" else null
 
 func _on_start_pressed():
 	$anim.play("open_selection")
@@ -22,6 +23,7 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://environment/chapters/ch0/at_the_bay.tscn"
 		2:
 			next_scene = "res://protopyte/za_warudo/player_test.tscn"
+			loader.load_scene(next_scene, self)
 		3:
 			next_scene = "res://environment/minigames/shato/world.tscn"
 		4:

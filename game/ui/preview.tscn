@@ -1,0 +1,66 @@
+[gd_scene format=2]
+
+[node name="preview" type="Control"]
+margin_right = 202.0
+margin_bottom = 154.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 195.0
+margin_bottom = 147.0
+alignment = 1
+
+[node name="spacer" type="Control" parent="PanelContainer/VBoxContainer"]
+margin_right = 188.0
+margin_bottom = 30.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 188.0
+margin_bottom = 48.0
+size_flags_vertical = 1
+text = "Sample text"
+align = 1
+valign = 1
+
+[node name="spacer2" type="Control" parent="PanelContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 188.0
+margin_bottom = 82.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_left = 54.0
+margin_top = 86.0
+margin_right = 133.0
+margin_bottom = 106.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "   Button   "
+
+[node name="spacer3" type="Control" parent="PanelContainer/VBoxContainer"]
+margin_top = 110.0
+margin_right = 188.0
+margin_bottom = 140.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
