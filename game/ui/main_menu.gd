@@ -1,6 +1,13 @@
 extends Control
 
-var next_scene = "res://protopyte/za_warudo/world.tscn"
+var next_scene := "res://protopyte/za_warudo/world.tscn"
+var pre_scenes := {
+	"palo_sebo": preload("res://ui/pre/pre-palo_sebo.tscn"),
+	"langit_lupa": preload("res://ui/pre/pre-langit_lupa.tscn"),
+	"sipa": preload("res://ui/pre/pre-sipa.tscn"),
+	"luksong_baka": preload("res://ui/pre/pre-luksongbaka.tscn")
+}
+onready var preview := $PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content
 
 func _ready():
 	g.in_game = false
@@ -40,22 +47,28 @@ func _on_ItemList_item_selected(index):
 func _on_save_pressed():
 	g.delete_save()
 
+func load_preview(which_scene: PackedScene):
+	if preview.get_child_count() > 0:
+		for child in preview.get_children():
+			child.queue_free()
+	preview.add_child(which_scene.instance())
 
 func _on_palo_pressed():
-	next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
-	loader.load_scene(next_scene, self)
-
+	load_preview(pre_scenes["palo_sebo"])
 
 func _on_sipa_pressed():
-	next_scene = "res://pre-sipa.tscn"
-	loader.load_scene(next_scene, self)
+	load_preview(pre_scenes["sipa"])
 
 
 func _on_shato_pressed():
-	next_scene = "res://environment/minigames/shato/world.tscn"
-	loader.load_scene(next_scene, self)
+	load_preview(pre_scenes["luksong_baka"])
 
 
 func _on_langit_pressed():
-	next_scene = "res://pre-langit_lupa.tscn"
-	loader.load_scene(next_scene, self)
+	load_preview(pre_scenes["langit_lupa"])
+
+
+func _on_close_pressed():
+	$anim.play_backwards("open_selection")
+	yield($anim, "animation_finished")
+	$PanelContainer.visible = false

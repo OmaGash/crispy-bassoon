@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://pre-sipa.gd" type="Script" id=2]
+[ext_resource path="res://ui/pre/pre-luksongbaka.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 36
 font_data = ExtResource( 1 )
 
-[node name="pre-sipa" type="Control"]
+[node name="pre-luksongbaka" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -62,15 +62,15 @@ margin_right = 1358.41
 margin_bottom = 640.586
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 1 )
-text = "																		
-																		
+text = "								
+								
+								
 													
 													
 													
-													
-														SCORE POINTS AS MANY AS YOU CAN
-									IF THE SIPA FALLS TO THE GROUND THE GAME IS OVER
-"
+												KEEP YOUR METER IN THE GREEN SECTION
+										 IF IT DIDN'T CONNECT IN THE GREEN SECTION
+																		THE GAME IS OVER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,11 +91,9 @@ margin_right = 1243.0
 margin_bottom = 582.0
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 2 )
-text = "Before Spain colonized the Philippines, Filipinos began playing Sipa in the 15th century. Sipa was even considered the national sport of the Philippines until Arnis took its place in 2009, during former President Gloria Macapagal Arroyo's administration.
+text = "
 
-Sipa, which means \"kick\" in Filipino, also refers to the game's ball, which comes in a variety of shapes and sizes and is typically created by the players themselves. The lead washer and rattan ball are the two most common forms of sipa ball. A coin-like object is linked to the lead washer sipa by strips of cloth or plastic straws. The rattan ball is made of rattan strips that have been shaped into a hollow ball with a diameter of at least 4 inches.
-
-Sipa is a game that can be played by individually or with multiple players. A player tosses the sipa into the air and kicks it repeatedly to keep it from striking the ground. A point is awarded for each kick. When the sipa is dropped, the turn is over. As a result, the game is won by the player who can keep the ball in the air the longest and hits it the most."
+Luksong Baka is a Filipino traditional game  that began in the province of Bulacan in the Philippines' Central Luzon region. A minimum of three individual guys and a maximum of ten are required for this game. Although children may be able to alter the maximum number of players, especially if there are a lot of them. Its goal is for players to jump over the baka (the player to jump over), also known as the taya without tripping or tumbling over the baka."
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://pre-palo_sebo.gd" type="Script" id=2]
+[ext_resource path="res://ui/pre/pre.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -11,11 +11,25 @@ font_data = ExtResource( 1 )
 size = 40
 font_data = ExtResource( 1 )
 
-[node name="Control" type="Control"]
+[node name="pre-game" type="Control"]
+anchor_top = -0.0019509
 anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 523.6, 384 )
+anchor_bottom = 0.998049
+margin_right = -1.0
+margin_bottom = 3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel" type="Button" parent="."]
+margin_left = 345.966
+margin_top = 689.475
+margin_right = 522.966
+margin_bottom = 734.475
+text = "Cancel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,17 +40,6 @@ margin_top = 689.475
 margin_right = 1046.0
 margin_bottom = 734.475
 text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cancel" type="Button" parent="."]
-margin_left = 345.966
-margin_top = 689.475
-margin_right = 522.966
-margin_bottom = 734.475
-rect_pivot_offset = Vector2( -424.82, -689.475 )
-text = "Cancel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,10 +67,11 @@ margin_right = 1358.41
 margin_bottom = 640.586
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 1 )
-text = "									
-									
-											
-											REACH THE FLAG BEFORE THE TIMER RUNS OUT
+text = "																		
+																		
+																		SURVIVE IN 30 SECONDS
+												IF YOU GOT TAGGED 3 TIMES THE GAME IS OVER
+
 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,20 +87,18 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="info" type="RichTextLabel" parent="TabContainer/About the game"]
-margin_top = -6.0
-margin_right = 1362.0
-margin_bottom = 645.0
+margin_left = 119.0
+margin_top = 59.0
+margin_right = 1243.0
+margin_bottom = 582.0
 custom_colors/default_color = Color( 0.898039, 0.921569, 0.0235294, 1 )
 custom_fonts/normal_font = SubResource( 2 )
-text = "Palo-sebo (Spanish for \"stick/pole grease\") is a popular Filipino game. It is most likely originated from the Spanish cucaa, a local version of the greasy pole.
+text = "Langit-lupa is a chase game, a habulan variation in which participants can avoid getting tagged if they stand on a high platform.
 
-Boys often play this game during a town fiesta or on special occasions throughout the Philippines' many provinces. A tiny bag containing the prize or flag is tied to the top of long and straight bamboo poles that have been polished and greased. Money, chocolates, or toys are commonly found in the bag. A little flag is sometimes used in place of the actual reward, which is delivered to the winner later.
-Contestants take turns climbing the pole to win the prize, and anyone who doesn't make it to the summit is disqualified. The person who is successful in reaching and untying the reward or retrieving the flag is declared the winner.
-
-"
+It then pursues the other players, attempting to tag them. Just like in habulan, whoever is tagged becomes the it. Players can, however, climb or step onto a higher level, such as a flight of stairs, a table, or simply dangle from a jungle gym. Players who are able to do so will not be marked. This restriction is governed by many rules. One method is to keep track of a player's immunity. The player must come down and become vulnerable again after a predetermined number of counts. Some groups make it a rule that it must move away from greater players to give them a chance to flee. When the players are exhausted or called home, the game is over."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

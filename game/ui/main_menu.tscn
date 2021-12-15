@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "debug"
@@ -49,10 +48,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("PanelContainer:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 402, 234 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PanelContainer:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 482, 267 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "open_selection"
-length = 0.25
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("PanelContainer:visible")
 tracks/0/interp = 1
@@ -76,6 +99,30 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PanelContainer:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 402, 234 ), Vector2( 1266, 674 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PanelContainer:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 482, 267 ), Vector2( 50, 47 ) ]
 }
 
 [node name="main_menu" type="Control"]
@@ -168,50 +215,96 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -154.0
-margin_top = -79.0
-margin_right = 154.0
-margin_bottom = 79.0
+margin_left = -201.0
+margin_top = -117.0
+margin_right = 201.0
+margin_bottom = 117.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+[node name="categories" type="HBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 301.0
-margin_bottom = 151.0
+margin_right = 1259.0
+margin_bottom = 667.0
+
+[node name="choices" type="VBoxContainer" parent="PanelContainer/categories"]
+margin_right = 113.0
+margin_bottom = 660.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+alignment = 1
+
+[node name="palo" type="Button" parent="PanelContainer/categories/choices"]
+margin_right = 113.0
+margin_bottom = 162.0
 size_flags_vertical = 3
-columns = 2
-
-[node name="palo" type="Button" parent="PanelContainer/GridContainer"]
-margin_right = 140.0
-margin_bottom = 70.0
 text = "Palo Sebo"
-icon = ExtResource( 3 )
 
-[node name="sipa" type="Button" parent="PanelContainer/GridContainer"]
-margin_left = 144.0
-margin_right = 294.0
-margin_bottom = 70.0
+[node name="sipa" type="Button" parent="PanelContainer/categories/choices"]
+margin_top = 166.0
+margin_right = 113.0
+margin_bottom = 328.0
+size_flags_vertical = 3
 text = "Sipa"
-icon = ExtResource( 3 )
 
-[node name="shato" type="Button" parent="PanelContainer/GridContainer"]
-margin_top = 74.0
-margin_right = 140.0
-margin_bottom = 144.0
-text = "Shota"
-icon = ExtResource( 3 )
+[node name="shato" type="Button" parent="PanelContainer/categories/choices"]
+margin_top = 332.0
+margin_right = 113.0
+margin_bottom = 494.0
+size_flags_vertical = 3
+text = "Luksong Baka"
 
-[node name="langit" type="Button" parent="PanelContainer/GridContainer"]
-margin_left = 144.0
-margin_top = 74.0
-margin_right = 294.0
-margin_bottom = 144.0
+[node name="langit" type="Button" parent="PanelContainer/categories/choices"]
+margin_top = 498.0
+margin_right = 113.0
+margin_bottom = 660.0
+size_flags_vertical = 3
 text = "Langit Lupa"
-icon = ExtResource( 3 )
+
+[node name="preview" type="PanelContainer" parent="PanelContainer/categories"]
+margin_left = 117.0
+margin_right = 1252.0
+margin_bottom = 660.0
+size_flags_horizontal = 3
+
+[node name="preview_contents" type="VBoxContainer" parent="PanelContainer/categories/preview"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1128.0
+margin_bottom = 653.0
+
+[node name="spacer" type="Control" parent="PanelContainer/categories/preview/preview_contents"]
+margin_right = 1121.0
+margin_bottom = 5.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="actual_content" type="ScrollContainer" parent="PanelContainer/categories/preview/preview_contents"]
+margin_top = 9.0
+margin_right = 1121.0
+margin_bottom = 584.0
+size_flags_vertical = 3
+
+[node name="actual_actual_content" type="VBoxContainer" parent="PanelContainer/categories/preview/preview_contents/actual_content"]
+margin_right = 171.0
+margin_bottom = 14.0
+
+[node name="tooltip" type="Label" parent="PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content"]
+margin_right = 171.0
+margin_bottom = 14.0
+size_flags_vertical = 1
+text = "Select a game to view info."
+
+[node name="close" type="Button" parent="PanelContainer/categories/preview/preview_contents"]
+margin_top = 588.0
+margin_right = 1121.0
+margin_bottom = 646.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "Close"
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
@@ -221,7 +314,8 @@ anims/open_selection = SubResource( 3 )
 [connection signal="pressed" from="debug/VBoxContainer/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="PanelContainer/GridContainer/palo" to="." method="_on_palo_pressed"]
-[connection signal="pressed" from="PanelContainer/GridContainer/sipa" to="." method="_on_sipa_pressed"]
-[connection signal="pressed" from="PanelContainer/GridContainer/shato" to="." method="_on_shato_pressed"]
-[connection signal="pressed" from="PanelContainer/GridContainer/langit" to="." method="_on_langit_pressed"]
+[connection signal="pressed" from="PanelContainer/categories/choices/palo" to="." method="_on_palo_pressed"]
+[connection signal="pressed" from="PanelContainer/categories/choices/sipa" to="." method="_on_sipa_pressed"]
+[connection signal="pressed" from="PanelContainer/categories/choices/shato" to="." method="_on_shato_pressed"]
+[connection signal="pressed" from="PanelContainer/categories/choices/langit" to="." method="_on_langit_pressed"]
+[connection signal="pressed" from="PanelContainer/categories/preview/preview_contents/close" to="." method="_on_close_pressed"]

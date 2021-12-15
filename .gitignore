@@ -1,4 +1,4 @@
 *.import
 *.stex
 *.md5
-game/.import/
+!game/.import/*
