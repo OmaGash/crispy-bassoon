@@ -7,6 +7,7 @@ var pre_scenes := {
 	"sipa": preload("res://ui/pre/pre-sipa.tscn"),
 	"luksong_baka": preload("res://ui/pre/pre-luksongbaka.tscn")
 }
+var shop = preload("res://ui/shop.tscn")
 onready var preview := $PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content
 
 func _ready():
@@ -72,3 +73,8 @@ func _on_close_pressed():
 	$anim.play_backwards("open_selection")
 	yield($anim, "animation_finished")
 	$PanelContainer.visible = false
+
+
+func _on_shop_pressed():
+	$ui.toggle_menu(load("res://ui/shop.tscn"))
+

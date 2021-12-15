@@ -48,7 +48,6 @@ __meta__ = {
 }
 
 [node name="Mythical Creatures" type="Tabs" parent="items"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -109,6 +108,7 @@ margin_bottom = 687.0
 text = "Close"
 
 [node name="Themes" type="Tabs" parent="items"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -126,7 +126,7 @@ __meta__ = {
 [node name="pearls" type="Label" parent="items/Themes/VBoxContainer2"]
 margin_right = 1315.0
 margin_bottom = 14.0
-text = "Pearls:"
+text = "Select a Theme:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="items/Themes/VBoxContainer2"]
 margin_top = 18.0

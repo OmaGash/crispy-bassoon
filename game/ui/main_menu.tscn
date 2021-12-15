@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
+[ext_resource path="res://ui/ui.gd" type="Script" id=3]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "debug"
@@ -72,6 +73,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 482, 267 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("ui:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ui:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "open_selection"
@@ -126,6 +151,7 @@ tracks/3/keys = {
 }
 
 [node name="main_menu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -176,34 +202,41 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -68.0
-margin_top = -40.0
-margin_right = 114.0
-margin_bottom = 63.0
+margin_left = -136.0
+margin_top = -79.0
+margin_right = 182.0
+margin_bottom = 102.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title" type="Label" parent="items"]
-margin_right = 182.0
+margin_right = 318.0
 margin_bottom = 14.0
 text = "myLahi"
 align = 1
 
 [node name="start" type="TextureButton" parent="items"]
 margin_top = 18.0
-margin_right = 182.0
-margin_bottom = 72.0
+margin_right = 318.0
+margin_bottom = 80.0
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
+[node name="shop" type="Button" parent="items"]
+margin_top = 84.0
+margin_right = 318.0
+margin_bottom = 146.0
+size_flags_vertical = 3
+text = "Shop"
+
 [node name="quit" type="Button" parent="items"]
-margin_top = 76.0
-margin_right = 182.0
-margin_bottom = 103.0
+margin_top = 150.0
+margin_right = 318.0
+margin_bottom = 181.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 text = "Exit"
@@ -227,65 +260,65 @@ __meta__ = {
 [node name="categories" type="HBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1259.0
-margin_bottom = 667.0
+margin_right = 395.0
+margin_bottom = 227.0
 
 [node name="choices" type="VBoxContainer" parent="PanelContainer/categories"]
-margin_right = 113.0
-margin_bottom = 660.0
+margin_right = 98.0
+margin_bottom = 220.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 alignment = 1
 
 [node name="palo" type="Button" parent="PanelContainer/categories/choices"]
-margin_right = 113.0
-margin_bottom = 162.0
+margin_right = 98.0
+margin_bottom = 52.0
 size_flags_vertical = 3
 text = "Palo Sebo"
 
 [node name="sipa" type="Button" parent="PanelContainer/categories/choices"]
-margin_top = 166.0
-margin_right = 113.0
-margin_bottom = 328.0
+margin_top = 56.0
+margin_right = 98.0
+margin_bottom = 108.0
 size_flags_vertical = 3
 text = "Sipa"
 
 [node name="shato" type="Button" parent="PanelContainer/categories/choices"]
-margin_top = 332.0
-margin_right = 113.0
-margin_bottom = 494.0
+margin_top = 112.0
+margin_right = 98.0
+margin_bottom = 164.0
 size_flags_vertical = 3
 text = "Luksong Baka"
 
 [node name="langit" type="Button" parent="PanelContainer/categories/choices"]
-margin_top = 498.0
-margin_right = 113.0
-margin_bottom = 660.0
+margin_top = 168.0
+margin_right = 98.0
+margin_bottom = 220.0
 size_flags_vertical = 3
 text = "Langit Lupa"
 
 [node name="preview" type="PanelContainer" parent="PanelContainer/categories"]
-margin_left = 117.0
-margin_right = 1252.0
-margin_bottom = 660.0
+margin_left = 102.0
+margin_right = 388.0
+margin_bottom = 220.0
 size_flags_horizontal = 3
 
 [node name="preview_contents" type="VBoxContainer" parent="PanelContainer/categories/preview"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1128.0
-margin_bottom = 653.0
+margin_right = 279.0
+margin_bottom = 213.0
 
 [node name="spacer" type="Control" parent="PanelContainer/categories/preview/preview_contents"]
-margin_right = 1121.0
-margin_bottom = 5.0
+margin_right = 272.0
+margin_bottom = 1.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
 [node name="actual_content" type="ScrollContainer" parent="PanelContainer/categories/preview/preview_contents"]
-margin_top = 9.0
-margin_right = 1121.0
-margin_bottom = 584.0
+margin_top = 5.0
+margin_right = 272.0
+margin_bottom = 182.0
 size_flags_vertical = 3
 
 [node name="actual_actual_content" type="VBoxContainer" parent="PanelContainer/categories/preview/preview_contents/actual_content"]
@@ -299,12 +332,16 @@ size_flags_vertical = 1
 text = "Select a game to view info."
 
 [node name="close" type="Button" parent="PanelContainer/categories/preview/preview_contents"]
-margin_top = 588.0
-margin_right = 1121.0
-margin_bottom = 646.0
+margin_top = 186.0
+margin_right = 272.0
+margin_bottom = 206.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 text = "Close"
+
+[node name="ui" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource( 3 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
@@ -313,6 +350,7 @@ anims/open_selection = SubResource( 3 )
 [connection signal="item_selected" from="debug/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="debug/VBoxContainer/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="items/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/categories/choices/palo" to="." method="_on_palo_pressed"]
 [connection signal="pressed" from="PanelContainer/categories/choices/sipa" to="." method="_on_sipa_pressed"]
