@@ -1,12 +1,7 @@
 extends Control
 
 var next_scene := "res://protopyte/za_warudo/world.tscn"
-var pre_scenes := {
-	"palo_sebo": preload("res://ui/pre/pre-palo_sebo.tscn"),
-	"langit_lupa": preload("res://ui/pre/pre-langit_lupa.tscn"),
-	"sipa": preload("res://ui/pre/pre-sipa.tscn"),
-	"luksong_baka": preload("res://ui/pre/pre-luksongbaka.tscn")
-}
+var pre_scene := preload("res://ui/pre/pre_template.tscn") as PackedScene
 var shop = preload("res://ui/shop.tscn")
 onready var preview := $PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content
 
@@ -48,25 +43,27 @@ func _on_ItemList_item_selected(index):
 func _on_save_pressed():
 	g.delete_save()
 
-func load_preview(which_scene: PackedScene):
+func load_preview(which_scene: String):
 	if preview.get_child_count() > 0:
 		for child in preview.get_children():
 			child.queue_free()
-	preview.add_child(which_scene.instance())
+	var pre := pre_scene.instance()
+	pre.load_data(which_scene)
+	preview.add_child(pre)
 
 func _on_palo_pressed():
-	load_preview(pre_scenes["palo_sebo"])
+	load_preview("palo")
 
 func _on_sipa_pressed():
-	load_preview(pre_scenes["sipa"])
+	load_preview("sipa")
 
 
 func _on_shato_pressed():
-	load_preview(pre_scenes["luksong_baka"])
+	load_preview("baka")
 
 
 func _on_langit_pressed():
-	load_preview(pre_scenes["langit_lupa"])
+	load_preview("langit")
 
 
 func _on_close_pressed():

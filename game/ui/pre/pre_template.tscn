@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/pre/pre_template.gd" type="Script" id=1]
+[ext_resource path="res://tenderness.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 2 )
+
+[node name="pre" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+margin_right = 1366.0
+margin_bottom = 694.0
+size_flags_vertical = 3
+
+[node name="Rules" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Rules"]
+margin_right = 1358.0
+margin_bottom = 658.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="spacer" type="Control" parent="VBoxContainer/TabContainer/Rules/VBoxContainer"]
+margin_right = 1358.0
+margin_bottom = 6.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="rule" type="Label" parent="VBoxContainer/TabContainer/Rules/VBoxContainer"]
+margin_top = 10.0
+margin_right = 1358.0
+margin_bottom = 647.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "asdasdasd"
+align = 1
+valign = 1
+
+[node name="spacer2" type="Control" parent="VBoxContainer/TabContainer/Rules/VBoxContainer"]
+margin_top = 651.0
+margin_right = 1358.0
+margin_bottom = 658.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="About" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/About"]
+margin_right = 1358.0
+margin_bottom = 658.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="spacer" type="Control" parent="VBoxContainer/TabContainer/About/VBoxContainer"]
+margin_right = 1358.0
+margin_bottom = 6.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="fax" type="Label" parent="VBoxContainer/TabContainer/About/VBoxContainer"]
+margin_top = 10.0
+margin_right = 1358.0
+margin_bottom = 647.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "asdasdasd"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="spacer2" type="Control" parent="VBoxContainer/TabContainer/About/VBoxContainer"]
+margin_top = 651.0
+margin_right = 1358.0
+margin_bottom = 658.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="play" type="Button" parent="VBoxContainer"]
+margin_top = 698.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "Play"
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
