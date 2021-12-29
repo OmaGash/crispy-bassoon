@@ -20,7 +20,7 @@ var entries:Dictionary = {
 		"description" : "The Siyokoy are fearsome merfolk.\nThey are aquatic creatures with a humanoid form and scaled fish-like bodies.\n On different areas of their body, they have wide green tentacles and fins.\n They have gill slits, webbed hands, and are brown or green in appearance.",
 		"icon": "res://ui/icons/creature icons/siyokoy-icon.png",
 		"owned": false,
-		"theme": "res://protopyte/new_theme.tres",
+		"theme": "res://shokoy.tres",
 		"price": 50,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",

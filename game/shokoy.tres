@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=13 format=2]
+
+[ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.498039, 1, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0.47451, 0.509804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.211765, 0.254902, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.211765, 0.254902, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.407843, 0.501961, 0.607843, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0.498039, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0.47451, 0.509804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.498039, 1, 1 )
+
+[resource]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/fonts/font = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )
+TabContainer/colors/font_color_bg = Color( 0.678431, 0.847059, 0.901961, 1 )
+TabContainer/colors/font_color_fg = Color( 0.678431, 0.847059, 0.901961, 1 )
+TabContainer/fonts/font = SubResource( 6 )
+TabContainer/styles/panel = SubResource( 7 )
+TabContainer/styles/tab_bg = SubResource( 8 )
+TabContainer/styles/tab_disabled = SubResource( 9 )
+TabContainer/styles/tab_fg = SubResource( 10 )
+Tabs/fonts/font = SubResource( 11 )
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 5 )
