@@ -9,6 +9,7 @@ resource_name = "debug"
 script/source = "extends WindowDialog
 
 onready var list:ItemList = $VBoxContainer/ItemList
+onready var language:OptionButton = $VBoxContainer/lang
 
 func _ready():
 	popup()
@@ -21,6 +22,18 @@ func _ready():
 	list.add_item(\"Luksong Baka\")
 	list.add_item(\"Palo Sebo\")
 	list.add_item(\"Sipa\")
+	
+	language.add_item(\"English\")
+	language.add_item(\"Filipino\")
+
+
+
+func _on_lang_item_selected(index):
+	match language.selected:
+		0:
+			TranslationServer.set_locale(\"en\")
+		1:
+			TranslationServer.set_locale(\"fil\")
 "
 
 [sub_resource type="Animation" id=2]
@@ -188,14 +201,20 @@ text = "Where to start:"
 [node name="ItemList" type="ItemList" parent="debug/VBoxContainer"]
 margin_top = 18.0
 margin_right = 312.0
-margin_bottom = 192.0
+margin_bottom = 168.0
 size_flags_vertical = 3
 
 [node name="save" type="Button" parent="debug/VBoxContainer"]
+margin_top = 172.0
+margin_right = 312.0
+margin_bottom = 192.0
+text = "Delete Save"
+
+[node name="lang" type="OptionButton" parent="debug/VBoxContainer"]
 margin_top = 196.0
 margin_right = 312.0
 margin_bottom = 216.0
-text = "Delete Save"
+text = "Language"
 
 [node name="items" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -214,7 +233,7 @@ __meta__ = {
 [node name="title" type="Label" parent="items"]
 margin_right = 318.0
 margin_bottom = 14.0
-text = "myLahi"
+text = "title"
 align = 1
 
 [node name="start" type="TextureButton" parent="items"]
@@ -231,7 +250,7 @@ margin_top = 84.0
 margin_right = 318.0
 margin_bottom = 146.0
 size_flags_vertical = 3
-text = "Shop"
+text = "button_shop"
 
 [node name="quit" type="Button" parent="items"]
 margin_top = 150.0
@@ -239,7 +258,7 @@ margin_right = 318.0
 margin_bottom = 181.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-text = "Exit"
+text = "button_exit"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
@@ -331,7 +350,7 @@ size_flags_vertical = 3
 margin_right = 1121.0
 margin_bottom = 14.0
 size_flags_vertical = 1
-text = "Select a game to view info."
+text = "menu_tooltip"
 
 [node name="spacer2" type="Control" parent="PanelContainer/categories/preview/preview_contents"]
 margin_top = 579.0
@@ -346,7 +365,7 @@ margin_right = 1121.0
 margin_bottom = 646.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
-text = "Close"
+text = "button_close"
 
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2
@@ -358,6 +377,7 @@ anims/open_selection = SubResource( 3 )
 
 [connection signal="item_selected" from="debug/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="debug/VBoxContainer/save" to="." method="_on_save_pressed"]
+[connection signal="item_selected" from="debug/VBoxContainer/lang" to="debug" method="_on_lang_item_selected"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="items/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]

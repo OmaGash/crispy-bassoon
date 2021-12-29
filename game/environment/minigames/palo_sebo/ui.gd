@@ -5,7 +5,7 @@ func _ready():
 	set_process(false)
 
 func _process(delta):
-	var time_left: String = "Time Left: %d"
+	var time_left: String = tr("ui_time_left") + " %d"
 	$info/time.text = time_left % [$"../time_limit".time_left]
 
 func _on_start_pressed():
@@ -22,13 +22,13 @@ func _on_goal_body_entered(body):#Victory requirement
 	$"../time_limit".paused = true
 	if $"../time_limit".time_left > 0:
 		var pearls_won: int =  g.difficulty * $"../time_limit".time_left
-		$"../player".velocity = 0
+		$"../player".velocity = Vector3.ZERO
 		toggle_menu(load("res://ui/post_results.tscn"))
 		if has_node("submenu"):
-			get_node("submenu").set_values("Victory!", "Palo sebo done in " + str(ceil($"../time_limit".wait_time - $"../time_limit".time_left)) + " seconds.", pearls_won)
+			get_node("submenu").set_values(tr("ui_victory"), tr("victory_palo").format({time = str(ceil($"../time_limit".wait_time - $"../time_limit".time_left))}), pearls_won)
 
 
 func _on_time_limit_timeout():
 	toggle_menu(load("res://ui/post_results.tscn"))
 	if has_node("submenu"):
-		get_node("submenu").set_values("Failed", "You ran out of time", 0)
+		get_node("submenu").set_values(tr("ui_failed"), tr("failed_palo"), 0)

@@ -21,7 +21,7 @@ func _physics_process(delta):
 		if $"../ui/power".value < 60 or $"../ui/power".value > 87:
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			if $"../ui".has_node("submenu"):
-				$"../ui".get_node("submenu").set_values("Failed", "You trippings.", 0)
+				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
 				set_physics_process(false)
 			return
 		velocity.y = multiplier * $"../ui/power".value
@@ -34,5 +34,5 @@ func _physics_process(delta):
 		else:
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			if $"../ui".has_node("submenu"):
-				$"../ui".get_node("submenu").set_values("Victory", "You jumped 5 times without trippings.", 69)
+				$"../ui".get_node("submenu").set_values(tr("ui_victory"), tr("victory_baka"), 69)
 	velocity = move_and_slide(velocity)

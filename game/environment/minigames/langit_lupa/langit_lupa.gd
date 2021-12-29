@@ -56,7 +56,7 @@ func end_game():
 	pass
 #
 func _process(delta):
-	var time_l: String = "Time Left: %d"
+	var time_l: String = tr("ui_time_left") + "  %d"
 	var time = ceil($countdown_timer.time_left)
 	
 	$countdown_label.text = time_l % [time]
@@ -131,7 +131,7 @@ func tag():
 	if lives < 1:
 		$ui.toggle_menu(load("res://ui/post_results.tscn"))
 		if $ui.has_node("submenu"):
-			$ui.get_node("submenu").set_values("Failed", "You got tagged three times.", 0)
+			$ui.get_node("submenu").set_values(tr("ui_failed"), tr("failed_langit"), 0)
 
 	
 func _on_Area_body_entered(body):
@@ -155,7 +155,7 @@ func _on_Area_body_exited(_body):
 func win_game():
 	$ui.toggle_menu(load("res://ui/post_results.tscn"))
 	if $ui.has_node("submenu"):
-		$ui.get_node("submenu").set_values("Victory", "You won", lives * 25)
+		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), lives * 25)
 
 
 

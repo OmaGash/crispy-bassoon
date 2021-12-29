@@ -4,30 +4,30 @@ var next_scene: String
 
 var data: Dictionary = {
 	"langit": {
-		"rules": "sample rules",
-		"about": "sample fax lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum",
+		"rules": tr("rules_langit"),
+		"about": tr("about_langit"),
 		"location": "res://environment/minigames/langit_lupa/langit_lupa.tscn"
 	},
 	"sipa": {
-		"rules": "sample rules",
-		"about": "sample fax",
+		"rules": tr("rules_sipa"),
+		"about": tr("about_sipa"),
 		"location": "res://environment/minigames/sipa2/sipa.tscn"
 	},
 	"baka": {
-		"rules": "sample rules",
-		"about": "sample fax",
+		"rules": tr("rules_baka"),
+		"about": tr("about_baka"),
 		"location": "res://environment/minigames/sussybaka/sussybaka.tscn"
 	},
 	"palo": {
-		"rules": "sample rules",
-		"about": "sample fax",
+		"rules": tr("rules_palo"),
+		"about": tr("about_palo"),
 		"location": "res://environment/minigames/palo_sebo/palo_sebo.tscn"
 	}
 }
 
 func load_data(which: String):
-	$VBoxContainer/TabContainer/Rules/VBoxContainer/rule.text = data[which]["rules"]
-	$VBoxContainer/TabContainer/About/VBoxContainer/fax.text = data[which]["about"]
+	$VBoxContainer/TabContainer/tab_rules/VBoxContainer/rule.text = data[which]["rules"]
+	$VBoxContainer/TabContainer/tab_about/VBoxContainer/fax.text = data[which]["about"]
 	next_scene = data[which]["location"]
 
 

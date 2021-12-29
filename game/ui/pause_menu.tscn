@@ -64,14 +64,14 @@ __meta__ = {
 margin_right = 194.0
 margin_bottom = 50.0
 size_flags_vertical = 3
-text = "Resume"
+text = "button_resume"
 
 [node name="reset" type="Button" parent="items"]
 margin_top = 54.0
 margin_right = 194.0
 margin_bottom = 74.0
 size_flags_horizontal = 3
-text = "Reset scene(debugging only)"
+text = "button_reset"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,7 +82,7 @@ margin_right = 194.0
 margin_bottom = 104.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-text = "Quit"
+text = "button_quit"
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )

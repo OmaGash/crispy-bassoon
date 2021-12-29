@@ -1,12 +1,12 @@
 extends Control
-onready var texts: = $"items/Mythical Creatures/VBoxContainer/HBoxContainer/Panel/texts"
-onready var preview: = $"items/Themes/VBoxContainer2/HBoxContainer/Panel/texts"
+onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/texts"
+onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/texts"
 var fax: = preload("res://ui/fax.tscn")
 var preview_scn = preload("res://ui/preview.tscn")
 
 func _ready():
 	theme = load(g.theme) as Theme
-	$"items/Mythical Creatures/VBoxContainer/pearls".text = "Pearls: " + str(g.pearls)
+	$"items/tab_mythical/VBoxContainer/pearls".text = tr("pearls") + " " + str(g.pearls)
 	g.connect("new_pearls", self, "_update_pearls")
 	#Generate Store items---------------------------------------------------------------------------
 	for item in range(g.entries.size()):
@@ -14,14 +14,14 @@ func _ready():
 		button.connect("pressed", self, "_listing_pressed", [item])
 		if !g.entries[item]["owned"]:
 			button.self_modulate = Color(.5,.5,.5,1)
-		$"items/Mythical Creatures/VBoxContainer/HBoxContainer/listing".add_child(button)
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/listing".add_child(button)
 	#Generate Theme items---------------------------------------------------------------------------
 	for item in range(g.entries.size()):
 		var button = _generate_button(item)
 		button.connect("pressed", self, "_theme_pressed", [item])
 		if !g.entries[item]["owned"]:
 			button.self_modulate = Color(.5,.5,.5,1)
-		$"items/Themes/VBoxContainer2/HBoxContainer/listing".add_child(button)
+		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".add_child(button)
 
 func _generate_button(item: int) -> Button:
 	var button = Button.new()
@@ -90,8 +90,8 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		#When item is bought, change button to view fax
 		g.pearls -= g.entries[item_id]["price"]
 		g.entries[item_id]["owned"] = true
-		$"items/Mythical Creatures/VBoxContainer/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
-		$"items/Themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
+		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		buy_button.text = "View"
 		buy_button.release_focus()
 		warning.warn(get_tree(), "You bought " + g.entries[item_id]["name"] + ".", "Purchased successfully")
@@ -105,7 +105,7 @@ func _apply_pressed(theme_path):
 	g.save()
 
 func _update_pearls(current_pearls: int):
-	$"items/Mythical Creatures/VBoxContainer/pearls".text = "Pearls: " + str(current_pearls)
+	$"items/tab_mythical/VBoxContainer/pearls".text = tr("pearls") + " " + str(g.pearls)
 	
 
 
