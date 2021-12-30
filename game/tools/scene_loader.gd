@@ -24,6 +24,7 @@ func load_scene(path_to_scene: String, current_scene: Node):
 	
 	var loading_bar: ProgressBar = load("res://ui/loading_bar.tscn").instance()
 	var transition: ColorRect = load("res://ui/transition.tscn").instance()
+	loading_bar.theme = load(g.theme) 
 	transition.call_deferred("add_child", loading_bar)
 	get_tree().root.call_deferred("add_child", transition)
 	yield(transition.get_node("anim"), "animation_finished")
