@@ -33,7 +33,17 @@ func _on_hitbox_body_entered(body):#When hit
 		velocity.y = hit_force
 		velocity.x = rand_range(-offset, offset)
 		get_parent().score += 1
-	elif body.name == "ground":
+	elif body.name == "ground":#Losing condition
 		$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 		if $"../ui".has_node("submenu"):
-			$"../ui".get_node("submenu").set_values("Game Over", "You kicked the ball " + str(get_parent().score) + " time(s).", get_parent().score * (g.difficulty + 1))
+			var result: String
+			var win: String
+			var earnings:int = get_parent().score * (g.difficulty + 1)
+			if get_parent().score <= 0:
+				result = "failed_sipa"
+				win = "ui_failed"
+				earnings = 0
+			else:
+				win = "ui_victory"
+				result = "victory_sipa"
+			$"../ui".get_node("submenu").set_values(tr(win), tr(result).format({x = get_parent().score}), earnings)

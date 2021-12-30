@@ -7,7 +7,7 @@ class_name PostResult
 func set_values(result: String, info: String, pearls: int):
 	$PanelContainer/items/result.text = result
 	$PanelContainer/items/info.text = info
-	$PanelContainer/items/pearls.text = "You have won " + str(pearls) + " pearl(s)." if pearls > 0 else ""#Display nothing pag lose
+	$PanelContainer/items/pearls.text = tr("ui_earnings").format({p = pearls}) if pearls > 0 else tr("ui_earninot")#Display nothing pag lose
 	g.pearls += pearls
 
 

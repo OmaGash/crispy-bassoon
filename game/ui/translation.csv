@@ -1,0 +1,44 @@
+,en,fil
+about_baka,na,ph
+about_langit,na,ph
+about_palo,na,ph
+about_sipa,na,ph
+button_close,Close,Bumalik
+button_easy,Easy,Madali
+button_exit,Exit,Lumisan
+button_hard,Large,Puberty
+button_med,Medium,Tamang timpla lang
+button_play,Play,Laruin
+button_quit,Quit,Umalis
+button_reset,Retry,Ulitin
+button_resume,Resume,Ituloy
+button_shop,Shop,Tindahan
+button_start,Start Game,Simulan
+button_start,Start Game,Simulan
+failed_baka,You tripped over! No Pearls earned.,Nadapa ka sa iyong pagbaba!
+failed_langit,You got tagged three times!,Nahuli ka ng taya ng tatlong beses!
+failed_palo,You failed to reach the flag in time!,Hindi mo naabot ang watawat sa takdang oras.
+failed_sipa,You failed to hit the pebble at all!,Hindi mo nagawang tamaan ang sipa!
+menu_difficulty,Select Difficulty:,Pumili ng kahirapan XD
+menu_themeselect,Select a theme:,Pumili ng tema:
+menu_tooltip,Select a game to view info.,Pumili ng laro upang alamin ang mga ito.
+pearls,Pearls:,Perlas: 
+rules_baka,na,ph
+rules_langit,na,ph
+rules_palo,asdf,qwre
+rules_sipa,na,ph
+tab_about,About,Kaalaman
+tab_mythical,Mythical Creatures,Gabi ng Lagim
+tab_rules,Rules,BATAS
+tab_themes,Themes,Mga Tema
+title,myLahi,AkingBreed
+ui_earnings,You have earned {p} Pearl(s).,Nakatanggap ka ng {p} (na) perlas.
+ui_earninot,No Pearls gained.,Walang natanggap na perlas.
+ui_failed,Failed,Palpak
+ui_score,Score: {score},Puntos: {score}
+ui_time_left,Time Left:,Natitirang Oras:
+ui_victory,Victory,Wagi
+victory_baka,You crossed all of the cows!,Natalunan mo lahat ng mga baka!
+victory_langit,You managed to survive the game! ,na ez dodge mo yung taya
+victory_palo,You reached the flag in time! Time elapsed: {time},Naabot mo ang watawat sa takdang oras! Natapos nang {time} segundo.
+victory_sipa,You hit the pebble {x} time(s)!,Natamaan mo ang sipa ng {x} beses!

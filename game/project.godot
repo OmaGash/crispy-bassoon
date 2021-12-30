@@ -190,6 +190,11 @@ knee_right={
 3d_physics/layer_10="enemy"
 3d_physics/layer_11="npc1"
 
+[locale]
+
+translations=PoolStringArray( "res://ui/translation.fil.translation", "res://ui/translation.en.translation" )
+locale_filter=[ 0, [ "en", "fil" ] ]
+
 [physics]
 
 common/enable_pause_aware_picking=true
