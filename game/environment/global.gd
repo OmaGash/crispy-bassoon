@@ -31,12 +31,12 @@ var entries:Dictionary = {
 	1: {
 		"name": "Santilmo",
 		"description" : "A ball of fire.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/santilmo-icon.png" ,
 		"owned": false,
 		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
-			"image": "res://characters/concept/aeta.png",
+			"image": "res://ui/icons/creature reward/santilmo-reward.png",
 			"video": "none",
 			"info": "Santelmo is believed to be a lost spirit who manifests as a fiery ball.\n This sort of story is well-known in rural areas around the Philippines.\n According to mythology, if a man drowns in water, such as a river, sea, or rain,\n his soul will stay in the area where he perished.\n The lost souls will stay in mortal lands, wanting revenge or help from the people.\n There are souls who are looking for peace for their souls and asking for help or\nprayers in order to enter heaven.\n It has the appearance of a torch with a brilliant light, and it is shaped like a ball of fire.\n It is said that if you follow the light,\n you would never be able to return until someone sees you and saves you from losing. "
 			}
@@ -62,7 +62,7 @@ var entries:Dictionary = {
 		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
 			"video": "none",
 			"info": "Dwende are said to have a fondness for females. They carried her out to their paradise.\nThe body will be turned asleep.\nThey usually come to visit in a lighthearted manner, depending on their mood.\nOthers claim they won't let you eat, won't let you speak, and will keep you sluggish until you fall\nill.\nDifferent Types of Dwende\n\nThere are two types of dwende: good & evil. These hidden dwarves appear to be colored\ndifferently based on their personality.  Red is the color of evil dwende. It might be quite\nbad if you have an evil red dwende dwelling in your house. The easiest approach to get rid\nof them is to perform a ritual that an albularyo(Healer) can perform. There are different colors\nof dwende like White and Green.Dwende, like humans, and other unseen creatures, demand\nrespect. Many people in the Philippines are frightened about the prospect of harming or\nupsetting Dwende, particularly given their ability to curse humans. Because they are invisible,\nit is quite easy to insult them. It is also very difficult to tell if they are there at an\ninconvenient time. As a reason, many Filipinos prefer to say excuse me before peeing or tossing\nout unclean water,fearing that it will land on the dwende's head and irritate him."
 			}
@@ -70,12 +70,12 @@ var entries:Dictionary = {
 	4: {
 		"name": "Aswang",
 		"description" : "Another folktale recited by Filipino ancestors from generation to generation, particularly\nin rural areas, is Aswang. People are still conservative and oblivious to modern technology in these\nareas. ",
-		"icon": "res://icon.png",
+		"icon": "res://ui/icons/creature icons/aswang-icon.png",
 		"owned": false,
 		"theme": "n/a",
 		"price": 69,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
 			"video": "none",
 			"info": "Aswang rely on food to survive. They are attracted to human organs such as the heart and liver,\nand also fresh blood, fetuses, and the bodies of the deceased. Women who are pregnant are\ntheir preferred prey. To bewilder people, they mimic an animal such as a dog, cat, or bird.\nThey can sneak up on you unnoticed.The majority of pregnant women used to carry a bullet to\nfend off an aswang attack. While on the hunt for a victim, Aswang was supposed to have a buddy\ntiktik, or tikling, a bird. When you hear the sounds of tiktik or kikik, it only means one thing: an\naswang is close by. Staying up late at night looking for those who have died. And then take it."
 			}
@@ -122,12 +122,12 @@ var entries:Dictionary = {
 	8: {
 		"name": "Engkanto",
 		"description" : "Engakanto or Diwata also known in the Philippine mythology.\nEspecially in remote areas in the provinces.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/engkanto-icon.png" ,
 		"owned": false,
 		"theme": "n/a",
 		"price": 50,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image": "res://ui/icons/creature reward/engkanto-reward.png",
 			"video": "none",
 			"info": "Engkanto is divided into two genders. Engkantada is the female form of the engkanto. They are\ndescribed as a beautiful maiden with long golden hair, a slim, angelic face, and blue eyes, stand-\ning higher than the average woman. Engkanto males are known as Engkantado, and they are tall,\nwhite, and pale-skinned, and attractive. attractive. They are lost souls and others believed that\nthey were angels who disobeyed the word of God. They were kicked out from heaven and thrown\nto the land of mortals. Some fell in the river, woods, or trees. They might be playful at times, but\nif they despise you, they will make you sick. Modern medicine will not be able to help you. They\nmight be playful at times, but if they despise you, they will make you sick. Modern medicine will\nnot be able to help you. Engkanto do have capability to fall in love with mortals. But,you\nshould not accept him/her since they will take your soul if you do. Engkantada enjoys getting\ntogether with his friends. If you hear such voices in the woods, whether singing or laughing, it\nmeans they are having a party. It's also a good idea to ask permission to pass or just say''tabi\ntabi po, makikiraan po''. They may give you a reward if you treat them well. Some locals believed\nthat engkanto granted bountiful crops, a healthy body, and good fortune upon those who asked,\nin exchange for respect. "
 			}
