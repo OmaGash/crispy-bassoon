@@ -33,7 +33,7 @@ var entries:Dictionary = {
 		"description" : "A ball of fire.",
 		"icon":"res://ui/icons/creature icons/santilmo-icon.png" ,
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://santilmo.tres",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/santilmo-reward.png",
@@ -44,12 +44,12 @@ var entries:Dictionary = {
 	2: {
 		"name": "Tikbalang",
 		"description" : " It is a bipedal horse creature of Philippine folklore \nsaid to lurk in the mountains and forests of the Philippines.",
-		"icon": "res://icon.png",
+		"icon":"res://ui/icons/creature icons/tikbalang-icon.png" ,
 		"owned": false,
-		"theme": "n/a",
+		"theme":"res://tikbalang.tres" ,
 		"price": 69,
 		"fax": {#use "none" pag n/a
-			"image": "none",
+			"image": "res://ui/icons/creature reward/tikbalang-reward.png",
 			"video": "none",
 			"info": "The Tikbalang appears as a tall, bony creature resembling a humanoid horse.\n It is covered with a fluffy dark mane,while its fur is a lighter color.\n They are said to terrify travelers or play tricks on them, luring them astray from the correct path.\n No matter how far the traveler goes or where he turns, such techniques\n will prevent him from returning to the road. Traditional folklore says that the Tikbalang may shift\n into human form or become invisible to humans. "
 			}
@@ -59,7 +59,7 @@ var entries:Dictionary = {
 		"description" : "A dwende, or 'old man on the mound'is a dwarf creature who lives in the woods,\nin an anthill or old houses in a remote areas.",
 		"icon":"res://ui/icons/creature icons/dwende-icon.png",
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://duwende.tres",
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
@@ -72,7 +72,7 @@ var entries:Dictionary = {
 		"description" : "Another folktale recited by Filipino ancestors from generation to generation, particularly\nin rural areas, is Aswang. People are still conservative and oblivious to modern technology in these\nareas. ",
 		"icon": "res://ui/icons/creature icons/aswang-icon.png",
 		"owned": false,
-		"theme": "n/a",
+		"theme":"res://aswang.tres" ,
 		"price": 69,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
@@ -85,7 +85,7 @@ var entries:Dictionary = {
 		"description" : "From the tagalog word of ‘’ tanggal’’ or to split. It is believed that they split or separate half of\ntheir body, to hunt for food.",
 		"icon": "res://ui/icons/creature icons/manananggal-icon.png",
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://manananggal.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
@@ -98,7 +98,7 @@ var entries:Dictionary = {
 		"description" : "The kapre is a cryptid monster from the Philippines that resembles a tremendously tall,\nlong-legged, god-like hairy humanoid that rests in lofty trees and smokes tobacco.",
 		"icon":"res://ui/icons/creature icons/kapre-icon.png" ,
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://kapre.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
@@ -111,7 +111,7 @@ var entries:Dictionary = {
 		"description" : "In Filipino mythology, the Sirena is a mythical sea creature. Sirenas are known as Magindara in\nvarious parts of the Philippines, particularly Bicol and Visayas, and are depicted as ferocious\nmermaids.",
 		"icon":"res://ui/icons/creature icons/sirena-icon.png" ,
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://sirena.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
@@ -124,7 +124,7 @@ var entries:Dictionary = {
 		"description" : "Engakanto or Diwata also known in the Philippine mythology.\nEspecially in remote areas in the provinces.",
 		"icon":"res://ui/icons/creature icons/engkanto-icon.png" ,
 		"owned": false,
-		"theme": "n/a",
+		"theme": "res://engkanto.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/engkanto-reward.png",
