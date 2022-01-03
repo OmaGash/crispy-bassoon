@@ -2,7 +2,7 @@ extends KinematicBody
 
 var velocity: Vector3
 
-const gravity = .5
+const gravity = 0.35
 const hit_force = 20
 var offset = 5
 

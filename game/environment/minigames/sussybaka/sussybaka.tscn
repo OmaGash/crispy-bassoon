@@ -75,6 +75,7 @@ __meta__ = {
 
 [node name="CSGMesh" type="MeshInstance" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = null
 
@@ -83,15 +84,18 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 4 )
 
 [node name="luksong-baka-anim" parent="player" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.998814, 0.048462, -0.00465181, -0.0485329, 0.983603, -0.173692, -0.00384191, 0.173712, 0.984789, 2.09373, 1.35712, -2.08571 )
+transform = Transform( 0.993956, 0.0568473, 0.0939145, -0.0461075, 0.992546, -0.112813, -0.0996276, 0.107801, 0.989168, 1.77008, 1.32916, -2.23499 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
 
 [node name="AnimationTree" parent="player/luksong-baka-anim" index="2"]
-parameters/OneShot/active = false
+parameters/Hit/blend_amount = 0.96
+"parameters/Jump 2/active" = false
+parameters/State/active = true
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67938, 12.0283 )
