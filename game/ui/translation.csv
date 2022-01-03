@@ -7,7 +7,7 @@ button_close,Close,Bumalik
 button_easy,Easy,Madali
 button_exit,Exit,Lumisan
 button_hard,Large,Puberty
-button_med,Medium,Tamang timpla lang
+button_med,Medium,Katamtaman
 button_play,Play,Laruin
 button_quit,Quit,Umalis
 button_reset,Retry,Ulitin
@@ -19,25 +19,25 @@ failed_baka,You tripped over! No Pearls earned.,Nadapa ka sa iyong pagbaba!
 failed_langit,You got tagged three times!,Nahuli ka ng taya ng tatlong beses!
 failed_palo,You failed to reach the flag in time!,Hindi mo naabot ang watawat sa takdang oras.
 failed_sipa,You failed to hit the pebble at all!,Hindi mo nagawang tamaan ang sipa!
-menu_difficulty,Select Difficulty:,Pumili ng kahirapan XD
-menu_themeselect,Select a theme:,Pumili ng tema:
+menu_difficulty,Select Difficulty:,Pumili ng kabigatan
+menu_themeselect,Select a theme:,Pumili ng disenyo:
 menu_tooltip,Select a game to view info.,Pumili ng laro upang alamin ang mga ito.
 pearls,Pearls:,Perlas: 
-rules_baka,na,ph
-rules_langit,na,ph
-rules_palo,asdf,qwre
-rules_sipa,na,ph
+rules_baka,Hold the Space Bar to start the game.,Hawakan ang Space Bar para magstart ang laro.
+rules_langit,"Press A to move left, D to move right, and Space to Jump. Go to the high grounds to avoid the enemies and survive.","Pindutin ang A  upang gumalaw sa kaliwa, D upang gumalaw sa kanan at Space para makatalon. Punta sa mga matataas na lugar upang iwasan ang mga kalaban at Mabuhay."
+rules_palo,Press A and D to climb. Reach the flag in a limited time,Pindutin ang  A at D upang umakyat. Abutin ang bandila sa limitadong oras.
+rules_sipa,"Press Left Arrow Key to Move Left, Right Arrow Key to Move Right, and Space bar to Kick. Don't Let the Sipa Fall to the Ground","Pindutin ang Left Arrow Key para makagalaw sa Kaliwa, Right Arrow Key para makagalaw sa Kanan, at Space bar para Sipain ang Sipa. Huwag Hayaan Mahulog ang Sipa sa Lupa."
 tab_about,About,Kaalaman
-tab_mythical,Mythical Creatures,Gabi ng Lagim
-tab_rules,Rules,BATAS
-tab_themes,Themes,Mga Tema
-title,myLahi,AkingBreed
+tab_mythical,Mythical Creatures,Kathang-isip na mga nilalang
+tab_rules,Rules,Mga Panuntunan
+tab_themes,Themes,Mga Disensyo
+title,KulPinas,KulPinas
 ui_earnings,You have earned {p} Pearl(s).,Nakatanggap ka ng {p} (na) perlas.
 ui_earninot,No Pearls gained.,Walang natanggap na perlas.
 ui_failed,Failed,Palpak
 ui_score,Score: {score},Puntos: {score}
 ui_time_left,Time Left:,Natitirang Oras:
-ui_victory,Victory,Wagi
+ui_victory,Victory,Tagumpay
 victory_baka,You crossed all of the cows!,Natalunan mo lahat ng mga baka!
 victory_langit,You managed to survive the game! ,na ez dodge mo yung taya
 victory_palo,You reached the flag in time! Time elapsed: {time},Naabot mo ang watawat sa takdang oras! Natapos nang {time} segundo.
