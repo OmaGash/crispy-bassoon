@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa2/player.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://ui/ui.gd" type="Script" id=5]
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/minigames/shato/shato platform/shato_platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/minigames/sipa/Script/picha.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=12]
 size = 64
@@ -94,6 +96,7 @@ __meta__ = {
 [node name="difficulty" parent="ui" instance=ExtResource( 7 )]
 
 [node name="ground" type="StaticBody" parent="."]
+transform = Transform( 2.21064, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="ground"]
 mesh = SubResource( 1 )
@@ -137,7 +140,11 @@ disabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.646, 0 )
 script = ExtResource( 3 )
 
+[node name="Cylinder" parent="ball" instance=ExtResource( 9 )]
+transform = Transform( 0.2168, 0, 0, 0, 0.0276577, 0, 0, 0, 0.247811, -0.08155, -0.331059, -0.0473088 )
+
 [node name="MeshInstance" type="MeshInstance" parent="ball"]
+visible = false
 mesh = SubResource( 9 )
 material/0 = null
 
@@ -148,5 +155,8 @@ shape = SubResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ball/hitbox"]
 shape = SubResource( 11 )
+
+[node name="shato platform" parent="." instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -16.1373, 0 )
 
 [connection signal="body_entered" from="ball/hitbox" to="ball" method="_on_hitbox_body_entered"]

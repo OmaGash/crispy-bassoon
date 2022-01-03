@@ -21,6 +21,7 @@ func start():
 		1:
 			$npc.set_speed(10)
 			$countdown_timer.wait_time = 25
+		
 		2:
 			$npc.set_speed(15)
 			$countdown_timer.wait_time = 40

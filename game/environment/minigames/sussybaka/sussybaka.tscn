@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://environment/minigames/sussybaka/player.gd" type="Script" id=1]
 [ext_resource path="res://tools/camera.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://environment/minigames/sussybaka/taya.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/minigames/sussybaka/taya1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://environment/minigames/sussybaka/taya2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/minigames/sussybaka/Player/luksong-baka-anim.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 200, 2, 2 )
@@ -66,7 +67,7 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.436, 3.71996, 0 )
+transform = Transform( -0.0400097, 0, 0.999199, 0, 1, 0, -0.999199, 0, -0.0400097, -17.436, 2.6404, 0 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -80,6 +81,17 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 4 )
+
+[node name="luksong-baka-anim" parent="player" instance=ExtResource( 10 )]
+
+[node name="Armature" parent="player/luksong-baka-anim" index="0"]
+transform = Transform( 0.998814, 0.048462, -0.00465181, -0.0485329, 0.983603, -0.173692, -0.00384191, 0.173712, 0.984789, 2.09373, 1.35712, -2.08571 )
+
+[node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
+transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
+
+[node name="AnimationTree" parent="player/luksong-baka-anim" index="2"]
+parameters/OneShot/active = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67938, 12.0283 )
@@ -123,3 +135,5 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62183, 0 )
 shape = SubResource( 9 )
+
+[editable path="player/luksong-baka-anim"]

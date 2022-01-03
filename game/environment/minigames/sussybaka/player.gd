@@ -19,6 +19,7 @@ func _physics_process(delta):
 	if state == 0 and start_progress: $"../ui/power".value += 1
 	elif state == 1:
 		if $"../ui/power".value < 60 or $"../ui/power".value > 87:
+			
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			if $"../ui".has_node("submenu"):
 				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
