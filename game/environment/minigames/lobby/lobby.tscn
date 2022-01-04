@@ -1,0 +1,136 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/creature/Creatures/Sirena/sirena_armature.gltf" type="PackedScene" id=3]
+[ext_resource path="res://characters/creature/Creatures/Manananggal/manananggal1.glb" type="PackedScene" id=4]
+[ext_resource path="res://characters/creature/Creatures/Santilmo/santilmo_glb.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/creature/Creatures/Manananggal/manananggal2.glb" type="PackedScene" id=6]
+[ext_resource path="res://characters/creature/Creatures/shokoy/shokoy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/creature/Creatures/Duwende/duwende_pose.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/creature/Creatures/Aswang/aswang_pose.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/creature/Creatures/Engkanto/engkanto_pose.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/creature/Creatures/Kapre/kapre_pose.gltf" type="PackedScene" id=11]
+[ext_resource path="res://characters/creature/Creatures/Tikbalang/tikbalang_pose.gltf" type="PackedScene" id=12]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 80, 5 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 40, 0, 2.5 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 2.0
+height = 2.0
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 3.41562
+height = 3.0
+
+[node name="Spatial" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+
+[node name="camera" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, -0.020942, 7.054, 11.1762 )
+player_scene = NodePath("../player")
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.309, 0, 0.951062, 0, 1, 0, -0.951062, 0, -0.309, 0, 0.22414, 0 )
+
+[node name="sirena" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7068, 1.03418, 0 )
+
+[node name="sirena_armature" parent="sirena" instance=ExtResource( 3 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="sirena"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.13454, 1.48778, -2.98372 )
+shape = SubResource( 3 )
+
+[node name="santelmo" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.013, 0.283206, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="santelmo"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.69703, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="santilmo_glb" parent="santelmo" instance=ExtResource( 5 )]
+
+[node name="shokoy" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.62629, 0.283206, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="shokoy"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.69703, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="shokoy" parent="shokoy" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92345, -4.25496, 1.84071 )
+
+[node name="duwende" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3474, -0.151253, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="duwende"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.69703, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="duwende_pose" parent="duwende" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140121, -0.0358696, -1.24026 )
+
+[node name="aswang" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.553, -1.22324, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="aswang"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.69703, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="aswang_pose" parent="aswang" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95138, 0, 1.57368 )
+
+[node name="engkanto" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9749, -0.301607, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="engkanto"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.69703, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="engkanto_pose" parent="engkanto" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0390749, -0.923604 )
+
+[node name="Kapre" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7821, -1.55973, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Kapre"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.76456, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="kapre_pose" parent="Kapre" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17195, 2.11402, 1.25542 )
+
+[node name="Tikbalang" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2243, -1.35614, -2.21509 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Tikbalang"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.119459, 2.76456, -0.966364 )
+shape = SubResource( 3 )
+
+[node name="tikbalang_pose" parent="Tikbalang" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0933418, 1.34282, -0.851728 )
+
+[node name="manananggal" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.89814, 0.283206, -2.21509 )
+
+[node name="manananggal1" parent="manananggal" instance=ExtResource( 4 )]
+
+[node name="manananggal2" parent="manananggal" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95026, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="manananggal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41943, 2.05287, 0 )
+shape = SubResource( 4 )
