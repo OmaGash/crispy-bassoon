@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=2]
+[gd_resource type="Theme" load_steps=21 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 
@@ -16,6 +16,10 @@ border_width_bottom = 2
 border_color = Color( 0.0392157, 0.54902, 0.956863, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0.0823529, 0.74902, 0.858824, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -31,6 +35,12 @@ border_color = Color( 0.117647, 0.72549, 0.819608, 1 )
 outline_size = 1
 outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.454902, 0.270588, 0.109804, 1 )
@@ -82,6 +92,10 @@ border_width_bottom = 2
 border_color = Color( 0.117647, 0.384314, 0.439216, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0.227451, 0.635294, 0.698039, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -90,6 +104,10 @@ border_width_bottom = 1
 border_color = Color( 0.117647, 0.384314, 0.439216, 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0.0823529, 0.74902, 0.858824, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -138,6 +156,7 @@ Button/styles/pressed = SubResource( 7 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0.0823529, 0.0784314, 0.0784314, 0 )
 Label/fonts/font = SubResource( 15 )
+Label/styles/normal = SubResource( 22 )
 Panel/styles/panel = SubResource( 9 )
 PanelContainer/styles/panel = SubResource( 16 )
 PopupDialog/styles/panel = SubResource( 17 )

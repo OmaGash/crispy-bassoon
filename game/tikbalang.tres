@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=2]
+[gd_resource type="Theme" load_steps=21 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 
@@ -16,6 +16,10 @@ border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -35,6 +39,12 @@ border_color = Color( 0, 0, 0, 1 )
 outline_size = 1
 outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=23]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0, 0, 0, 1 )
@@ -91,6 +101,10 @@ border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 
 [sub_resource type="StyleBoxFlat" id=22]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0.709804, 0.913725, 1, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -99,6 +113,10 @@ border_width_bottom = 1
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -150,6 +168,7 @@ Button/styles/pressed = SubResource( 7 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0.0823529, 0.0784314, 0.0784314, 0 )
 Label/fonts/font = SubResource( 15 )
+Label/styles/normal = SubResource( 23 )
 Panel/styles/panel = SubResource( 9 )
 PanelContainer/styles/panel = SubResource( 16 )
 PopupDialog/styles/panel = SubResource( 17 )
