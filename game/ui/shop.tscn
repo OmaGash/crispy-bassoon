@@ -70,24 +70,31 @@ text = "menu_pearls"
 [node name="HBoxContainer" type="HBoxContainer" parent="items/tab_mythical/VBoxContainer"]
 margin_top = 18.0
 margin_right = 1315.0
-margin_bottom = 663.0
+margin_bottom = 652.0
 size_flags_vertical = 3
 
+[node name="Control" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
+margin_right = 117.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
 [node name="listing" type="GridContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
-margin_right = 655.0
-margin_bottom = 645.0
+margin_left = 121.0
+margin_right = 708.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
-columns = 4
+columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
-margin_left = 659.0
-margin_right = 1315.0
-margin_bottom = 645.0
+margin_left = 712.0
+margin_right = 1299.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 
 [node name="texts" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel"]
@@ -101,10 +108,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="close" type="Button" parent="items/tab_mythical/VBoxContainer"]
-margin_top = 667.0
+[node name="Control2" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
+margin_left = 1303.0
 margin_right = 1315.0
-margin_bottom = 687.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="items/tab_mythical/VBoxContainer"]
+margin_top = 656.0
+margin_right = 1315.0
+margin_bottom = 662.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="close" type="Button" parent="items/tab_mythical/VBoxContainer"]
+margin_top = 666.0
+margin_right = 1315.0
+margin_bottom = 686.0
 text = "button_close"
 
 [node name="tab_themes" type="Tabs" parent="items"]
@@ -134,13 +158,20 @@ margin_right = 1315.0
 margin_bottom = 663.0
 size_flags_vertical = 3
 
+[node name="Control2" type="Control" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
+margin_left = 112.0
+margin_right = 221.0
+margin_bottom = 645.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
 [node name="listing" type="GridContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
 margin_right = 655.0
 margin_bottom = 645.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
-columns = 4
+columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,6 +192,23 @@ margin_bottom = -13.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control3" type="Control" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
+margin_left = 1303.0
+margin_right = 1315.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="items/tab_themes/VBoxContainer2"]
+margin_top = 656.0
+margin_right = 1315.0
+margin_bottom = 663.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
 
 [node name="close" type="Button" parent="items/tab_themes/VBoxContainer2"]
 margin_top = 667.0

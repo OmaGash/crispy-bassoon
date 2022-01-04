@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
+[ext_resource path="res://ui/main menu/main-menu-test.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "debug"
@@ -173,6 +174,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="debug" type="WindowDialog" parent="."]
 visible = true
 margin_left = 973.0
@@ -267,10 +277,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 482.0
-margin_top = 267.0
-margin_right = 884.0
-margin_bottom = 501.0
+margin_left = -201.0
+margin_top = -117.0
+margin_right = 201.0
+margin_bottom = 117.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

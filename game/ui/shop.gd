@@ -40,6 +40,7 @@ func _listing_pressed(item_id: int):
 	var buy_button: = Button.new()
 	title.text = g.entries[item_id]["name"]
 	description.text = g.entries[item_id]["description"]
+	description.clip_text=true
 	price.text = "Price: " + str(g.entries[item_id]["price"]) + "○"
 	buy_button.connect("pressed", self, "_buy_pressed", [item_id, buy_button])
 	

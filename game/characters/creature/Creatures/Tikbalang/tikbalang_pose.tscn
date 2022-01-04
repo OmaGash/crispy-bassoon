@@ -575,7 +575,7 @@ tracks/27/enabled = true
 tracks/27/keys = PoolRealArray( 0, 1, 0.249439, -0.272051, 0.196509, -0.23601, 0.337702, 0.171585, 0.894883, 1, 1, 1, 0.0666667, 1, 0.249439, -0.272051, 0.196509, -0.23601, 0.337702, 0.171585, 0.894883, 1, 1, 1 )
 
 [node name="tikbalang_pose" type="Spatial"]
-transform = Transform( 4.80306, 0, 0, 0, 4.54978, 0, 0, 0, 5.04782, 0, 0, 0 )
+transform = Transform( 14.6442, 0, 0, 0, 16.874, 0, 0, 0, 17.8532, 0, 0, 0 )
 
 [node name="Armature" type="Spatial" parent="."]
 

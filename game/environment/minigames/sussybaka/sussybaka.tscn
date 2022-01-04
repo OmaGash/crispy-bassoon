@@ -87,15 +87,13 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.993956, 0.0568473, 0.0939145, -0.0461075, 0.992546, -0.112813, -0.0996276, 0.107801, 0.989168, 1.77008, 1.32916, -2.23499 )
+transform = Transform( 0.995658, 0.0450561, -0.0814537, -0.0387033, 0.996205, 0.077956, 0.084657, -0.074465, 0.993624, 2.23637, 1.01499, -1.85546 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
 
 [node name="AnimationTree" parent="player/luksong-baka-anim" index="2"]
 parameters/Hit/blend_amount = 0.96
-"parameters/Jump 2/active" = false
-parameters/State/active = true
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67938, 12.0283 )
