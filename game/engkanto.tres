@@ -33,7 +33,7 @@ border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
 
 [sub_resource type="DynamicFont" id=15]
 outline_size = 1
-outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
+outline_color = Color( 0.611765, 0.929412, 1, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=23]
@@ -161,7 +161,7 @@ Button/styles/focus = null
 Button/styles/hover = SubResource( 5 )
 Button/styles/normal = SubResource( 6 )
 Button/styles/pressed = SubResource( 7 )
-Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color = Color( 0.0117647, 0.313726, 0.666667, 1 )
 Label/colors/font_color_shadow = Color( 0.0823529, 0.0784314, 0.0784314, 0 )
 Label/fonts/font = SubResource( 15 )
 Label/styles/normal = SubResource( 23 )

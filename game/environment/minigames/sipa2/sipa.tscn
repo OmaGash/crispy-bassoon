@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa2/player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://environment/minigames/shato/shato platform/shato_platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://environment/minigames/sipa/Script/picha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://environment/minigames/sipa2/player-animation/anim-sipa.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/parralax background/background.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=12]
 size = 64
@@ -172,6 +173,9 @@ shape = SubResource( 11 )
 
 [node name="shato platform" parent="." instance=ExtResource( 8 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -16.1373, 0 )
+
+[node name="background" parent="." instance=ExtResource( 11 )]
+transform = Transform( 170.571, -0.00392045, 0.399886, 1.35053, 0.495145, -50.5052, 0, -62.4691, -0.400344, 8.99657, 40.3114, -19.2047 )
 
 [connection signal="body_entered" from="ball/hitbox" to="ball" method="_on_hitbox_body_entered"]
 
