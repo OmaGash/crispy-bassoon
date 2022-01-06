@@ -18,13 +18,35 @@ func start():
 		0:
 			$npc.set_speed(5)
 			$countdown_timer.wait_time = 15
+			platform_disappear()
+			$npc2.visible = false
+			$npc2/Area.monitoring = false
+			$npc3.visible = false
+			$npc3/Area.monitoring = false
+#			$npc3.Area.disabled = true
+			
+			
 		1:
-			$npc.set_speed(10)
+			$npc2.visible = true
+			$npc3.visible = false
+			$npc.set_speed(7)
+			$npc2.set_speed(7)
 			$countdown_timer.wait_time = 25
+			$npc2._physics_process(true)
+			$npc3/Area.monitoring = false
+			platform_disappear()
 		
 		2:
-			$npc.set_speed(15)
+			$npc2.visible = true
+			$npc3.visible = true
+			$npc.set_speed(9)
+			$npc2.set_speed(9)
+			$npc3.set_speed(9)
 			$countdown_timer.wait_time = 40
+			$npc2._physics_process(true)
+			$npc3._physics_process(true)
+			
+			platform_disappear()
 	set_physics_process(true)
 	$countdown_timer.start()
 
