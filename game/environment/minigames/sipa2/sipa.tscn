@@ -63,7 +63,7 @@ albedo_color = Color( 0.94902, 0.184314, 0.184314, 1 )
 [sub_resource type="CapsuleShape" id=4]
 
 [sub_resource type="BoxShape" id=8]
-extents = Vector3( 1, 0.182347, 1 )
+extents = Vector3( 0.77356, 0.182347, 0.640392 )
 
 [sub_resource type="SphereMesh" id=9]
 
@@ -146,10 +146,7 @@ disabled = true
 transform = Transform( 4.89578, 0.262274, 0.981103, -0.257723, 4.99312, -0.0487343, -0.98231, -0.00285193, 4.90255, -1.18547, -5.34531, -1.83848 )
 
 [node name="Armature" parent="player/anim-sipa" index="2"]
-transform = Transform( 0.217063, -0.0056202, -0.115786, 0.00359428, 0.245997, -0.00520239, 0.115867, 0.00289778, 0.217074, 0.0675653, 0.853938, 0.494959 )
-
-[node name="AnimationTree" parent="player/anim-sipa" index="4"]
-active = false
+transform = Transform( 0.244761, 0.0122681, -0.0222646, -0.0107281, 0.245242, 0.0171941, 0.0230461, -0.0161315, 0.244465, -0.0281692, 0.990719, 0.510547 )
 
 [node name="ball" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.646, 0 )
