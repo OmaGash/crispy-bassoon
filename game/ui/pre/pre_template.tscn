@@ -65,6 +65,7 @@ custom_fonts/font = SubResource( 1 )
 text = "asdasdasd"
 align = 1
 valign = 1
+autowrap = true
 
 [node name="spacer2" type="Control" parent="VBoxContainer/TabContainer/tab_rules/VBoxContainer"]
 margin_top = 651.0

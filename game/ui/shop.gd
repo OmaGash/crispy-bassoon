@@ -39,15 +39,15 @@ func _listing_pressed(item_id: int):
 	var price: = Label.new()
 	var buy_button: = Button.new()
 	title.text = g.entries[item_id]["name"]
-	description.text = g.entries[item_id]["description"]
+	description.text = tr(g.entries[item_id]["description"])
 	description.clip_text=true
-	price.text = "Price: " + str(g.entries[item_id]["price"]) + "○"
+	price.text = tr("Price" )+(":")+ str(g.entries[item_id]["price"]) + "○"
 	buy_button.connect("pressed", self, "_buy_pressed", [item_id, buy_button])
 	
 	if !g.entries[item_id]["owned"]:
-		buy_button.text = "Buy"
+		buy_button.text = tr("Buy")
 	else:
-		buy_button.text = "View"
+		buy_button.text = tr("View")
 	texts.add_child(title)
 	texts.add_child(description)
 	texts.add_child(price)
@@ -77,7 +77,7 @@ func _theme_pressed(item_id: int):
 func _buy_pressed(item_id: int, buy_button: Button):
 	if g.entries[item_id]["owned"]:
 		var fax_instance: Fax = fax.instance()
-		fax_instance.import_variables(g.entries[item_id]["fax"]["info"],
+		fax_instance.import_variables(tr(g.entries[item_id]["fax"]["info"]),
 		g.entries[item_id]["fax"]["image"],
 		g.entries[item_id]["fax"]["video"])
 		add_child(fax_instance)
@@ -93,7 +93,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		g.entries[item_id]["owned"] = true
 		$"items/tab_mythical/VBoxContainer/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
-		buy_button.text = "View"
+		buy_button.text = tr("View")
 		buy_button.release_focus()
 		warning.warn(get_tree(), "You bought " + g.entries[item_id]["name"] + ".", "Purchased successfully")
 		g.save()
