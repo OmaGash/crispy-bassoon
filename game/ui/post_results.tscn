@@ -128,5 +128,9 @@ autoplay = "fade"
 anims/RESET = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
+[node name="cue" type="AudioStreamPlayer" parent="."]
+bus = "environment"
+
+[connection signal="visibility_changed" from="." to="." method="_on_post_result_visibility_changed"]
 [connection signal="pressed" from="PanelContainer/items/HBoxContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="PanelContainer/items/HBoxContainer/done" to="." method="_on_done_pressed"]

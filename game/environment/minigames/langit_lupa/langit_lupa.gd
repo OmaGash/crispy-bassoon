@@ -52,6 +52,7 @@ func start():
 
 func _ready():
 	randomize()
+	
 	set_physics_process(false)
 	$"ui/difficulty".connect("difficulty_set", self, "start")
 #	get_tree().paused = true	
@@ -178,7 +179,7 @@ func _on_Area_body_exited(_body):
 func win_game():
 	$ui.toggle_menu(load("res://ui/post_results.tscn"))
 	if $ui.has_node("submenu"):
-		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), lives * 25)
+		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), (lives * (g.difficulty + 1)) * 5)
 
 
 

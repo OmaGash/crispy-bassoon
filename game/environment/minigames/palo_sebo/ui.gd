@@ -21,7 +21,7 @@ func _on_goal_body_entered(body):#Victory requirement
 	if not body.is_in_group("player"): return
 	$"../time_limit".paused = true
 	if $"../time_limit".time_left > 0:
-		var pearls_won: int =  g.difficulty * $"../time_limit".time_left
+		var pearls_won: int =  (g.difficulty + 1) * $"../time_limit".time_left
 		$"../player".velocity = Vector3.ZERO
 		toggle_menu(load("res://ui/post_results.tscn"))
 		if has_node("submenu"):

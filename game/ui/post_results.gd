@@ -5,6 +5,7 @@ class_name PostResult
 #if has_node("submenu"):
 #	get_node("submenu").set_values(result, info, pearls_won)
 func set_values(result: String, info: String, pearls: int):
+	$cue.stream = load("res://environment/bgm/win.wav") if pearls > 0 else load("res://environment/bgm/lose.wav")
 	$PanelContainer/items/result.text = result
 	$PanelContainer/items/info.text = info
 	$PanelContainer/items/pearls.text = tr("ui_earnings").format({p = pearls}) if pearls > 0 else tr("ui_earninot")#Display nothing pag lose
@@ -23,3 +24,7 @@ func _on_retry_pressed():
 	yield($anim, "animation_finished")
 	loader.load_scene(get_parent().get_parent().filename, get_parent().get_parent())
 	
+
+
+func _on_post_result_visibility_changed():
+	$cue.play()
