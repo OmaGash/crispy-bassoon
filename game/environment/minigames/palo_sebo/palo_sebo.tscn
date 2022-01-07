@@ -11,7 +11,7 @@
 [ext_resource path="res://environment/minigames/palo_sebo/flag.material" type="Material" id=9]
 [ext_resource path="res://environment/minigames/palo_sebo/pl platform/palo_sebo_platform.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=11]
-[ext_resource path="res://environment/parralax background/background.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/minigames/palo_sebo/pl platform_bg/background.tscn" type="PackedScene" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -171,8 +171,8 @@ material/3 = null
 [node name="palo sebo platform" parent="." instance=ExtResource( 10 )]
 transform = Transform( 7, 0, 0, 0, 5, 0, 0, 0, 10, 0, -19.1064, -11.9321 )
 
-[node name="background" parent="." instance=ExtResource( 12 )]
-transform = Transform( 170.571, -0.00392045, 0.399886, 1.35053, 0.495145, -50.5052, 0, -62.4691, -0.400344, 8.43741, 28.4232, -33.2853 )
+[node name="background" parent="palo sebo platform" instance=ExtResource( 12 )]
+transform = Transform( 15.7743, -0.0021389, 0.0639148, 0.124896, 0.270138, -8.07237, 0, -34.0815, -0.0639879, -0.748656, 9.55518, -5.94852 )
 
 [connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
 [connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]
