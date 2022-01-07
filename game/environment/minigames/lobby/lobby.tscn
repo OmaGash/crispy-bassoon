@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://characters/creature/Creatures/Sirena/sirena_pose.tscn" type="PackedScene" id=10]
 [ext_resource path="res://characters/creature/Creatures/Tikbalang/tikbalang_pose.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/shokoy/shokoy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/Cave/cave.tscn" type="PackedScene" id=13]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 160, 3.5 )
@@ -30,6 +31,7 @@ height = 5.0
 [node name="Spatial" type="Spatial"]
 
 [node name="StaticBody" type="StaticBody" parent="."]
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0556011, -0.0680466, 0.0549259 )
@@ -138,3 +140,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.121559 )
 [node name="CollisionShape" type="CollisionShape" parent="manananggal"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.612128, 0.879391, -0.612588 )
 shape = SubResource( 4 )
+
+[node name="cave" parent="." instance=ExtResource( 13 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -13.2524, -22.6208 )
