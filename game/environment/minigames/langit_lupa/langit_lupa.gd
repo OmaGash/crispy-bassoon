@@ -144,6 +144,7 @@ func _on_Timer_timeout():
 #	timer.start()
 #	print(wait_time)
 func tag():
+	if lives < 1: return
 	lives -= 1
 	get_tree().call_group("GUI", "update_lives", lives)
 #	enemy_score += 1
@@ -165,6 +166,7 @@ func tag():
 			mesh.set_surface_material(material, previous)
 	
 	if lives < 1:
+		
 		$ui.toggle_menu(load("res://ui/post_results.tscn"))
 		if $ui.has_node("submenu"):
 			$ui.get_node("submenu").set_values(tr("ui_failed"), tr("failed_langit"), 0)

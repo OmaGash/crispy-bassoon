@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/touch_controls/palo_sebo.gd" type="Script" id=1]
+
+[node name="touch" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = 304.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="space2" type="Control" parent="HBoxContainer"]
+margin_right = 192.0
+margin_bottom = 328.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="left" type="Button" parent="HBoxContainer"]
+margin_left = 196.0
+margin_right = 437.0
+margin_bottom = 328.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+text = "A"
+
+[node name="space" type="Control" parent="HBoxContainer"]
+margin_left = 441.0
+margin_right = 924.0
+margin_bottom = 328.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="right" type="Button" parent="HBoxContainer"]
+margin_left = 928.0
+margin_right = 1169.0
+margin_bottom = 328.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+text = "D"
+
+[node name="space3" type="Control" parent="HBoxContainer"]
+margin_left = 1173.0
+margin_right = 1366.0
+margin_bottom = 328.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[connection signal="pressed" from="HBoxContainer/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/right" to="." method="_on_right_pressed"]
