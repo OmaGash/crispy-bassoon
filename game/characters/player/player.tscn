@@ -11,9 +11,7 @@ height = 3.24488
 radius = 1.5
 height = 3.39622
 
-[node name="player" type="KinematicBody" groups=[
-"player",
-]]
+[node name="player" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.41904, 0 )
 script = ExtResource( 1 )
 
@@ -22,9 +20,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56788, 0 )
 shape = SubResource( 1 )
 
 [node name="interact" type="Area" parent="."]
-monitorable = false
 collision_layer = 2
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="interact"]
 transform = Transform( 0.998825, -0.033661, 0.0348782, 0.0348782, 0.998782, -0.0348995, -0.033661, 0.036075, 0.998782, -0.0596116, 1.61683, 0.00445271 )

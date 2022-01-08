@@ -189,6 +189,7 @@ margin_left = 973.0
 margin_top = 236.0
 margin_right = 1285.0
 margin_bottom = 452.0
+input_pass_on_modal_close_click = false
 popup_exclusive = true
 window_title = "Debug"
 script = SubResource( 1 )

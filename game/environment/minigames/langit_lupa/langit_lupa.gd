@@ -151,6 +151,18 @@ func tag():
 	
 #	get_tree().reload_current_scene()
 	#get_tree().root.get_node("world")
+	#get all mesh instances from player and change material's albedo to red
+	$player/Armature/voice.stream = load("res://environment/audio/edited/grunt0.wav") as AudioStream
+	$player/Armature/voice.play()
+	for mesh in $player/Armature/Armature/Skeleton.get_children():
+		var red: SpatialMaterial = SpatialMaterial.new()
+		red.albedo_color = Color.red
+		#Get every material used for each mesh
+		for material in mesh.get_surface_material_count():
+			var previous: Material = mesh.get_surface_material(material)
+			mesh.set_surface_material(material, red)
+			yield(get_tree(), "idle_frame")
+			mesh.set_surface_material(material, previous)
 	
 	if lives < 1:
 		$ui.toggle_menu(load("res://ui/post_results.tscn"))
