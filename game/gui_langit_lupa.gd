@@ -2,8 +2,8 @@ extends CanvasLayer
 
 
 func _ready():
-	$Lives.theme = g.theme
-
+	#$Lives.theme = g.theme
+	pass
 #
 #func update_score(player_score, npc_score):
 #	$TextureRect/HBoxContainer/player_score.text = "Player score: " + str(player_score)
