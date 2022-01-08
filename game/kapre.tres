@@ -3,7 +3,6 @@
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=4]
-outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -32,7 +31,6 @@ bg_color = Color( 0.317647, 0.188235, 0.0431373, 1 )
 border_color = Color( 0.556863, 0.101961, 0.101961, 1 )
 
 [sub_resource type="DynamicFont" id=15]
-outline_size = 1
 outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
 font_data = ExtResource( 1 )
 
@@ -84,7 +82,6 @@ border_width_bottom = 1
 border_color = Color( 0.870588, 0.521569, 0.113725, 1 )
 
 [sub_resource type="DynamicFont" id=10]
-outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 

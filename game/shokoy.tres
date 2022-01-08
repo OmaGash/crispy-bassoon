@@ -3,7 +3,6 @@
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=4]
-outline_size = 1
 outline_color = Color( 0.368627, 0.247059, 0.105882, 1 )
 font_data = ExtResource( 1 )
 
@@ -20,7 +19,7 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-bg_color = Color( 0.0823529, 0.74902, 0.858824, 1 )
+bg_color = Color( 0.247059, 0.619608, 0.678431, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -32,7 +31,6 @@ bg_color = Color( 0.227451, 0.635294, 0.698039, 1 )
 border_color = Color( 0.117647, 0.72549, 0.819608, 1 )
 
 [sub_resource type="DynamicFont" id=15]
-outline_size = 1
 outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
 font_data = ExtResource( 1 )
 
@@ -79,7 +77,6 @@ border_width_bottom = 1
 border_color = Color( 0.141176, 0.509804, 0.568627, 1 )
 
 [sub_resource type="DynamicFont" id=10]
-outline_size = 1
 outline_color = Color( 0.368627, 0.247059, 0.105882, 1 )
 font_data = ExtResource( 1 )
 
@@ -144,7 +141,7 @@ font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 8 )
-Button/colors/font_color = Color( 0.768627, 0.521569, 0.2, 1 )
+Button/colors/font_color = Color( 0.788235, 0.447059, 0, 1 )
 Button/colors/font_color_hover = Color( 1, 0.568627, 0.00784314, 1 )
 Button/colors/font_color_pressed = Color( 0.886275, 0.564706, 0.14902, 1 )
 Button/fonts/font = SubResource( 4 )
