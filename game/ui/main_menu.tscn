@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://ui/main menu/main-menu-background.png" type="Texture" id=4]
 [ext_resource path="res://ui/icons/game modes/palosebo-icon.png" type="Texture" id=5]
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://ui/icons/game modes/sipa-icon.png" type="Texture" id=7]
+[ext_resource path="res://ui/icons/game modes/luksong-baka-icon.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "debug"
@@ -287,10 +289,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -201.0
-margin_top = -117.0
-margin_right = 201.0
-margin_bottom = 117.0
+margin_left = 482.0
+margin_top = 267.0
+margin_right = 884.0
+margin_bottom = 501.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -322,6 +324,7 @@ margin_right = 113.0
 margin_bottom = 328.0
 size_flags_vertical = 3
 text = "Sipa"
+icon = ExtResource( 7 )
 
 [node name="shato" type="Button" parent="PanelContainer/categories/choices"]
 margin_top = 332.0
@@ -329,6 +332,7 @@ margin_right = 113.0
 margin_bottom = 494.0
 size_flags_vertical = 3
 text = "Luksong Baka"
+icon = ExtResource( 8 )
 
 [node name="langit" type="Button" parent="PanelContainer/categories/choices"]
 margin_top = 498.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://characters/creature/Creatures/Tikbalang/tikbalang_pose.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/shokoy/shokoy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/Cave/cave.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/parralax background/lobby bg/background.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 1.5
@@ -128,10 +129,10 @@ shape = SubResource( 4 )
 [node name="cave" parent="." instance=ExtResource( 13 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0.219467, -16.3607, -58.6509 )
 
-[node name="Landscape001" parent="cave" index="0"]
-transform = Transform( 29.2712, 0.210822, 0, -0.210347, 29.3373, 0, 0, 0, -18.9565, 0.641327, -0.0916061, 3.43456 )
-
 [node name="CollisionShape" parent="cave" index="1"]
 transform = Transform( 29.2712, 0.210822, 0, -0.210347, 29.3373, 0, 0, 0, -18.9565, 0.448892, -0.0328937, 3.4373 )
+
+[node name="background" parent="." instance=ExtResource( 14 )]
+transform = Transform( 175.061, -0.0297415, 0.542522, 1.16429, 3.15522, -57.5555, 0, -182.548, -0.209218, 1.9481, 28.1934, -51.1527 )
 
 [editable path="cave"]
