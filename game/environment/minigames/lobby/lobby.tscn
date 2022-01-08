@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -14,12 +14,6 @@
 [ext_resource path="res://characters/shokoy/shokoy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/Cave/cave.tscn" type="PackedScene" id=13]
 
-[sub_resource type="PlaneMesh" id=1]
-size = Vector2( 160, 3.5 )
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 80, 0, 1.75 )
-
 [sub_resource type="CapsuleShape" id=3]
 radius = 1.5
 height = 3.0
@@ -30,26 +24,16 @@ height = 5.0
 
 [node name="Spatial" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
-visible = false
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0556011, -0.0680466, 0.0549259 )
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 2 )
-
 [node name="camera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 7.14624, 14.9451 )
 player_scene = NodePath("../player")
+follow_offset = Vector2( 0, 6 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.131703, 0, 0.991289, 0, 1, 0, -0.991289, 0, -0.131703, 0, 0, 0 )
+transform = Transform( -0.131703, 0, 0.991289, 0, 1, 0, -0.991289, 0, -0.131703, 0, 0, 2.89128 )
 
 [node name="aswang" type="KinematicBody" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 8.38145, 5, -4.073 )
+transform = Transform( 2.96784, 0, 0, 0, 2.96784, 0, 0, 0, 2.96784, 8.38145, 0.331136, -4.073 )
 
 [node name="CollisionShape" type="CollisionShape" parent="aswang"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -76,7 +60,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="engkanto_pose" parent="engkanto" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35353, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.89081, -0.391159 )
 
 [node name="santilmo" type="KinematicBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 61.9651, 1, -8.54346 )
@@ -99,7 +83,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.73012, 0 )
 
 [node name="shokoy" type="KinematicBody" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -58.1679, -13.3837, -6.85677 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -58.1679, -12.5383, -6.85677 )
 
 [node name="CollisionShape" type="CollisionShape" parent="shokoy"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.751926, 6.47248, 0 )
@@ -109,7 +93,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="sirena" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -34.0192, 4.94808, -12.5424 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -34.0192, 5.90572, -7.94452 )
 
 [node name="CollisionShape" type="CollisionShape" parent="sirena"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -142,4 +126,9 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.61212
 shape = SubResource( 4 )
 
 [node name="cave" parent="." instance=ExtResource( 13 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -10.6608, -22.6208 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0.219467, -16.3607, -58.6509 )
+
+[node name="Landscape001" parent="cave" index="0"]
+transform = Transform( 29.2712, 0.210822, 0, -0.210347, 29.3373, 0, 0, 0, -18.9565, 0.641327, -0.0916061, 3.43456 )
+
+[editable path="cave"]
