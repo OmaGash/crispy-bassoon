@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/icons/buttons/up-button.png" type="Texture" id=1]
+[ext_resource path="res://ui/icons/buttons/left-button.png" type="Texture" id=2]
+[ext_resource path="res://ui/icons/buttons/right-button.png" type="Texture" id=3]
+
+[node name="LangitLupaControls" type="CanvasLayer"]
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( 105.511, 621.844 )
+normal = ExtResource( 2 )
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( 232.35, 619.599 )
+normal = ExtResource( 3 )
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2( 1129.2, 579.19 )
+normal = ExtResource( 1 )
+action = "move_up"

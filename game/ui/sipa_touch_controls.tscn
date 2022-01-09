@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
