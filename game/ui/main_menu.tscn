@@ -422,6 +422,7 @@ anims/open_selection = SubResource( 3 )
 [connection signal="item_selected" from="debug/VBoxContainer/lang" to="debug" method="_on_lang_item_selected"]
 [connection signal="pressed" from="items/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="items/shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="items/lobby" to="." method="_on_lobby_pressed"]
 [connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/categories/choices/palo" to="." method="_on_palo_pressed"]
 [connection signal="pressed" from="PanelContainer/categories/choices/sipa" to="." method="_on_sipa_pressed"]

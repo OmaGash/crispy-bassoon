@@ -7,7 +7,7 @@ onready var preview := $PanelContainer/categories/preview/preview_contents/actua
 
 func _ready():
 	g.in_game = false
-	theme = load(g.theme) as Theme if g.theme != "n/a" else null
+	theme = load(g.theme)
 
 func _on_start_pressed():
 	$anim.play("open_selection")
@@ -39,6 +39,7 @@ func _on_ItemList_item_selected(index):
 			next_scene = "res://environment/minigames/palo_sebo/palo_sebo.tscn"
 		8:
 			next_scene = "res://pre-sipa.tscn"
+
 
 func _on_save_pressed():
 	g.delete_save()
@@ -74,4 +75,11 @@ func _on_close_pressed():
 
 func _on_shop_pressed():
 	$ui.toggle_menu(load("res://ui/shop.tscn"))
+	yield(get_tree(), "idle_frame")
+	yield($ui.get_node("submenu"), "tree_exited")
+	theme = load(g.theme)
 
+
+
+func _on_lobby_pressed():
+	loader.load_scene("res://environment/minigames/lobby/lobby.tscn", self)
