@@ -12,7 +12,7 @@ var in_game = false
 var pearls = 50 setget update_pearls
 var difficulty#0, 1, 2
 var theme = "n/a"
-
+var is_mobile = true#set to false if desktop export
 #Where the entries are kept
 var entries:Dictionary = {
 	0: {
