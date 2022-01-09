@@ -19,7 +19,7 @@ func _ready():
 	set_physics_process(false)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and g.difficulty != -1:
 		set_physics_process(true)
 		start_progress = true
 
@@ -27,9 +27,9 @@ func _physics_process(delta):
 	velocity.y -= 9.8
 	velocity.x = 15
 	anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN) if !$RayCast.is_colliding() else lerp(anim_tree["parameters/Move/blend_amount"], 0, .1)
-	print(anim_tree["parameters/Move/blend_amount"])
+	
 	if state == 0 and start_progress: #Start running
-		$"../ui/power".value += 1
+		$"../ui/power".value += get_parent().current_multiplier
 		
 	elif state == 1:#Jumping state
 		if $"../ui/power".value < level_constants[get_parent().current_level][0]:
