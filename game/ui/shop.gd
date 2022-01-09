@@ -95,10 +95,10 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		buy_button.text = tr("View")
 		buy_button.release_focus()
-		warning.warn(get_tree(), "You bought " + g.entries[item_id]["name"] + ".", "Purchased successfully")
+		warning.warn(get_tree(), tr("You bought")+(" ") + g.entries[item_id]["name"] + ".", tr("Purchased successfully"))
 		g.save()
 	else:
-		warning.warn(get_tree(), "Insufficient pearls, you need " + str(g.entries[item_id]["price"] - g.pearls) + " more to buy "+ g.entries[item_id]["name"] + ".", "Purchase unsuccessful")
+		warning.warn(get_tree(), tr("kulang")+(" ") + str(g.entries[item_id]["price"] - g.pearls) +(" ")+tr("more to buy")+(" ")+ g.entries[item_id]["name"] + ".", "Purchase unsuccessful")
 
 func _apply_pressed(theme_path):
 	theme = load(theme_path) if theme_path != "n/a" else null
