@@ -2,6 +2,7 @@ extends CanvasLayer
 #Handles what menu to display
 #Attach this to a CanvasLayer ui node as the root node's child
 #Then set the ui node's pause mode to process
+#To make the ui's pause mechanic work, the scene needs to be loaded from the main menu and not by itself
 #Then set global's in_game variable to true
 #And set the ui's layer to -1, to keep it from drawing over the loading screen
 #Menus need to have an AnimationPlayer node named "anim" with an animation named "fade" for this to work properly.
@@ -22,7 +23,6 @@ func _ready():
 	loader.connect("loading", pause_button,"queue_free")#delet pause when loading
 
 func toggle_menu(menu:PackedScene):#Called from global.gd, may be called from anywhere.
-	
 	if not menu_is_open:
 		var new_menu = menu.instance() as Control
 		new_menu.name = "submenu"

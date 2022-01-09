@@ -3,6 +3,7 @@ onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/Scro
 onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/ScrollContainer/texts"
 var fax: = preload("res://ui/fax.tscn")
 var preview_scn = preload("res://ui/preview.tscn")
+var _last_theme_pressed: int
 
 func _ready():
 	theme = load(g.theme) as Theme
@@ -54,6 +55,7 @@ func _listing_pressed(item_id: int):
 	texts.add_child(buy_button)
 
 func _theme_pressed(item_id: int):
+	_last_theme_pressed = item_id
 	if preview.get_child_count() > 0:
 		for child in preview.get_children():
 			child.queue_free()
@@ -71,9 +73,13 @@ func _theme_pressed(item_id: int):
 		var apply_button: Button = Button.new()
 		apply_button.text = "Apply Theme"
 		new_preview.theme = load(g.entries[item_id]["theme"]) if g.entries[item_id]["theme"] != "n/a" else null
-		apply_button.connect("pressed", self, "_apply_pressed", [g.entries[item_id]["theme"]])
 		preview.add_child(new_preview)
 		preview.add_child(apply_button)
+		if g.theme == g.entries[item_id]["theme"]:#Check if the current theme is the selected theme
+			apply_button.text = "Revert to Default Theme"
+			apply_button.connect("pressed", self, "_revert_pressed")
+			return
+		apply_button.connect("pressed", self, "_apply_pressed", [g.entries[item_id]["theme"]])
 
 func _buy_pressed(item_id: int, buy_button: Button):
 	if g.entries[item_id]["owned"]:
@@ -104,6 +110,13 @@ func _buy_pressed(item_id: int, buy_button: Button):
 func _apply_pressed(theme_path):
 	theme = load(theme_path) if theme_path != "n/a" else null
 	g.theme = theme_path
+	_theme_pressed(_last_theme_pressed)
+	g.save()
+
+func _revert_pressed():
+	theme = load("res://ui/themes/default.tres")
+	g.theme = "res://ui/themes/default.tres"
+	_theme_pressed(_last_theme_pressed)
 	g.save()
 
 func _update_pearls(current_pearls: int):

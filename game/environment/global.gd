@@ -11,7 +11,7 @@ var current_artifacts = [-1, -1] setget _artifact_swap
 var in_game = false
 var pearls = 50 setget update_pearls
 var difficulty#0, 1, 2
-var theme = "n/a"
+var theme = "res://ui/themes/default.tres"
 var is_mobile = true#set to false if desktop export
 #Where the entries are kept
 var entries:Dictionary = {
@@ -46,7 +46,7 @@ var entries:Dictionary = {
 		"description" : "tikbalang_description",
 		"icon":"res://ui/icons/creature icons/tikbalang-icon.png" ,
 		"owned": false,
-		"theme":"res://tikbalang.tres" ,
+		"theme": "res://ui/themes/tikbalang.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/tikbalang-reward.png",
