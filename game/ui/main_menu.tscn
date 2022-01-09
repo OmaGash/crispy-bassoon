@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://ui/icons/buttons/play-button.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://ui/main menu/main-menu-background.png" type="Texture" id=4]
 [ext_resource path="res://ui/icons/game modes/palosebo-icon.png" type="Texture" id=5]
@@ -242,10 +241,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -136.0
-margin_top = -79.0
-margin_right = 182.0
-margin_bottom = 102.0
+margin_left = -144.0
+margin_top = -256.0
+margin_right = 174.0
+margin_bottom = 253.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -259,28 +258,44 @@ custom_fonts/font = SubResource( 4 )
 text = "KlasikoPinas"
 align = 1
 
-[node name="start" type="TextureButton" parent="items"]
+[node name="start" type="Button" parent="items"]
 margin_top = 43.0
 margin_right = 318.0
-margin_bottom = 95.0
+margin_bottom = 133.0
 size_flags_vertical = 3
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 5
+size_flags_stretch_ratio = 0.02
+text = "button_start1"
 
 [node name="shop" type="Button" parent="items"]
-margin_top = 99.0
+margin_top = 137.0
 margin_right = 318.0
-margin_bottom = 151.0
+margin_bottom = 227.0
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
 text = "button_shop"
 
-[node name="quit" type="Button" parent="items"]
-margin_top = 155.0
+[node name="lobby" type="Button" parent="items"]
+margin_top = 231.0
 margin_right = 318.0
-margin_bottom = 181.0
+margin_bottom = 321.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 0.02
+text = "button_lobby"
+
+[node name="option" type="Button" parent="items"]
+margin_top = 325.0
+margin_right = 318.0
+margin_bottom = 415.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+text = "button_option"
+
+[node name="quit" type="Button" parent="items"]
+margin_top = 419.0
+margin_right = 318.0
+margin_bottom = 509.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
 text = "button_exit"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

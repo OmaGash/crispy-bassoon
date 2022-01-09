@@ -1,6 +1,6 @@
 extends Control
-onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/texts"
-onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/texts"
+onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/ScrollContainer/texts"
+onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/ScrollContainer/texts"
 var fax: = preload("res://ui/fax.tscn")
 var preview_scn = preload("res://ui/preview.tscn")
 
@@ -40,7 +40,7 @@ func _listing_pressed(item_id: int):
 	var buy_button: = Button.new()
 	title.text = g.entries[item_id]["name"]
 	description.text = tr(g.entries[item_id]["description"])
-	description.clip_text=true
+	description.autowrap=true
 	price.text = tr("Price" )+(":")+ str(g.entries[item_id]["price"]) + "○"
 	buy_button.connect("pressed", self, "_buy_pressed", [item_id, buy_button])
 	
@@ -62,6 +62,7 @@ func _theme_pressed(item_id: int):
 	title.text = g.entries[item_id]["name"]
 	preview.add_child(title)
 	description.text = "A menu theme inspired by " + g.entries[item_id]["name"] + ". Return to menu to apply changes properly."
+	description.autowrap=true
 	preview.add_child(description)
 	if not g.entries[item_id]["owned"]:
 		description.text = "Buy to unlock preview."

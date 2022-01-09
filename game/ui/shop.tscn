@@ -28,6 +28,7 @@ func _on_Button_pressed():
 "
 
 [node name="shop" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -74,14 +75,14 @@ margin_bottom = 652.0
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
-margin_right = 117.0
+margin_right = 111.0
 margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="listing" type="GridContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
-margin_left = 121.0
-margin_right = 708.0
+margin_left = 115.0
+margin_right = 670.0
 margin_bottom = 634.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
@@ -91,19 +92,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control3" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
+margin_left = 674.0
+margin_right = 740.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.12
+
 [node name="Panel" type="Panel" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
-margin_left = 712.0
+margin_left = 744.0
 margin_right = 1299.0
 margin_bottom = 634.0
 size_flags_horizontal = 3
 
-[node name="texts" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 13.0
-margin_right = -16.0
-margin_bottom = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texts" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel/ScrollContainer"]
+margin_right = 555.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,19 +169,19 @@ text = "menu_themeselect"
 [node name="HBoxContainer" type="HBoxContainer" parent="items/tab_themes/VBoxContainer2"]
 margin_top = 18.0
 margin_right = 1315.0
-margin_bottom = 663.0
+margin_bottom = 652.0
 size_flags_vertical = 3
 
 [node name="Control2" type="Control" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
-margin_left = 112.0
-margin_right = 221.0
-margin_bottom = 645.0
+margin_right = 117.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="listing" type="GridContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
-margin_right = 655.0
-margin_bottom = 645.0
+margin_left = 121.0
+margin_right = 708.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
@@ -176,19 +190,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control4" type="Control" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
+margin_left = 706.0
+margin_right = 770.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.12
+
 [node name="Panel" type="Panel" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
-margin_left = 659.0
-margin_right = 1315.0
-margin_bottom = 645.0
+margin_left = 712.0
+margin_right = 1299.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 
-[node name="texts" type="VBoxContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 13.0
-margin_right = -16.0
-margin_bottom = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texts" type="VBoxContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer/Panel/ScrollContainer"]
+margin_right = 587.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -206,14 +233,14 @@ __meta__ = {
 [node name="Control2" type="Control" parent="items/tab_themes/VBoxContainer2"]
 margin_top = 656.0
 margin_right = 1315.0
-margin_bottom = 663.0
+margin_bottom = 662.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
 [node name="close" type="Button" parent="items/tab_themes/VBoxContainer2"]
-margin_top = 667.0
+margin_top = 666.0
 margin_right = 1315.0
-margin_bottom = 687.0
+margin_bottom = 686.0
 text = "button_close"
 
 [node name="anim" type="AnimationPlayer" parent="."]

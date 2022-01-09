@@ -75,4 +75,5 @@ __meta__ = {
 }
 
 [connection signal="confirmed" from="center/popup_warn" to="." method="_on_popup_warn_confirmed"]
+[connection signal="popup_hide" from="center/popup_warn" to="." method="_on_popup_warn_popup_hide"]
 [connection signal="pressed" from="center/Popup/VBoxContainer/Play again" to="." method="_on_Play_again_pressed"]

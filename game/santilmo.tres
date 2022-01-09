@@ -1,18 +1,24 @@
-[gd_resource type="Theme" load_steps=22 format=2]
+[gd_resource type="Theme" load_steps=25 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Cute Letters.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=4]
+size = 36
 outline_color = Color( 0.313726, 0.0156863, 0.0156863, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.94902, 0.937255, 0.192157, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color( 0.913725, 0.658824, 0.290196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 10.0
@@ -20,19 +26,28 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 0.835294, 0.733333, 0.180392, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color( 0.439216, 0.0823529, 0.0352941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.941176, 0.933333, 0.47451, 1 )
 border_color = Color( 0.117647, 0.72549, 0.819608, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 
 [sub_resource type="DynamicFont" id=15]
+size = 36
 outline_color = Color( 0.156863, 0.152941, 0.152941, 1 )
 font_data = ExtResource( 1 )
 
@@ -84,8 +99,9 @@ border_width_bottom = 1
 border_color = Color( 0.439216, 0.0823529, 0.0352941, 1 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 24
 outline_color = Color( 0.313726, 0.0156863, 0.0156863, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.662745, 0.211765, 0.211765, 1 )
@@ -96,29 +112,29 @@ border_width_bottom = 2
 border_color = Color( 0.439216, 0.0823529, 0.0352941, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
 bg_color = Color( 0.662745, 0.211765, 0.211765, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color( 0.556863, 0.239216, 0.196078, 1 )
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 
 [sub_resource type="StyleBoxFlat" id=13]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
 bg_color = Color( 0.784314, 0.298039, 0.14902, 1 )
-border_width_left = 1
-border_width_top = 1
+border_width_left = 3
+border_width_top = 3
 border_width_right = 1
-border_width_bottom = 1
+border_width_bottom = 3
 border_color = Color( 0.439216, 0.0823529, 0.0352941, 1 )
 expand_margin_left = 5.0
 expand_margin_right = 5.0
@@ -148,6 +164,18 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.305882, 0.0745098, 0.0431373, 1 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.784314, 0.298039, 0.14902, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.439216, 0.0823529, 0.0352941, 1 )
 
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 1 )
@@ -182,3 +210,6 @@ Tabs/styles/button = SubResource( 23 )
 VScrollBar/styles/grabber = SubResource( 14 )
 VScrollBar/styles/grabber_highlight = SubResource( 18 )
 VScrollBar/styles/grabber_pressed = SubResource( 19 )
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/fonts/title_font = SubResource( 25 )
+WindowDialog/styles/panel = SubResource( 24 )
