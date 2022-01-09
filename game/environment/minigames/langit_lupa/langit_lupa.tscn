@@ -269,12 +269,20 @@ wait_time = 15.0
 
 [node name="gui score" parent="." instance=ExtResource( 17 )]
 
-[node name="countdown_label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -125.0
-margin_right = 125.0
-margin_bottom = 100.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="countdown_label" type="Label" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1359.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

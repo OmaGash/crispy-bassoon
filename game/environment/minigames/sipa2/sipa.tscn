@@ -84,12 +84,18 @@ pause_mode = 2
 layer = -1
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="ui"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -84.0
-margin_right = 84.0
-margin_bottom = 65.0
+[node name="PanelContainer" type="PanelContainer" parent="ui"]
+anchor_right = 1.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1359.0
+margin_bottom = 72.0
 custom_fonts/font = SubResource( 12 )
 align = 1
 __meta__ = {
@@ -148,7 +154,7 @@ disabled = true
 transform = Transform( 4.89578, 0.262274, 0.981103, -0.257723, 4.99312, -0.0487343, -0.98231, -0.00285193, 4.90255, -1.18547, -5.34531, -1.83848 )
 
 [node name="Armature" parent="player/anim-sipa" index="2"]
-transform = Transform( 0.244864, 0.0115243, -0.0215237, -0.00998132, 0.245234, 0.017752, 0.0222812, -0.0167914, 0.244491, -0.0256235, 0.993102, 0.51201 )
+transform = Transform( 0.244823, 0.0122302, -0.0216005, -0.0106434, 0.245174, 0.0181834, 0.0224249, -0.0171564, 0.244453, -0.0282357, 0.99146, 0.511237 )
 
 [node name="ball" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.0335, 0 )

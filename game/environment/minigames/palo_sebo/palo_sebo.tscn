@@ -101,19 +101,17 @@ margin_right = 684.0
 margin_bottom = 370.0
 text = "button_start"
 
-[node name="info" type="Panel" parent="ui"]
+[node name="info" type="PanelContainer" parent="ui"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -683.0
 margin_right = 683.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="time" type="Label" parent="ui/info"]
+margin_left = 7.0
 margin_top = 13.0
-margin_right = 1280.0
+margin_right = 1359.0
 margin_bottom = 27.0
 text = "ui_time_left"
 align = 1

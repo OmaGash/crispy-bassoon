@@ -134,7 +134,7 @@ transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -75.0785, -1.15466, -3.3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07181, -1.57437, 0.106407 )
 
 [node name="manananggal2" parent="Manananggal" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239111, 3.28894, 0.121559 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07319, -1.5172, 0.121559 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Manananggal"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.612128, 0.879391, -0.612588 )

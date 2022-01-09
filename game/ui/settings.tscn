@@ -52,9 +52,9 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -72.0
+margin_left = -115.0
 margin_top = -1.0
-margin_right = 88.0
+margin_right = 131.0
 margin_bottom = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,7 +63,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 739.0
+margin_right = 825.0
 margin_bottom = 564.0
 custom_constants/margin_right = 25
 custom_constants/margin_top = 25
@@ -76,11 +76,11 @@ __meta__ = {
 [node name="actual_menu" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 707.0
+margin_right = 793.0
 margin_bottom = 532.0
 
 [node name="spacer" type="Control" parent="PanelContainer/MarginContainer/actual_menu"]
-margin_right = 682.0
+margin_right = 768.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -88,10 +88,11 @@ size_flags_stretch_ratio = 0.1
 
 [node name="options" type="GridContainer" parent="PanelContainer/MarginContainer/actual_menu"]
 margin_top = 42.0
-margin_right = 682.0
+margin_right = 768.0
 margin_bottom = 426.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/vseparation = 10
 columns = 2
 
 [node name="music" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
@@ -101,8 +102,8 @@ theme = SubResource( 1 )
 text = "MUSIC"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_left = 170.0
-margin_right = 610.0
+margin_left = 215.0
+margin_right = 655.0
 margin_bottom = 37.0
 size_flags_horizontal = 4
 
@@ -110,61 +111,57 @@ size_flags_horizontal = 4
 margin_top = 11.0
 margin_right = 36.0
 margin_bottom = 25.0
-size_flags_horizontal = 3
 text = "100%"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer"]
+[node name="music" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer"]
 margin_left = 40.0
 margin_right = 440.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 11
+size_flags_horizontal = 3
 size_flags_vertical = 1
-min_value = 30.0
 value = 100.0
 
-[node name="sfx" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_top = 41.0
-margin_right = 94.0
-margin_bottom = 78.0
+[node name="label_sfx" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
+margin_top = 47.0
+margin_right = 99.0
+margin_bottom = 84.0
 theme = SubResource( 1 )
 text = "SFX"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_left = 170.0
-margin_top = 41.0
-margin_right = 610.0
-margin_bottom = 78.0
+margin_left = 215.0
+margin_top = 47.0
+margin_right = 655.0
+margin_bottom = 84.0
 size_flags_horizontal = 4
 
 [node name="value" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2"]
 margin_top = 11.0
 margin_right = 36.0
 margin_bottom = 25.0
-size_flags_horizontal = 3
 text = "100%"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2"]
+[node name="sfx" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2"]
 margin_left = 40.0
 margin_right = 440.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 11
+size_flags_horizontal = 3
 size_flags_vertical = 1
-min_value = 30.0
 value = 100.0
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_top = 100.0
-margin_right = 94.0
-margin_bottom = 114.0
+margin_top = 112.0
+margin_right = 99.0
+margin_bottom = 126.0
 text = "language"
 
 [node name="language" type="OptionButton" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_left = 608.0
-margin_top = 82.0
-margin_right = 682.0
-margin_bottom = 132.0
+margin_left = 694.0
+margin_top = 94.0
+margin_right = 768.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 10
 text = "English"
@@ -172,34 +169,34 @@ items = [ "English", null, false, 0, null, "Tagalog", null, false, 1, null ]
 selected = 0
 
 [node name="label_touch" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
-margin_top = 149.0
-margin_right = 94.0
-margin_bottom = 163.0
+margin_top = 167.0
+margin_right = 99.0
+margin_bottom = 181.0
 text = "touch_controls"
 
 [node name="touch" type="CheckButton" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
-margin_left = 606.0
-margin_top = 136.0
-margin_right = 682.0
-margin_bottom = 176.0
+margin_left = 692.0
+margin_top = 154.0
+margin_right = 768.0
+margin_bottom = 194.0
 size_flags_horizontal = 10
 
 [node name="label_fullscreen" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
-margin_top = 193.0
-margin_right = 94.0
-margin_bottom = 207.0
+margin_top = 217.0
+margin_right = 99.0
+margin_bottom = 231.0
 text = "full_screen"
 
 [node name="fullscreen" type="CheckButton" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
-margin_left = 606.0
-margin_top = 180.0
-margin_right = 682.0
-margin_bottom = 220.0
+margin_left = 692.0
+margin_top = 204.0
+margin_right = 768.0
+margin_bottom = 244.0
 size_flags_horizontal = 10
 
 [node name="close" type="Button" parent="PanelContainer/MarginContainer/actual_menu"]
 margin_top = 430.0
-margin_right = 682.0
+margin_right = 768.0
 margin_bottom = 507.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -210,8 +207,9 @@ text = "button_close"
 anims/RESET = SubResource( 2 )
 anims/fade = SubResource( 3 )
 
-[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/HSlider" to="." method="_on_HSlider0_value_changed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music" to="." method="_on_HSlider0_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx" to="." method="_on_HSlider_value_changed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/actual_menu/options/language" to="." method="_on_language_item_selected"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/actual_menu/options/touch" to="." method="_on_touch_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/actual_menu/options/fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/actual_menu/close" to="." method="_on_close_pressed"]
