@@ -12,7 +12,8 @@ var in_game = false
 var pearls = 50 setget update_pearls
 var difficulty#0, 1, 2
 var theme = "res://ui/themes/default.tres"
-var is_mobile = true#set to false if desktop export
+var is_mobile = false#for touch controls
+const is_desktop = true#set to true if desktop export
 #Where the entries are kept
 var entries:Dictionary = {
 	0: {

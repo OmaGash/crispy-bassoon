@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _ready():
-	#$Lives.theme = g.theme
+	$Lives.theme = load(g.theme)
 	pass
 #
 #func update_score(player_score, npc_score):

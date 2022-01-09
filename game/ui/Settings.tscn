@@ -1,13 +1,50 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/settings.gd" type="Script" id=2]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 390.0
+margin_top = 100.0
+margin_right = -390.0
+margin_bottom = -100.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,6 +52,10 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -72.0
+margin_top = -1.0
+margin_right = 88.0
+margin_bottom = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -22,8 +63,8 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1359.0
-margin_bottom = 761.0
+margin_right = 739.0
+margin_bottom = 564.0
 custom_constants/margin_right = 25
 custom_constants/margin_top = 25
 custom_constants/margin_left = 25
@@ -32,77 +73,98 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
+[node name="actual_menu" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 1327.0
-margin_bottom = 729.0
+margin_right = 707.0
+margin_bottom = 532.0
+
+[node name="spacer" type="Control" parent="PanelContainer/MarginContainer/actual_menu"]
+margin_right = 682.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="options" type="GridContainer" parent="PanelContainer/MarginContainer/actual_menu"]
+margin_top = 42.0
+margin_right = 682.0
+margin_bottom = 426.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 2
 
-[node name="Music" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_right = 94.0
+[node name="music" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
+margin_right = 99.0
 margin_bottom = 37.0
 theme = SubResource( 1 )
 text = "MUSIC"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 898.0
-margin_right = 1302.0
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
+margin_left = 172.0
+margin_right = 612.0
 margin_bottom = 37.0
-size_flags_horizontal = 10
+size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+[node name="value" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer"]
 margin_top = 11.0
+margin_right = 36.0
 margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "100%"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
-margin_left = 4.0
-margin_right = 404.0
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer"]
+margin_left = 40.0
+margin_right = 440.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 10
+size_flags_horizontal = 11
 size_flags_vertical = 1
 min_value = 30.0
-value = 30.0
+value = 100.0
 
-[node name="Music2" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="sfx" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
 margin_top = 41.0
-margin_right = 94.0
+margin_right = 99.0
 margin_bottom = 78.0
 theme = SubResource( 1 )
-text = "MUSIC"
+text = "SFX"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 898.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
+margin_left = 172.0
 margin_top = 41.0
-margin_right = 1302.0
+margin_right = 612.0
 margin_bottom = 78.0
-size_flags_horizontal = 10
+size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+[node name="value" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2"]
 margin_top = 11.0
+margin_right = 36.0
 margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "100%"
+percent_visible = -0.25
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
-margin_left = 4.0
-margin_right = 404.0
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2"]
+margin_left = 40.0
+margin_right = 440.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 10
+size_flags_horizontal = 11
 size_flags_vertical = 1
 min_value = 30.0
-value = 30.0
+value = 100.0
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
 margin_top = 100.0
-margin_right = 94.0
+margin_right = 99.0
 margin_bottom = 114.0
-text = "Screen Display"
+text = "Language:"
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 1228.0
+[node name="language" type="OptionButton" parent="PanelContainer/MarginContainer/actual_menu/options"]
+margin_left = 608.0
 margin_top = 82.0
-margin_right = 1302.0
+margin_right = 682.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 10
@@ -110,15 +172,47 @@ text = "English"
 items = [ "English", null, false, 0, null, "Tagalog", null, false, 1, null ]
 selected = 0
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+[node name="label_touch" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
 margin_top = 149.0
-margin_right = 94.0
+margin_right = 99.0
 margin_bottom = 163.0
-text = "Full Screen"
+text = "Touch Controls:"
 
-[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 1226.0
+[node name="touch" type="CheckButton" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
+margin_left = 606.0
 margin_top = 136.0
-margin_right = 1302.0
+margin_right = 682.0
 margin_bottom = 176.0
 size_flags_horizontal = 10
+
+[node name="label_fullscreen" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
+margin_top = 193.0
+margin_right = 99.0
+margin_bottom = 207.0
+text = "Full Screen"
+
+[node name="fullscreen" type="CheckButton" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
+margin_left = 606.0
+margin_top = 180.0
+margin_right = 682.0
+margin_bottom = 220.0
+size_flags_horizontal = 10
+
+[node name="close" type="Button" parent="PanelContainer/MarginContainer/actual_menu"]
+margin_top = 430.0
+margin_right = 682.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "button_close"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/fade = SubResource( 3 )
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/HSlider" to="." method="_on_HSlider0_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/actual_menu/options/language" to="." method="_on_language_item_selected"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/actual_menu/options/touch" to="." method="_on_touch_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/actual_menu/close" to="." method="_on_close_pressed"]

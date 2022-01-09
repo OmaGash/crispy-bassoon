@@ -88,6 +88,7 @@ func _process(delta):
 	var time = ceil($countdown_timer.time_left)
 	
 	$countdown_label.text = time_l % [time]
+	$countdown_label.theme = load(g.theme)
 #	win_game()
 	
 #	if s == 0 and m >= 1:

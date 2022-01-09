@@ -83,3 +83,7 @@ func _on_shop_pressed():
 
 func _on_lobby_pressed():
 	loader.load_scene("res://environment/minigames/lobby/lobby.tscn", self)
+
+
+func _on_option_pressed():
+	$ui.toggle_menu(load("res://ui/settings.tscn"))
