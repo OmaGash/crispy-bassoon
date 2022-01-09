@@ -20,7 +20,7 @@ var entries:Dictionary = {
 		"description" :"siyokoy_description" ,
 		"icon": "res://ui/icons/creature icons/siyokoy-icon.png",
 		"owned": false,
-		"theme": "res://shokoy.tres",
+		"theme": "res://ui/themes/shokoy.tres",
 		"price": 50,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
@@ -31,9 +31,9 @@ var entries:Dictionary = {
 	1: {
 		"name": "Santelmo",
 		"description" : "santelmo_description",
-		"icon":"res://ui/icons/creature icons/santilmo-icon.png" ,
+		"icon": "res://ui/icons/creature icons/santilmo-icon.png",
 		"owned": false,
-		"theme": "res://santilmo.tres",
+		"theme": "res://ui/themes/santilmo.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/santilmo-reward.png",
@@ -59,7 +59,7 @@ var entries:Dictionary = {
 		"description" : "duwende_description",
 		"icon":"res://ui/icons/creature icons/dwende-icon.png",
 		"owned": false,
-		"theme": "res://duwende.tres",
+		"theme": "res://ui/themes/duwende.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
@@ -72,7 +72,7 @@ var entries:Dictionary = {
 		"description" : "aswang_description",
 		"icon": "res://ui/icons/creature icons/aswang-icon.png",
 		"owned": false,
-		"theme":"res://aswang.tres" ,
+		"theme":"res://ui/themes/aswang.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
@@ -85,7 +85,7 @@ var entries:Dictionary = {
 		"description" :"mana_description",
 		"icon": "res://ui/icons/creature icons/manananggal-icon.png",
 		"owned": false,
-		"theme": "res://manananggal.tres",
+		"theme": "res://ui/themes/manananggal.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
@@ -98,7 +98,7 @@ var entries:Dictionary = {
 		"description" : "kapre_description",
 		"icon":"res://ui/icons/creature icons/kapre-icon.png" ,
 		"owned": false,
-		"theme": "res://kapre.tres",
+		"theme": "res://ui/themes/kapre.tres",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
@@ -111,7 +111,7 @@ var entries:Dictionary = {
 		"description" : "sirena_description",
 		"icon":"res://ui/icons/creature icons/sirena-icon.png" ,
 		"owned": false,
-		"theme": "res://sirena.tres",
+		"theme":"res://ui/themes/sirena.tres" ,
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
@@ -124,7 +124,7 @@ var entries:Dictionary = {
 		"description" : "engkanto_description",
 		"icon":"res://ui/icons/creature icons/engkanto-icon.png" ,
 		"owned": false,
-		"theme": "res://engkanto.tres",
+		"theme":"res://ui/themes/engkanto.tres" ,
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/engkanto-reward.png",

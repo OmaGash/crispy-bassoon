@@ -63,15 +63,15 @@ func _theme_pressed(item_id: int):
 	var description = Label.new()
 	title.text = g.entries[item_id]["name"]
 	preview.add_child(title)
-	description.text = "A menu theme inspired by " + g.entries[item_id]["name"] + ". Return to menu to apply changes properly."
+	description.text = tr("theme1")+(" ") + g.entries[item_id]["name"] + ". "+ tr("theme2")
 	description.autowrap=true
 	preview.add_child(description)
 	if not g.entries[item_id]["owned"]:
-		description.text = "Buy to unlock preview."
+		description.text = tr("preview")
 	else:
 		var new_preview: Control = preview_scn.instance()
 		var apply_button: Button = Button.new()
-		apply_button.text = "Apply Theme"
+		apply_button.text = tr("theme3")
 		new_preview.theme = load(g.entries[item_id]["theme"]) if g.entries[item_id]["theme"] != "n/a" else null
 		preview.add_child(new_preview)
 		preview.add_child(apply_button)
@@ -105,7 +105,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		warning.warn(get_tree(), tr("You bought")+(" ") + g.entries[item_id]["name"] + ".", tr("Purchased successfully"))
 		g.save()
 	else:
-		warning.warn(get_tree(), tr("kulang")+(" ") + str(g.entries[item_id]["price"] - g.pearls) +(" ")+tr("more to buy")+(" ")+ g.entries[item_id]["name"] + ".", "Purchase unsuccessful")
+		warning.warn(get_tree(), tr("kulang")+(" ") + str(g.entries[item_id]["price"] - g.pearls) +(" ")+tr("more to buy")+(" ")+ g.entries[item_id]["name"] + ".",tr("not_purchase"))
 
 func _apply_pressed(theme_path):
 	theme = load(theme_path) if theme_path != "n/a" else null
