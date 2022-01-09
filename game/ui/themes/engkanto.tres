@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=24 format=2]
+[gd_resource type="Theme" load_steps=32 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cute Letters.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/icons/buttons/play-button1.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=4]
 size = 36
@@ -43,6 +44,38 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 
+[sub_resource type="DynamicFont" id=26]
+size = 36
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.611765, 0.929412, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.611765, 0.929412, 1, 1 )
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.156863, 0.537255, 0.619608, 1 )
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.717647, 0.717647, 0.717647, 1 )
 border_width_left = 2
@@ -67,6 +100,19 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.611765, 0.929412, 1, 1 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.717647, 0.717647, 0.717647, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.611765, 0.929412, 1, 1 )
+expand_margin_right = 10.0
 
 [sub_resource type="DynamicFont" id=22]
 font_data = ExtResource( 1 )
@@ -148,6 +194,10 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="DynamicFont" id=25]
+size = 40
+font_data = ExtResource( 2 )
+
 [sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0.717647, 0.717647, 0.717647, 1 )
 border_width_left = 5
@@ -174,9 +224,21 @@ Label/colors/font_color = Color( 0.0117647, 0.313726, 0.666667, 1 )
 Label/colors/font_color_shadow = Color( 0.0823529, 0.0784314, 0.0784314, 0 )
 Label/fonts/font = SubResource( 15 )
 Label/styles/normal = SubResource( 23 )
+OptionButton/colors/font_color = Color( 0.0117647, 0.313726, 0.666667, 1 )
+OptionButton/colors/font_color_focus = Color( 0.0117647, 0.313726, 0.666667, 1 )
+OptionButton/colors/font_color_hover = Color( 1, 1, 1, 1 )
+OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+OptionButton/fonts/font = SubResource( 26 )
+OptionButton/icons/arrow = ExtResource( 3 )
+OptionButton/styles/hover = SubResource( 27 )
+OptionButton/styles/normal = SubResource( 28 )
+OptionButton/styles/pressed = SubResource( 29 )
 Panel/styles/panel = SubResource( 9 )
 PanelContainer/styles/panel = SubResource( 16 )
 PopupDialog/styles/panel = SubResource( 17 )
+PopupMenu/colors/font_color = Color( 0.0117647, 0.313726, 0.666667, 1 )
+PopupMenu/fonts/font = SubResource( 30 )
+PopupMenu/styles/panel = SubResource( 31 )
 ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = SubResource( 22 )
 ProgressBar/styles/bg = SubResource( 20 )
@@ -190,4 +252,6 @@ TabContainer/styles/tab_fg = SubResource( 13 )
 VScrollBar/styles/grabber = SubResource( 14 )
 VScrollBar/styles/grabber_highlight = SubResource( 18 )
 VScrollBar/styles/grabber_pressed = SubResource( 19 )
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/fonts/title_font = SubResource( 25 )
 WindowDialog/styles/panel = SubResource( 24 )

@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=24 format=2]
+[gd_resource type="Theme" load_steps=30 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cute Letters.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/icons/buttons/play-button1.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=4]
 size = 36
@@ -59,8 +60,50 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=27]
 bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -83,6 +126,25 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_right = 10.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0, 0, 0, 1 )
@@ -142,6 +204,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.113725, 0.113725, 0.113725, 1 )
@@ -150,6 +216,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 1, 1, 1, 1 )
@@ -158,6 +228,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=25]
 size = 40
@@ -177,7 +251,7 @@ font_data = ExtResource( 1 )
 default_font = SubResource( 8 )
 Button/colors/font_color = Color( 0.619608, 0.105882, 0.105882, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_focus = Color( 0.941176, 0.941176, 0.941176, 1 )
 Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
 Button/colors/font_color_pressed = Color( 1, 0, 0, 1 )
 Button/constants/hseparation = 2
@@ -191,9 +265,19 @@ Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0.0823529, 0.0784314, 0.0784314, 0 )
 Label/fonts/font = SubResource( 15 )
 Label/styles/normal = SubResource( 23 )
+OptionButton/colors/font_color = Color( 0.619608, 0.105882, 0.105882, 1 )
+OptionButton/colors/font_color_focus = Color( 0.619608, 0.105882, 0.105882, 1 )
+OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+OptionButton/colors/font_color_pressed = Color( 0.619608, 0.105882, 0.105882, 1 )
+OptionButton/icons/arrow = ExtResource( 3 )
+OptionButton/styles/hover = SubResource( 26 )
+OptionButton/styles/normal = SubResource( 27 )
+OptionButton/styles/pressed = SubResource( 28 )
 Panel/styles/panel = SubResource( 9 )
 PanelContainer/styles/panel = SubResource( 16 )
 PopupDialog/styles/panel = SubResource( 17 )
+PopupMenu/fonts/font = SubResource( 29 )
+PopupMenu/styles/panel = SubResource( 30 )
 ProgressBar/styles/bg = SubResource( 20 )
 ProgressBar/styles/fg = SubResource( 21 )
 TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
