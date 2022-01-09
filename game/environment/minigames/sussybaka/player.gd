@@ -10,6 +10,9 @@ const stumble = 0.1
 const trip = 1
 var start_progress = false
 var multiplier = 1.2
+
+const level_constants = [[52, 68], [52, 68], [52, 68]]#the green bar's position
+
 func _ready():
 	g.in_game = true
 	anim_tree["parameters/Move/blend_amount"] =  lerp(anim_tree["parameters/Move/blend_amount"], 0, BLEND_IDLE)
@@ -23,11 +26,13 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	velocity.y -= 9.8
 	velocity.x = 15
-	if state == 0 and start_progress: 
+	anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN) if !$RayCast.is_colliding() else lerp(anim_tree["parameters/Move/blend_amount"], 0, .1)
+	print(anim_tree["parameters/Move/blend_amount"])
+	if state == 0 and start_progress: #Start running
 		$"../ui/power".value += 1
-		anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN)
-	elif state == 1:
-		if $"../ui/power".value < 60:
+		
+	elif state == 1:#Jumping state
+		if $"../ui/power".value < level_constants[get_parent().current_level][0]:
 #			anim_tree["parameters/Hit/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 0, stumble)
 #			anim_tree["parameters/State/active"] = true
 #			return
@@ -40,7 +45,7 @@ func _physics_process(delta):
 			return
 		velocity.y = multiplier * $"../ui/power".value
 		state = 2
-		if $"../ui/power".value > 87:
+		if $"../ui/power".value > level_constants[get_parent().current_level][1]:
 #			anim_tree["paramaters/Hit/blend_amount"] = lerp(anim_tree["parameters/Hit/blend_amount"], 1, trip)
 #			anim_tree["parameters/State/active"] = true
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
@@ -48,15 +53,16 @@ func _physics_process(delta):
 				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
 				set_physics_process(false)
 			return
-		if get_parent().current_level < 5:
+		if get_parent().current_level < 2:#Reset state to running after jumping
 			get_parent().current_level += 1
 			$"../ui/power".value = 0
 			state = 0
 			start_progress = false
-		else:
+		else:#End game
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			anim_tree["parameters/Jump 3/active"] = true
 			if $"../ui".has_node("submenu"):
 				$"../ui".get_node("submenu").set_values(tr("ui_victory"), tr("victory_baka"), 69)
 				
 	velocity = move_and_slide(velocity)
+
