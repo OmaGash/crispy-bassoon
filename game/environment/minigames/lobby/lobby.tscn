@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://environment/minigames/lobby/lobby.gd" type="Script" id=13]
 [ext_resource path="res://environment/Cave/cave.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/ui.gd" type="Script" id=15]
+[ext_resource path="res://environment/bgm/cave.ogg" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 1.5
@@ -153,3 +154,8 @@ shape = SubResource( 6 )
 
 [node name="cave" parent="StaticBody" instance=ExtResource( 14 )]
 transform = Transform( 3.81723, 0, 0, 0, 5.04258, 0, 0, 0, 3.35986, 0, -8.03434, 55.9468 )
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
+bus = "bgm"

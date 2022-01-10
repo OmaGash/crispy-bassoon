@@ -5,6 +5,8 @@ var current_multiplier: float = 1
 var a = InputEventAction.new()
 
 func _ready():
+	g.in_game = true
+	gd.stop_main_theme()
 	if not g.is_mobile:
 		$ui/jump.queue_free()
 	g.difficulty = -1

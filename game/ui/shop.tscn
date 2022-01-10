@@ -21,7 +21,9 @@ tracks/0/keys = {
 [sub_resource type="GDScript" id=3]
 script/source = "extends PanelContainer
 
-
+func _ready():
+	if not g.debug:
+		queue_free()
 
 func _on_Button_pressed():
 	g.pearls += 50

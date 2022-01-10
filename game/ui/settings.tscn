@@ -102,8 +102,8 @@ theme = SubResource( 1 )
 text = "MUSIC"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_left = 215.0
-margin_right = 655.0
+margin_left = 213.0
+margin_right = 653.0
 margin_bottom = 37.0
 size_flags_horizontal = 4
 
@@ -124,15 +124,15 @@ value = 100.0
 
 [node name="label_sfx" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
 margin_top = 47.0
-margin_right = 99.0
+margin_right = 94.0
 margin_bottom = 84.0
 theme = SubResource( 1 )
 text = "SFX"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/actual_menu/options"]
-margin_left = 215.0
+margin_left = 213.0
 margin_top = 47.0
-margin_right = 655.0
+margin_right = 653.0
 margin_bottom = 84.0
 size_flags_horizontal = 4
 
@@ -153,7 +153,7 @@ value = 100.0
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options"]
 margin_top = 112.0
-margin_right = 99.0
+margin_right = 94.0
 margin_bottom = 126.0
 text = "language"
 
@@ -170,7 +170,7 @@ selected = 0
 
 [node name="label_touch" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
 margin_top = 167.0
-margin_right = 99.0
+margin_right = 94.0
 margin_bottom = 181.0
 text = "touch_controls"
 
@@ -183,7 +183,7 @@ size_flags_horizontal = 10
 
 [node name="label_fullscreen" type="Label" parent="PanelContainer/MarginContainer/actual_menu/options" groups=["desktop"]]
 margin_top = 217.0
-margin_right = 99.0
+margin_right = 94.0
 margin_bottom = 231.0
 text = "full_screen"
 

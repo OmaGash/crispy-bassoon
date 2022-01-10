@@ -52,6 +52,8 @@ func start():
 
 func _ready():
 	randomize()
+	g.in_game = true
+	gd.stop_main_theme()
 	var os = OS.get_name()
 	if os == 'Windows':
 		$LangitLupaControls.get_child(0).hide()
@@ -171,7 +173,7 @@ func tag():
 			mesh.set_surface_material(material, previous)
 	
 	if lives < 1:
-		
+		$ui/bgm.stop()
 		$ui.toggle_menu(load("res://ui/post_results.tscn"))
 		if $ui.has_node("submenu"):
 			$ui.get_node("submenu").set_values(tr("ui_failed"), tr("failed_langit"), 0)
@@ -196,6 +198,7 @@ func _on_Area_body_exited(_body):
 
 
 func win_game():
+	$ui/bgm.stop()
 	$ui.toggle_menu(load("res://ui/post_results.tscn"))
 	if $ui.has_node("submenu"):
 		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), (lives * (g.difficulty + 1)) * 5)

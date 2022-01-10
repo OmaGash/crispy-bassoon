@@ -34,6 +34,7 @@ func _on_hitbox_body_entered(body):#When hit
 		velocity.x = rand_range(-offset, offset)
 		get_parent().score += 1
 	elif body.name == "ground":#Losing condition
+		$"../ui/bgm".stop()
 		$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 		if $"../ui".has_node("submenu"):
 			var result: String

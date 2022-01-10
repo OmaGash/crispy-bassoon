@@ -1,6 +1,8 @@
 extends Node
 
 func _ready():
+	g.in_game = true
+	gd.stop_main_theme()
 	$"ui/difficulty".connect("tree_exited", self, "difficulty_selected")
 	
 	$ui/start_button.show()

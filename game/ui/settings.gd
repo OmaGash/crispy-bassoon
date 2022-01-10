@@ -7,8 +7,8 @@ func _ready():
 	else:
 		$PanelContainer/MarginContainer/actual_menu/options/touch.pressed = g.is_mobile
 		$PanelContainer/MarginContainer/actual_menu/options/fullscreen.pressed = OS.window_fullscreen
-	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgm")))
-	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("environment")))
+	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgm"))) * 100
+	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("environment"))) * 100
 
 func _on_close_pressed():
 	get_parent().toggle_menu(load("res://ui/settings.tscn"))
@@ -16,18 +16,18 @@ func _on_close_pressed():
 
 func _on_HSlider_value_changed(value):#SFX
 	$"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/value".text = str(int(round($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx".value))) + "%"
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("player"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx".value))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("environment"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx".value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("player"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx".value * 0.01))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("environment"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx".value * 0.01))
 	if value == 0:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), true)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("player"), true)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("environment"), true)
 	else:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), false)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("player"), false)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("environment"), false)
 
 func _on_HSlider0_value_changed(value):#Music
 	$"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/value".text = str(int(round($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music".value))) + "%"
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music".value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), linear2db($"PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music".value * 0.01))
 	if value == 0:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("bgm"), true)
 	else:

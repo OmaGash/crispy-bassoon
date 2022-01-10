@@ -7,6 +7,7 @@ onready var preview := $PanelContainer/categories/preview/preview_contents/actua
 
 func _ready():
 	g.in_game = false
+	if !gd.music_player.playing: gd.next_song()
 	theme = load(g.theme)
 
 func _on_start_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=11]
 [ext_resource path="res://environment/minigames/palo_sebo/pl platform_bg/background.tscn" type="PackedScene" id=12]
 [ext_resource path="res://ui/touch_controls/palo_sebo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/bgm/game_loop.ogg" type="AudioStream" id=14]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -24,6 +25,15 @@ extents = Vector3( 1, 0.05, 1 )
 
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 2, 0.1, 2 )
+
+[sub_resource type="ProceduralSky" id=6]
+sky_top_color = Color( 1, 1, 1, 1 )
+sky_horizon_color = Color( 0.937255, 0.572549, 0.431373, 1 )
+
+[sub_resource type="Environment" id=7]
+background_mode = 2
+background_sky = SubResource( 6 )
+background_color = Color( 0.94902, 0.780392, 0.780392, 1 )
 
 [sub_resource type="ArrayMesh" id=5]
 resource_name = "bamboo blue"
@@ -76,7 +86,7 @@ surfaces/3 = {
 "vertex_count": 235
 }
 
-[node name="world" type="Node"]
+[node name="world" type="Spatial"]
 script = ExtResource( 4 )
 
 [node name="ui" type="CanvasLayer" parent="."]
@@ -121,6 +131,10 @@ __meta__ = {
 
 [node name="difficulty" parent="ui" instance=ExtResource( 11 )]
 
+[node name="bgm" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource( 14 )
+autoplay = true
+
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )
 script = ExtResource( 3 )
@@ -157,6 +171,7 @@ material/0 = null
 
 [node name="camera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 5.52593, 14.9451 )
+environment = SubResource( 7 )
 player_scene = NodePath("../player")
 follow_offset = Vector2( 0, 2 )
 smoothing = 1.0

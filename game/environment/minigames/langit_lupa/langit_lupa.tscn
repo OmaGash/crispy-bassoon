@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/langit_lupa/npc.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=19]
 [ext_resource path="res://environment/minigames/langit_lupa/npc3.gd" type="Script" id=20]
 [ext_resource path="res://ui/touch_controls/Langit Lupa/langit_lupa_controls.tscn" type="PackedScene" id=21]
+[ext_resource path="res://environment/bgm/game_loop.ogg" type="AudioStream" id=22]
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "blockLarge003"
@@ -173,6 +174,10 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="difficulty" parent="ui" instance=ExtResource( 19 )]
+
+[node name="bgm" type="AudioStreamPlayer" parent="ui"]
+stream = ExtResource( 22 )
+autoplay = true
 
 [node name="npc" parent="." instance=ExtResource( 2 )]
 

@@ -38,6 +38,7 @@ func _physics_process(delta):
 #			return
 #			yield($"luksong-baka-anim/AnimationPlayer", "animation_finished")
 			anim_tree["parameters/State/active"] = false
+			$"../ui/bgm".stop()
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			if $"../ui".has_node("submenu"):
 				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
@@ -48,6 +49,7 @@ func _physics_process(delta):
 		if $"../ui/power".value > level_constants[get_parent().current_level][1]:
 #			anim_tree["paramaters/Hit/blend_amount"] = lerp(anim_tree["parameters/Hit/blend_amount"], 1, trip)
 #			anim_tree["parameters/State/active"] = true
+			$"../ui/bgm".stop()
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			if $"../ui".has_node("submenu"):
 				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
@@ -59,6 +61,7 @@ func _physics_process(delta):
 			state = 0
 			start_progress = false
 		else:#End game
+			$"../ui/bgm".stop()
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			anim_tree["parameters/Jump 3/active"] = true
 			if $"../ui".has_node("submenu"):
