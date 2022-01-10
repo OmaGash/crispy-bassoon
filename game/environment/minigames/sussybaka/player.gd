@@ -9,9 +9,9 @@ const BLEND_IDLE = 0.1
 const stumble = 0.1
 const trip = 1
 var start_progress = false
-var multiplier = 1.2
+var multiplier = 40
 
-const level_constants = [[52, 68], [52, 68], [52, 68]]#the green bar's position
+const level_constants = [[74, 100], [42, 62], [42, 52]]#the green bar's position
 
 func _ready():
 	g.in_game = true
@@ -19,20 +19,21 @@ func _ready():
 	set_physics_process(false)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") and g.difficulty != -1:
+	if event.is_action_pressed("ui_accept") and (g.difficulty != -1 or get_parent().current_level == 0):
+		
 		set_physics_process(true)
 		start_progress = true
 
 func _physics_process(delta):
 	velocity.y -= 9.8
 	velocity.x = 15
-	anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN) if !$RayCast.is_colliding() else lerp(anim_tree["parameters/Move/blend_amount"], 0, .1)
 	
+	anim_tree["parameters/Move/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 1, BLEND_TO_RUN) if !$RayCast.is_colliding() else lerp(anim_tree["parameters/Move/blend_amount"], 0, .1)
 	if state == 0 and start_progress: #Start running
 		$"../ui/power".value += get_parent().current_multiplier
 		
 	elif state == 1:#Jumping state
-		if $"../ui/power".value < level_constants[get_parent().current_level][0]:
+		if $"../ui/power".value < level_constants[g.difficulty][0]:
 #			anim_tree["parameters/Hit/blend_amount"] = lerp(anim_tree["parameters/Move/blend_amount"], 0, stumble)
 #			anim_tree["parameters/State/active"] = true
 #			return
@@ -44,9 +45,9 @@ func _physics_process(delta):
 				$"../ui".get_node("submenu").set_values(tr("ui_failed"), tr("failed_baka"), 0)
 				set_physics_process(false)
 			return
-		velocity.y = multiplier * $"../ui/power".value
+		velocity.y = multiplier
 		state = 2
-		if $"../ui/power".value > level_constants[get_parent().current_level][1]:
+		if $"../ui/power".value > level_constants[g.difficulty][1]:
 #			anim_tree["paramaters/Hit/blend_amount"] = lerp(anim_tree["parameters/Hit/blend_amount"], 1, trip)
 #			anim_tree["parameters/State/active"] = true
 			$"../ui/bgm".stop()
