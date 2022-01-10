@@ -12,9 +12,10 @@ var in_game = false
 var pearls = 50 setget update_pearls
 var difficulty#0, 1, 2
 var theme = "res://ui/themes/default.tres"
+var bg = "res://ui/main menu/main-menu-background.png"
 var is_mobile = false#for touch controls
 const is_desktop = true#set to true if desktop export
-const debug = false
+const debug = true
 #Where the entries are kept
 var entries:Dictionary = {
 	0: {
@@ -23,6 +24,7 @@ var entries:Dictionary = {
 		"icon": "res://ui/icons/creature icons/siyokoy-icon.png",
 		"owned": false,
 		"theme": "res://ui/themes/shokoy.tres",
+		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
 		"price": 50,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
@@ -36,6 +38,7 @@ var entries:Dictionary = {
 		"icon": "res://ui/icons/creature icons/santilmo-icon.png",
 		"owned": false,
 		"theme": "res://ui/themes/santilmo.tres",
+		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/santilmo-reward.png",
@@ -49,6 +52,7 @@ var entries:Dictionary = {
 		"icon":"res://ui/icons/creature icons/tikbalang-icon.png" ,
 		"owned": false,
 		"theme": "res://ui/themes/tikbalang.tres",
+		"bg":"res://environment/parralax background/kapre bg/kapre-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/tikbalang-reward.png",
@@ -62,6 +66,7 @@ var entries:Dictionary = {
 		"icon":"res://ui/icons/creature icons/dwende-icon.png",
 		"owned": false,
 		"theme": "res://ui/themes/duwende.tres",
+		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
@@ -75,6 +80,7 @@ var entries:Dictionary = {
 		"icon": "res://ui/icons/creature icons/aswang-icon.png",
 		"owned": false,
 		"theme":"res://ui/themes/aswang.tres",
+		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
@@ -88,6 +94,7 @@ var entries:Dictionary = {
 		"icon": "res://ui/icons/creature icons/manananggal-icon.png",
 		"owned": false,
 		"theme": "res://ui/themes/manananggal.tres",
+		"bg":"res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
@@ -101,6 +108,7 @@ var entries:Dictionary = {
 		"icon":"res://ui/icons/creature icons/kapre-icon.png" ,
 		"owned": false,
 		"theme": "res://ui/themes/kapre.tres",
+		"bg": "res://environment/parralax background/kapre bg/kapre-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
@@ -114,6 +122,7 @@ var entries:Dictionary = {
 		"icon":"res://ui/icons/creature icons/sirena-icon.png" ,
 		"owned": false,
 		"theme":"res://ui/themes/sirena.tres" ,
+		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
@@ -127,6 +136,7 @@ var entries:Dictionary = {
 		"icon":"res://ui/icons/creature icons/engkanto-icon.png" ,
 		"owned": false,
 		"theme":"res://ui/themes/engkanto.tres" ,
+		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/engkanto-reward.png",

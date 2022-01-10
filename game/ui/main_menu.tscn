@@ -168,10 +168,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.2, 0.5 ),
-"transitions": PoolRealArray( 0.5, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5 ),
 "update": 0,
-"values": [ Vector2( 482, 267 ), Vector2( 50, 47 ) ]
+"values": [ Vector2( 482, 267 ), Vector2( 482, 267 ), Vector2( 50, 47 ) ]
 }
 
 [node name="main_menu" type="Control"]
@@ -184,7 +184,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
@@ -309,8 +309,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -683.0
 margin_top = -384.0
-margin_right = -281.0
-margin_bottom = -150.0
+margin_right = -669.0
+margin_bottom = -370.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -319,7 +319,7 @@ __meta__ = {
 [node name="categories" type="HBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 395.0
+margin_right = 442.639
 margin_bottom = 299.0
 
 [node name="choices" type="VBoxContainer" parent="PanelContainer/categories"]
@@ -362,50 +362,50 @@ icon = ExtResource( 9 )
 
 [node name="preview" type="PanelContainer" parent="PanelContainer/categories"]
 margin_left = 168.0
-margin_right = 388.0
+margin_right = 435.0
 margin_bottom = 292.0
 size_flags_horizontal = 3
 
 [node name="preview_contents" type="VBoxContainer" parent="PanelContainer/categories/preview"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 213.0
+margin_right = 260.0
 margin_bottom = 285.0
 
 [node name="spacer" type="Control" parent="PanelContainer/categories/preview/preview_contents"]
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 2.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
 [node name="actual_content" type="ScrollContainer" parent="PanelContainer/categories/preview/preview_contents"]
 margin_top = 6.0
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 243.0
 size_flags_vertical = 3
 
 [node name="actual_actual_content" type="VBoxContainer" parent="PanelContainer/categories/preview/preview_contents/actual_content"]
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 237.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="tooltip" type="Label" parent="PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content"]
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 14.0
 size_flags_vertical = 1
 text = "menu_tooltip"
 
 [node name="spacer2" type="Control" parent="PanelContainer/categories/preview/preview_contents"]
 margin_top = 247.0
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 250.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
 [node name="close" type="Button" parent="PanelContainer/categories/preview/preview_contents"]
 margin_top = 254.0
-margin_right = 206.0
+margin_right = 253.0
 margin_bottom = 278.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1

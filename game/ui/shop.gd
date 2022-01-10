@@ -79,7 +79,7 @@ func _theme_pressed(item_id: int):
 			apply_button.text = "Revert to Default Theme"
 			apply_button.connect("pressed", self, "_revert_pressed")
 			return
-		apply_button.connect("pressed", self, "_apply_pressed", [g.entries[item_id]["theme"]])
+		apply_button.connect("pressed", self, "_apply_pressed", [g.entries[item_id]["theme"], g.entries[item_id]["bg"]])
 
 func _buy_pressed(item_id: int, buy_button: Button):
 	if g.entries[item_id]["owned"]:
@@ -107,15 +107,17 @@ func _buy_pressed(item_id: int, buy_button: Button):
 	else:
 		warning.warn(get_tree(), tr("kulang")+(" ") + str(g.entries[item_id]["price"] - g.pearls) +(" ")+tr("more to buy")+(" ")+ g.entries[item_id]["name"] + ".",tr("not_purchase"))
 
-func _apply_pressed(theme_path):
+func _apply_pressed(theme_path, bg_path):
 	theme = load(theme_path) if theme_path != "n/a" else null
 	g.theme = theme_path
 	_theme_pressed(_last_theme_pressed)
+	g.bg = bg_path
 	g.save()
 
 func _revert_pressed():
 	theme = load("res://ui/themes/default.tres")
 	g.theme = "res://ui/themes/default.tres"
+	g.bg = "res://ui/main menu/main-menu-background.png"
 	_theme_pressed(_last_theme_pressed)
 	g.save()
 

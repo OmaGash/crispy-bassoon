@@ -9,6 +9,7 @@ func _ready():
 	g.in_game = false
 	if !gd.music_player.playing: gd.next_song()
 	theme = load(g.theme)
+	$bg.texture = load(g.bg)
 
 func _on_start_pressed():
 	$anim.play("open_selection")
@@ -79,6 +80,7 @@ func _on_shop_pressed():
 	yield(get_tree(), "idle_frame")
 	yield($ui.get_node("submenu"), "tree_exited")
 	theme = load(g.theme)
+	$bg.texture = load(g.bg)
 
 
 

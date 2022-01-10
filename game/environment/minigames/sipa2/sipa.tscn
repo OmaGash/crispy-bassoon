@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/minigames/sipa2/player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://environment/minigames/sipa2/player-animation/anim-sipa.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/touch_controls/Sipa/sipa_touch_controls.tscn" type="PackedScene" id=11]
 [ext_resource path="res://environment/bgm/game_loop.ogg" type="AudioStream" id=12]
+[ext_resource path="res://environment/minigames/outside_environment.tres" type="Environment" id=13]
 
 [sub_resource type="DynamicFont" id=12]
 size = 64
@@ -123,6 +124,7 @@ shape = SubResource( 2 )
 
 [node name="camera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, 0, 22.7425, 18.2161 )
+environment = ExtResource( 13 )
 player_scene = NodePath("../ball")
 
 [node name="player" type="KinematicBody" parent="."]
@@ -159,7 +161,7 @@ disabled = true
 transform = Transform( 4.89578, 0.262274, 0.981103, -0.257723, 4.99312, -0.0487343, -0.98231, -0.00285193, 4.90255, -1.18547, -5.34531, -1.83848 )
 
 [node name="Armature" parent="player/anim-sipa" index="2"]
-transform = Transform( 0.244822, 0.0121526, -0.0216546, -0.0107179, 0.245291, 0.0164838, 0.0223994, -0.0154565, 0.244568, -0.0267845, 0.98936, 0.509672 )
+transform = Transform( 0.244648, 0.0136742, -0.022688, -0.0122391, 0.245262, 0.0158448, 0.0234932, -0.0146243, 0.244517, -0.024358, 0.988913, 0.503847 )
 
 [node name="ball" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.0335, 0 )
