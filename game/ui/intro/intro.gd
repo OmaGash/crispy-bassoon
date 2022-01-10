@@ -1,8 +1,6 @@
 extends Control
 
-var intro_queue = [preload("res://ui/intro/intro0.jpg"),
-preload("res://ui/intro/intro1.png"),
-preload("res://ui/intro/intro2.jpg")]
+var intro_queue = [preload("res://ui/intro/godot.png")]
 var current = [0,0]
 var scene_changing = false
 #Starts with intro_queue[0],

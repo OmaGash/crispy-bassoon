@@ -76,7 +76,7 @@ func _theme_pressed(item_id: int):
 		preview.add_child(new_preview)
 		preview.add_child(apply_button)
 		if g.theme == g.entries[item_id]["theme"]:#Check if the current theme is the selected theme
-			apply_button.text = "Revert to Default Theme"
+			apply_button.text = tr("theme4")
 			apply_button.connect("pressed", self, "_revert_pressed")
 			return
 		apply_button.connect("pressed", self, "_apply_pressed", [g.entries[item_id]["theme"], g.entries[item_id]["bg"]])
