@@ -1,5 +1,7 @@
 extends Control
 
+var eng = ["en", "en_US", "en_PH", "en_UK"]
+
 func _ready():
 	if !g.is_desktop:
 		for node in get_tree().get_nodes_in_group("desktop"):
@@ -9,7 +11,7 @@ func _ready():
 		$PanelContainer/MarginContainer/actual_menu/options/fullscreen.pressed = OS.window_fullscreen
 	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer/music.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgm"))) * 100
 	$PanelContainer/MarginContainer/actual_menu/options/HBoxContainer2/sfx.value = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("environment"))) * 100
-	$PanelContainer/MarginContainer/actual_menu/options/language.selected = 0 if TranslationServer.get_locale() == "en" or TranslationServer.get_locale() == "en_US" else 1
+	$PanelContainer/MarginContainer/actual_menu/options/language.selected = 0 if eng.has(TranslationServer.get_locale()) else 1
 	print(TranslationServer.get_locale())
 
 func _on_close_pressed():

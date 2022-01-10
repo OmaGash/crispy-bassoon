@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/intro/intro.gd" type="Script" id=1]
 [ext_resource path="res://ui/intro/godot.png" type="Texture" id=2]
+[ext_resource path="res://ui/themes/aswang.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("credits:modulate")
+tracks/0/path = NodePath("credits/image:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -43,10 +44,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="credits" type="TextureRect" parent="."]
+[node name="credits" type="Control" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image" type="TextureRect" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -683.0
+margin_top = -384.0
+margin_right = 683.0
+margin_bottom = 384.0
 texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -292.0
+margin_right = 150.0
+margin_bottom = -187.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Powered by:"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
