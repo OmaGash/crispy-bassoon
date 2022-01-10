@@ -109,6 +109,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0, 0, 0, 1 )
@@ -117,6 +121,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 shadow_color = Color( 0.309804, 0.223529, 0.223529, 0.6 )
 
 [sub_resource type="StyleBoxFlat" id=17]
@@ -126,6 +134,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=29]
 size = 24
@@ -174,6 +186,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=22]
 content_margin_left = 20.0
@@ -185,6 +201,10 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=13]
 content_margin_left = 20.0
@@ -196,6 +216,10 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0, 0, 0, 1 )
@@ -243,6 +267,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 1 )
