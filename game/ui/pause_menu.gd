@@ -1,5 +1,8 @@
 extends Control
 
+
+func _ready():
+	pass
 func _on_resume_pressed():
 	var a = InputEventAction.new()
 	a.action = "ui_cancel"
