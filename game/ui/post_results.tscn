@@ -83,6 +83,8 @@ size_flags_vertical = 7
 text = "jumno"
 align = 1
 valign = 1
+autowrap = true
+clip_text = true
 
 [node name="pearls" type="Label" parent="PanelContainer/items"]
 margin_top = 168.0
