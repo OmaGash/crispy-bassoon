@@ -15,8 +15,9 @@ func _ready():
 			child.theme = load(g.theme) as Theme if g.theme != "null" else null
 	yield(loader, "done")
 	g.connect("toggle_menu", self, "toggle_menu")
+	if !g.in_game: return
 	var pause_button: = TextureButton.new()
-	pause_button.texture_normal = load("res://ui/icons/play-pause-flat-hd.png") as Texture
+	pause_button.texture_normal = load("res://ui/icons/flat icons/play-pause-flat-hd.png") as Texture
 	pause_button.rect_scale = Vector2(.067,.067)
 	pause_button.connect("pressed", self, "_pause_pressed")
 	add_child(pause_button)
