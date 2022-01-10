@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cute Letters.ttf" type="DynamicFontData" id=2]
@@ -60,6 +60,16 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="DynamicFont" id=22]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 1 )
 
@@ -81,3 +91,6 @@ TabContainer/fonts/font = SubResource( 10 )
 TabContainer/styles/panel = null
 TabContainer/styles/tab_bg = SubResource( 19 )
 TabContainer/styles/tab_fg = SubResource( 20 )
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/fonts/title_font = SubResource( 22 )
+WindowDialog/styles/panel = SubResource( 23 )

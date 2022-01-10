@@ -13,7 +13,7 @@
 [ext_resource path="res://characters/creature/Creatures/Tikbalang/tikbalang_pose.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/shokoy/shokoy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/minigames/lobby/lobby.gd" type="Script" id=13]
-[ext_resource path="res://environment/parralax background/lobby bg/background.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/Cave/cave.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/ui.gd" type="Script" id=15]
 
 [sub_resource type="CapsuleShape" id=3]
@@ -48,7 +48,7 @@ smoothing = 0.1
 transform = Transform( -0.131703, 0, 0.991289, 0, 1, 0, -0.991289, 0, -0.131703, 0, 8, 10.1913 )
 
 [node name="Aswang" type="KinematicBody" parent="."]
-transform = Transform( 2.96784, 0, 0, 0, 2.96784, 0, 0, 0, 2.96784, 8.38145, 0.331136, -4.073 )
+transform = Transform( 2.96784, 0, 0, 0, 2.96784, 0, 0, 0, 2.96784, 8.38145, -1.34196, -4.073 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Aswang"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -58,7 +58,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1109, -2.97136, 2.39654 )
 
 [node name="Duwende" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -6.61139, -8.90389 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -3.99595, -8.90389 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Duwende"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -68,7 +68,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53685, 0 )
 
 [node name="Engkanto" type="KinematicBody" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.09876, 5, -3.321 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.09876, 2.90863, -3.321 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Engkanto"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -108,7 +108,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Sirena" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -25.9187, 5.90572, -10.4566 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -25.9187, 1.93212, -10.4566 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Sirena"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -118,7 +118,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, -3.74716, -1.94986 )
 
 [node name="Kapre" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 96.5575, 1, -5.14878 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 98.59, 5.6555, -5.14878 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Kapre"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -131,24 +131,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97645, -0.585288, 2.22782 )
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -75.0785, -1.15466, -3.321 )
 
 [node name="manananggal1" parent="Manananggal" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07181, -1.57437, 0.106407 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62006, -1.57437, 0.106407 )
 
 [node name="manananggal2" parent="Manananggal" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07319, -1.5172, 0.121559 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651207, -1.5172, 0.121559 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Manananggal"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.612128, 0.879391, -0.612588 )
 shape = SubResource( 4 )
 
-[node name="background" parent="." instance=ExtResource( 14 )]
-transform = Transform( 119.684, -0.0203333, 0.370905, 0.637807, 1.72845, -31.5293, 0, -182.548, -0.209218, 1.9481, 28.1934, -51.1527 )
-
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.99427, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+visible = false
 mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 6 )
+
+[node name="cave_bg" parent="StaticBody" instance=ExtResource( 14 )]
+transform = Transform( 3.48211, 0, 0, 0, 3.27708, 0, 0, 0, 2.09206, -0.415379, -9.11953, -25.683 )
