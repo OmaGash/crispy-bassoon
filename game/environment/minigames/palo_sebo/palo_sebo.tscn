@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://ui/touch_controls/palo_sebo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://environment/bgm/game_loop.ogg" type="AudioStream" id=14]
 [ext_resource path="res://environment/minigames/outside_environment.tres" type="Environment" id=15]
+[ext_resource path="res://environment/sun.tscn" type="PackedScene" id=16]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -132,6 +133,9 @@ bus = "bgm"
 transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )
 script = ExtResource( 3 )
 
+[node name="ilaw" parent="player" index="2"]
+visible = false
+
 [node name="AnimationTree" parent="player/Armature" index="2"]
 active = false
 
@@ -182,6 +186,9 @@ transform = Transform( 7, 0, 0, 0, 5, 0, 0, 0, 10, 0, -19.1064, -11.9321 )
 
 [node name="background" parent="palo sebo platform" instance=ExtResource( 12 )]
 transform = Transform( 15.7743, -0.0021389, 0.0639148, 0.124896, 0.270138, -8.07237, 0, -34.0815, -0.0639879, -0.748656, 9.55518, -5.94852 )
+visible = false
+
+[node name="sun" parent="." instance=ExtResource( 16 )]
 
 [connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
 [connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]

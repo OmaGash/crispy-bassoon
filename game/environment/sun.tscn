@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="sun" type="DirectionalLight"]
+transform = Transform( 0.864784, -0.386384, -0.320713, 0.487887, 0.495415, 0.7187, -0.118808, -0.777992, 0.616938, -0.926884, 34.5389, -1.5869 )
+shadow_enabled = true

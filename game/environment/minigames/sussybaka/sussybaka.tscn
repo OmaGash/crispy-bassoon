@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://environment/minigames/sussybaka/player.gd" type="Script" id=1]
 [ext_resource path="res://tools/camera.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/bgm/game_loop.ogg" type="AudioStream" id=13]
 [ext_resource path="res://environment/minigames/outside_environment.tres" type="Environment" id=14]
+[ext_resource path="res://environment/sun.tscn" type="PackedScene" id=15]
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 100, 1, 1 )
@@ -97,7 +98,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.994075, 0.0541072, -0.0942736, -0.0481704, 0.996777, 0.0641526, 0.0974408, -0.0592313, 0.993477, 2.26923, 1.02617, -1.83175 )
+transform = Transform( 0.995681, 0.0457794, -0.0807722, -0.0394036, 0.996108, 0.0788378, 0.0840671, -0.0753146, 0.99361, 2.23496, 1.01157, -1.85653 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
@@ -126,6 +127,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2906, 12.7943, 0 )
 
 [node name="StaticBody3" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2693, 17.3841, 0 )
+
+[node name="sun" parent="." instance=ExtResource( 15 )]
 
 [connection signal="button_down" from="ui/jump" to="." method="_on_jump_button_down"]
 [connection signal="button_up" from="ui/jump" to="." method="_on_jump_button_up"]
