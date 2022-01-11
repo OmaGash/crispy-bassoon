@@ -17,7 +17,6 @@
 [ext_resource path="res://ui/ui.gd" type="Script" id=15]
 [ext_resource path="res://environment/bgm/cave.ogg" type="AudioStream" id=16]
 [ext_resource path="res://ui/touch_controls/Langit Lupa/langit_lupa_controls.tscn" type="PackedScene" id=17]
-[ext_resource path="res://ui/touch_controls/Langit Lupa/langit_lupa_controls.gd" type="Script" id=18]
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 1.5
@@ -33,6 +32,9 @@ size = Vector3( 208, 2, 40 )
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 104, 1, 20 )
 
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 18.4, 1 )
+
 [node name="world" type="Spatial"]
 script = ExtResource( 13 )
 
@@ -41,8 +43,7 @@ pause_mode = 2
 layer = -1
 script = ExtResource( 15 )
 
-[node name="LangitLupaControls" type="CanvasLayer" parent="." instance=ExtResource( 17 )]
-script = ExtResource( 18 )
+[node name="LangitLupaControls" parent="." instance=ExtResource( 17 )]
 
 [node name="camera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.999945, -0.0105066, 0, 0.0105066, 0.999945, -8.20873, 20.7814, 33.2285 )
@@ -165,3 +166,13 @@ transform = Transform( 3.81723, 0, 0, 0, 5.04258, 0, 0, 0, 3.35986, 0, -8.03434,
 stream = ExtResource( 16 )
 autoplay = true
 bus = "bgm"
+
+[node name="walls" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -127.777, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.89, 0, 0 )
+shape = SubResource( 7 )

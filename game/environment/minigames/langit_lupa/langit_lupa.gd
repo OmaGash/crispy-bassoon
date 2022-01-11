@@ -201,7 +201,7 @@ func win_game():
 	$ui/bgm.stop()
 	$ui.toggle_menu(load("res://ui/post_results.tscn"))
 	if $ui.has_node("submenu"):
-		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), (lives * (g.difficulty + 1)) * 5)
+		$ui.get_node("submenu").set_values(tr("ui_victory"), tr("victory_langit"), (max(lives, 1) * (g.difficulty + 1)) * 5)
 
 
 

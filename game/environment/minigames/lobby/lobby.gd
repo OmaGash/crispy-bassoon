@@ -2,6 +2,8 @@ extends Spatial
 
 func _ready():
 	g.in_game = true
+	if !g.is_mobile:
+		$LangitLupaControls.queue_free()
 	gd.stop_main_theme()
 	for creature in range(g.entries.size()):
 		if not g.entries[creature]["owned"]:#Check if the creature is owned
