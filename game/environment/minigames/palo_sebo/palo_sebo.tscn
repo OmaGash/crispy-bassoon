@@ -126,6 +126,7 @@ __meta__ = {
 [node name="bgm" type="AudioStreamPlayer" parent="ui"]
 stream = ExtResource( 14 )
 autoplay = true
+bus = "bgm"
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.778827, 0.0756053, -0.622665, 0.0590525, 0.997138, 0.0472119, 0.624452, 0, -0.781063, -0.0294542, 0.793938, 0.937546 )

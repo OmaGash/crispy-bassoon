@@ -180,6 +180,7 @@ script = ExtResource( 6 )
 [node name="bgm" type="AudioStreamPlayer" parent="ui"]
 stream = ExtResource( 22 )
 autoplay = true
+bus = "bgm"
 
 [node name="npc" parent="." instance=ExtResource( 2 )]
 

@@ -109,6 +109,7 @@ __meta__ = {
 [node name="bgm" type="AudioStreamPlayer" parent="ui"]
 stream = ExtResource( 12 )
 autoplay = true
+bus = "bgm"
 
 [node name="ground" type="StaticBody" parent="."]
 transform = Transform( 2.21064, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -161,7 +162,7 @@ disabled = true
 transform = Transform( 4.89578, 0.262274, 0.981103, -0.257723, 4.99312, -0.0487343, -0.98231, -0.00285193, 4.90255, -1.18547, -5.34531, -1.83848 )
 
 [node name="Armature" parent="player/anim-sipa" index="2"]
-transform = Transform( 0.244648, 0.0136742, -0.022688, -0.0122391, 0.245262, 0.0158448, 0.0234932, -0.0146243, 0.244517, -0.024358, 0.988913, 0.503847 )
+transform = Transform( 0.244627, 0.0128951, -0.0233654, -0.0113605, 0.245267, 0.0164203, 0.0241488, -0.0152447, 0.244415, -0.0263791, 0.990053, 0.503233 )
 
 [node name="ball" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.0335, 0 )

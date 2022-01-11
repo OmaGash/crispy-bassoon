@@ -64,6 +64,7 @@ __meta__ = {
 [node name="bgm" type="AudioStreamPlayer" parent="ui"]
 stream = ExtResource( 13 )
 autoplay = true
+bus = "bgm"
 
 [node name="ground" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.775, 0, 0 )
@@ -96,7 +97,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.993789, 0.053104, -0.0977925, -0.0470531, 0.996893, 0.0631758, 0.100844, -0.058182, 0.9932, 2.27354, 1.03049, -1.81998 )
+transform = Transform( 0.994075, 0.0541072, -0.0942736, -0.0481704, 0.996777, 0.0641526, 0.0974408, -0.0592313, 0.993477, 2.26923, 1.02617, -1.83175 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )

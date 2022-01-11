@@ -11,6 +11,10 @@ func _ready():
 	theme = load(g.theme)
 	$bg.texture = load(g.bg)
 
+func _input(event):
+	if event.is_action_pressed("delete_save"):
+		g.delete_save()
+
 func _on_start_pressed():
 	$anim.play("open_selection")
 
