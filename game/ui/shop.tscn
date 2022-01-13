@@ -118,14 +118,23 @@ margin_right = 1299.0
 margin_bottom = 634.0
 size_flags_horizontal = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="texts" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+margin_right = 555.0
+margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texts" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer/ScrollContainer"]
 margin_right = 555.0
 margin_bottom = 634.0
 size_flags_horizontal = 3
@@ -191,7 +200,13 @@ margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="listing" type="GridContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="listing" type="GridContainer" parent="items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer"]
 margin_left = 121.0
 margin_right = 708.0
 margin_bottom = 634.0
@@ -202,6 +217,19 @@ columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="bg_label" type="Label" parent="items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "bg_label"
+
+[node name="bg" type="TextureRect" parent="items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
 
 [node name="Control4" type="Control" parent="items/tab_themes/VBoxContainer2/HBoxContainer"]
 margin_left = 706.0

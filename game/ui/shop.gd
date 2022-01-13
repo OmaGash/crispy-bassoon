@@ -1,7 +1,9 @@
 extends Control
-onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/ScrollContainer/texts"
+onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer/ScrollContainer/texts"
 onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/ScrollContainer/texts"
 onready var preview_label = $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/preview_label"
+onready var bg_label = $"items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer/bg_label"
+onready var bg = $"items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer/bg"
 var fax: = preload("res://ui/fax.tscn")
 var preview_scn = preload("res://ui/theme.tscn")#try theme
 var preview_model = preload("res://ui/preview.tscn")
@@ -24,7 +26,7 @@ func _ready():
 		button.connect("pressed", self, "_theme_pressed", [item])
 		if !g.entries[item]["owned"]:
 			button.self_modulate = Color(.5,.5,.5,1)
-		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".add_child(button)
+		$"items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer/listing".add_child(button)
 
 func _generate_button(item: int) -> Button:
 	var button = Button.new()
@@ -60,10 +62,13 @@ func _listing_pressed(item_id: int):#Calls when an item on the shop is pressed
 		var preview_scene: ViewportContainer = preview_model.instance()
 		preview_scene.object = load(g.entries[item_id]["model"])
 		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".add_child(preview_scene)
+	
 	texts.add_child(title)
-	texts.add_child(description)
 	texts.add_child(price)
-	texts.add_child(buy_button)
+	texts.add_child(description)
+	if $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer".get_child_count() > 1:#Delete button if it already exists.
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer".get_child($"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer".get_child_count() - 1).queue_free()
+	$"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/VBoxContainer".add_child(buy_button)
 
 func _theme_pressed(item_id: int):
 	_last_theme_pressed = item_id
@@ -79,13 +84,19 @@ func _theme_pressed(item_id: int):
 	preview.add_child(description)
 	if not g.entries[item_id]["owned"]:
 		description.text = tr("preview")
-	else:
+		bg_label.text = tr("bg_locked")
+		bg.texture = null
+	else:#Theme pressed
 		var new_preview: Control = preview_scn.instance()
 		var apply_button: Button = Button.new()
 		apply_button.text = tr("theme3")
 		new_preview.theme = load(g.entries[item_id]["theme"]) if g.entries[item_id]["theme"] != "n/a" else null
 		preview.add_child(new_preview)
 		preview.add_child(apply_button)
+		
+		bg_label.text = tr("bg_unlocked")
+		bg.texture = load(g.entries[item_id]["bg"])
+		
 		if g.theme == g.entries[item_id]["theme"]:#Check if the current theme is the selected theme
 			apply_button.text = tr("theme4")
 			apply_button.connect("pressed", self, "_revert_pressed")
@@ -110,7 +121,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		g.pearls -= g.entries[item_id]["price"]
 		g.entries[item_id]["owned"] = true
 		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
-		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
+		$"items/tab_themes/VBoxContainer2/HBoxContainer/VBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		buy_button.text = tr("View")
 		buy_button.release_focus()
 		warning.warn(get_tree(), tr("You bought")+(" ") + g.entries[item_id]["name"] + ".", tr("Purchased successfully"))
