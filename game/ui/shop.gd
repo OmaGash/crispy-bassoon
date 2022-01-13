@@ -1,8 +1,10 @@
 extends Control
 onready var texts: = $"items/tab_mythical/VBoxContainer/HBoxContainer/Panel/ScrollContainer/texts"
 onready var preview: = $"items/tab_themes/VBoxContainer2/HBoxContainer/Panel/ScrollContainer/texts"
+onready var preview_label = $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/preview_label"
 var fax: = preload("res://ui/fax.tscn")
-var preview_scn = preload("res://ui/preview.tscn")
+var preview_scn = preload("res://ui/theme.tscn")#try theme
+var preview_model = preload("res://ui/preview.tscn")
 var _last_theme_pressed: int
 
 func _ready():
@@ -15,7 +17,7 @@ func _ready():
 		button.connect("pressed", self, "_listing_pressed", [item])
 		if !g.entries[item]["owned"]:
 			button.self_modulate = Color(.5,.5,.5,1)
-		$"items/tab_mythical/VBoxContainer/HBoxContainer/listing".add_child(button)
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/listing".add_child(button)
 	#Generate Theme items---------------------------------------------------------------------------
 	for item in range(g.entries.size()):
 		var button = _generate_button(item)
@@ -31,7 +33,7 @@ func _generate_button(item: int) -> Button:
 	button.icon = load(g.entries[item]["icon"]) as Texture
 	return button
 
-func _listing_pressed(item_id: int):
+func _listing_pressed(item_id: int):#Calls when an item on the shop is pressed
 	if texts.get_child_count() > 0:#Removew everything before placing new nodes
 		for child in texts.get_children():
 			child.queue_free()
@@ -47,8 +49,17 @@ func _listing_pressed(item_id: int):
 	
 	if !g.entries[item_id]["owned"]:
 		buy_button.text = tr("Buy")
+		preview_label.text = tr("model_locked")
+		if $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".get_child_count() > 2:#Remove existing preview
+			$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".get_child(get_child_count()-1).queue_free()
 	else:
 		buy_button.text = tr("View")
+		preview_label.text = tr("model_unlocked")
+		if $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".get_child_count() > 2:#Remove existing preview
+			$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".get_child(get_child_count()-1).queue_free()
+		var preview_scene: ViewportContainer = preview_model.instance()
+		preview_scene.object = load(g.entries[item_id]["model"])
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".add_child(preview_scene)
 	texts.add_child(title)
 	texts.add_child(description)
 	texts.add_child(price)
@@ -98,7 +109,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		#When item is bought, change button to view fax
 		g.pearls -= g.entries[item_id]["price"]
 		g.entries[item_id]["owned"] = true
-		$"items/tab_mythical/VBoxContainer/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		$"items/tab_themes/VBoxContainer2/HBoxContainer/listing".get_node(str(item_id)).self_modulate = Color(1,1,1,1)
 		buy_button.text = tr("View")
 		buy_button.release_focus()

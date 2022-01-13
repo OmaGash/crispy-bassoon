@@ -82,10 +82,15 @@ margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="listing" type="GridContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
 margin_left = 115.0
 margin_right = 670.0
 margin_bottom = 634.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="listing" type="GridContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 555.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
@@ -93,6 +98,12 @@ columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="preview_label" type="Label" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 555.0
+margin_bottom = 18.0
+text = "preview_label"
 
 [node name="Control3" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
 margin_left = 674.0

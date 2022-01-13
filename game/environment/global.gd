@@ -25,6 +25,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/shokoy.tres",
 		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
@@ -39,6 +40,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/santilmo.tres",
 		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/santilmo-reward.png",
@@ -53,6 +55,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/tikbalang.tres",
 		"bg":"res://environment/parralax background/kapre bg/kapre-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/tikbalang-reward.png",
@@ -67,6 +70,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/duwende.tres",
 		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Duwende/duwende_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
@@ -81,6 +85,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme":"res://ui/themes/aswang.tres",
 		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
@@ -95,6 +100,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/manananggal.tres",
 		"bg":"res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
@@ -109,6 +115,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme": "res://ui/themes/kapre.tres",
 		"bg": "res://environment/parralax background/kapre bg/kapre-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
@@ -123,6 +130,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme":"res://ui/themes/sirena.tres" ,
 		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
@@ -137,6 +145,7 @@ var entries:Dictionary = {
 		"owned": false,
 		"theme":"res://ui/themes/engkanto.tres" ,
 		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
+		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
 		"price": 50,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/engkanto-reward.png",
