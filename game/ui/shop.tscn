@@ -99,11 +99,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="preview_label" type="Label" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 4.0
 margin_right = 555.0
 margin_bottom = 18.0
-text = "preview_label"
+
+[node name="preview_label" type="Label" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 14.0
+text = "model_label"
+
+[node name="Control" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 555.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
 
 [node name="Control3" type="Control" parent="items/tab_mythical/VBoxContainer/HBoxContainer"]
 margin_left = 674.0
