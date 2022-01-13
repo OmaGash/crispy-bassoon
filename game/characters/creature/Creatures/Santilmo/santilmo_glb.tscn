@@ -46,7 +46,7 @@ surfaces/2 = {
 [node name="santilmo_glb" type="Spatial"]
 
 [node name="Cube" type="MeshInstance" parent="."]
-transform = Transform( 0.883208, 0, 0, 0, 1.16255, 0, 0, 0, 0.992486, 0.00956862, 3.30753, -0.640378 )
+transform = Transform( 0.883208, 0, 0, 0, 1.16255, 0, 0, 0, 0.992486, 0.00956862, -0.0255954, 0.00285625 )
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null

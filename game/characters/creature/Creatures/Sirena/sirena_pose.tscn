@@ -565,7 +565,7 @@ tracks/22/keys = PoolRealArray( 0, 1, 2.04515, 1.27961, -2.04844, -1.29728e-07, 
 [node name="sirena_pose" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
-transform = Transform( 0.544874, -0.823389, -0.158562, 0.0348703, 0.211185, -0.976824, 0.837792, 0.526717, 0.143781, 1.64661, 2.48705, 1.31765 )
+transform = Transform( 0.544874, -0.823389, -0.158562, 0.0348703, 0.211185, -0.976824, 0.837792, 0.526717, 0.143781, -0.0120022, -0.0245626, 0.00655711 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "hips"

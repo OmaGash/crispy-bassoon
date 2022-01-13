@@ -7,7 +7,7 @@
 [ext_resource path="res://ui/ui.gd" type="Script" id=5]
 [ext_resource path="res://tenderness.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://ui/difficulty.tscn" type="PackedScene" id=7]
-[ext_resource path="res://environment/minigames/sipa2/sipa platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/minigames/sipa/New Sipa Platform/sipa platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://environment/minigames/sipa/Script/picha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://environment/minigames/sipa2/player-animation/anim-sipa.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/touch_controls/Sipa/sipa_touch_controls.tscn" type="PackedScene" id=11]
@@ -163,7 +163,7 @@ disabled = true
 transform = Transform( 4.89578, 0.262274, 0.981103, -0.257723, 4.99312, -0.0487343, -0.98231, -0.00285193, 4.90255, -1.18547, -5.34531, -1.83848 )
 
 [node name="Armature" parent="player/anim-sipa" index="2"]
-transform = Transform( 0.244722, 0.0122142, -0.0227213, -0.0105851, 0.245205, 0.0178054, 0.0235244, -0.0167299, 0.244379, -0.0300369, 0.991404, 0.514276 )
+transform = Transform( 0.244626, 0.0129606, -0.023333, -0.011418, 0.245257, 0.0165236, 0.0241254, -0.0153435, 0.244411, -0.0258943, 0.9903, 0.50296 )
 
 [node name="ball" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.0335, 0 )
