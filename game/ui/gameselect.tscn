@@ -1,31 +1,107 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/icons/game modes/orig/luksong-baka-icon.png" type="Texture" id=1]
 [ext_resource path="res://ui/icons/game modes/orig/langit-lupa-icon.png" type="Texture" id=2]
 [ext_resource path="res://ui/icons/game modes/orig/sipa-icon.png" type="Texture" id=3]
 [ext_resource path="res://ui/icons/game modes/orig/palosebo-icon.png" type="Texture" id=4]
 [ext_resource path="res://ui/gameselect.gd" type="Script" id=5]
+[ext_resource path="res://selection.gd" type="Script" id=6]
+[ext_resource path="res://ui/icons/buttons/left-button.png" type="Texture" id=7]
 
 [sub_resource type="Theme" id=1]
 
-[node name="ScrollContainer" type="ScrollContainer"]
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "up"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -768 ) ]
+}
+
+[node name="gameselect" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = false
 mouse_filter = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.494118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="selection" type="CenterContainer" parent="ScrollContainer"]
 margin_right = 6140.0
 margin_bottom = 756.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/selection"]
 margin_top = 128.0
 margin_right = 6140.0
 margin_bottom = 628.0
@@ -33,14 +109,14 @@ mouse_filter = 2
 custom_constants/margin_right = 1920
 custom_constants/margin_left = 1920
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/selection/MarginContainer"]
 margin_left = 1920.0
 margin_right = 4220.0
 margin_bottom = 500.0
 mouse_filter = 2
 custom_constants/separation = 100
 
-[node name="palosebo" type="TextureButton" parent="CenterContainer/MarginContainer/HBoxContainer"]
+[node name="palosebo" type="TextureButton" parent="ScrollContainer/selection/MarginContainer/HBoxContainer"]
 margin_right = 500.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 0 )
@@ -48,7 +124,7 @@ mouse_filter = 1
 texture_normal = ExtResource( 4 )
 expand = true
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/HBoxContainer/palosebo"]
+[node name="Label" type="Label" parent="ScrollContainer/selection/MarginContainer/HBoxContainer/palosebo"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -64,14 +140,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="langitlupa" type="TextureButton" parent="CenterContainer/MarginContainer/HBoxContainer"]
+[node name="langitlupa" type="TextureButton" parent="ScrollContainer/selection/MarginContainer/HBoxContainer"]
 margin_left = 600.0
 margin_right = 1100.0
 margin_bottom = 500.0
 mouse_filter = 1
 texture_normal = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/HBoxContainer/langitlupa"]
+[node name="Label" type="Label" parent="ScrollContainer/selection/MarginContainer/HBoxContainer/langitlupa"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -87,14 +163,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="luksongbaka" type="TextureButton" parent="CenterContainer/MarginContainer/HBoxContainer"]
+[node name="luksongbaka" type="TextureButton" parent="ScrollContainer/selection/MarginContainer/HBoxContainer"]
 margin_left = 1200.0
 margin_right = 1700.0
 margin_bottom = 500.0
 mouse_filter = 1
 texture_normal = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/HBoxContainer/luksongbaka"]
+[node name="Label" type="Label" parent="ScrollContainer/selection/MarginContainer/HBoxContainer/luksongbaka"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -110,7 +186,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sipa" type="TextureButton" parent="CenterContainer/MarginContainer/HBoxContainer"]
+[node name="sipa" type="TextureButton" parent="ScrollContainer/selection/MarginContainer/HBoxContainer"]
 margin_left = 1800.0
 margin_right = 2300.0
 margin_bottom = 500.0
@@ -119,7 +195,7 @@ mouse_filter = 1
 texture_normal = ExtResource( 3 )
 expand = true
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/HBoxContainer/sipa"]
+[node name="Label" type="Label" parent="ScrollContainer/selection/MarginContainer/HBoxContainer/sipa"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -135,7 +211,108 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="CenterContainer/MarginContainer/HBoxContainer/palosebo" to="." method="_on_palosebo_pressed"]
-[connection signal="pressed" from="CenterContainer/MarginContainer/HBoxContainer/langitlupa" to="." method="_on_langitlupa_pressed"]
-[connection signal="pressed" from="CenterContainer/MarginContainer/HBoxContainer/luksongbaka" to="." method="_on_luksongbaka_pressed"]
-[connection signal="pressed" from="CenterContainer/MarginContainer/HBoxContainer/sipa" to="." method="_on_sipa_pressed"]
+[node name="fax" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 768.0
+margin_bottom = 768.0
+
+[node name="contents" type="PanelContainer" parent="fax"]
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="fax/contents"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1359.0
+margin_bottom = 761.0
+
+[node name="buttons" type="VBoxContainer" parent="fax/contents/HBoxContainer"]
+margin_right = 299.0
+margin_bottom = 754.0
+size_flags_horizontal = 3
+
+[node name="play" type="Button" parent="fax/contents/HBoxContainer/buttons"]
+margin_right = 299.0
+margin_bottom = 298.0
+size_flags_vertical = 3
+text = "button_play"
+
+[node name="switch" type="Button" parent="fax/contents/HBoxContainer/buttons"]
+margin_top = 302.0
+margin_right = 299.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+text = "tab_about"
+
+[node name="close" type="Button" parent="fax/contents/HBoxContainer/buttons"]
+margin_top = 604.0
+margin_right = 299.0
+margin_bottom = 754.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "button_close"
+
+[node name="preview" type="PanelContainer" parent="fax/contents/HBoxContainer"]
+margin_left = 303.0
+margin_right = 1352.0
+margin_bottom = 754.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.5
+
+[node name="preview_contents" type="VBoxContainer" parent="fax/contents/HBoxContainer/preview"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1042.0
+margin_bottom = 747.0
+
+[node name="spacer" type="Control" parent="fax/contents/HBoxContainer/preview/preview_contents"]
+margin_right = 1035.0
+margin_bottom = 7.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="actual_content" type="ScrollContainer" parent="fax/contents/HBoxContainer/preview/preview_contents"]
+margin_top = 11.0
+margin_right = 1035.0
+margin_bottom = 740.0
+size_flags_vertical = 3
+
+[node name="actual_actual_content" type="VBoxContainer" parent="fax/contents/HBoxContainer/preview/preview_contents/actual_content"]
+margin_right = 1035.0
+margin_bottom = 729.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="tooltip" type="Label" parent="fax/contents/HBoxContainer/preview/preview_contents/actual_content/actual_actual_content"]
+margin_right = 1035.0
+margin_bottom = 14.0
+size_flags_vertical = 1
+text = "menu_tooltip"
+
+[node name="back" type="TextureButton" parent="."]
+margin_right = 125.0
+margin_bottom = 125.0
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "fade"
+anims/RESET = SubResource( 2 )
+anims/fade = SubResource( 3 )
+anims/up = SubResource( 4 )
+
+[connection signal="pressed" from="ScrollContainer/selection/MarginContainer/HBoxContainer/palosebo" to="ScrollContainer" method="_on_palosebo_pressed"]
+[connection signal="pressed" from="ScrollContainer/selection/MarginContainer/HBoxContainer/langitlupa" to="ScrollContainer" method="_on_langitlupa_pressed"]
+[connection signal="pressed" from="ScrollContainer/selection/MarginContainer/HBoxContainer/luksongbaka" to="ScrollContainer" method="_on_luksongbaka_pressed"]
+[connection signal="pressed" from="ScrollContainer/selection/MarginContainer/HBoxContainer/sipa" to="ScrollContainer" method="_on_sipa_pressed"]
+[connection signal="pressed" from="fax/contents/HBoxContainer/buttons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="fax/contents/HBoxContainer/buttons/switch" to="." method="_on_switch_pressed"]
+[connection signal="pressed" from="fax/contents/HBoxContainer/buttons/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

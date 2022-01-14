@@ -3,6 +3,7 @@ extends Control
 var next_scene := "res://protopyte/za_warudo/world.tscn"
 var pre_scene := preload("res://ui/pre/pre_template.tscn") as PackedScene
 var shop = preload("res://ui/shop.tscn")
+var mobile_selection: = preload("res://ui/gameselect.tscn")
 onready var preview := $PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content
 
 func _ready():
@@ -16,7 +17,13 @@ func _input(event):
 		g.delete_save()
 
 func _on_start_pressed():
-	$anim.play("open_selection")
+	if has_node("gameselect"):
+		get_node("gameselect").queue_free()
+	if !g.is_mobile:
+		$anim.play("open_selection")
+	else:
+		add_child(mobile_selection.instance())
+	
 
 
 func _on_quit_pressed():

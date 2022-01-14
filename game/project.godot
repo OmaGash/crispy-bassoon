@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/post_results.gd"
 }, {
+"base": "Control",
+"class": "PreMinigame",
+"language": "GDScript",
+"path": "res://ui/pre/pre_template.gd"
+}, {
 "base": "Area",
 "class": "Statue",
 "language": "GDScript",
@@ -85,6 +90,7 @@ _global_script_class_icons={
 "Fax": "",
 "Merchant": "",
 "PostResult": "",
+"PreMinigame": "",
 "Statue": "res://characters/concept/statue/statue-earth.png",
 "UI": "",
 "Warning": "res://addons/dialogic/Images/Event Icons/warning.svg"

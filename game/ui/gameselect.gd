@@ -1,5 +1,6 @@
 extends ScrollContainer
 
+signal game_selected
 
 export(float, 0.5, 1, 0.1) var button_scale = 1
 export(float, 1, 1.5, 0.1) var current_button_scale = 1.3
@@ -9,10 +10,10 @@ var button_current_index: int = 0
 var button_x_positions: Array = []
 
 onready var scroll_tween: Tween = Tween.new()
-onready var margin_r: int = $CenterContainer/MarginContainer.get("custom_constants/margin_right")
-onready var button_space: int = $CenterContainer/MarginContainer/HBoxContainer.get("custom_constants/separation")
-onready var button_nodes: Array = $CenterContainer/MarginContainer/HBoxContainer.get_children()
-
+onready var margin_r: int = $selection/MarginContainer.get("custom_constants/margin_right")
+onready var button_space: int = $selection/MarginContainer/HBoxContainer.get("custom_constants/separation")
+onready var button_nodes: Array = $selection/MarginContainer/HBoxContainer.get_children()
+onready var anim: AnimationPlayer = $"../anim"
 
 func _ready() -> void:
 	add_child(scroll_tween)
@@ -80,16 +81,20 @@ func _on_ScrollContainer_gui_input(event: InputEvent) -> void:
 
 
 func _on_palosebo_pressed():
-	loader.load_scene("res://environment/minigames/palo_sebo/palo_sebo.tscn",self)
+	anim.play("up")
+	emit_signal("game_selected", "palo")
 
 
 func _on_sipa_pressed():
-	loader.load_scene("res://environment/minigames/sipa2/sipa.tscn",self)
+	anim.play("up")
+	emit_signal("game_selected", "sipa")
 
 
 func _on_luksongbaka_pressed():
-	loader.load_scene("res://environment/minigames/sussybaka/sussybaka.tscn",self)
+	anim.play("up")
+	emit_signal("game_selected", "baka")
 
 
 func _on_langitlupa_pressed():
-	loader.load_scene("res://environment/minigames/langit_lupa/langit_lupa.tscn",self)
+	anim.play("up")
+	emit_signal("game_selected", "langit")
