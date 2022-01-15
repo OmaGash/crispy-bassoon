@@ -66,7 +66,7 @@ func _physics_process(delta):
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			anim_tree["parameters/Jump 3/active"] = true
 			if $"../ui".has_node("submenu"):
-				$"../ui".get_node("submenu").set_values(tr("ui_victory"), tr("victory_baka"), 69)
+				$"../ui".get_node("submenu").set_values(tr("ui_victory"), tr("victory_baka"), (g.difficulty + 1) * 5)
 				
 	velocity = move_and_slide(velocity)
 
