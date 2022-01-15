@@ -26,7 +26,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/shokoy.tres",
 		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
 		"model": "res://characters/shokoy/shokoy.tscn",
-		"price": 50,
+		"price": 90,
 		"fax": {
 			"image": "res://ui/icons/creature reward/siyokoy-reward.png",
 			"video": "res://icon.mkv",
@@ -41,7 +41,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/santilmo.tres",
 		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"model": "res://characters/creature/Creatures/Santilmo/santilmo_glb.tscn",
-		"price": 50,
+		"price": 150,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/santilmo-reward.png",
 			"video": "none",
@@ -56,7 +56,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/tikbalang.tres",
 		"bg":"res://environment/parralax background/kapre bg/kapre-sipa-background.png",
 		"model": "res://characters/creature/Creatures/Tikbalang/tikbalang_pose.tscn",
-		"price": 50,
+		"price": 200,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/tikbalang-reward.png",
 			"video": "none",
@@ -71,7 +71,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/duwende.tres",
 		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
 		"model": "res://characters/creature/Creatures/Duwende/duwende_pose.tscn",
-		"price": 50,
+		"price": 90,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/dwende-reward.png" ,
 			"video": "none",
@@ -86,7 +86,7 @@ var entries:Dictionary = {
 		"theme":"res://ui/themes/aswang.tres",
 		"bg":"res://environment/parralax background/aswang bg/aswang-sipa-background.png",
 		"model": "res://characters/creature/Creatures/Aswang/aswang_pose.tscn",
-		"price": 50,
+		"price": 150,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/aswang-reward.png" ,
 			"video": "none",
@@ -101,7 +101,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/manananggal.tres",
 		"bg":"res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"model":"res://characters/creature/Creatures/Manananggal/manananggal1.tscn" ,
-		"price": 50,
+		"price": 60,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/manananggal-reward.png" ,
 			"video": "none",
@@ -116,7 +116,7 @@ var entries:Dictionary = {
 		"theme": "res://ui/themes/kapre.tres",
 		"bg": "res://environment/parralax background/kapre bg/kapre-sipa-background.png",
 		"model":"res://characters/creature/Creatures/Kapre/kapre_pose.tscn" ,
-		"price": 50,
+		"price": 150,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/kapre-reward.png" ,
 			"video": "none",
@@ -131,7 +131,7 @@ var entries:Dictionary = {
 		"theme":"res://ui/themes/sirena.tres" ,
 		"bg": "res://environment/parralax background/engkanto bg/engkanto-sipa-background.png",
 		"model":"res://characters/creature/Creatures/Sirena/sirena_pose.tscn" ,
-		"price": 50,
+		"price": 120,
 		"fax": {#use "none" pag n/a
 			"image":"res://ui/icons/creature reward/sirena-reward.png" ,
 			"video": "none",
@@ -146,7 +146,7 @@ var entries:Dictionary = {
 		"theme":"res://ui/themes/engkanto.tres" ,
 		"bg": "res://environment/parralax background/duwende bg/duwende-sipa-background.png",
 		"model":"res://characters/creature/Creatures/Engkanto/engkanto_pose.tscn" ,
-		"price": 50,
+		"price": 120,
 		"fax": {#use "none" pag n/a
 			"image": "res://ui/icons/creature reward/engkanto-reward.png",
 			"video": "none",
