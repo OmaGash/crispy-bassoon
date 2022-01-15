@@ -200,7 +200,6 @@ shape = SubResource( 4 )
 transform = Transform( 0.391389, 0.0783423, -0.0260196, -0.0221668, 0.221189, 0.332542, 0.0795183, -0.323941, 0.220769, 0.690119, 3.95504, 2.53473 )
 light_energy = 2.5
 spot_range = 16.542
-spot_angle = 45.0
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.99427, 0 )

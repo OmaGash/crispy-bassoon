@@ -162,6 +162,7 @@ surfaces/0 = {
 }
 
 [node name="manananggal1" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63086, -2.05509 )
 
 [node name="head" type="MeshInstance" parent="."]
 transform = Transform( 0.609166, 0, 0, 0, 0.509621, 0, 0, 0, 0.609166, -0.0161594, 4.06377, 0.0954868 )

@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://ui/main menu/game titile/game-title.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.gd" type="Script" id=3]
 [ext_resource path="res://ui/main menu/main-menu-background.png" type="Texture" id=4]
 [ext_resource path="res://ui/icons/game modes/palosebo-icon.png" type="Texture" id=5]
-[ext_resource path="res://tenderness.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://ui/icons/game modes/sipa-icon.png" type="Texture" id=7]
 [ext_resource path="res://ui/icons/game modes/luksong-baka-icon.png" type="Texture" id=8]
 [ext_resource path="res://ui/icons/game modes/langit-lupa-icon.png" type="Texture" id=9]
@@ -42,10 +42,6 @@ func _on_lang_item_selected(index):
 		1:
 			TranslationServer.set_locale(\"fil\")
 "
-
-[sub_resource type="DynamicFont" id=4]
-size = 38
-font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -193,6 +189,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -250.0
+margin_top = -25.2269
+margin_right = 250.0
+margin_bottom = 74.7731
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="debug" type="WindowDialog" parent="."]
 visible = true
 margin_left = 973.0
@@ -243,57 +251,48 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -256.0
-margin_right = 174.0
-margin_bottom = 253.0
+margin_left = -159.0
+margin_top = -254.5
+margin_right = 159.0
+margin_bottom = 254.5
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="items"]
-margin_right = 318.0
-margin_bottom = 39.0
-custom_colors/font_color = Color( 0.258824, 0.0666667, 0.0666667, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "KlasikoPinas"
-align = 1
-
 [node name="start" type="Button" parent="items"]
-margin_top = 43.0
 margin_right = 318.0
-margin_bottom = 133.0
+margin_bottom = 98.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 text = "button_start1"
 
 [node name="shop" type="Button" parent="items"]
-margin_top = 137.0
+margin_top = 102.0
 margin_right = 318.0
-margin_bottom = 227.0
+margin_bottom = 201.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 text = "button_shop"
 
 [node name="lobby" type="Button" parent="items"]
-margin_top = 231.0
+margin_top = 205.0
 margin_right = 318.0
-margin_bottom = 321.0
+margin_bottom = 303.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 text = "button_lobby"
 
 [node name="option" type="Button" parent="items"]
-margin_top = 325.0
+margin_top = 307.0
 margin_right = 318.0
-margin_bottom = 415.0
+margin_bottom = 406.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 text = "button_option"
 
 [node name="quit" type="Button" parent="items"]
-margin_top = 419.0
+margin_top = 410.0
 margin_right = 318.0
 margin_bottom = 509.0
 size_flags_vertical = 3
@@ -307,8 +306,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_right = 14.0
-margin_bottom = 14.0
+margin_left = -683.0
+margin_top = -384.0
+margin_right = -669.0
+margin_bottom = -370.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
