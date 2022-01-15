@@ -68,17 +68,12 @@ func _listing_pressed(item_id: int):#Calls when an item on the shop is pressed
 			$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".get_child(get_child_count()-1).queue_free()
 		
 		if enable_preview:
-			var preview_scene: ViewportContainer = preview_model.instance()#Add preview
+			var preview_scene: Control = preview_model.instance()#Add preview
 			preview_scene.object = load(g.entries[item_id]["model"])
 			$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer".add_child(preview_scene)
 		
 		#Preview toggle=======================================================
-		if not $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer".has_node("toggle"):
-			var preview_toggle: CheckButton = CheckButton.new()
-			preview_toggle.connect("toggled", self, "_on_CheckBox_toggled")
-			preview_toggle.name = "toggle"
-			preview_toggle.pressed = enable_preview
-			$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer".add_child(preview_toggle)
+		preview_toggle()
 	
 	texts.add_child(title)
 	texts.add_child(price)
@@ -144,6 +139,7 @@ func _buy_pressed(item_id: int, buy_button: Button):
 		buy_button.text = tr("View")
 		buy_button.release_focus()
 		warning.warn(get_tree(), tr("You bought")+(" ") + g.entries[item_id]["name"] + ".", tr("Purchased successfully"))
+		preview_toggle()
 		g.save()
 	else:
 		warning.warn(get_tree(), tr("kulang")+(" ") + str(g.entries[item_id]["price"] - g.pearls) +(" ")+tr("more to buy")+(" ")+ g.entries[item_id]["name"] + ".",tr("not_purchase"))
@@ -174,6 +170,14 @@ func _on_close_pressed():
 		g.in_game = true
 	get_parent().toggle_menu(load("res://ui/shop.tscn"))
 
+func preview_toggle():
+	if not $"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer".has_node("toggle"):
+		var preview_toggle: CheckButton = CheckButton.new()
+		preview_toggle.connect("toggled", self, "_on_CheckBox_toggled")
+		preview_toggle.name = "toggle"
+		preview_toggle.pressed = enable_preview
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/preview_label".text = tr("model_unlocked") if g.entries[_last_item_pressed]["owned"] else tr("model_locked")
+		$"items/tab_mythical/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer".add_child(preview_toggle)
 
 func _on_CheckBox_toggled(button_pressed):#When the preview is toggled
 	enable_preview = button_pressed

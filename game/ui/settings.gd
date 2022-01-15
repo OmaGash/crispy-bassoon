@@ -15,6 +15,7 @@ func _ready():
 	print(TranslationServer.get_locale())
 
 func _on_close_pressed():
+	g.save()
 	get_parent().toggle_menu(load("res://ui/settings.tscn"))
 
 

@@ -212,11 +212,17 @@ func load_save():#Load save file
 		var data = parse_json(save_file.get_line())
 		load_values(data)
 
-func get_values():
+func get_values():#Which variables need saving
 	return{
 		"pearls": pearls,
 		"entries": entries,
-		"theme": theme
+		"theme": theme,
+		"bg": bg,
+		"lang": str(TranslationServer.get_locale()),
+		"fullscreen": OS.window_fullscreen,
+		"is_mobile": is_mobile,
+		"music_volume": str(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgm"))),
+		"sfx_volume": str(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("player")))
 	}
 
 func load_values(data: Dictionary):
@@ -229,6 +235,15 @@ func load_values(data: Dictionary):
 		entries.erase(key)
 		intkey += 1
 	theme = data["theme"]
+	
+	bg = data["bg"]
+	TranslationServer.set_locale(data["lang"])
+	is_mobile = data["is_mobile"]
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), float(data["music_volume"]))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("player"), float(data["sfx_volume"]))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("environment"), float(data["sfx_volume"]))
+	OS.window_fullscreen = data["fullscreen"]
+	
 	print(theme)
 func delete_save():
 	var savefile = File.new()
