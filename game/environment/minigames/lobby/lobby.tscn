@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,15 @@
 [ext_resource path="res://ui/ui.gd" type="Script" id=15]
 [ext_resource path="res://environment/bgm/cave.ogg" type="AudioStream" id=16]
 [ext_resource path="res://ui/touch_controls/Langit Lupa/langit_lupa_controls.tscn" type="PackedScene" id=17]
+[ext_resource path="res://ui/nameplates/aswang.png" type="Texture" id=18]
+[ext_resource path="res://ui/nameplates/engkanto.png" type="Texture" id=19]
+[ext_resource path="res://ui/nameplates/duwende.png" type="Texture" id=20]
+[ext_resource path="res://ui/nameplates/santelmo.png" type="Texture" id=21]
+[ext_resource path="res://ui/nameplates/tikbalang.png" type="Texture" id=22]
+[ext_resource path="res://ui/nameplates/sirena.png" type="Texture" id=23]
+[ext_resource path="res://ui/nameplates/siyokoy.png" type="Texture" id=24]
+[ext_resource path="res://ui/nameplates/kapre.png" type="Texture" id=25]
+[ext_resource path="res://ui/nameplates/mananaggal.png" type="Texture" id=26]
 
 [sub_resource type="ProceduralSky" id=8]
 sky_top_color = Color( 0.501961, 0.501961, 0.501961, 1 )
@@ -74,7 +83,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="aswang_pose" parent="Aswang" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1109, -2.97136, 2.39654 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155464, -0.758065, -0.11605 )
 
 [node name="SpotLight" type="SpotLight" parent="Aswang"]
 transform = Transform( 0.336945, 0, 0, 0, 0.180082, 0.284785, 0, -0.284785, 0.180082, -0.134689, 2.7416, 2.14456 )
@@ -83,8 +92,12 @@ shadow_enabled = true
 spot_range = 19.3274
 spot_angle = 26.1796
 
+[node name="label" type="Sprite3D" parent="Aswang"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.76905, 0 )
+texture = ExtResource( 18 )
+
 [node name="Duwende" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -4.50549, -8.90389 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -3.2847, -8.90389 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Duwende"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -99,6 +112,10 @@ light_energy = 2.5
 spot_range = 10.7296
 spot_angle = 67.5
 
+[node name="Sprite3D" type="Sprite3D" parent="Duwende"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43086, 0 )
+texture = ExtResource( 20 )
+
 [node name="Engkanto" type="KinematicBody" parent="."]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.09876, 2.90863, -3.321 )
 
@@ -107,13 +124,17 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="engkanto_pose" parent="Engkanto" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.71062, -0.391159 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.47366, -0.391159 )
 
 [node name="SpotLight2" type="SpotLight" parent="Engkanto"]
-transform = Transform( 0.333333, 0, 0, 0, 0.136057, 0.304302, 0, -0.304302, 0.136057, 0, 1.43335, 1.98629 )
+transform = Transform( 0.333333, 0, 0, 0, 0.136057, 0.304302, 0, -0.304302, 0.136057, 0, 1.43335, 0.616996 )
 light_energy = 2.5
 spot_range = 14.7445
 spot_angle = 50.1589
+
+[node name="Sprite3D" type="Sprite3D" parent="Engkanto"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54221, 0 )
+texture = ExtResource( 19 )
 
 [node name="Santelmo" type="KinematicBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 74.0926, 1, -8.54346 )
@@ -123,7 +144,11 @@ transform = Transform( 0.947663, 0, 0, 0, -4.14237e-08, -0.947663, 0, 0.947663, 
 shape = SubResource( 3 )
 
 [node name="santilmo_glb" parent="Santelmo" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0476112, -3.02754, 0.601582 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0476103, 0.00106068, 0.601582 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Santelmo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3066, 0 )
+texture = ExtResource( 21 )
 
 [node name="Tikbalang" type="KinematicBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 44.8167, 2.53234, -9.94728 )
@@ -133,7 +158,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="tikbalang_pose" parent="Tikbalang" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.73012, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02597, 1.66566 )
 
 [node name="SpotLight3" type="SpotLight" parent="Tikbalang"]
 transform = Transform( 0.2, 0, 0, 0, 0.109863, 0.167123, 0, -0.167123, 0.109863, 0, 2.85756, 2.63796 )
@@ -141,8 +166,12 @@ light_energy = 2.5
 spot_range = 36.5985
 spot_angle = 34.0639
 
+[node name="Sprite3D" type="Sprite3D" parent="Tikbalang"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22757, 0 )
+texture = ExtResource( 22 )
+
 [node name="Siyokoy" type="KinematicBody" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -56.595, -16.3348, -6.85677 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -56.595, -14.2677, -6.85677 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Siyokoy"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.751926, 6.47248, 0 )
@@ -157,6 +186,10 @@ light_energy = 2.5
 spot_range = 36.5985
 spot_angle = 45.9856
 
+[node name="Sprite3D" type="Sprite3D" parent="Siyokoy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.6591, 0 )
+texture = ExtResource( 24 )
+
 [node name="Sirena" type="KinematicBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -25.9187, 1.20032, -10.4566 )
 
@@ -165,13 +198,17 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="sirena_pose" parent="Sirena" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, -3.74716, -1.94986 )
+transform = Transform( 0.999729, 0, -0.023298, 0, 1, 0, 0.023298, 0, 0.999729, -0.129999, -0.767526, -0.000178099 )
 
 [node name="SpotLight5" type="SpotLight" parent="Sirena"]
 transform = Transform( 0.194273, 0.0176082, -0.0441375, 0.0081407, 0.170685, 0.103925, 0.0468177, -0.102745, 0.16508, -1.66049, 2.30256, 6.82222 )
 light_energy = 2.5
 spot_range = 59.6178
 spot_angle = 16.5071
+
+[node name="Sprite3D" type="Sprite3D" parent="Sirena"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70468, 0 )
+texture = ExtResource( 23 )
 
 [node name="Kapre" type="KinematicBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 98.59, -0.774508, -5.14878 )
@@ -181,7 +218,11 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="kapre_pose" parent="Kapre" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97645, -0.585288, 2.22782 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414545, -0.0151418, 2.22782 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Kapre"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52763, 0 )
+texture = ExtResource( 25 )
 
 [node name="Manananggal" type="KinematicBody" parent="."]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -75.0785, -1.89788, -3.321 )
@@ -200,6 +241,10 @@ shape = SubResource( 4 )
 transform = Transform( 0.391389, 0.0783423, -0.0260196, -0.0221668, 0.221189, 0.332542, 0.0795183, -0.323941, 0.220769, 0.690119, 3.95504, 2.53473 )
 light_energy = 2.5
 spot_range = 16.542
+
+[node name="Sprite3D" type="Sprite3D" parent="Manananggal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639078, 4.02927, 0 )
+texture = ExtResource( 26 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.99427, 0 )

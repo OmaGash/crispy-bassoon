@@ -83,7 +83,8 @@ victory_sipa,You hit the pebble {x} time(s)!,Natamaan mo ang sipa ng {x} beses!
 View,View,Tignan
 You bought,You bought,Binili mo si
 model_label, , 
-model_unlocked,Toggle Preview,Pakita ang Preview
+model_unlocked,Toggle Preview.,Pakita ang Preview.
 bg_label, , 
-bg_unlocked,,
+bg_unlocked,Preview.,Preview.
 model_locked,Buy to preview.,Bilhin para makita ang preview.
+bg_locked,Buy to preview.,Bilhin para makita ang preview.
