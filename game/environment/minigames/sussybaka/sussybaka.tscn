@@ -98,7 +98,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.995681, 0.0457794, -0.0807722, -0.0394036, 0.996108, 0.0788378, 0.0840671, -0.0753146, 0.99361, 2.23496, 1.01157, -1.85653 )
+transform = Transform( 0.995013, 0.0479596, -0.0874559, -0.0413483, 0.996258, 0.0759015, 0.0907688, -0.0719069, 0.993273, 2.2486, 1.01306, -1.84114 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
@@ -129,6 +129,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2906, 12.7943, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2693, 17.3841, 0 )
 
 [node name="sun" parent="." instance=ExtResource( 15 )]
+transform = Transform( -0.871839, 0.317276, 0.373139, 0.487887, 0.495415, 0.7187, 0.0431676, 0.808641, -0.586717, -0.926884, 34.5389, -1.5869 )
 
 [connection signal="button_down" from="ui/jump" to="." method="_on_jump_button_down"]
 [connection signal="button_up" from="ui/jump" to="." method="_on_jump_button_up"]

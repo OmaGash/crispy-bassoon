@@ -185,10 +185,10 @@ material/3 = null
 transform = Transform( 7, 0, 0, 0, 5, 0, 0, 0, 10, 0, -19.1064, -11.9321 )
 
 [node name="background" parent="palo sebo platform" instance=ExtResource( 12 )]
-transform = Transform( 15.7743, -0.0021389, 0.0639148, 0.124896, 0.270138, -8.07237, 0, -34.0815, -0.0639879, -0.748656, 9.55518, -5.94852 )
-visible = false
+transform = Transform( 15.7743, -0.0021389, 0.0639148, 0.124896, 0.270138, -8.07237, 0, -34.0815, -0.0639879, -0.748656, 12.9542, -2.63092 )
 
 [node name="sun" parent="." instance=ExtResource( 16 )]
+transform = Transform( -0.855882, 0.433316, 0.282318, 0.487887, 0.495415, 0.7187, 0.171559, 0.752862, -0.635426, -0.926884, 34.5389, -1.5869 )
 
 [connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
 [connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]

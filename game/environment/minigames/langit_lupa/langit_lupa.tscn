@@ -314,6 +314,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6737, 11.5093, 0 )
 shape = SubResource( 11 )
 
 [node name="sun" parent="." instance=ExtResource( 24 )]
+transform = Transform( -0.799932, 0.583303, 0.140948, 0.487887, 0.495415, 0.7187, 0.349392, 0.643678, -0.680884, -0.926884, 34.5389, -1.5869 )
 
 [connection signal="body_entered" from="player/interact" to="." method="_on_interact_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
