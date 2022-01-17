@@ -100,7 +100,7 @@ _global_script_class_icons={
 
 config/name="KlasikoPinas"
 run/main_scene="res://ui/intro/intro.tscn"
-config/icon="res://icon.png"
+config/icon="res://ui/icons/game icon/500x500/game-icon.png"
 
 [autoload]
 
