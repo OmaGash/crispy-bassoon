@@ -163,7 +163,6 @@ func _ready():#This node will run regardless of pausing
 
 func _change_name(new_name: String):
 	player_name = new_name
-	Dialogic.set_variable("player_name", new_name)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel") and in_game:

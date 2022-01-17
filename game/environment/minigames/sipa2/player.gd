@@ -14,12 +14,12 @@ func _unhandled_input(event):
 		$"seggs".disabled = false
 		anim_tree['parameters/Shot/active'] = true
 		$"anim-sipa/AnimationPlayer".play("Kick-loop")
-		yield($"armature kunware/anim", "animation_finished")
-		$"seggs".disabled = true
-		
 		
 
 func _physics_process(delta):
+	if !anim_tree['parameters/Shot/active']:
+		$seggs.disabled = true
+	
 	anim_tree['parameters/Move/blend_amount'] = 0
 	velocity.y -= 9.8
 	velocity.z = 0
