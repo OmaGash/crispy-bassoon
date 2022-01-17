@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://tools/camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
@@ -38,22 +38,17 @@ glow_enabled = true
 glow_intensity = 1.5
 glow_strength = 1.5
 
-[sub_resource type="CapsuleShape" id=3]
-radius = 1.5
-height = 3.0
-
-[sub_resource type="CapsuleShape" id=4]
-radius = 3.0
-height = 5.0
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 5.37293, 167.369, 4.91774 )
 
 [sub_resource type="CubeMesh" id=5]
 size = Vector3( 208, 2, 40 )
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 104, 1, 20 )
+extents = Vector3( 140.793, 1, 20 )
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 1, 18.4, 1 )
+extents = Vector3( 1, 18.4, 50.7787 )
 
 [node name="world" type="Spatial"]
 script = ExtResource( 13 )
@@ -75,33 +70,34 @@ smoothing = 0.1
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.131703, 0, 0.991289, 0, 1, 0, -0.991289, 0, -0.131703, 0, 8, 10.1913 )
 
-[node name="Aswang" type="KinematicBody" parent="."]
-transform = Transform( 2.96784, 0, 0, 0, 2.96784, 0, 0, 0, 2.96784, 8.38145, -0.346935, -4.073 )
+[node name="Aswang" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.38145, -1.82772, -4.073 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Aswang"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 
 [node name="aswang_pose" parent="Aswang" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155464, -0.758065, -0.11605 )
+transform = Transform( 2.96, 0, 0, 0, 2.96, 0, 0, 0, 2.96, -0.155464, -0.758065, -0.11605 )
 
 [node name="SpotLight" type="SpotLight" parent="Aswang"]
-transform = Transform( 0.336945, 0, 0, 0, 0.180082, 0.284785, 0, -0.284785, 0.180082, -0.134689, 2.7416, 2.14456 )
+transform = Transform( 1, 0, 0, 0, 0.534455, 0.845197, 0, -0.845197, 0.534455, -0.843704, 9.7439, 8.80905 )
 light_energy = 3.0
 shadow_enabled = true
-spot_range = 19.3274
-spot_angle = 26.1796
+spot_range = 22.1917
+spot_angle = 30.2557
 
 [node name="label" type="Sprite3D" parent="Aswang"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.76905, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.74667, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 18 )
 
-[node name="Duwende" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -3.2847, -8.90389 )
+[node name="Duwende" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9618, -3.55028, -8.90389 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Duwende"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 
 [node name="duwende_pose" parent="Duwende" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53685, 0 )
@@ -109,141 +105,150 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53685, 0 )
 [node name="SpotLight" type="SpotLight" parent="Duwende"]
 transform = Transform( 1, 0, 0, 0, 0.408171, 0.912906, 0, -0.912906, 0.408171, 0.236618, 2.25243, 2.90462 )
 light_energy = 2.5
-spot_range = 10.7296
-spot_angle = 67.5
+spot_range = 10.421
+spot_angle = 43.3655
 
-[node name="Sprite3D" type="Sprite3D" parent="Duwende"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43086, 0 )
+[node name="label" type="Sprite3D" parent="Duwende"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.52395, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 20 )
 
-[node name="Engkanto" type="KinematicBody" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.09876, 2.90863, -3.321 )
+[node name="Engkanto" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09876, -0.190891, -3.321 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Engkanto"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 
 [node name="engkanto_pose" parent="Engkanto" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.47366, -0.391159 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.47366, -0.391159 )
 
 [node name="SpotLight2" type="SpotLight" parent="Engkanto"]
-transform = Transform( 0.333333, 0, 0, 0, 0.136057, 0.304302, 0, -0.304302, 0.136057, 0, 1.43335, 0.616996 )
+transform = Transform( 1, 0, 0, 0, 0.408171, 0.912906, 0, -0.912906, 0.408171, -0.861603, 9.01918, 4.78716 )
 light_energy = 2.5
-spot_range = 14.7445
-spot_angle = 50.1589
+spot_range = 20.127
+spot_angle = 38.0956
 
-[node name="Sprite3D" type="Sprite3D" parent="Engkanto"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54221, 0 )
+[node name="label" type="Sprite3D" parent="Engkanto"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4.78605, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 19 )
 
-[node name="Santelmo" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 74.0926, 1, -8.54346 )
+[node name="Santelmo" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0926, 1, -8.54346 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Santelmo"]
 transform = Transform( 0.947663, 0, 0, 0, -4.14237e-08, -0.947663, 0, 0.947663, -4.14237e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 
 [node name="santilmo_glb" parent="Santelmo" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0476103, 0.00106068, 0.601582 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0476103, 0.00106068, 0.601582 )
 
-[node name="Sprite3D" type="Sprite3D" parent="Santelmo"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3066, 0 )
+[node name="label" type="Sprite3D" parent="Santelmo"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.3328, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 21 )
 
-[node name="Tikbalang" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 44.8167, 2.53234, -9.94728 )
+[node name="Tikbalang" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8167, 6.5402, -9.94728 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Tikbalang"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -7.61508, 0 )
+shape = SubResource( 10 )
 
 [node name="tikbalang_pose" parent="Tikbalang" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02597, 1.66566 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.02597, 1.66566 )
 
 [node name="SpotLight3" type="SpotLight" parent="Tikbalang"]
-transform = Transform( 0.2, 0, 0, 0, 0.109863, 0.167123, 0, -0.167123, 0.109863, 0, 2.85756, 2.63796 )
+transform = Transform( 1, 0, 0, 0, 0.549315, 0.835615, 0, -0.835615, 0.549315, -0.225174, 11.5271, 2.63796 )
 light_energy = 2.5
 spot_range = 36.5985
-spot_angle = 34.0639
+spot_angle = 26.9752
 
-[node name="Sprite3D" type="Sprite3D" parent="Tikbalang"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22757, 0 )
+[node name="label" type="Sprite3D" parent="Tikbalang"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.02024, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 22 )
 
-[node name="Siyokoy" type="KinematicBody" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -56.595, -14.2677, -6.85677 )
+[node name="Siyokoy" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.595, -14.2677, -6.85677 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Siyokoy"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.751926, 6.47248, 0 )
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0759048, 13.3052, 0 )
+shape = SubResource( 10 )
 
 [node name="shokoy" parent="Siyokoy" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="SpotLight4" type="SpotLight" parent="Siyokoy"]
-transform = Transform( 0.5, 0, 0, 0, 0.274657, 0.417808, 0, -0.417808, 0.274657, 0.245958, 17.0632, 7.28952 )
+transform = Transform( 1, 0, 0, 0, 0.549314, 0.835616, 0, -0.835616, 0.549314, 0.245956, 31.8565, 10.3755 )
 light_energy = 2.5
 spot_range = 36.5985
-spot_angle = 45.9856
+spot_angle = 19.3613
 
-[node name="Sprite3D" type="Sprite3D" parent="Siyokoy"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.6591, 0 )
+[node name="label" type="Sprite3D" parent="Siyokoy"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 23.2044, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 24 )
 
-[node name="Sirena" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -25.9187, 1.20032, -10.4566 )
+[node name="Sirena" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9187, -2.10737, -10.4566 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Sirena"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.34251, 0, 0 )
+shape = SubResource( 10 )
 
 [node name="sirena_pose" parent="Sirena" instance=ExtResource( 10 )]
-transform = Transform( 0.999729, 0, -0.023298, 0, 1, 0, 0.023298, 0, 0.999729, -0.129999, -0.767526, -0.000178099 )
+transform = Transform( 4.99864, 0, -0.11649, 0, 5, 0, 0.11649, 0, 4.99864, -0.129999, -0.767526, -0.000178099 )
 
 [node name="SpotLight5" type="SpotLight" parent="Sirena"]
-transform = Transform( 0.194273, 0.0176082, -0.0441375, 0.0081407, 0.170685, 0.103925, 0.0468177, -0.102745, 0.16508, -1.66049, 2.30256, 6.82222 )
+transform = Transform( 0.971363, 0.0880408, -0.220687, 0.0407034, 0.853426, 0.519623, 0.234088, -0.513725, 0.825402, -5.06019, 11.2222, 22.2835 )
 light_energy = 2.5
-spot_range = 59.6178
-spot_angle = 16.5071
+spot_range = 35.1244
+spot_angle = 13.1818
 
-[node name="Sprite3D" type="Sprite3D" parent="Sirena"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70468, 0 )
+[node name="label" type="Sprite3D" parent="Sirena"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4.03875, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 23 )
 
-[node name="Kapre" type="KinematicBody" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 98.59, -0.774508, -5.14878 )
+[node name="Kapre" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.59, -0.774508, -5.14878 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Kapre"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 10 )
 
 [node name="kapre_pose" parent="Kapre" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414545, -0.0151418, 2.22782 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -0.414543, -2.45128, 2.22782 )
 
-[node name="Sprite3D" type="Sprite3D" parent="Kapre"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52763, 0 )
+[node name="label" type="Sprite3D" parent="Kapre"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.9216, 9.42579, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 25 )
 
-[node name="Manananggal" type="KinematicBody" parent="."]
-transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -75.0785, -1.89788, -3.321 )
+[node name="Manananggal" type="Area" parent="." groups=["creatures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0785, -4.892, -3.321 )
 
 [node name="manananggal1" parent="Manananggal" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62006, -1.57437, 0.106407 )
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.62006, -1.57437, 0.106407 )
 
 [node name="manananggal2" parent="Manananggal" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651207, -1.5172, 0.121559 )
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.651207, -1.5172, 0.121559 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Manananggal"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.612128, 0.879391, -0.612588 )
-shape = SubResource( 4 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.612129, 3.73945, -0.612588 )
+shape = SubResource( 10 )
 
 [node name="SpotLight6" type="SpotLight" parent="Manananggal"]
-transform = Transform( 0.391389, 0.0783423, -0.0260196, -0.0221668, 0.221189, 0.332542, 0.0795183, -0.323941, 0.220769, 0.690119, 3.95504, 2.53473 )
+transform = Transform( 0.978473, 0.195856, -0.0650491, -0.055417, 0.552973, 0.831354, 0.198796, -0.809853, 0.551923, -0.824059, 16.2143, 10.2922 )
 light_energy = 2.5
-spot_range = 16.542
+spot_range = 20.3591
+spot_angle = 26.0606
 
-[node name="Sprite3D" type="Sprite3D" parent="Manananggal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639078, 4.02927, 0 )
+[node name="label" type="Sprite3D" parent="Manananggal"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.639076, 10.702, 5.29801 )
+opacity = 0.0
 texture = ExtResource( 26 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
@@ -269,9 +274,9 @@ bus = "bgm"
 [node name="walls" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -127.777, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -113.15, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.89, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 127.177, 0, 0 )
 shape = SubResource( 7 )
