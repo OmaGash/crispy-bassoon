@@ -89,20 +89,20 @@ script = ExtResource( 5 )
 
 [node name="touch" parent="ui" instance=ExtResource( 13 )]
 
-[node name="start_button" type="CenterContainer" parent="ui"]
+[node name="start" type="Button" parent="ui"]
 visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.5
+margin_top = -10.0
+margin_right = 44.5
+margin_bottom = 10.0
+text = "button_start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="start" type="Button" parent="ui/start_button"]
-margin_left = 595.0
-margin_top = 350.0
-margin_right = 684.0
-margin_bottom = 370.0
-text = "button_start"
 
 [node name="info" type="PanelContainer" parent="ui"]
 anchor_left = 0.5
@@ -190,7 +190,7 @@ transform = Transform( 15.7743, -0.0021389, 0.0639148, 0.124896, 0.270138, -8.07
 [node name="sun" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.855882, 0.433316, 0.282318, 0.487887, 0.495415, 0.7187, 0.171559, 0.752862, -0.635426, -0.926884, 34.5389, -1.5869 )
 
-[connection signal="pressed" from="ui/start_button/start" to="ui" method="_on_start_pressed"]
+[connection signal="pressed" from="ui/start" to="ui" method="_on_start_pressed"]
 [connection signal="timeout" from="time_limit" to="ui" method="_on_time_limit_timeout"]
 [connection signal="body_entered" from="goal" to="ui" method="_on_goal_body_entered"]
 

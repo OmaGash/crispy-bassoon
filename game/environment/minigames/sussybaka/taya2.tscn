@@ -3,7 +3,7 @@
 [ext_resource path="res://characters/NPC/Taya/taya2.glb" type="PackedScene" id=1]
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 1, 5, 1 )
+extents = Vector3( 1, 0.933346, 1 )
 
 [node name="StaticBody3" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5177, 10.2361, 0 )
@@ -12,8 +12,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.56503, 0 )
 shape = SubResource( 7 )
 
 [node name="taya2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.24258, -0.435965 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.435965 )

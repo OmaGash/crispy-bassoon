@@ -89,8 +89,8 @@ func _process(delta):
 	var time_l: String = tr("ui_time_left") + "  %d"
 	var time = ceil($countdown_timer.time_left)
 	
-	$PanelContainer/countdown_label.text = time_l % [time]
-	$PanelContainer/countdown_label.theme = load(g.theme)
+	$ui/PanelContainer/countdown_label.text = time_l % [time]
+	$ui/PanelContainer/countdown_label.theme = load(g.theme)
 #	win_game()
 	
 #	if s == 0 and m >= 1:

@@ -13,7 +13,7 @@ func _on_start_pressed():
 	$"../time_limit".start()
 	set_process(true)
 	g.in_game = true
-	$start_button.hide()
+	$start.hide()
 	$"../player".set_process_unhandled_input(true)
 
 

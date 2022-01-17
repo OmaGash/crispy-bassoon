@@ -31,7 +31,6 @@ func _ready():
 	_speed = 10
 	_gravity = 50
 	_jump_force = 20
-	Dialogic.set_variable("name", g.player_name)
 	update_lives()
 
 func update_lives():

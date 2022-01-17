@@ -186,6 +186,24 @@ stream = ExtResource( 22 )
 autoplay = true
 bus = "bgm"
 
+[node name="PanelContainer" type="PanelContainer" parent="ui"]
+anchor_right = 1.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="countdown_label" type="Label" parent="ui/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1359.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="npc" parent="." instance=ExtResource( 2 )]
 
 [node name="npc2" parent="." instance=ExtResource( 12 )]
@@ -280,24 +298,7 @@ __meta__ = {
 wait_time = 15.0
 
 [node name="gui score" parent="." instance=ExtResource( 17 )]
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchor_right = 1.0
-margin_bottom = 28.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="countdown_label" type="Label" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1359.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layer = -1
 
 [node name="GameOverScreen" parent="." groups=["GUI"] instance=ExtResource( 18 )]
 
@@ -316,7 +317,6 @@ shape = SubResource( 11 )
 [node name="sun" parent="." instance=ExtResource( 24 )]
 transform = Transform( -0.799932, 0.583303, 0.140948, 0.487887, 0.495415, 0.7187, 0.349392, 0.643678, -0.680884, -0.926884, 34.5389, -1.5869 )
 
-[connection signal="body_entered" from="player/interact" to="." method="_on_interact_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="countdown_timer" to="." method="_on_countdown_timer_timeout"]
 

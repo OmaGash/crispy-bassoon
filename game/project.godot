@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "StaticBody",
 "class": "Merchant",
 "language": "GDScript",
-"path": "res://characters/merchant/merchant.gd"
+"path": "res://characters/trashed/merchant/merchant.gd"
 }, {
 "base": "Control",
 "class": "PostResult",

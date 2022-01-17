@@ -10,6 +10,7 @@
 [ext_resource path="res://characters/NPC/Taya/skintone.material" type="Material" id=8]
 
 [sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.711111, 0.631634, 1 )
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "taya1_Cube002"
@@ -223,11 +224,11 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.03581, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878431, 0 )
 shape = SubResource( 6 )
 
 [node name="taya1" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.83544, -0.526481 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.526481 )
 
 [node name="Armature" type="Spatial" parent="taya1"]
 transform = Transform( 0.246078, 0, 0, 0, 0.246078, 0, 0, 0, 0.246078, 0.0087232, 0.880293, 0.628187 )

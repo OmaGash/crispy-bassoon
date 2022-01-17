@@ -4,6 +4,7 @@ var next_scene := "res://protopyte/za_warudo/world.tscn"
 var pre_scene := preload("res://ui/pre/pre_template.tscn") as PackedScene
 var shop = preload("res://ui/shop.tscn")
 var mobile_selection: = preload("res://ui/gameselect.tscn")
+var settings = preload("res://ui/settings.tscn")
 onready var preview := $PanelContainer/categories/preview/preview_contents/actual_content/actual_actual_content
 
 func _ready():
@@ -87,7 +88,7 @@ func _on_close_pressed():
 
 
 func _on_shop_pressed():
-	$ui.toggle_menu(load("res://ui/shop.tscn"))
+	$ui.toggle_menu(shop)
 	yield(get_tree(), "idle_frame")
 	yield($ui.get_node("submenu"), "tree_exited")
 	theme = load(g.theme)
@@ -100,4 +101,4 @@ func _on_lobby_pressed():
 
 
 func _on_option_pressed():
-	$ui.toggle_menu(load("res://ui/settings.tscn"))
+	$ui.toggle_menu(settings)

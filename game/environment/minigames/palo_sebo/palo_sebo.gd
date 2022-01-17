@@ -5,7 +5,7 @@ func _ready():
 	gd.stop_main_theme()
 	$"ui/difficulty".connect("tree_exited", self, "difficulty_selected")
 	
-	$ui/start_button.show()
+	$ui/start.show()
 #	$ui/CenterContainer/start.connect("pressed", self, "_start_game")
 	
 	#$ui/start_button/start.grab_focus()
