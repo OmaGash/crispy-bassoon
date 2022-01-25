@@ -145,7 +145,7 @@ surfaces/1 = {
 extents = Vector3( 0.207073, 0.259217, 1 )
 
 [sub_resource type="BoxShape" id=11]
-extents = Vector3( 1, 6.85127, 1 )
+extents = Vector3( 1, 6.851, 5 )
 
 [node name="world" type="Spatial"]
 script = ExtResource( 4 )
@@ -305,13 +305,14 @@ layer = -1
 [node name="LangitLupaControls" parent="." instance=ExtResource( 21 )]
 
 [node name="walls" type="StaticBody" parent="."]
+collision_layer = 9
 
 [node name="CollisionShape" type="CollisionShape" parent="walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6097, 11.5093, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6097, 11.5093, -1.43612 )
 shape = SubResource( 11 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6737, 11.5093, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6737, 11.5093, -1.98927 )
 shape = SubResource( 11 )
 
 [node name="sun" parent="." instance=ExtResource( 24 )]
