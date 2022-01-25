@@ -177,6 +177,7 @@ script = ExtResource( 5 )
 
 [node name="ui" type="CanvasLayer" parent="."]
 pause_mode = 2
+layer = -2
 script = ExtResource( 6 )
 
 [node name="difficulty" parent="ui" instance=ExtResource( 19 )]

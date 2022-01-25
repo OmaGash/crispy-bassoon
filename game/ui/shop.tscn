@@ -298,6 +298,7 @@ text = "button_close"
 anims/fade = SubResource( 2 )
 
 [node name="debug" type="PanelContainer" parent="."]
+visible = false
 margin_left = 918.816
 margin_top = 9.39922
 margin_right = 1114.82
@@ -308,6 +309,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="debug"]
+visible = false
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 189.004

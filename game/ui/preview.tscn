@@ -45,6 +45,7 @@ size_flags_vertical = 1
 text = "Zoom:"
 
 [node name="zoom" type="HSlider" parent="PanelContainer"]
+visible = false
 margin_left = 45.0
 margin_right = 1366.0
 margin_bottom = 16.0

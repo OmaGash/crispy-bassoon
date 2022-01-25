@@ -15,7 +15,7 @@ var theme = "res://ui/themes/default.tres"
 var bg = "res://ui/main menu/main-menu-background.png"
 var is_mobile = false#for touch controls
 const is_desktop = true#set to true if desktop export
-const debug = true
+const debug = false
 #Where the entries are kept
 var entries:Dictionary = {
 	0: {
