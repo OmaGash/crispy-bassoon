@@ -205,6 +205,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LangitLupaControls" parent="ui" instance=ExtResource( 21 )]
+
 [node name="npc" parent="." instance=ExtResource( 2 )]
 
 [node name="npc2" parent="." instance=ExtResource( 12 )]
@@ -302,8 +304,6 @@ wait_time = 15.0
 layer = -1
 
 [node name="GameOverScreen" parent="." groups=["GUI"] instance=ExtResource( 18 )]
-
-[node name="LangitLupaControls" parent="." instance=ExtResource( 21 )]
 
 [node name="walls" type="StaticBody" parent="."]
 collision_layer = 9

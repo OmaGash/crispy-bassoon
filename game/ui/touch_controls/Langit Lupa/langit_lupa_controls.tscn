@@ -5,8 +5,11 @@
 [ext_resource path="res://ui/icons/buttons/right-button.png" type="Texture" id=3]
 [ext_resource path="res://ui/touch_controls/Langit Lupa/langit_lupa_controls.gd" type="Script" id=4]
 
-[node name="LangitLupaControls" type="CanvasLayer"]
+[node name="LangitLupaControls" type="Control"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Left" type="TouchScreenButton" parent="."]
 position = Vector2( 105.511, 621.844 )

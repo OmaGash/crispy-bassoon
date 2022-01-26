@@ -98,7 +98,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968693, 0, -0.00387955 )
 
 [node name="Armature" parent="player/luksong-baka-anim" index="0"]
-transform = Transform( 0.994464, 0.0472236, -0.0938656, -0.0408184, 0.99678, 0.0690249, 0.0968229, -0.0648113, 0.993189, 2.26155, 1.02998, -1.82599 )
+transform = Transform( 0.995015, 0.0475725, -0.0876489, -0.0409918, 0.99631, 0.075409, 0.0909129, -0.0714402, 0.993293, 2.24888, 1.01486, -1.84109 )
 
 [node name="Skeleton" parent="player/luksong-baka-anim/Armature" index="0"]
 transform = Transform( 1, 4.65661e-10, 7.45058e-09, 0, 1, -5.73527e-09, 0, 6.88069e-08, 1, -1.83425, -2.71022, 2.2843 )
@@ -110,6 +110,9 @@ parameters/Hit/blend_amount = 0.96
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02562, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 1.5 )
+
+[node name="delay" type="Timer" parent="player"]
+wait_time = 0.35
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4523, 12.0283 )
@@ -126,7 +129,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07168, 9.84027, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.486862, 9.59471, 0 )
 
 [node name="StaticBody3" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1976, 9.97107, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66169, 9.97107, 0 )
 
 [node name="sun" parent="." instance=ExtResource( 15 )]
 transform = Transform( -0.871839, 0.317276, 0.373139, 0.487887, 0.495415, 0.7187, 0.0431676, 0.808641, -0.586717, -0.926884, 34.5389, -1.5869 )

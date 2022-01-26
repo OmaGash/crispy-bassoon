@@ -54,11 +54,6 @@ func _ready():
 	randomize()
 	g.in_game = true
 	gd.stop_main_theme()
-	var os = OS.get_name()
-	if os == 'Windows':
-		$LangitLupaControls.get_child(0).hide()
-		$LangitLupaControls.get_child(1).hide()
-		$LangitLupaControls.get_child(2).hide()
 	set_physics_process(false)
 	$"ui/difficulty".connect("difficulty_set", self, "start")
 #	get_tree().paused = true	

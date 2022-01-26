@@ -62,6 +62,8 @@ func _physics_process(delta):
 			state = 0
 			start_progress = false
 		else:#End game
+			$delay.start()
+			yield($delay, "timeout")
 			$"../ui/bgm".stop()
 			$"../ui".toggle_menu(load("res://ui/post_results.tscn"))
 			anim_tree["parameters/Jump 3/active"] = true
